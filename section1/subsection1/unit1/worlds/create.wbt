@@ -15,6 +15,10 @@ Viewpoint {
 }
 TexturedBackground {
 }
+Floor {
+  appearance Parquetry {
+  }
+}
 CeilingLight {
   translation 1.82639 -1.29685 2.4
   pointLightColor 1 1 0.9372549019607843
