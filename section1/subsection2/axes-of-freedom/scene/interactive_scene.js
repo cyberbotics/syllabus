@@ -1,6 +1,12 @@
 import informationPanel from 'https://cyberbotics.com/wwi/R2022b/informationPanel.js';
-import {quaternionToVec4, vec4ToQuaternion} from 'https://cyberbotics.com/wwi/R2022b/nodes/utils/utils.js';
+import WbPBRAppearance from 'https://cyberbotics.com/wwi/R2022b/nodes/WbPBRAppearance.js';
+import WbShape from 'https://cyberbotics.com/wwi/R2022b/nodes/WbShape.js';
+import WbCylinder from 'https://cyberbotics.com/wwi/R2022b/nodes/WbCylinder.js';
+import WbTransform from 'https://cyberbotics.com/wwi/R2022b/nodes/WbTransform.js';
 import WbVector3 from 'https://cyberbotics.com/wwi/R2022b/nodes/utils/WbVector3.js';
+import WbVector4 from 'https://cyberbotics.com/wwi/R2022b/nodes/utils/WbVector4.js';
+import WbWorld from 'https://cyberbotics.com/wwi/R2022b/nodes/WbWorld.js';
+import {quaternionToVec4, vec4ToQuaternion, getAnId} from 'https://cyberbotics.com/wwi/R2022b/nodes/utils/utils.js';
 
 let webotsView = document.getElementsByTagName('webots-view')[0];
 document.getElementById('informationPlaceholder').innerHTML += informationPanel;
@@ -8,111 +14,20 @@ document.getElementById('informationPlaceholder').innerHTML += informationPanel;
 let showDeviceComponent = true;
 
 let infoPanel = document.getElementsByClassName('information-panel')[0];
+let pointer;
+let pointedID;
 
 let category = document.createElement('div');
 category.classList.add('device-category');
 category.innerHTML = '<div class="device-title">' + 'Rotational Motor' + '</div>';
 document.getElementById('device-component').appendChild(category);
 
-let deviceDiv = document.createElement('div');
-deviceDiv.classList.add('device');
-// deviceDiv.addEventListener('mouseover', () => highlightX3DElement(robotName, deviceDiv));
-deviceDiv.innerHTML = '<div class="device-name">' + 'Base Joint' + '</div>';
-category.appendChild(deviceDiv);
-
-let motorDiv = document.createElement('div');
-motorDiv.classList.add('motor-component');
-deviceDiv.appendChild(motorDiv);
-
-let minLabel = document.createElement('div');
-minLabel.classList.add('motor-label');
-let maxLabel = document.createElement('div');
-maxLabel.classList.add('motor-label');
-minLabel.innerHTML = -3.14; // 2 decimals.
-maxLabel.innerHTML = 3.14;
-
-let slider = document.createElement('input');
-slider.classList.add('motor-slider');
-slider.setAttribute('type', 'range');
-slider.setAttribute('step', 'any');
-slider.setAttribute('min', -Math.PI);
-slider.setAttribute('max', Math.PI);
-slider.setAttribute('value', 0);
-slider.setAttribute('webots-id', 164);
-slider.setAttribute('webots-type', 'rotation');
-slider.setAttribute('webots-axis', '0 0 1');
-motorDiv.appendChild(minLabel);
-motorDiv.appendChild(slider);
-motorDiv.appendChild(maxLabel);
-
-slider.addEventListener('input', () => sliderMotorCallback(slider, true));
-
-deviceDiv = document.createElement('div');
-deviceDiv.classList.add('device');
-deviceDiv.innerHTML = '<div class="device-name">' + 'Other Joint' + '</div>';
-category.appendChild(deviceDiv);
-
-motorDiv = document.createElement('div');
-motorDiv.classList.add('motor-component');
-deviceDiv.appendChild(motorDiv);
-
-minLabel = document.createElement('div');
-minLabel.classList.add('motor-label');
-maxLabel = document.createElement('div');
-maxLabel.classList.add('motor-label');
-minLabel.innerHTML = -0.8; // 2 decimals.
-maxLabel.innerHTML = 0.8;
-
-let slider2 = document.createElement('input');
-slider2.classList.add('motor-slider');
-slider2.setAttribute('type', 'range');
-slider2.setAttribute('step', 'any');
-slider2.setAttribute('min', -0.8);
-slider2.setAttribute('max', 0.8);
-slider2.setAttribute('value', 0);
-slider2.setAttribute('webots-id', 101);
-slider2.setAttribute('webots-type', 'rotation');
-slider2.setAttribute('webots-axis', '-1 0 0.000796');
-motorDiv.appendChild(minLabel);
-motorDiv.appendChild(slider2);
-motorDiv.appendChild(maxLabel);
-slider2.addEventListener('input', () => sliderMotorCallback(slider2, true));
-
-category = document.createElement('div');
-category.classList.add('device-category');
-category.innerHTML = '<div class="device-title">' + 'Linear Motor' + '</div>';
-document.getElementById('device-component').appendChild(category);
-
-deviceDiv = document.createElement('div');
-deviceDiv.classList.add('device');
-deviceDiv.innerHTML = '<div class="device-name">' + 'Other Joint' + '</div>';
-category.appendChild(deviceDiv);
-
-motorDiv = document.createElement('div');
-motorDiv.classList.add('motor-component');
-deviceDiv.appendChild(motorDiv);
-
-minLabel = document.createElement('div');
-minLabel.classList.add('motor-label');
-maxLabel = document.createElement('div');
-maxLabel.classList.add('motor-label');
-minLabel.innerHTML = -0.01; // 2 decimals.
-maxLabel.innerHTML = 0.01;
-
-let slider3 = document.createElement('input');
-slider3.classList.add('motor-slider');
-slider3.setAttribute('type', 'range');
-slider3.setAttribute('step', 'any');
-slider3.setAttribute('min', -0.01);
-slider3.setAttribute('max', 0.01);
-slider3.setAttribute('value', 0);
-slider3.setAttribute('webots-id', 223);
-slider3.setAttribute('webots-type', 'translation');
-slider3.setAttribute('webots-axis', '0 -4e-06 1');
-motorDiv.appendChild(minLabel);
-motorDiv.appendChild(slider3);
-motorDiv.appendChild(maxLabel);
-slider3.addEventListener('input', () => sliderMotorCallback(slider3, true));
+createRotationalSlider('Shoulder pan joint', category, -6.28, 6.28, 389, '0 0 1');
+createRotationalSlider('Shoulder lift joint', category, -3.92, 0.78, 408, '0 1 0');
+createRotationalSlider('Elbow joint', category, -2.8, 2.8, 447, '0 1 0');
+createRotationalSlider('Wrist first joint', category, -6.28, 6.28, 478, '0 1 0');
+createRotationalSlider('Wrist second joint', category, -6.28, 6.28, 497, '0 0 1');
+createRotationalSlider('Wrist third joint', category, -6.28, 6.28, 516, '0 1 0');
 
 if (document.getElementsByClassName('info-button').length !== 0)
   document.getElementsByClassName('info-button')[0].onclick = () => displayInformationWindow();
@@ -130,6 +45,101 @@ if (document.getElementsByClassName('reset-button').length !== 0)
 if (document.getElementsByClassName('robot-component').length !== 0) {
   document.getElementsByClassName('robot-component')[0].onmouseenter = () => showButtons();
   document.getElementsByClassName('robot-component')[0].onmouseleave = () => hideButtons();
+}
+
+function createRotationalSlider(name, category, minVal, maxVal, id, axis) {
+  let deviceDiv = document.createElement('div');
+  deviceDiv.classList.add('device');
+  deviceDiv.setAttribute('webots-id', id);
+  deviceDiv.setAttribute('webots-axis', axis);
+  deviceDiv.addEventListener('mouseover', () => highlightX3DElement(deviceDiv));
+  deviceDiv.innerHTML = '<div class="device-name">' + name + '</div>';
+  category.appendChild(deviceDiv);
+
+  let motorDiv = document.createElement('div');
+  motorDiv.classList.add('motor-component');
+  deviceDiv.appendChild(motorDiv);
+
+  let minLabel = document.createElement('div');
+  minLabel.classList.add('motor-label');
+  let maxLabel = document.createElement('div');
+  maxLabel.classList.add('motor-label');
+  minLabel.innerHTML = minVal;
+  maxLabel.innerHTML = maxVal;
+
+  let slider = document.createElement('input');
+  slider.classList.add('motor-slider');
+  slider.setAttribute('type', 'range');
+  slider.setAttribute('step', 'any');
+  slider.setAttribute('min', minVal);
+  slider.setAttribute('max', maxVal);
+  slider.setAttribute('value', 0);
+  slider.setAttribute('webots-id', id);
+  slider.setAttribute('webots-type', 'rotation');
+  slider.setAttribute('webots-axis', axis);
+  motorDiv.appendChild(minLabel);
+  motorDiv.appendChild(slider);
+  motorDiv.appendChild(maxLabel);
+  slider.addEventListener('input', () => sliderMotorCallback(slider, true));
+}
+
+function highlightX3DElement(deviceElement) {
+  let id = deviceElement.getAttribute('webots-id');
+  if (id === pointedID)
+    return;
+
+  unhighlightX3DElement();
+
+  pointedID = id;
+
+  if (typeof WbWorld.instance === 'undefined')
+    return;
+  let object = WbWorld.instance.nodes.get('n' + id);
+  if (object) {
+    if (typeof WbWorld.instance !== 'undefined' && typeof pointer === 'undefined') {
+      let geom = new WbCylinder(getAnId(), 0.0008, 0.5, 36, true, true, true);
+      WbWorld.instance.nodes.set(geom.id, geom);
+      let pbr = new WbPBRAppearance(getAnId(), new WbVector3(1, 0, 0), undefined, 0, 1, undefined, 0, undefined,
+        1, undefined, 1, undefined, 1, new WbVector3(0, 0, 0), undefined, 1, undefined);
+      WbWorld.instance.nodes.set(pbr.id, pbr);
+      let shape = new WbShape(getAnId(), false, false, geom, pbr);
+      WbWorld.instance.nodes.set(shape.id, shape);
+      geom.parent = shape.id;
+      pbr.parent = shape.id;
+      let axis = new WbVector4();
+      switch (id) {
+        case '408':
+        case '447':
+        case '478':
+        case '516':
+          axis = new WbVector4(1, 0, 0, 1.5708);
+          break;
+      }
+      pointer = new WbTransform(getAnId(), false, new WbVector3(0, 0, 0), new WbVector3(1, 1, 1), axis);
+      pointer.children.push(shape);
+      WbWorld.instance.nodes.set(pointer.id, pointer);
+      shape.parent = pointer.id;
+    }
+
+    object.children.push(pointer);
+    pointer.parent = object.id;
+    pointer.finalize();
+
+    webotsView._view.x3dScene.render();
+  }
+}
+
+function unhighlightX3DElement(robot) {
+  removePointer();
+  webotsView._view.x3dScene.render();
+  pointedID = undefined;
+}
+
+function removePointer() {
+  if (typeof pointer !== 'undefined') {
+    pointer.delete();
+    pointer = undefined;
+  }
 }
 
 function showButtons() {
@@ -161,6 +171,8 @@ function hideButtons() {
 
   if (document.getElementsByClassName('menu-button').length !== 0)
     document.getElementsByClassName('menu-button')[0].style.display = 'none';
+
+  unhighlightX3DElement();
 }
 
 function toggleDeviceComponent() {
@@ -212,7 +224,7 @@ function toggleRobotComponentFullScreen(robot) {
 }
 
 function resetRobotComponent(robot) {
-  // unhighlightX3DElement(robot);
+  unhighlightX3DElement();
 
   // Reset the motor sliders.
   let sliders = document.getElementsByClassName('motor-slider');
@@ -220,7 +232,7 @@ function resetRobotComponent(robot) {
     let slider = sliders[s];
     // if the attribute is not present, it means that the slider was not moved
     if (slider.hasAttribute('initialValue')) {
-      slider.value = slider.getAttribute('initialValue');
+      slider.value = 0;
       sliderMotorCallback(slider);
     }
   }
@@ -233,10 +245,8 @@ function sliderMotorCallback(slider, render) {
   //  The first time the slider is moved, save the initial value for reset.
   if (!slider.hasAttribute('initialValue')) {
     let type = slider.getAttribute('webots-type');
-    if (type === 'rotation')
+    if (type === 'rotation' && webotsView.getNode(slider.getAttribute('webots-id')))
       slider.setAttribute('initialValue', webotsView.getNode(slider.getAttribute('webots-id')).rotation.toString());
-    else if (type === 'translation')
-      slider.setAttribute('initialValue', webotsView.getNode(slider.getAttribute('webots-id')).translation.toString());
   }
 
   let value = parseFloat(slider.value);
@@ -269,8 +279,3 @@ window.addEventListener('click', function(e) {
   if (infoPanel && !infoPanel.contains(e.target) && !document.getElementsByClassName('info-button')[0].contains(e.target))
     infoPanel.style.display = 'none';
 });
-
-// let button = document.getElementById('reset');
-// button.onclick = () => {
-//   webotsView.updateNode('83', 'rotation', slider.getAttribute('initialValue'));
-// }

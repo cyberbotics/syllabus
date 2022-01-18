@@ -26,11 +26,8 @@ Viewpoint {
 TexturedBackground {
   texture "empty_office"
 }
-UR5e {
-  translation -9.77798e-09 -1.06411e-08 0.79
-  rotation 5.67193e-08 2.39745e-09 -1 1.5708
-  controller ""
-  selfCollision FALSE
+TexturedBackgroundLight {
+  texture "empty_office"
 }
 Transform {
   children [
@@ -56,4 +53,10 @@ Transform {
       }
     }
   ]
+}
+UR5e {
+  translation -9.77798e-09 -1.06411e-08 0.79
+  rotation 5.67193e-08 2.39745e-09 -1 1.5708
+  controller ""
+  selfCollision FALSE
 }
