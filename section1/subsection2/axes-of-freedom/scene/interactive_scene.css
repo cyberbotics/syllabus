@@ -289,8 +289,8 @@ html, body, .robot-component {
 }
 
 .information-panel a {
+  font-size: 12px;
   color: white;
-  font-weight: bold;
   font-style: italic;
   text-decoration: none;
 }

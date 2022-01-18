@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Interactive scene</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/glm-js@0.0.6-c/build/glm-js.min.js"></script>
+    <script type="module" src="https://cyberbotics.com/wwi/R2022b/WebotsView.js"></script>
+    <script type=module src="interactive_scene.js"></script>
+    <link type="text/css" rel="stylesheet" href="interactive_scene.css" />
+  </head>
+  <body>
+    <div id="robot-component" class="robot-component">
+      <div id="robot-view" class="robot-view">
+        <div id="robot-webots-view" class="robot-webots-view">
+          <webots-view data-scene="axis-of-freedom_simple.x3d"></webots-view>
+          <div id='informationPlaceholder'></div>
+        </div>
+        <div class="menu">
+          <div class="menu-items">
+            <button class="info-button ui-icon" title="Simulation information"></button>
+            <button class="reset-button ui-icon" title="Reset Viewpoint and sliders"></button>
+            <button class="fullscreen-button ui-icon" title="Enter full-screen"></button>
+            <button class="exit-fullscreen-button ui-icon" title="Leave full-screen"></button>
+          </div>
+        </div>
+        <button class="menu-button" title="Show/Hide the device list."><div class="arrow-right" id="arrow"></div></button>
+      </div>
+      <div id="device-component" class="device-component"></div>
+    </div>
+  </body>
+</html>

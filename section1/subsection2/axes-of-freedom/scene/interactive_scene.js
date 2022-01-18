@@ -253,15 +253,6 @@ function sliderMotorCallback(slider, render) {
       q = q.mul(vec4ToQuaternion(init));
       webotsView.updateNode(slider.getAttribute('webots-id'), 'rotation', quaternionToVec4(q).toString(), render);
       break;
-    case 'translation':
-      let initialValue = slider.getAttribute('initialValue');
-      if (!initialValue)
-        initialValue = '0 0 0';
-      initialValue = initialValue.split(/\s/);
-      initialValue = new WbVector3(parseFloat(initialValue[0]), parseFloat(initialValue[1]), parseFloat(initialValue[2]));
-      let translation = initialValue.add(axis.mul(value));
-      webotsView.updateNode(slider.getAttribute('webots-id'), 'translation', translation.toString(), render);
-      break;
   }
 }
 
