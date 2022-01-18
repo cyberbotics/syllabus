@@ -1,0 +1,304 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("fonts/Roboto-Regular"), url("https://cyberbotics.com/wwi/R2022b/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: local("fonts/Roboto-Italic"), url("https://cyberbotics.com/wwi/R2022b/fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("fonts/Roboto-Bold"), url("https://cyberbotics.com/wwi/R2022b/fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  src: local("fonts/Roboto-BoldItalic"), url("https://cyberbotics.com/wwi/R2022b/fonts/Roboto-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  src: local("fonts/Roboto-Mono"), url("https://cyberbotics.com/wwi/R2022b/fonts/Roboto-Mono.ttf") format("truetype");
+}
+
+html, body, .robot-component {
+  padding:0;
+  margin:0;
+  height: 100%;
+  width:100%;
+}
+#webotsProgress {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  background-color: white;
+  width: 300px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 150px);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+}
+.robot-component {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+}
+.robot-component:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+.robot-component .robot-view {
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+.robot-component .webots3DView {
+  height: 100%;
+}
+.robot-component .robot-webots-view {
+  height: 100%;
+  display: block;
+}
+.robot-component .menu {
+  transform: translateY(-100%);
+  width: 99%;
+  position: absolute;
+}
+.robot-component .menu-items {
+  margin: 0 auto;
+  text-align: right;
+  z-index: 1;
+}
+
+.ui-icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url('https://cyberbotics.com/wwi/R2022b/images/icons.svg');
+  background-color: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
+}
+
+.info-button {
+  width: 28px;
+}
+.fullscreen-button { background-position: -420px -2px }
+.exit-fullscreen-button { background-position: -458px -2px }
+.reset-button{ background-position: -192px -2px}
+.info-button{background-position: -306px -2px}
+
+.info-button:hover,
+.reset-button:hover,
+.fullscreen-button:hover,
+.exit-fullscreen-button:hover {
+  background-position-y: -40px;
+}
+.menu-button {
+  position: absolute;
+  top:calc(50% - 15px);
+  right: 0px;
+  width: 26px;
+  height: 52px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  background-color: #333;
+  border-color: transparent;
+}
+
+.arrow-right{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  top: calc(50% - 5px);
+  right: calc(50% - 5px);
+  pointer-events: none;
+}
+
+.arrow-left{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  position: absolute;
+  top: calc(50% - 5px);
+  right: calc(50% - 10px);
+  pointer-events: none;
+}
+
+.robot-component .device-component {
+  width: 30%;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: #333;
+  padding: 10px 0px 10px 0px;
+  border-radius: 0px 3px 3px 0px;
+  position: relative;
+}
+.robot-component .device-category {
+  padding: 10px 0px 10px 0px;
+}
+.robot-component .device-title {
+  color: #fff;
+  padding-bottom: 10px;
+  font-family: roboto;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+}
+.robot-component .device-name {
+  color: white;
+  font-family: roboto;
+  word-wrap: break-word;
+}
+.robot-component .device {
+  padding: 10px;
+}
+.robot-component .device:hover {
+  background-color: grey;
+  box-shadow: 0px 5px 10px 5px rgba(0,0,0, 0.25);
+  transform: scale(1.02, 1.02);
+  -webkit-transform: scale(1.02, 1.02);
+  -moz-transform: scale(1.02, 1.02);
+  -o-transform: scale(1.02, 1.02);
+}
+.robot-component .motor-component {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.robot-component .motor-label {
+  color: #ddd;
+  font-family: roboto;
+  margin: 10px 0px;
+}
+.robot-component .motor-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  margin: 0px 10px;
+}
+.robot-component .motor-slider:focus {
+  outline: none;
+}
+.robot-component .motor-slider::-webkit-slider-runnable-track {
+  margin: 18px 0;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #ddd;
+  border: none;
+}
+.robot-component .motor-slider::-webkit-slider-thumb {
+  border: none;
+  height: 15px;
+  width: 15px;
+  background: red;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  border-radius: 12px;
+}
+.robot-component .motor-slider:focus::-webkit-slider-runnable-track {
+  background: #ddd;
+}
+.robot-component .motor-slider::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #ddd;
+  border: none;
+}
+.robot-component .motor-slider::-moz-range-thumb {
+  border: none;
+  height: 15px;
+  width: 15px;
+  background: red;
+  cursor: pointer;
+  border-radius: 12px;
+ }
+.robot-component .motor-slider::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+.robot-component .motor-slider::-ms-fill-lower {
+  background: #ddd;
+  border: none;
+}
+.robot-component .motor-slider::-ms-fill-upper {
+  background: #ddd;
+  border: none;
+}
+.robot-component .motor-slider::-ms-thumb {
+  border: none;
+  background: red;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.robot-component .motor-slider::-ms-tooltip {
+  display: none;
+}
+.robot-component .motor-slider:focus::-ms-fill-lower {
+  background: #ddd;
+}
+.robot-component .motor-slider:focus::-ms-fill-upper {
+  background: #ddd;
+}
+
+.information-panel {
+  position: absolute;
+  top: calc(50% - 140px);
+  left: calc(50% - 220px);
+  background-color: #333;
+  color: white;
+  text-align: center;
+  width: 440px;
+  height: 280px;
+  border-radius: 10px;
+  opacity: 0.95;
+  font-family: Helvetica;
+  display: none;
+}
+
+.information-panel a {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.information-panel a:hover {
+  text-decoration: underline;
+}
+
+.cloud {
+  font-size: 12px;
+}
