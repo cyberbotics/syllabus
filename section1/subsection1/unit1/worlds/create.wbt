@@ -1,4 +1,4 @@
-#VRML_SIM R2022b utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
   info [
     "iRobot Create simulation"
@@ -14,6 +14,10 @@ Viewpoint {
   follow "Create"
 }
 TexturedBackground {
+}
+Floor {
+  appearance Parquetry {
+  }
 }
 CeilingLight {
   translation 1.82639 -1.29685 2.4
