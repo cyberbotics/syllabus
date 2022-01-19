@@ -244,6 +244,18 @@ function sliderMotorCallback(slider, render) {
       let q = glm.angleAxis(value, axis);
       q = q.mul(vec4ToQuaternion(init));
       webotsView.updateNode(slider.getAttribute('webots-id'), 'rotation', quaternionToVec4(q).toString(), render);
+      renderX10();
       break;
+  }
+}
+
+// To get rid of gtao artifact
+async function renderX10() {
+  if (webotsView) {
+    for (let i = 0; i < 10; i++) {
+      setTimeout(function() {
+        webotsView._view.x3dScene.render();
+      }, 40 * i);
+    };
   }
 }
