@@ -1,4 +1,3 @@
-import informationPanel from 'https://cyberbotics.com/wwi/R2022b/informationPanel.js';
 import WbPBRAppearance from 'https://cyberbotics.com/wwi/R2022b/nodes/WbPBRAppearance.js';
 import WbShape from 'https://cyberbotics.com/wwi/R2022b/nodes/WbShape.js';
 import WbCylinder from 'https://cyberbotics.com/wwi/R2022b/nodes/WbCylinder.js';
@@ -9,11 +8,9 @@ import WbWorld from 'https://cyberbotics.com/wwi/R2022b/nodes/WbWorld.js';
 import {quaternionToVec4, vec4ToQuaternion, getAnId} from 'https://cyberbotics.com/wwi/R2022b/nodes/utils/utils.js';
 
 let webotsView = document.getElementsByTagName('webots-view')[0];
-document.getElementById('informationPlaceholder').innerHTML += informationPanel;
 
 let showDeviceComponent = true;
 
-let infoPanel = document.getElementsByClassName('information-panel')[0];
 let pointer;
 let pointedID;
 
@@ -29,22 +26,29 @@ createRotationalSlider('Wrist first joint', category, -6.28, 6.28, 478, '0 1 0')
 createRotationalSlider('Wrist second joint', category, -6.28, 6.28, 497, '0 0 1');
 createRotationalSlider('Wrist third joint', category, -6.28, 6.28, 516, '0 1 0');
 
-if (document.getElementsByClassName('info-button').length !== 0)
-  document.getElementsByClassName('info-button')[0].onclick = () => displayInformationWindow();
 if (document.getElementsByClassName('menu-button').length !== 0)
   document.getElementsByClassName('menu-button')[0].onclick = () => toggleDeviceComponent();
-if (document.getElementsByClassName('fullscreen-button').length !== 0)
-  document.getElementsByClassName('fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
-if (document.getElementsByClassName('exit-fullscreen-button').length !== 0) {
-  document.getElementsByClassName('exit-fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
-  document.getElementsByClassName('exit-fullscreen-button')[0].style.display = 'none';
-}
-if (document.getElementsByClassName('reset-button').length !== 0)
-  document.getElementsByClassName('reset-button')[0].onclick = () => resetRobotComponent();
 
 if (document.getElementsByClassName('robot-component').length !== 0) {
-  document.getElementsByClassName('robot-component')[0].onmouseenter = () => showButtons();
-  document.getElementsByClassName('robot-component')[0].onmouseleave = () => hideButtons();
+  document.getElementsByClassName('robot-component')[0].onmouseenter = () => showButton();
+  document.getElementsByClassName('robot-component')[0].onmouseleave = () => hideButton();
+}
+
+buttonHandler();
+
+function buttonHandler() {
+  if (webotsView.hasScene()) {
+    if (document.getElementsByClassName('fullscreen-button').length !== 0)
+      document.getElementsByClassName('fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
+    if (document.getElementsByClassName('exit-fullscreen-button').length !== 0) {
+      document.getElementsByClassName('exit-fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
+      document.getElementsByClassName('exit-fullscreen-button')[0].style.display = 'none';
+    }
+
+    if (document.getElementsByClassName('reset-button').length !== 0)
+      document.getElementsByClassName('reset-button')[0].onclick = () => resetRobotComponent();
+  } else
+    setTimeout(() => buttonHandler(), 100);
 }
 
 function createRotationalSlider(name, category, minVal, maxVal, id, axis) {
@@ -142,33 +146,12 @@ function removePointer() {
   }
 }
 
-function showButtons() {
-  if (document.getElementsByClassName('info-button').length !== 0)
-    document.getElementsByClassName('info-button')[0].style.display = '';
-
-  if (document.getElementsByClassName('reset-button').length !== 0)
-    document.getElementsByClassName('reset-button')[0].style.display = '';
-
-  if (document.getElementsByClassName('fullscreen-button').length !== 0)
-    document.getElementsByClassName('fullscreen-button')[0].style.display = '';
-
+function showButton() {
   if (document.getElementsByClassName('menu-button').length !== 0)
     document.getElementsByClassName('menu-button')[0].style.display = '';
 }
 
-function hideButtons() {
-  if (document.getElementsByClassName('info-button').length !== 0)
-    document.getElementsByClassName('info-button')[0].style.display = 'none';
-
-  if (document.getElementsByClassName('reset-button').length !== 0)
-    document.getElementsByClassName('reset-button')[0].style.display = 'none';
-
-  if (document.getElementsByClassName('fullscreen-button').length !== 0)
-    document.getElementsByClassName('fullscreen-button')[0].style.display = 'none';
-
-  if (document.getElementsByClassName('exit-fullscreen-button').length !== 0)
-    document.getElementsByClassName('exit-fullscreen-button')[0].style.display = 'none';
-
+function hideButton() {
   if (document.getElementsByClassName('menu-button').length !== 0)
     document.getElementsByClassName('menu-button')[0].style.display = 'none';
 
@@ -213,7 +196,6 @@ function toggleRobotComponentFullScreen(robot) {
   } else {
     document.getElementsByClassName('fullscreen-button')[0].style.display = 'none';
     document.getElementsByClassName('exit-fullscreen-button')[0].style.display = '';
-
     if (document.getElementById('robot-component').requestFullscreen) {
       document.getElementById('robot-component').requestFullscreen();
       document.addEventListener('fullscreenchange', function() {
@@ -265,17 +247,3 @@ function sliderMotorCallback(slider, render) {
       break;
   }
 }
-
-function displayInformationWindow() {
-  if (infoPanel) {
-    if (infoPanel.style.display === 'block')
-      infoPanel.style.display = 'none';
-    else
-      infoPanel.style.display = 'block';
-  }
-}
-
-window.addEventListener('click', function(e) {
-  if (infoPanel && !infoPanel.contains(e.target) && !document.getElementsByClassName('info-button')[0].contains(e.target))
-    infoPanel.style.display = 'none';
-});

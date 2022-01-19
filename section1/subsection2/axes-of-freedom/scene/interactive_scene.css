@@ -73,41 +73,14 @@ html, body, .robot-component {
   height: 100%;
   display: block;
 }
-.robot-component .menu {
-  transform: translateY(-100%);
-  width: 99%;
-  position: absolute;
-}
-.robot-component .menu-items {
-  margin: 0 auto;
-  text-align: right;
-  z-index: 1;
+
+webots-view {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
-.ui-icon {
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-image: url('https://cyberbotics.com/wwi/R2022b/images/icons.svg');
-  background-color: transparent;
-  border: none;
-  width: 34px;
-  height: 34px;
-}
-
-.info-button {
-  width: 28px;
-}
-.fullscreen-button { background-position: -420px -2px }
-.exit-fullscreen-button { background-position: -458px -2px }
-.reset-button{ background-position: -192px -2px}
-.info-button{background-position: -306px -2px}
-
-.info-button:hover,
-.reset-button:hover,
-.fullscreen-button:hover,
-.exit-fullscreen-button:hover {
-  background-position-y: -40px;
-}
 .menu-button {
   position: absolute;
   top:calc(50% - 15px);
@@ -271,34 +244,4 @@ html, body, .robot-component {
 }
 .robot-component .motor-slider:focus::-ms-fill-upper {
   background: #ddd;
-}
-
-.information-panel {
-  position: absolute;
-  top: calc(50% - 140px);
-  left: calc(50% - 220px);
-  background-color: #333;
-  color: white;
-  text-align: center;
-  width: 440px;
-  height: 280px;
-  border-radius: 10px;
-  opacity: 0.95;
-  font-family: Helvetica;
-  display: none;
-}
-
-.information-panel a {
-  font-size: 12px;
-  color: white;
-  font-style: italic;
-  text-decoration: none;
-}
-
-.information-panel a:hover {
-  text-decoration: underline;
-}
-
-.cloud {
-  font-size: 12px;
 }
