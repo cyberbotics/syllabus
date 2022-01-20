@@ -1,4 +1,4 @@
-#VRML_SIM R2022a utf8
+#VRML_SIM R2022b utf8
 WorldInfo {
   info [
     "Universal Robot UR3e, UR5e and UR10e grasping cans using Robotiq 3F grippers."
@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.21358998935058082 -0.037152046238457095 -0.976216698233294 3.4779788491229198
-  position 1.886897663567339 -1.0521680287134736 1.6110743297824381
+  orientation 0.2967996886737335 -0.5024222733677214 -0.8120848502633118 5.025373242410786
+  position -0.9500605542626477 -4.2603191313123085 3.7458874625049043
   exposure 1.7
 }
 TexturedBackground {
@@ -170,8 +170,16 @@ FireExtinguisher {
 UR5e {
   translation 0 0 0.61
   rotation 5.67193e-08 2.39745e-09 -1 1.5708
-  controller ""
+  controller "ure_can_grasper"
   selfCollision FALSE
+  toolSlot [
+    DistanceSensor {
+      translation 0 0.1 0
+      rotation 0 0 1 1.570796
+    }
+    Robotiq3fGripper {
+    }
+  ]
 }
 ConveyorBelt {
   translation 3.18 -0.83 0
