@@ -14,6 +14,7 @@ let showDeviceComponent = true;
 let pointer;
 let pointedID;
 
+let timeout;
 let category = document.createElement('div');
 category.classList.add('device-category');
 category.innerHTML = '<div class="device-title">' + 'Rotational Motor' + '</div>';
@@ -244,7 +245,9 @@ function sliderMotorCallback(slider, render) {
       let q = glm.angleAxis(value, axis);
       q = q.mul(vec4ToQuaternion(init));
       webotsView.updateNode(slider.getAttribute('webots-id'), 'rotation', quaternionToVec4(q).toString(), render);
-      renderX10();
+      if (timeout)
+        clearTimeout(timeout);
+      timeout = setTimeout(renderX10, 250);
       break;
   }
 }
