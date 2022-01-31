@@ -1,0 +1,178 @@
+#VRML_SIM R2022b utf8
+WorldInfo {
+  info [
+    "iRobot Create simulation"
+    "The vacuum cleaner robot goes randomly into the apartment while a supervisor tracks its position and alterates the ground texture."
+    "The robot can be stopped by the virtual walls emitting IR light."
+  ]
+  title "iRobot Create"
+}
+Viewpoint {
+  orientation 0.28448168860534867 0.7667676044017433 -0.5754455749141365 1.0881598999549724
+  position -9.243535906645237 6.711018551335911 14.181555700931648
+  near 0.1
+}
+TexturedBackground {
+}
+CeilingLight {
+  translation 1.82639 -1.29685 2.4
+  pointLightColor 1 1 0.9372549019607843
+  pointLightIntensity 7
+}
+CeilingLight {
+  translation -0.79511 1.94434 2.4
+  name "ceiling light(2)"
+  pointLightIntensity 5
+}
+FloorLight {
+  translation -4.25828 -4.26934 0
+  pointLightIntensity 1.5
+  pointLightRadius 1000
+}
+Wall {
+  translation 5 0 0
+  size 0.3 10.3 2.4
+}
+Wall {
+  translation 2.35 5 0
+  rotation 0 0 1 1.5708
+  name "wall(2)"
+  size 0.3 5 2.4
+}
+Wall {
+  translation -3.24 5 0
+  rotation 0 0 1 1.5708
+  name "wall(1)"
+  size 0.3 3.8 2.4
+}
+Wall {
+  translation -5 3.65 0
+  name "wall(3)"
+  size 0.3 3 2.4
+}
+Wall {
+  translation 0 -5 0
+  rotation 0 0 1 1.5708
+  name "wall(4)"
+  size 0.3 9.7 2.4
+}
+Wall {
+  translation -5 -1.99 0
+  name "wall(6)"
+  size 0.3 6.3 2.4
+}
+Door {
+  translation -5 1.65 0
+  size 0.3 1 2.4
+}
+Table {
+  translation -3.28632 -3.86254 0
+}
+BunchOfSunFlowers {
+  translation -4.36039 4.34681 0
+}
+Chair {
+  translation 0.253256 2.56933 3.19744e-14
+  rotation 0 0 -1 2.76034
+}
+Chair {
+  translation 0.0641381 0.94687 1.77636e-15
+  rotation 0 0 1 2.21385
+  name "chair(4)"
+}
+Chair {
+  translation -1.47691 3.0036 1.77636e-15
+  rotation 0 0 1 -0.9277453071795865
+  name "chair(2)"
+}
+Chair {
+  translation -1.72773 1.20368 1.77636e-15
+  rotation 0 0 1 0.643051
+  name "chair(3)"
+}
+Chair {
+  translation -3.72164 -3.47751 0
+  rotation 0 0 -1 -0.11945530717958608
+  name "chair(1)"
+}
+Table {
+  translation 2.86543 -3.04146 0
+  rotation 0 0 -1 -0.010885307179585801
+  name "table(2)"
+  size 0.8 1.2 0.53
+}
+Television {
+  translation 4.80037 -3.16688 1.59
+  rotation 0 0 1 3.14159
+}
+Armchair {
+  translation 2.34257 -0.572459 0
+  rotation 0 0 -1 1.01872
+}
+LandscapePainting {
+  translation 0.292736 -4.77308 1.5
+  rotation 0 0 1 1.5708
+}
+DEF IROBOT_CREATE Create {
+  translation -3.69248 0.0193578 0.0899546
+}
+Floor {
+  appearance Parquetry {
+    type "light strip"
+    textureTransform TextureTransform {
+      scale 0.5 0.5
+    }
+  }
+}
+RubberDuck {
+  translation 4.55636 4.3477 0.51
+  rotation 0 0 1 -2.3561953071795863
+}
+FireExtinguisher {
+  translation 4.6899 4.65571 1.77636e-15
+  rotation 0 0 1 -2.094395307179586
+}
+Telephone {
+  translation -3.27285 -4.23232 0.75
+  rotation 0 0 1 2.35619
+}
+Can {
+  translation 2.60574 -2.58372 0.59
+}
+PortraitPainting {
+  translation 4.71 1.52999 1.585
+  rotation 0 0 1 3.14159
+}
+Cabinet {
+  translation 4.54783 4.52719 -2.66454e-15
+  rotation 0 0 1 -2.3561953071795863
+  primaryAppearance VarnishedPine {
+    textureTransform TextureTransform {
+      scale 6 6
+    }
+  }
+}
+Wrench {
+  translation -3.59894 -3.48634 0.500001
+  rotation 5.664739999893518e-06 2.3464099999558937e-06 0.9999999999812026 -0.785395307179586
+}
+Book {
+  translation 2.73603 -2.88992 0.54
+  rotation -0.704064104394775 0.0926914137437759 -0.7040611043943301 -2.9567353071795863
+}
+Window {
+  translation -0.740014 5 0
+  rotation 0 0 1 1.5708
+  size 0.3 1.2 2.4
+  windowThickness 0.01
+  windowSillSize 0.1 0
+}
+Sofa {
+  translation 0.579197 -3.16267 1.77635e-15
+}
+RoundTable {
+  translation -0.73 1.97 0
+}
+PaperBoat {
+  translation -0.73 1.86 0.07
+}
