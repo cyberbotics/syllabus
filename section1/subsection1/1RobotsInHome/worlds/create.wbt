@@ -1,7 +1,8 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
   info [
-    "The vacuum cleaner robot goes randomly into the apartment to clean it. " "You can use the mouse to navigate in the animation. "
+    "The vacuum cleaner robot goes randomly into the apartment to clean it. "
+    "You can use the mouse to navigate in the animation. "
   ]
   title "iRobot Create"
 }
