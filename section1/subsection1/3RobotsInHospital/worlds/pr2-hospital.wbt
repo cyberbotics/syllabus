@@ -4,7 +4,7 @@ WorldInfo {
     "Willow Garage PR2 robot."
     "The robot model includes 44 actuated joints, 6 cameras and 2 laser-scanners."
   ]
-  title "PR2"
+  title "Robots in hospitals"
   basicTimeStep 16
   contactProperties [
     ContactProperties {
@@ -14,9 +14,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.21003261500793755 -0.27748483396592877 -0.9374905159796703 4.924716411141323
-  position -2.9132929299005137 -8.926376963649709 6.4272330310880585
-  follow "PR2"
+  orientation 0.25692949045246694 -0.49603869812783313 -0.8294171730169806 5.166709560185389
+  position -2.585174598295615 -4.102942801965185 3.828922010970421
 }
 TexturedBackground {
   texture "empty_office"
