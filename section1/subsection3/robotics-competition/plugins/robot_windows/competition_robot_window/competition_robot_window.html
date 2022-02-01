@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href='competition_robot_window.css'>
+  <link rel="icon" type="image/png" href="https://cyberbotics.com/assets/images/webots.png">
+</head>
+
+<body>
+  <div id="content">
+    <h1>Mobile Robotics Competition</h1>
+    <p>
+      <b>Instructions:</b> Select a challenge and a robot and click on Load the robot to see if it is able to reach the
+      green line.
+    </p>
+    <div id="Selection">
+      <div id="challenge">
+        <h2>Select a challenge</h2>
+        <div id="radioButtons">
+          <input type="radio" id="Uneven terrain" name="challenge" value="0" checked>
+          <label for="Uneven terrain">Uneven terrain</label><br>
+          <input type="radio" id="Ramp" name="challenge" value="1">
+          <label for="Ramp">Ramp</label><br>
+          <input type="radio" id="Stairs" name="challenge" value="2">
+          <label for="Stairs">Stairs</label><br>
+          <input type="radio" id="Platform" name="challenge" value="3">
+          <label for="Platform">Platform</label><br><br>
+        </div>
+      </div>
+
+      <div id="robot">
+        <div id="radioButtons">
+          <h2>Select a robot</h2>
+          <input type="radio" id="wheel_robot" name="robotName" value="Pioneer3at" checked>
+          <label for="wheel_robot">wheel robot</label><br>
+          <input type="radio" id="tracked_robot" name="robotName" value="SurveyorSrv1">
+          <label for="tracked_robot">tracked robot</label><br>
+          <input type="radio" id="legged_robot" name="robotName" value="Shrimp">
+          <label for="legged_robot">legged robot</label><br>
+          <input type="radio" id="aerial_robot" name="robotName" value="Mavic2Pro">
+          <label for="aerial_robot">aerial robot</label><br><br>
+        </div>
+      </div>
+    </div>
+    <button id="load_robot" onclick="loadRobot()">Load the robot</button>
+    <h2>Console log</h2>
+    <p>Remained distance from the target:</p>
+    <progress id="remainedDistanceProgressBar" value="9" max="9"></progress>
+    <ul id="console"></ul>
+
+  </div>
+  <script type="module" src="competition_robot_window.js"></script>
+</body>
+
+</html>

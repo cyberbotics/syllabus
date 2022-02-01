@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2B2B2B;
+  color: #F6F6F6;
+}
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 20px;
+}
+#content {
+  padding: 20px;
+}
+#console {
+  border-radius: 3px;
+  padding: 20px;
+  margin-left: 20px;
+  background-color: #F4F2BE;
+  color: #4B4B4B;
+  list-style-type: none;
+  font-style: italic;
+}
+progress {
+  margin-left: 10%;
+  width: 80%;
+}
+#load_robot {
+  display: inline;
+  margin-left: 400px;
+  width: 160px;
+  padding: 9px;
+  background: #4CAF50;
+  color: #F6F6F6;
+  border: 2px solid #4B4B4B;
+  border-radius: 3px;
+}
+#challenge {
+  display: inline-block;
+  padding: 7px;
+  background-color: #333333;
+  color: #F6F6F6;
+  border: 2px solid #4B4B4B;
+  border-radius: 8px;
+}
+#robot {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 7px;
+  background-color: #333333;
+  color: #F6F6F6;
+  border: 2px solid #4B4B4B;
+  border-radius: 8px;
+  min-width: 200px;
+}
+#radioButtons {
+  width:50%;
+  margin:10px auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+#Selection{
+  box-sizing: border-box;
+  width: 50%;
+  margin:10px auto;
+}
