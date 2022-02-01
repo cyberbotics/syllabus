@@ -1,9 +1,7 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
   info [
-    "iRobot Create simulation"
-    "The vacuum cleaner robot goes randomly into the apartment while a supervisor tracks its position and alterates the ground texture."
-    "The robot can be stopped by the virtual walls emitting IR light."
+    "The vacuum cleaner robot goes randomly into the apartment to clean it. " "You can use the mouse to navigate in the animation. "
   ]
   title "iRobot Create"
 }
