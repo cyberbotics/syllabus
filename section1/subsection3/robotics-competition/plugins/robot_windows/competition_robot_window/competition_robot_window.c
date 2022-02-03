@@ -95,7 +95,7 @@ void wb_robot_window_step(int time_step) {
       fprintf(stderr, "Unkown message: '%s'\n", message);
 
     play_simulation = true;
-    prev_remained_distance = 0;
+    prev_remaining_distance = 0;
     count = 0;
   }
 
