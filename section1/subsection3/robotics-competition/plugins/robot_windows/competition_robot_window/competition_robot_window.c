@@ -24,7 +24,7 @@
 
 static bool play_simulation = false;
 int challenge_number = 0;
-double prev_remained_distance = 0;
+double prev_remaining_distance = 0;
 int count = 0;
 bool mavic = false;
 
@@ -104,13 +104,13 @@ void wb_robot_window_step(int time_step) {
     const double *robot_position = wb_supervisor_node_get_position(robot_node);
     char answer[0x100];
     // if the robot reaches the target goal, stop the robot.
-    double remained_distance = fabs(
+    double remaining_distance = fabs(
         robot_position[1] - challenge_target_position[challenge_number][1]);
-    if (remained_distance < 0.2) {
+    if (remaining_distance < 0.2) {
       play_simulation = false;
       wb_robot_wwi_send_text("success");
     }
-    if (!mavic && fabs(prev_remained_distance - remained_distance) < 0.001) {
+    if (!mavic && fabs(prev_remaining_distance - remaining_distance) < 0.001) {
       count++;
       printf("%d\n", count);
     }
@@ -120,10 +120,10 @@ void wb_robot_window_step(int time_step) {
     }
 
     // At each step, send the remained distance value to JavaScript.
-    if (remained_distance > 0 && !isnan(remained_distance)) {
-      sprintf(answer, "distance: %f", remained_distance);
+    if (remaining_distance > 0 && !isnan(remaining_distance)) {
+      sprintf(answer, "distance: %f", remaining_distance);
       wb_robot_wwi_send_text(answer);
     }
-    prev_remained_distance = remained_distance;
+    prev_remaining_distance = remaining_distance;
   }
 }

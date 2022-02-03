@@ -34,7 +34,7 @@ window.loadRobot =  function() {
 function receive(message, robot) {
   if (message.startsWith('distance:')) {
     let distanceValue = parseFloat(message.substr(9));
-    let progress = document.getElementById('remainedDistanceProgressBar');
+    let progress = document.getElementById('remainingDistanceProgressBar');
     progress.value = distanceValue;
   }
   else if (message.startsWith('success')){
