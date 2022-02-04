@@ -41,7 +41,7 @@ window.onload = function() {
 
 function updateChart(x, y) {
   time += (x / 1000);
-  console.log(time + " , "  + y);
+  console.log(time + ' , ' + y);
   dataPoints.push({
     x: time,
     y: y
