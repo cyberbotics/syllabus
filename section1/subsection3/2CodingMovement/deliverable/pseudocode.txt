@@ -1,0 +1,38 @@
+Nao example:
+
+Controller {
+  initialize_the_robot()
+  wave_the_hand()
+  walk_forward()
+  turn_right()
+  side_step_left()
+}
+
+
+Motor control in:
+
+Position:
+Controller {
+  initialize_the_robot();
+  set_target_position_of_motors();
+}
+
+Velocity:
+Controller {
+  initialize_the_robot();
+  set_target_velocity();
+  wait
+  set_target_velocity(0);
+}
+
+Force/Torque/Acceleration:
+Controller {
+  initialize_the_robot();
+  set_target_acceleration(x);
+  wait
+  set_target_acceleration(0);
+  wait
+  set_target_acceleration(-x);
+  wait
+  set_target_acceleration(0);
+}
