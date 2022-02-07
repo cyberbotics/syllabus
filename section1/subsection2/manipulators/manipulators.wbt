@@ -1,0 +1,188 @@
+#VRML_SIM R2022b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.006348172653730787 0.9964638284424245 0.08378269099178384 0.15178468898639436
+  position -3.9782852076432853 0.022519358052496732 1.848363878384824
+}
+TexturedBackground {
+  texture "factory"
+}
+TexturedBackgroundLight {
+  texture "factory"
+}
+Solid {
+  children [
+    Shape {
+      appearance CorrodedMetal {
+      }
+      geometry DEF PLANE Plane {
+        size 9 9
+      }
+    }
+  ]
+  boundingObject USE PLANE
+}
+FireExtinguisher {
+  translation 4.28334 4.29063 -5.32907e-15
+  rotation 0 0 1 -1.5707953071795862
+}
+PlatformCart {
+  translation 4.1056 2.70244 1.86518e-13
+  rotation 0 0 1 1.309
+}
+CardboardBox {
+  translation 4.10804 2.73599 0.3
+  rotation 0 0 1 -0.523595307179586
+  size 0.4 0.4 0.4
+}
+OilBarrel {
+  translation 3.86936 -3.20428 0.44
+}
+WoodenPalletStack {
+  translation 3.67512 -4.02427 1.22569e-13
+}
+Table {
+  translation -4.07848e-06 4 0
+  rotation 0 0 1 -1.5707953071795862
+  name "table(2)"
+  size 1 3.5 0.74
+}
+EmergencyExitSign {
+  translation -4.41 -4.94806e-06 2.19
+  rotation 0.5773489358556708 0.5773509358554485 0.5773509358554485 2.0944
+}
+Door {
+  translation -4.51 0 0
+  size 0.001 1 2
+  frameSize 0.0001 0.001 0.001
+  doorAppearance Plastic {
+    colorOverride 0.933333 0.933333 0.92549
+  }
+}
+UR5e {
+  translation -0.092954 3.94097 0.74
+  rotation 0 0 1 -1.5707953071795862
+}
+Irb4600-40 {
+  translation -2.62538 -3.7995 0.7
+  rotation 0 0 1 1.5708
+}
+Pr2 {
+  translation -3.56 3.55 0
+}
+P-Rob3 {
+  translation 0.526963 -3.94029 0.74
+}
+Youbot {
+  translation -3.62 1.32 0.12
+}
+IprHd6ms90 {
+  translation 3.89953 -0.51911 0.74
+  rotation 0 0 1 -1.5707953071795862
+}
+Ned {
+  translation 3.90654 0.37155 0.74
+  rotation 0 0 1 1.5708
+}
+TiagoTitanium {
+  translation -3.67 2.5 0.095
+}
+Puma560 {
+  translation -0.692623 -3.99403 0.75
+}
+Table {
+  translation -0.739986 -3.98 0
+  rotation 0 0 1 1.5708
+  name "table(1)"
+  size 1 7 0.74
+}
+EpsonT6Scara {
+  translation 1.64949 -3.95701 0.76
+  rotation 0 0 1 1.5708
+}
+UR3e {
+  translation 1.00541 3.95291 0.74
+  rotation 0 0 1 -1.5707953071795862
+}
+UR10e {
+  translation -1.23757 3.9597 0.74
+  rotation 0 0 1 -1.5707953071795862
+}
+Transform {
+  translation 0 -4.5 1.5
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Plaster {
+      }
+      geometry Plane {
+        size 9 3
+      }
+    }
+  ]
+}
+Transform {
+  translation 0 4.5 1.5
+  rotation 1 0 0 1.5708
+  children [
+    Shape {
+      appearance Plaster {
+      }
+      geometry Plane {
+        size 9 3
+      }
+    }
+  ]
+}
+Transform {
+  translation 4.5 0 1.5
+  rotation -0.5773509358554485 0.5773489358556708 0.5773509358554485 -2.094395307179586
+  children [
+    Shape {
+      appearance Plaster {
+      }
+      geometry Plane {
+        size 9 3
+      }
+    }
+  ]
+}
+Transform {
+  translation -4.5 0 1.5
+  rotation -0.5773509358554485 -0.5773489358556708 -0.5773509358554485 -2.0944
+  children [
+    Shape {
+      appearance Plaster {
+      }
+      geometry Plane {
+        size 9 3
+      }
+    }
+  ]
+}
+Table {
+  translation 3.92 0 0
+}
+Cabinet {
+  translation 3.33913 4.49197 6.21725e-15
+  rotation 0 0 1 -1.5707953071795862
+  rowsHeights [
+    2
+  ]
+  columnsWidths [
+    0.6, 0.6
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 1, 1.5)"
+    "LeftSidedDoor (2, 1, 1, 1, 1.5)"
+  ]
+  primaryAppearance BrushedAluminium {
+  }
+  secondaryAppearance Plastic {
+    colorOverride 0.203922 0.396078 0.643137
+  }
+}
+PaperBoat {
+  translation 3.46651 4.24691 1.77636e-15
+}
