@@ -22,8 +22,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation 0.1852312684758798 0.15943089062599328 -0.9696758057686182 1.7506075629583362
-  position -1.6627272077317932 14.684588948862917 5.688498350295985
+  orientation 0.20987365903708133 0.14533932788573364 -0.9668658267888621 1.9615825461812266
+  position 1.5231939334608504 14.794999358982656 6.870919421776387
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -217,19 +217,19 @@ DEF STAIRS_CHALLENGE Transform {
       }
     }
     DEF STAIRS Solid {
-      translation -7.81 -3.3 -1.07256e-05
+      translation -7.81 -3.3 -0.090011
       rotation 5.085758426212298e-09 0.70710578118615 0.707107781185531 3.14159
       children [
         DEF STAIRS Group {
           children [
             Transform {
-              translation 0 0.05 0
+              translation 0 0.09 0
               children [
                 Shape {
                   appearance DEF OBJECTS_APPEARANCE GalvanizedMetal {
                   }
                   geometry Box {
-                    size 3 0.1 5
+                    size 3 0.02 5
                   }
                 }
               ]
@@ -271,7 +271,7 @@ DEF PLATFORM Transform {
       translation 0 -4.15 0
       children [
         Solid {
-          translation 0 -3.21 1.25
+          translation 0 -3.21 1
           children [
             DEF SHAPE Shape {
               appearance OsbWood {
@@ -289,7 +289,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         Solid {
-          translation -1.6 -1.61 1.25
+          translation -1.6 -1.61 1
           rotation 0 0 -1 1.5707963603591728
           children [
             DEF SHAPE Shape {
@@ -308,7 +308,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         Solid {
-          translation 0 -1.6 2.48
+          translation 1.19873e-09 -1.6 2.23
           rotation -0.5773502553479516 0.5773502747262953 -0.57735027749463 2.094395119003205
           children [
             DEF SHAPE Shape {
@@ -327,7 +327,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         Solid {
-          translation 1.6 -1.61 2.25
+          translation 1.6 -1.61 1.99
           rotation 0 0 1 4.712388966
           children [
             DEF SHAPE Shape {
@@ -346,7 +346,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         Solid {
-          translation 1.6 -0.14 1
+          translation 1.6 -0.14 0.75
           rotation 0 0 1 4.712388966
           children [
             DEF SHAPE Shape {
@@ -365,7 +365,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         Solid {
-          translation 1.6 -2.27 1
+          translation 1.6 -2.27 0.75
           rotation 0 0 1 4.712388966
           children [
             DEF SHAPE Shape {
@@ -383,7 +383,7 @@ DEF PLATFORM Transform {
           boundingObject USE SHAPE
         }
         StraightStairsRail {
-          translation 1.6 0 2.5
+          translation 1.6 0 2.25
           rotation 0 0 1 -1.5707953071795862
           run 3.21
           rise 0
@@ -397,7 +397,7 @@ DEF PLATFORM Transform {
           }
         }
         StraightStairsRail {
-          translation 1.6 -3.21 2.5
+          translation 1.6 -3.21 2.24
           rotation 0 0 -1 3.14159
           name "straight stairs rail(1)"
           run 3.21
@@ -412,7 +412,7 @@ DEF PLATFORM Transform {
           }
         }
         StraightStairsRail {
-          translation -1.2699999538251452 0 2.5
+          translation -1.27 0 2.25
           rotation 0 0 -1 3.14159
           name "straight stairs rail(2)"
           run 0.33
@@ -974,7 +974,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000171171596905 2.9148083946495262e-09 0
+        translation -0.0010000256757395354 4.372212591974289e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1078,7 +1078,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999999057808684 0.879999997192278 0
+        translation -0.0009999998586713021 0.8799999957884169 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1345,7 +1345,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000048682672902 -1.5270984476956073e-09 0
+      hidden translation_5 0.0010000062205637594 -1.951292460944387e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1879,7 +1879,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.001000017116802976 2.9147484426061965e-09 0
+        translation -0.0010000256752044634 4.372122663909295e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1983,7 +1983,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999999057808684 0.879999997192284 0
+        translation -0.0009999998586713021 0.8799999957884259 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2387,9 +2387,6 @@ Transform {
       name "solid(6)"
       boundingObject USE SIDE_1
     }
-    Rock10cm {
-      translation 0 5.57 0.05
-    }
     Solid {
       translation 1.02 5.56 0.1
       children [
@@ -2423,7 +2420,7 @@ Transform {
       ]
       boundingObject USE SIDE_3
     }
-    Solid {
+    DEF VIEWPOINT_0 Solid {
       translation 0 7.99 0.01
       children [
         Shape {
@@ -2446,7 +2443,7 @@ Transform {
       name "line1"
     }
     Solid {
-      translation 0 3.98 0.01
+      translation 0 4.35 0.01
       children [
         Shape {
           appearance Appearance {
@@ -2490,7 +2487,7 @@ Transform {
       name "line1(2)"
     }
     Solid {
-      translation 0.21 -4.22 2.52
+      translation 0.21 -4.22 2.26
       children [
         Shape {
           appearance Appearance {
@@ -2510,38 +2507,6 @@ Transform {
         }
       ]
       name "line1(4)"
-    }
-    Rock17cm {
-      translation -0.064999 4.68194 0
-      rotation 0 0 1 2.24093e-06
-      name "rock 17 cm(4)"
-    }
-    Rock17cm {
-      translation -0.624999 5.43194 0
-      rotation 0 0 1 -1.047195307179586
-      name "rock 17 cm(2)"
-    }
-    Rock17cm {
-      translation -0.514999 4.49666 0
-      rotation 0 0 1 -1.047195307179586
-      name "rock 17 cm(3)"
-    }
-    Rock17cm {
-      translation 0.35167 5.30684 0
-      rotation 0 0 1 -0.523595307179586
-      name "rock 17 cm(1)"
-    }
-    Rock17cm {
-      translation -0.39 5.8 0
-    }
-    Rock10cm {
-      translation 0.334783 5.69 0.05
-      rotation 0 0 1 -0.523595307179586
-      name "rock 10 cm(2)"
-    }
-    Rock10cm {
-      translation -0.36 4.86 0.05
-      name "rock 10 cm(1)"
     }
   ]
 }
@@ -2764,7 +2729,7 @@ DEF RAMP Solid {
   boundingObject USE RAMPE
 }
 DEF SPHERES Solid {
-  translation -2.07665 7.55979 -0.0499845
+  translation -2.07665 -0.86021 -0.05001
   rotation 5.085758426212298e-09 0.70710578118615 0.707107781185531 3.14159
   children [
     DEF BALLS Group {
@@ -2913,6 +2878,6 @@ Robot {
   window "competition_robot_window"
 }
 AdvertisingBoard {
-  translation -5.84 -10.45 3.24
+  translation -5.8 -10.99 3.24
   rotation 0 0 -1 -1.5708053071795867
 }
