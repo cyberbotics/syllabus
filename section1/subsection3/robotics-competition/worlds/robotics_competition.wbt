@@ -538,7 +538,7 @@ DEF FIRST_AID_BOX Transform {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/environments/factory/worlds/textures/first_aid.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
               ]
             }
             roughness 1
@@ -564,7 +564,7 @@ DEF FIRE_EXTINGUISHER_PANEL Transform {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/environments/factory/worlds/textures/fire_extinguisher_panel.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/fire_extinguisher_panel.jpg"
           ]
         }
         metalness 0
@@ -645,7 +645,7 @@ Transform {
     TexturedBoxShape {
       size 0.15 0.15 0.15
       textureUrl [
-        "webots://projects/samples/environments/factory/worlds/textures/first_aid.jpg"
+        "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
       ]
       textureMapping "default"
     }
@@ -974,7 +974,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000256757395354 4.372212591974289e-09 0
+        translation -0.0010000275776461676 4.696080191379792e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1078,7 +1078,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998586713021 0.8799999957884169 0
+        translation -0.0009999998482025096 0.8799999954764478 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1180,7 +1180,7 @@ DEF DOUBLE_DOOR Solid {
                 appearance PBRAppearance {
                   baseColorMap ImageTexture {
                     url [
-                      "webots://projects/samples/environments/factory/worlds/textures/ears_protection_pannel.png"
+                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/ears_protection_pannel.png"
                     ]
                   }
                   roughness 0.2
@@ -1200,7 +1200,7 @@ DEF DOUBLE_DOOR Solid {
                 appearance PBRAppearance {
                   baseColorMap ImageTexture {
                     url [
-                      "webots://projects/samples/environments/factory/worlds/textures/glasses_panel.png"
+                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/glasses_panel.png"
                     ]
                   }
                   roughness 0.2
@@ -1345,7 +1345,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000062205637594 -1.951292460944387e-09 0
+      hidden translation_5 0.0010000067614823471 -2.120970066243899e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1358,7 +1358,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
         baseColor 0.813 0.781 0.753
         roughnessMap ImageTexture {
           url [
-            "webots://projects/samples/environments/factory/worlds/textures/plastic_roughness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/plastic_roughness.jpg"
           ]
         }
         metalness 0
@@ -1879,7 +1879,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000256752044634 4.372122663909295e-09 0
+        translation -0.0010000275770714606 4.69598360197665e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1983,7 +1983,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998586713021 0.8799999957884259 0
+        translation -0.0009999998482025096 0.8799999954764575 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2283,6 +2283,28 @@ DEF GIRDER Solid {
   ]
   name "solid(3)"
   boundingObject USE SHAPE
+}
+Solid {
+  translation -8.8616 -10.8866 2.66454e-15
+  children [
+    DEF GEOM Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+        ]
+      }
+    }
+  ]
+  name "cabinet"
 }
 DoubleFluorescentLamp {
   translation 2.8615 -9.952 3.9069
