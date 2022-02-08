@@ -670,9 +670,29 @@ Wall {
 Floor {
   translation -3.8 0 0
   size 14.6 22.6
-  tileSize 2 2
-  appearance BakelitePlastic {
-    color "braun"
+  tileSize 3 3
+  appearance PBRAppearance {
+    baseColor 0.533333 0.541176 0.521569
+    baseColorMap ImageTexture {
+      url [
+        "../textures/gym-floor/gym-floor.png"
+      ]
+    }
+    roughnessMap ImageTexture {
+      url [
+        "../textures/gym-floor/gym-floor-roughness.png"
+      ]
+    }
+    metalnessMap ImageTexture {
+      url [
+        "../textures/gym-floor/gym-floor-metalness.png"
+      ]
+    }
+    normalMap ImageTexture {
+      url [
+        "../textures/gym-floor/gym-floor-normal.png"
+      ]
+    }
   }
 }
 Wall {
@@ -958,7 +978,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000348682882576 5.9375726557675534e-09 0
+        translation -0.001000035502257135 6.0455285222360544e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1062,7 +1082,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998080721384 0.8799999942805662 0
+        translation -0.000999999804582541 0.8799999941765765 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1152,46 +1172,6 @@ DEF DOUBLE_DOOR Solid {
                 physics Physics {
                   density -1
                   mass 0.7
-                }
-              }
-            ]
-          }
-          Transform {
-            translation -0.21 -0.23 1.36
-            rotation 0.5773502691896257 -0.5773502691896257 -0.5773502691896257 2.0943951024
-            children [
-              Shape {
-                appearance PBRAppearance {
-                  baseColorMap ImageTexture {
-                    url [
-                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/ears_protection_pannel.png"
-                    ]
-                  }
-                  roughness 0.2
-                  metalness 0
-                }
-                geometry Plane {
-                  size 0.2 0.2
-                }
-              }
-            ]
-          }
-          Transform {
-            translation -0.21 -0.51 1.36
-            rotation 0.5773502691896257 -0.5773502691896257 -0.5773502691896257 2.0943951024
-            children [
-              Shape {
-                appearance PBRAppearance {
-                  baseColorMap ImageTexture {
-                    url [
-                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/glasses_panel.png"
-                    ]
-                  }
-                  roughness 0.2
-                  metalness 0
-                }
-                geometry Plane {
-                  size 0.2 0.2
                 }
               }
             ]
@@ -1329,7 +1309,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000075728602287 -2.375486474193167e-09 0
+      hidden translation_5 0.0010000078433195225 -2.460325276842923e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1567,7 +1547,7 @@ Wall {
   name "wall(16)"
   size 0.1 3.05 3.652
   appearance CorrugatedMetal {
-    colorOverride 0.372 0.72 0.295
+    colorOverride 0.533333 0.541176 0.521569
     textureTransform TextureTransform {
       scale 0.76 0.94
     }
@@ -1863,7 +1843,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation 0 0 0
+        translation -6.339556657408707e-10 1.086781775683221e-10 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1967,7 +1947,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998080721384 0.8799999942805784 0
+        translation -0.000999999804582541 0.8799999941765889 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2165,9 +2145,15 @@ DEF WINDOWS Transform {
   ]
 }
 Radiator {
-  translation -10.8147 -11.015 0.4
+  translation -10.8247 -11.015 0.4
   rotation 0 0 1 -5.307179586466759e-06
   name "radiator(1)"
+  numberOfFins 30
+}
+Radiator {
+  translation 3.3453 -4.205 0.4
+  rotation 0 0 1 3.14159
+  name "radiator(2)"
   numberOfFins 30
 }
 DEF BLACK_TILES Transform {
