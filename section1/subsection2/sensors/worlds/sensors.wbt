@@ -76,7 +76,7 @@ Solid {
       }
       geometry Mesh {
         url [
-          "webots://projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
         ]
       }
     }
