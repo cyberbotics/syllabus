@@ -90,6 +90,20 @@ Robot {
                     height 0.09
                     radius 0.092
                     subdivision 20
+                    side FALSE
+                  }
+                }
+                Shape {
+                  appearance ThreadMetalPlate {
+                    textureTransform TextureTransform {
+                      scale 0.2 1
+                    }
+                  }
+                  geometry Cylinder {
+                    height 0.0899
+                    radius 0.092
+                    subdivision 20
+                    top FALSE
                   }
                 }
               ]
@@ -124,6 +138,20 @@ Robot {
                     height 0.09
                     radius 0.04
                     subdivision 20
+                    side FALSE
+                  }
+                }
+                Shape {
+                  appearance ThreadMetalPlate {
+                    textureTransform TextureTransform {
+                      scale 0.2 1
+                    }
+                  }
+                  geometry Cylinder {
+                    height 0.0899
+                    radius 0.04
+                    subdivision 20
+                    top FALSE
                   }
                 }
               ]
@@ -234,7 +262,7 @@ Robot {
             }
           }
           Transform {
-            translation 0 0.003 0
+            translation 0 0.009 0
             children [
               Shape {
                 appearance PBRAppearance {
@@ -243,7 +271,7 @@ Robot {
                   metalness 0
                 }
                 geometry Box {
-                  size 0.02 0.006 0.03
+                  size 0.02 0.018 0.09
                 }
               }
             ]
