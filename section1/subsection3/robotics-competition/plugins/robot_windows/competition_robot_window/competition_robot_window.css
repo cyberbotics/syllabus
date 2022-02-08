@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #2B2B2B;
-  color: #F6F6F6;
+  color: #FFF;
 }
 p {
   text-align: justify;
@@ -30,24 +30,20 @@ progress {
   width: 160px;
   padding: 9px;
   background: #4CAF50;
-  color: #F6F6F6;
+  color: #FFF;
   border: 2px solid #4B4B4B;
   border-radius: 3px;
 }
 #challenge {
-  display: inline-block;
   padding: 7px;
   background-color: #333333;
-  color: #F6F6F6;
   border: 2px solid #4B4B4B;
   border-radius: 8px;
 }
 #robot {
-  display: inline-block;
-  margin-left: 20px;
   padding: 7px;
   background-color: #333333;
-  color: #F6F6F6;
+
   border: 2px solid #4B4B4B;
   border-radius: 8px;
   min-width: 200px;
@@ -61,6 +57,4 @@ progress {
 
 #Selection{
   box-sizing: border-box;
-  width: 50%;
-  margin:10px auto;
 }

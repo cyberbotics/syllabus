@@ -3,6 +3,7 @@ import RobotWindow from 'https://cyberbotics.com/wwi/R2022b/RobotWindow.js';
 var RobotName = null;
 var challengeNumber = null;
 var challengeName  = null;
+var totalDistance = 10;
 
 // Log a message in the console widget.
 function log(message) {
@@ -32,10 +33,14 @@ window.loadRobot =  function() {
 }
 // A message coming from the robot has been received.
 function receive(message, robot) {
-  if (message.startsWith('distance:')) {
-    let distanceValue = parseFloat(message.substr(9));
-    let progress = document.getElementById('remainingDistanceProgressBar');
-    progress.value = distanceValue;
+  if (message.startsWith('init:')) {
+    totalDistance = parseFloat(message.substr(5));
+    console.log(totalDistance)
+    document.getElementById("remainingDistanceProgressBar").max = totalDistance-0.2;
+  }
+  else if (message.startsWith('distance:')) {
+    let distanceValue = totalDistance - parseFloat(message.substr(9));
+    document.getElementById('remainingDistanceProgressBar').value = distanceValue;
   }
   else if (message.startsWith('success')){
     log("Success: " + RobotName + " reached the target of the " + challengeName + " challenge !");

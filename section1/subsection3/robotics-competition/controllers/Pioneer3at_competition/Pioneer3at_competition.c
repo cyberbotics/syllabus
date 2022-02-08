@@ -17,12 +17,14 @@
 /*
  * Description:  Example of Sick LMS 291.
  *               The velocity of each wheel is set
- *               according to a Braitenberg-like algorithm which takes the values returned by the Sick as input.
+ *               according to a Braitenberg-like algorithm which takes the
+ * values returned by the Sick as input.
  */
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <webots/motor.h>
 #include <webots/robot.h>
 
@@ -61,6 +63,13 @@ int main(int argc, char **argv) {
     wb_motor_set_velocity(back_left_wheel, CRUISING_SPEED);
     wb_motor_set_velocity(back_right_wheel, CRUISING_SPEED);
 
+    const char *custom_data = wb_robot_get_custom_data();
+    if (strcmp(custom_data, "stop") == 0) {
+      wb_motor_set_velocity(front_left_wheel, 0);
+      wb_motor_set_velocity(front_right_wheel, 0);
+      wb_motor_set_velocity(back_left_wheel, 0);
+      wb_motor_set_velocity(back_right_wheel, 0);
+    }
   }
 
   wb_robot_cleanup();

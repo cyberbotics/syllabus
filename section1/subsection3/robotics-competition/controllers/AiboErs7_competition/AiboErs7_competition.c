@@ -14,42 +14,40 @@
  * limitations under the License.
  */
 
-/*
- * Description:  The controller used to move the shrimp with the keyboard.
- */
+//
+// Description: A controller for the Aibo ERS-7 robot which will go straight.
+//
 
-#include "shrimp_protocol.h"
+#include "../../libraries/mtn/mtn.h"
 #include <stdio.h>
 #include <string.h>
+#include <webots/motor.h>
 #include <webots/robot.h>
 
 #define TIME_STEP 64
-#define MAX_BUFFER_SIZE 4
 
 int main() {
-
   wb_robot_init();
-  shrimp_init();
+
+  // read MTN motion sequence
+  MTN *mtn = mtn_new("../../data/mtn/WWFWD.MTN");
+  if (!mtn)
+    fprintf(stderr, "MTN Error: %s\n", mtn_get_error());
 
   while (wb_robot_step(TIME_STEP) != -1) {
-    unsigned char buffer[MAX_BUFFER_SIZE];
-
-    buffer[0] = 0x04;
-    buffer[1] = (unsigned char)127;
-    buffer[2] = (unsigned char)0;
-    shrimp_send(buffer);
+    // actuate MTN Motor motors
+    mtn_step(TIME_STEP);
 
     const char *custom_data = wb_robot_get_custom_data();
-    if (strcmp(custom_data, "stop") == 0) {
-      buffer[0] = 0x04;
-      buffer[1] = (unsigned char)0;
-      buffer[2] = (unsigned char)0;
-      shrimp_send(buffer);
-      wb_robot_cleanup();
-      return 0;
+    if (strcmp(custom_data, "stop") < 0) {
+      // play mtn until stop
+      if (mtn_is_over(mtn))
+        mtn_play(mtn);
     }
   }
+
   wb_robot_cleanup();
+  mtn_delete(mtn);
 
   return 0;
 }

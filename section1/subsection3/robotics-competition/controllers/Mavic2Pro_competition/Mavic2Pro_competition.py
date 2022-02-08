@@ -130,7 +130,7 @@ class Mavic (Robot):
         opt_parser = optparse.OptionParser()
         opt_parser.add_option("--patrol_coords", default="11 11, 11 21, 21 21,21 11",
                               help="Specify the patrol coordinates in the format [x1 y1, x2 y2, ...]")
-        opt_parser.add_option("--target_altitude", default=3.5,
+        opt_parser.add_option("--target_altitude", default=2.6,
                               type=float, help="target altitude of the robot in meters")
         options, _ = opt_parser.parse_args()
 

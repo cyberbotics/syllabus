@@ -32,21 +32,37 @@
       <div id="robot">
         <div id="radioButtons">
           <h2>Select a robot</h2>
-          <input type="radio" id="wheel_robot" name="robotName" value="Pioneer3at" checked>
-          <label for="wheel_robot">wheel robot</label><br>
-          <input type="radio" id="tracked_robot" name="robotName" value="SurveyorSrv1">
-          <label for="tracked_robot">tracked robot</label><br>
-          <input type="radio" id="legged_robot" name="robotName" value="Shrimp">
-          <label for="legged_robot">legged robot</label><br>
+          <b>Wheeled robot</b><br>
+          <input type="radio" id="wheeled_robot" name="robotName" value="Pioneer3at" checked>
+          <label for="wheeled_robot">Pioneer 3at</label><br>
+          <input type="radio" id="wheeled_robot" name="robotName" value="SummitXlSteel">
+          <label for="wheeled_robot">Summit-XL</label><br>
+
+          <br><b>Tracked robot</b><br>
+          <input type="radio" id="tracked_robot" name="robotName" value="trackedRobot">
+          <label for="tracked_robot">Common tracked robot</label><br>
+
+          <br><b>Legged robot</b><br>
+          <input type="radio" id="legged_robot_1" name="robotName" value="AiboErs7">
+          <label for="legged_robot_1">Aibo dog</label><br>
+          <input type="radio" id="legged_robot_2" name="robotName" value="Nao">
+          <label for="legged_robot_2">Nao</label><br>
+
+          <br><b>Aerial robot</b><br>
           <input type="radio" id="aerial_robot" name="robotName" value="Mavic2Pro">
-          <label for="aerial_robot">aerial robot</label><br><br>
+          <label for="aerial_robot">Mavic drone</label><br>
+
+          <br><b>Hybrid robot</b><br>
+          <input type="radio" id="hybrid_robot" name="robotName" value="Shrimp">
+          <label for="hybrid_robot">Bluebotics Shrimp</label><br><br>
+
         </div>
       </div>
     </div>
     <button id="load_robot" onclick="loadRobot()">Load the robot</button>
     <h2>Console log</h2>
     <p>Remaining distance from the target:</p>
-    <progress id="remainingDistanceProgressBar" value="9" max="9"></progress>
+    <progress id="remainingDistanceProgressBar"></progress>
     <ul id="console"></ul>
 
   </div>
