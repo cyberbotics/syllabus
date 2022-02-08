@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Streaming viewer</title>
+    <link rel="icon" type="image/png" href="webots_icon.png">
+    <style>
+      html, body {
+        padding:0;
+        margin:0;
+        height: 100%;
+      }
+      iframe {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 100%;
+        width: 550px;
+        background: white
+        padding: 0px;
+        margin: 0px;
+      }
+      webots-view {
+        position: absolute!important;
+        right: 0px;
+        width:calc(100% - 555px);
+        border: 0px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="module">
+      import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
+
+      let webotsView = new WebotsView();
+      document.body.appendChild(webotsView);
+      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, getPrefix);
+
+      function getPrefix() {
+        if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
+           let serverUrl = webotsView._view.x3dScene.prefix;
+           let ws;
+           if (serverUrl.indexOf('http') === 0)
+            ws = serverUrl.substring(4);
+           else
+            ws = serverUrl.substring(5);
+           console.log(ws)
+           let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger&url=' + ws;
+           let iframe = document.createElement('iframe');
+           iframe.src = url;
+           document.body.appendChild(iframe)
+
+           // let div = document.createElement('div');
+           // document.body.appendChild(div);
+           // fetch(url)
+           // .then(answer => answer.text())
+           // .then(answer => {div.innerHTML = answer})
+           console.log(serverUrl)
+        }else setTimeout(function () {
+          getPrefix()
+        }, 100);
+
+      }
+    </script>
+  </body>
+
+</html>
