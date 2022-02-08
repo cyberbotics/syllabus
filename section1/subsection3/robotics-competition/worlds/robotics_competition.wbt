@@ -22,8 +22,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation 0.20987365903708133 0.14533932788573364 -0.9668658267888621 1.9615825461812266
-  position 1.5231939334608504 14.794999358982656 6.870919421776387
+  orientation 0.15215625042144323 0.11344802074675309 -0.9818238243423976 1.8777651962008752
+  position 1.2617287868716294 19.77815076988847 6.847781984217355
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -157,7 +157,7 @@ DEF STAIRS_CHALLENGE Transform {
       }
       path [
         0 0 0
-        0 6.6 0
+        0 7.3 0
       ]
       horizontalBarAppearance PBRAppearance {
         baseColor 0 0 0
@@ -175,15 +175,15 @@ DEF STAIRS_CHALLENGE Transform {
       }
       path [
         0 0 0
-        0 6.6 0
+        0 7.3 0
       ]
       horizontalBarAppearance PBRAppearance {
         baseColor 0 0 0
       }
     }
     Fence {
-      translation -5.92 -6.83998 0
-      rotation 0 0 -1 -1.5707953071795862
+      translation -5.92 -7.6 0
+      rotation 0 0 1 1.562
       name "fence(2)"
       recognitionColors []
       height 0.5
@@ -210,7 +210,7 @@ DEF STAIRS_CHALLENGE Transform {
               translation 0 0.09 0
               children [
                 Shape {
-                  appearance DEF OBJECTS_APPEARANCE GalvanizedMetal {
+                  appearance DEF OBJECTS_APPEARANCE RoughConcrete {
                   }
                   geometry Box {
                     size 3 0.02 5
@@ -958,7 +958,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000275776461676 4.696080191379792e-09 0
+        translation -0.0010000348682882576 5.9375726557675534e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1062,7 +1062,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998482025096 0.8799999954764478 0
+        translation -0.0009999998080721384 0.8799999942805662 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1329,7 +1329,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000067614823471 -2.120970066243899e-09 0
+      hidden translation_5 0.0010000075728602287 -2.375486474193167e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1863,7 +1863,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000275770714606 4.69598360197665e-09 0
+        translation 0 0 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1967,7 +1967,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999998482025096 0.8799999954764575 0
+        translation -0.0009999998080721384 0.8799999942805784 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2606,7 +2606,8 @@ DEF RAMP Solid {
           rotation 0 0 1 0.5236
           children [
             Shape {
-              appearance USE OBJECTS_APPEARANCE
+              appearance DEF OBJECTS_APPEARANCE_RAMP GalvanizedMetal {
+              }
               geometry Box {
                 size 2 0.1 2
               }
@@ -2618,7 +2619,7 @@ DEF RAMP Solid {
           rotation 0 0 1 0.3
           children [
             Shape {
-              appearance USE OBJECTS_APPEARANCE
+              appearance USE OBJECTS_APPEARANCE_RAMP
               geometry Box {
                 size 2 0.1 2
               }
@@ -2629,7 +2630,7 @@ DEF RAMP Solid {
           translation 1.51 1.49 0
           children [
             Shape {
-              appearance USE OBJECTS_APPEARANCE
+              appearance USE OBJECTS_APPEARANCE_RAMP
               geometry Box {
                 size 1.33 0.1 2
               }
@@ -2641,7 +2642,7 @@ DEF RAMP Solid {
           rotation 0 0 1 -0.7
           children [
             Shape {
-              appearance USE OBJECTS_APPEARANCE
+              appearance USE OBJECTS_APPEARANCE_RAMP
               geometry Box {
                 size 2.5 0.1 2
               }
@@ -2655,8 +2656,116 @@ DEF RAMP Solid {
   boundingObject USE RAMPE
 }
 DEF SPHERES Solid {
-  translation -2.07665 -0.86021 -0.05001
-  rotation 5.085758426212298e-09 0.70710578118615 0.707107781185531 3.14159
+  translation -8.14665 -3.6702 0.23998
+  rotation -1 1.88117e-06 1.19872e-08 -1.5707953071795862
+  children [
+    DEF BALLS Group {
+      children [
+        Transform {
+          translation -0.2 -0.06 0
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0.35 -0.03 -0.05
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.2 -0.015 -0.4
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0.1 0 -0.6
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.015 -0.9
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.005 0
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.5 0 -1
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.15 0.04 -1.35
+          children [
+            Shape {
+              appearance USE OBJECTS_APPEARANCE
+              geometry Sphere {
+                radius 0.15
+                subdivision 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "spheres"
+  boundingObject USE BALLS
+}
+DEF SPHERES2 Solid {
+  translation -7.51665 -3.2602 0.23998
+  rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 -2.094395307179586
   children [
     DEF BALLS Group {
       children [
@@ -2795,7 +2904,7 @@ DEF SPHERES Solid {
       ]
     }
   ]
-  name "spheres"
+  name "spheres(1)"
   boundingObject USE BALLS
 }
 Robot {

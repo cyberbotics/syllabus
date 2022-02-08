@@ -65,7 +65,7 @@ class Mavic (Robot):
         """
         self.current_pose = pos
 
-    def move_to_target(self, waypoints, verbose_movement=False, verbose_target=True):
+    def move_to_target(self, waypoints, verbose_movement=False, verbose_target=False):
         """
         Move the robot to the given coordinates
         Parameters:

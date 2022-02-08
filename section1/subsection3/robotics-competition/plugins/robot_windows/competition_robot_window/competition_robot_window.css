@@ -10,6 +10,7 @@ p {
 }
 #content {
   padding: 20px;
+  position: absolute;
 }
 #console {
   border-radius: 3px;
@@ -26,7 +27,7 @@ progress {
 }
 #load_robot {
   display: inline;
-  margin-left: 400px;
+  margin: 10px 10px;
   width: 160px;
   padding: 9px;
   background: #4CAF50;
@@ -43,14 +44,12 @@ progress {
 #robot {
   padding: 7px;
   background-color: #333333;
-
   border: 2px solid #4B4B4B;
   border-radius: 8px;
-  min-width: 200px;
 }
 #radioButtons {
   width:50%;
-  margin:10px auto;
+  margin:7px auto;
   width: fit-content;
   height: fit-content;
 }

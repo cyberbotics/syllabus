@@ -16,10 +16,10 @@
     </p>
     <div id="Selection">
       <div id="challenge">
-        <h2>Select a challenge</h2>
         <div id="radioButtons">
-          <input type="radio" id="Uneven terrain" name="challenge" value="0" checked>
-          <label for="Uneven terrain">Uneven terrain</label><br>
+          <h2>Select a challenge</h2>
+          <input type="radio" id="flat terrain" name="challenge" value="0" checked>
+          <label for="Flat terrain">Flat terrain</label><br>
           <input type="radio" id="Ramp" name="challenge" value="1">
           <label for="Ramp">Ramp</label><br>
           <input type="radio" id="Stairs" name="challenge" value="2">
@@ -62,7 +62,7 @@
     <button id="load_robot" onclick="loadRobot()">Load the robot</button>
     <h2>Console log</h2>
     <p>Remaining distance from the target:</p>
-    <progress id="remainingDistanceProgressBar"></progress>
+    <progress id="remainingDistanceProgressBar" value="0"></progress>
     <ul id="console"></ul>
 
   </div>

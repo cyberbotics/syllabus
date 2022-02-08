@@ -26,12 +26,11 @@ static bool play_simulation = false;
 int challenge_number = 0;
 double prev_remaining_distance = 0;
 int count = 0;
-bool mavic = false;
-bool aibo = false;
+int max_count = 0;
 bool init = false;
 
 const char *challenge_start_position[] = {"-2.05 8.28 0.334", "-6.1 8.28 0.334",
-                                          "-7.78 -0.4 0.334",
+                                          "-7.24 -0.4 0.334",
                                           "-2.17 0.44 0.334"};
 double challenge_target_position[4][2] = {
     {-1.81, 3.98}, {-6, 0.39}, {-7.85, -6.2}, {-1.5, -4.37}};
@@ -69,8 +68,6 @@ void wb_robot_window_step(int time_step) {
       // controller
       char robot_node_content[0x255];
       char controllerArgs[0x100];
-      mavic = strcmp(robot_name, "Mavic2Pro") == 0;
-      aibo = strcmp(robot_name, "AiboErs7") == 0;
 
       if (strcmp(robot_name, "Shrimp") == 0 && challenge_number == 2) {
         sprintf(robot_node_content,
@@ -78,7 +75,13 @@ void wb_robot_window_step(int time_step) {
                 "controller \"%s_competition\" }",
                 robot_name, challenge_start_position[challenge_number],
                 robot_name);
-      } else if (mavic) {
+      } else if (strcmp(robot_name, "AiboErs7") == 0 && challenge_number == 1) {
+        sprintf(robot_node_content,
+                "DEF MY_ROBOT %s { translation %s rotation 0 0 1 -1.6 "
+                "controller \"%s_competition\" }",
+                robot_name, challenge_start_position[challenge_number],
+                robot_name);
+      } else if (strcmp(robot_name, "Mavic2Pro") == 0) {
         sprintf(controllerArgs,
                 " controllerArgs [ \"--patrol_coords\" \"%f %f\" ]",
                 challenge_target_position[challenge_number][0],
@@ -94,19 +97,18 @@ void wb_robot_window_step(int time_step) {
                 "controller \"%s_competition\" }",
                 robot_name, challenge_start_position[challenge_number],
                 robot_name);
+      if (strcmp(robot_name, "AiboErs7") == 0 && challenge_number == 2)
+        max_count = 60;
+      else if (strcmp(robot_name, "Nao") == 0 && challenge_number > 0)
+        max_count = 20;
+      else
+        max_count = 500;
 
       WbNodeRef root_node = wb_supervisor_node_get_root();
       WbFieldRef children_field =
           wb_supervisor_node_get_field(root_node, "children");
       wb_supervisor_field_import_mf_node_from_string(children_field, -1,
                                                      robot_node_content);
-
-      // move the viewpoint to the challenge
-      /*char viewpoint_name[12];
-      sprintf(viewpoint_name, "VIEWPOINT_%d", challenge_number);
-      WbNodeRef viewpoint_node =
-      wb_supervisor_node_get_from_def(viewpoint_name);
-      */
 
       WbNodeRef viewpoint_node = wb_supervisor_node_get_from_def("VIEWPOINT");
       wb_supervisor_node_move_viewpoint(viewpoint_node);
@@ -148,12 +150,11 @@ void wb_robot_window_step(int time_step) {
 
       wb_supervisor_field_set_sf_string(custom_data_field, "stop");
     }
-    if (!mavic && !aibo &&
-        fabs(prev_remaining_distance - remaining_distance) < 0.00001) {
+    if (fabs(prev_remaining_distance - remaining_distance) < 0.00001) {
       count++;
     }
-    if (count > 500) { // after 500 robot step we consider that the robot is not
-                       // moving anymore.
+    if (count > max_count) { // after 500 robot step we consider that the robot
+                             // is not moving anymore.
       play_simulation = false;
       wb_supervisor_set_label(1, "Challenge failed.", 0, 0.1, 0.1, 0xff0000,
                               0.2, "Impact");
