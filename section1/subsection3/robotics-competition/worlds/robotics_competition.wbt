@@ -120,16 +120,8 @@ DEF STAIRS_CHALLENGE Transform {
       translation -7.85 -6.08 0.01
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.45098 0.823529 0.0862745
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.45098 0.823529 0.0862745
           }
           geometry Plane {
             size 3 0.1
@@ -142,16 +134,8 @@ DEF STAIRS_CHALLENGE Transform {
       translation -7.8 -0.43 0.01
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.929412 0.831373 0
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.929412 0.831373 0
           }
           geometry Plane {
             size 3 0.1
@@ -2446,16 +2430,8 @@ Transform {
       translation 0 7.99 0.01
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.929412 0.831373 0
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.929412 0.831373 0
           }
           geometry Plane {
             size 2 0.1
@@ -2468,16 +2444,8 @@ Transform {
       translation 0 4.35 0.01
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.45098 0.823529 0.0862745
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.45098 0.823529 0.0862745
           }
           geometry Plane {
             size 2 0.1
@@ -2490,16 +2458,8 @@ Transform {
       translation -4.22 0.7 0.01
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.45098 0.823529 0.0862745
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.45098 0.823529 0.0862745
           }
           geometry Plane {
             size 2 0.1
@@ -2512,16 +2472,8 @@ Transform {
       translation 0.21 -4.22 2.26
       children [
         Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 0 0 0
-              emissiveColor 0.45098 0.823529 0.0862745
-            }
-            texture ImageTexture {
-              url [
-                "textures/plastic.jpg"
-              ]
-            }
+          appearance Plastic {
+            colorOverride 0.45098 0.823529 0.0862745
           }
           geometry Plane {
             size 2 0.1
@@ -2545,16 +2497,8 @@ Solid {
   translation -2.17 -0.18 0.01
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.929412 0.831373 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.929412 0.831373 0
       }
       geometry Plane {
         size 3.5 0.1
@@ -2567,16 +2511,8 @@ Solid {
   translation -6.03 7.99 0.01
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.929412 0.831373 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.929412 0.831373 0
       }
       geometry Plane {
         size 3.9 0.1
@@ -2590,16 +2526,8 @@ Solid {
   rotation 0 0 1 1.5708
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.8 0 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.8 0 0
       }
       geometry Plane {
         size 18 0.1
@@ -2613,16 +2541,8 @@ Solid {
   rotation 0 0 1 1.5708
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.8 0 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.8 0 0
       }
       geometry Plane {
         size 18 0.1
@@ -2636,16 +2556,8 @@ Solid {
   rotation 0 0 1 -3.1415853071795863
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.8 0 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.8 0 0
       }
       geometry Plane {
         size 11.5 0.1
@@ -2659,16 +2571,8 @@ Solid {
   rotation 0 0 1 -3.1415853071795863
   children [
     Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0 0 0
-          emissiveColor 0.8 0 0
-        }
-        texture ImageTexture {
-          url [
-            "textures/plastic.jpg"
-          ]
-        }
+      appearance Plastic {
+        colorOverride 0.8 0 0
       }
       geometry Plane {
         size 11.5 0.1
