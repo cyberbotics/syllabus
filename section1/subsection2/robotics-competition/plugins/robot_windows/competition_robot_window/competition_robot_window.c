@@ -45,7 +45,9 @@ double viewpoint_pos[4][3] = {{0.166, 11.9, 3.14},
                               {-4.44, 4.9, 4.56}};
 
 // Window initialization: get some robot devices.
-void wb_robot_window_init() {}
+void wb_robot_window_init() {
+  printf("TEST INIT\n");
+}
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
