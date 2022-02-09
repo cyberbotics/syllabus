@@ -31,7 +31,7 @@
 
       function play() {
         if (webotsView.toolbar) {
-          webotsView.toolbar.play();
+          webotsView.toolbar._triggerPlayPauseButton();
         }else setTimeout(function () {
           play()
         }, 100);
