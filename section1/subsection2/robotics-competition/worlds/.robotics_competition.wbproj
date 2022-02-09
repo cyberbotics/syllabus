@@ -7,3 +7,5 @@ centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: -1
 consoles: Console:All:All
+renderingDevicePerspectives: laptop(1):display;0;1;0;0
+renderingDevicePerspectives: laptop:display;0;1;0;0

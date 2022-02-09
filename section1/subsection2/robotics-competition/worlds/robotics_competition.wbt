@@ -2894,7 +2894,6 @@ DEF SPHERES2 Solid {
   boundingObject USE BALLS
 }
 Robot {
-  name "supervisor"
   supervisor TRUE
   window "competition_robot_window"
 }
