@@ -1,0 +1,11 @@
+Webots Proto Cache File version 1.5
+protoFileHash: 3639b781c42ff9103705f3fd6c8bece0
+needsRobotAncestor: 1
+baseType: Robot
+slotType: 
+parameters: translation,rotation,name,controller,controllerArgs,supervisor,customData,window,staticBase,handSlot
+tags: 
+license:  Apache License 2.0
+licenseUrl:  http://www.apache.org/licenses/LICENSE-2.0
+documentationUrl: 
+info: Model\sof\sthe\sT6-602S\sEpson\sScara\srobot.
