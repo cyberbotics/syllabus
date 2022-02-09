@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Streaming viewer</title>
+    <link rel="icon" type="image/png" href="webots_icon.png">
+    <style>
+      html, body {
+        padding:0;
+        margin:0;
+        height: 100%;
+      }
+      webots-view {
+        width: 100%;
+        border: 0px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="module">
+      import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
+
+      let webotsView = new WebotsView();
+      webotsView.showQuit = false;
+      document.body.appendChild(webotsView);
+      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection1/2RobotsInIndustry/worlds/industrial_example.wbt', 'x3d', false, false, play);
+
+      function play() {
+        if (webotsView.toolbar) {
+          webotsView.toolbar.play();
+        }else setTimeout(function () {
+          play()
+        }, 100);
+      }
+    </script>
+  </body>
+
+</html>
