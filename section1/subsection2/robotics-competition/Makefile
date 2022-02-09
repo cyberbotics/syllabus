@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGETS=controllers.Makefile
+TARGETS=controllers.Makefile plugins/robot_windows/competition_robot_window.Makefile
 
 .PHONY: release debug profile clean
 
