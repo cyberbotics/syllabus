@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.2500889918069786 0.0892151573320173 0.964103807626125 2.47909297232167
-  position 6.316846859466277 -3.2155719101847877 3.2512595715111057
+  orientation -0.1382577795360077 0.03866103356912961 0.9896414051974276 2.601658867268536
+  position 6.226428653392895 -2.914913119636703 2.3517541221016605
   exposure 1.7
 }
 TexturedBackground {
@@ -33,8 +33,8 @@ Floor {
   }
 }
 Robot {
-  controller "supervisor_add_items"
   supervisor TRUE
+  window "interact_with_environment"
 }
 SquareManhole {
   translation 0.560459 -1.782 -0.03
@@ -188,8 +188,9 @@ ConveyorBelt {
   speed 0.2
 }
 DEF STORAGE PlasticCrate {
-  translation 0.22 0.48 0
+  translation 0.21 0.48 0
   size 0.6 0.4 0.4
+  color 0.8 0.2 0.2
   mass 1
 }
 PlasticCrate {
