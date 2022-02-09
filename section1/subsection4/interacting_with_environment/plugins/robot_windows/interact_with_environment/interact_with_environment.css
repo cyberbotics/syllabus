@@ -27,7 +27,7 @@ button {
   font-size: 1em;
 }
 
-button:hover{
+.button-enable:hover{
   background-color: white;
   color:black;
 }

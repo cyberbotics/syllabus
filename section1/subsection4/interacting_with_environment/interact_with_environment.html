@@ -17,7 +17,7 @@
         bottom: 0px;
         left: 0px;
         height: 100%;
-        width: 30%;
+        width: 20%;
         background: white
         padding: 0px;
         margin: 0px;
@@ -25,7 +25,7 @@
       webots-view {
         position: absolute!important;
         right: 0px;
-        width: 70%;
+        width: 80%;
         border: 0px;
         margin: 0px;
       }
@@ -39,7 +39,9 @@
       let webotsView = new WebotsView();
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection4/interacting_with_environment/worlds/industrial_example.wbt', 'x3d', false, false, displayRobotWindow);
-
+      webotsView.showQuit = false;
+      webotsView.showReload = true;
+      webotsView.showReset = false;
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;

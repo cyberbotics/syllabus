@@ -13,5 +13,6 @@ window.onload = function() {
   boxButton.onclick = () => {
     window.robotWindow.send('cardboardBox');
     boxButton.disabled = true;
+    boxButton.className = 'button-disable'
   };
 };

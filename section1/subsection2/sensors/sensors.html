@@ -37,6 +37,7 @@
       import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
 
       let webotsView = new WebotsView();
+      webotsView.showQuit = false;
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, displayRobotWindow);
 
