@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DIRECTORIES=$(subst Makefile,,$(shell ls))
-TARGETS = $(DIRECTORIES:=.Makefile)
+TARGETS = AiboErs7_competition.Makefile Pioneer3at_competition.Makefile Shrimp_competition.Makefile SummitXlSteel_competition.Makefile SurveyorSrv1_competition.Makefile trackedRobot_competition.Makefile
 
 .PHONY: release debug profile clean
 

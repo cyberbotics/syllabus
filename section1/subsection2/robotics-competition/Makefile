@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGETS=plugins.robot_windows.competition_robot_window.Makefile
+TARGETS=controllers.Makefile plugins/robot_windows/competition_robot_window.Makefile
 
 .PHONY: release debug profile clean
 
@@ -20,3 +20,4 @@ release debug profile clean: $(TARGETS)
 
 %.Makefile:
 	+@echo "# make" $(MAKECMDGOALS) $(@:.Makefile=)
+	+@make -s -C $(@:.Makefile=) $(MAKECMDGOALS)
