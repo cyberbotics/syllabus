@@ -38,12 +38,12 @@ if (document.getElementsByClassName('robot-component').length !== 0) {
 buttonHandler();
 
 function buttonHandler() {
-  if (webotsView.hasScene()) {
-    if (document.getElementsByClassName('fullscreen-button').length !== 0)
-      document.getElementsByClassName('fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
-    if (document.getElementsByClassName('exit-fullscreen-button').length !== 0) {
-      document.getElementsByClassName('exit-fullscreen-button')[0].onclick = () => toggleRobotComponentFullScreen();
-      document.getElementsByClassName('exit-fullscreen-button')[0].style.display = 'none';
+  if (document.getElementById('fullscreenButton')) {
+    if (document.getElementById('fullscreenButton'))
+      document.getElementById('fullscreenButton').onclick = () => toggleRobotComponentFullScreen();
+    if (document.getElementById('partscreenButton')) {
+      document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
+      document.getElementById('partscreenButton').style.display = 'none';
     }
 
     if (document.getElementsByClassName('reset-button').length !== 0)
@@ -189,14 +189,14 @@ function updateRobotComponentDimension() {
 
 function toggleRobotComponentFullScreen(robot) {
   if (document.fullscreenElement) {
-    document.getElementsByClassName('fullscreen-button')[0].style.display = '';
-    document.getElementsByClassName('exit-fullscreen-button')[0].style.display = 'none';
+    document.getElementById('fullscreenButton').style.display = '';
+    document.getElementById('partscreenButton').style.display = 'none';
 
     if (document.exitFullscreen)
       document.exitFullscreen();
   } else {
-    document.getElementsByClassName('fullscreen-button')[0].style.display = 'none';
-    document.getElementsByClassName('exit-fullscreen-button')[0].style.display = '';
+    document.getElementById('fullscreenButton').style.display = 'none';
+    document.getElementById('partscreenButton').style.display = '';
     if (document.getElementById('robot-component').requestFullscreen) {
       document.getElementById('robot-component').requestFullscreen();
       document.addEventListener('fullscreenchange', function() {
