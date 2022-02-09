@@ -675,22 +675,22 @@ Floor {
     baseColor 0.533333 0.541176 0.521569
     baseColorMap ImageTexture {
       url [
-        "../textures/gym-floor/gym-floor.png"
+        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor.png"
       ]
     }
     roughnessMap ImageTexture {
       url [
-        "../textures/gym-floor/gym-floor-roughness.png"
+        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-roughness.png"
       ]
     }
     metalnessMap ImageTexture {
       url [
-        "../textures/gym-floor/gym-floor-metalness.png"
+        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-metalness.png"
       ]
     }
     normalMap ImageTexture {
       url [
-        "../textures/gym-floor/gym-floor-normal.png"
+        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-normal.png"
       ]
     }
   }
