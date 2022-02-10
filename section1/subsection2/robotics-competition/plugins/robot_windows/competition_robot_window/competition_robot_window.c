@@ -74,6 +74,7 @@ void wb_robot_window_step(int time_step) {
       // char robot_node_content[0x255];
       // char controllerArgs[0x100];
 
+
       if (strcmp(robot_name, "AiboErs7") == 0)
         robot_node_def = "R0";
       else if (strcmp(robot_name, "Mavic2Pro") == 0)

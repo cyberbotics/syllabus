@@ -6,6 +6,5 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 0 "plugins/robot_windows/competition_robot_window/competition_robot_window.c"
-robotWindow: robot
 globalOptionalRendering: CoordinateSystem
 consoles: Console:All:All
