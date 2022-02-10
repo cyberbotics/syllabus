@@ -9,11 +9,13 @@ window.onload = function() {
     window.robotWindow.send('storage');
     storageButton.disabled = true;
     storageButton.className = 'button-disable';
+    storageButton.style.color = 'grey';
   };
   let boxButton = document.getElementById('cardboardBox');
   boxButton.onclick = () => {
     window.robotWindow.send('cardboardBox');
     boxButton.disabled = true;
     boxButton.className = 'button-disable';
+    boxButton.style.color = 'grey';
   };
 };
