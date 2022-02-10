@@ -80,7 +80,7 @@ Robot {
                   appearance PBRAppearance {
                     baseColorMap ImageTexture {
                       url [
-                        "webots://projects/samples/devices/worlds/textures/tank_wheel.jpg"
+                        "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
                       ]
                     }
                     roughness 1
@@ -128,7 +128,7 @@ Robot {
                   appearance PBRAppearance {
                     baseColorMap ImageTexture {
                       url [
-                        "webots://projects/samples/devices/worlds/textures/tank_wheel.jpg"
+                        "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
                       ]
                     }
                     roughness 1

@@ -98,6 +98,12 @@ void wb_robot_window_step(int time_step) {
       } else if (challenge_number == 1) {
         newTranslation[0] = -6.1;
         newTranslation[1] = 8.28;
+      } else if (challenge_number == 2) {
+        newTranslation[0] = -7.24;
+        newTranslation[1] = -0.4;
+      } else if (challenge_number == 3) {
+        newTranslation[0] = -2.17 ;
+        newTranslation[1] = 0.44;
       }
 
       newTranslation[2] = 0.334;
