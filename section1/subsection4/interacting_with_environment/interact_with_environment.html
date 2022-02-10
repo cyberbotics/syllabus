@@ -59,7 +59,6 @@
              document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
              document.getElementById('partscreenButton').style.display = 'none';
            }
-           autoPlay();
            console.log(serverUrl);
         }else
           setTimeout(() => displayRobotWindow(), 100);
@@ -79,13 +78,6 @@
             document.body.requestFullscreen();
           }
         }
-      }
-
-      function autoPlay(){
-        if (webotsView.toolbar)
-          webotsView.toolbar._triggerPlayPauseButton();
-        else
-          setTimeout(() => autoPlay(), 100);
       }
     </script>
   </body>
