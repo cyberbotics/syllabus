@@ -23,8 +23,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation 0.2412319619618615 0.1874844909425518 -0.9521852268251398 1.8674074739306727
-  position 2.1786307253203967 27.283778011717093 15.06060329442559
+  orientation 0.17572011686373765 0.12830336496573372 -0.9760433838041545 1.9032411246002692
+  position 0.9757067765591338 18.431593552897027 6.53959706343524
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -668,33 +668,65 @@ Wall {
     }
   }
 }
-Floor {
+Solid {
   translation -3.8 0 0
-  size 14.6 22.6
-  tileSize 3 3
-  appearance PBRAppearance {
-    baseColor 0.533333 0.541176 0.521569
-    baseColorMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor.png"
-      ]
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.533333 0.541176 0.521569
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor.png"
+          ]
+        }
+        roughnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-roughness.png"
+          ]
+        }
+        metalnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-metalness.png"
+          ]
+        }
+        normalMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-normal.png"
+          ]
+        }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -7.3 -11.3 0
+            7.3 -11.3 0
+            -7.3 11.3 0
+            7.3 11.3 0
+          ]
+        }
+        texCoord TextureCoordinate {
+          point [
+            0 0
+            4.866666666666666 0
+            0 7.533333333333334
+            4.866666666666666 7.533333333333334
+          ]
+        }
+        coordIndex [
+          2, 0, 1, 3, -1
+        ]
+        texCoordIndex [
+          2, 0, 1, 3, -1
+        ]
+      }
     }
-    roughnessMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-roughness.png"
-      ]
-    }
-    metalnessMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-metalness.png"
-      ]
-    }
-    normalMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-normal.png"
-      ]
-    }
+  ]
+  name "floor"
+  model "floor"
+  boundingObject Box {
+    size 14.6 22.6 0.1
   }
+  locked TRUE
 }
 Wall {
   translation 3.575 -0.682 0
@@ -979,7 +1011,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.001000041841945909 7.125087186921064e-09 0
+        translation -0.001000046913696928 7.988734118669072e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1083,7 +1115,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999769686566 0.8799999931366794 0
+        translation -0.000999999741769786 0.8799999923047618 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1310,7 +1342,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.001000010547912461 -3.3087133033404825e-09 0
+      hidden translation_5 0.0010000127115868118 -3.98742372453853e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1844,7 +1876,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -6.973512323149578e-09 1.195459953251543e-09 0
+        translation -1.2045157649076543e-08 2.06488537379812e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1948,7 +1980,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999769686566 0.8799999931366941 0
+        translation -0.000999999741769786 0.8799999923047782 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2903,26 +2935,30 @@ AdvertisingBoard {
   rotation 0 0 -1 -1.5708053071795867
 }
 DEF R0 AiboErs7 {
-  translation 1000 1000 0.143
+  translation 1008 1008 0.143
   controller "AiboErs7_competition"
 }
 DEF R1 Mavic2Pro {
-  translation 1001 1001 0
+  translation 1000 1000 0
   controller "Mavic2Pro_competition"
 }
 DEF R2 Nao {
-  translation 1002 1002 0.334
+  translation 1001 1001 0.334
   controller "Nao_competition"
 }
 DEF R3 Pioneer3at {
-  translation 1003 1003 0
+  translation 1002 1002 0.1
   controller "Pioneer3at_competition"
 }
 DEF R4 Shrimp {
-  translation 1004 1004 0
+  translation 1003 1003 0
   controller "Shrimp_competition"
 }
+DEF R5 SummitXlSteel {
+  translation 1004 1004 0.118
+  controller "SummitXlSteel_competition"
+}
 DEF R6 trackedRobot {
-  translation 1007 1007 0.25
+  translation 1006 1006 0.25
   controller "trackedRobot_competition"
 }
