@@ -91,7 +91,11 @@ void wb_robot_window_step(int time_step) {
         robot_node_def = "R6";
 
       double newRotation[4] = {0, 0, 1, -1.5708 };
-      double newTranslation[3] = {0, 0, 0};
+      double newTranslation[3] = {-1000, -1000, -10};
+      if (current_robot_node) {
+        WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
+        wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
+      }
 
       if (challenge_number == 0) {
         newTranslation[0] = -2.05;
