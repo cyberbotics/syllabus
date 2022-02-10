@@ -1011,7 +1011,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.001000046913696928 7.988734118669072e-09 0
+        translation -0.0010000475476658055 8.096689985137573e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1115,7 +1115,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999741769786 0.8799999923047618 0
+        translation -0.0009999997382801884 0.8799999922007721 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1342,7 +1342,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000127115868118 -3.98742372453853e-09 0
+      hidden translation_5 0.0010000129820461334 -4.072262527188286e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1876,7 +1876,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -1.2045157649076543e-08 2.06488537379812e-09 0
+        translation -1.2679113314817414e-08 2.173563551366442e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1980,7 +1980,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999741769786 0.8799999923047782 0
+        translation -0.0009999997382801884 0.8799999922007887 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2957,8 +2957,4 @@ DEF R4 Shrimp {
 DEF R5 SummitXlSteel {
   translation 1004 1004 0.118
   controller "SummitXlSteel_competition"
-}
-DEF R6 trackedRobot {
-  translation 1006 1006 0.25
-  controller "trackedRobot_competition"
 }
