@@ -42,8 +42,9 @@
     let webotsView = new WebotsView();
     document.body.appendChild(webotsView);
     webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection2/robotics-competition/worlds/robotics_competition.wbt', 'x3d', false, false, displayRobotWindow);
+    webotsView.showPlay = false;
+    webotsView.showReset = false;
     webotsView.showQuit = false;
-    webotsView.showReload = true;
     webotsView.showReset = false;
     function displayRobotWindow() {
       if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
@@ -62,9 +63,10 @@
           document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
           document.getElementById('partscreenButton').style.display = 'none';
         }
+        autoPlay();
         console.log(serverUrl)
       } else setTimeout(function () {
-        getPrefix()
+        displayRobotWindow()
       }, 100);
     }
 
@@ -82,6 +84,13 @@
           document.body.requestFullscreen();
         }
       }
+    }
+
+    function autoPlay(){
+      if (webotsView.toolbar)
+        webotsView.toolbar._triggerPlayPauseButton();
+      else
+        setTimeout(() => autoPlay(), 100);
     }
   </script>
 </body>
