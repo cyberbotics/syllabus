@@ -113,8 +113,12 @@ void wb_robot_window_step(int time_step) {
 
       newTranslation[2] = 0.334;
 
-      printf("SALUT%s\n", robot_node_def);
       current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
+
+      WbFieldRef custom_data_field =
+          wb_supervisor_node_get_field(current_robot_node, "customData");
+      wb_supervisor_field_set_sf_string(custom_data_field, "start");
+
       WbFieldRef rotation = wb_supervisor_node_get_field(current_robot_node, "rotation");
       wb_supervisor_field_set_sf_rotation(rotation, newRotation);
       WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
@@ -199,8 +203,7 @@ void wb_robot_window_step(int time_step) {
 
     wb_supervisor_set_label(1, "", 0, 0.1, 0.1, 0x00ff00, 0.2, "Impact");
     WbNodeRef robot_node = wb_supervisor_node_get_from_def(robot_node_def);
-    WbFieldRef custom_data_field =
-        wb_supervisor_node_get_field(robot_node, "customData");
+    WbFieldRef custom_data_field = wb_supervisor_node_get_field(robot_node, "customData");
     const double *robot_position = wb_supervisor_node_get_position(robot_node);
     char answer[0x100];
     // if the robot reaches the target goal, stop the robot.

@@ -64,8 +64,6 @@ int main() {
       wb_motor_set_velocity(motor_fr, 0);
       wb_motor_set_velocity(motor_bl, 0);
       wb_motor_set_velocity(motor_br, 0);
-      wb_robot_cleanup();
-      return 0;
     }
   }
 }
