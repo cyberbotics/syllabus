@@ -25,6 +25,7 @@
 static bool play_simulation = false;
 int challenge_number = 0;
 double prev_remaining_distance = 0;
+bool newStart = false;
 int count = 0;
 int max_count = 0;
 bool init = false;
@@ -49,7 +50,6 @@ double viewpoint_pos[4][3] = {{0.166, 11.9, 3.14},
 
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
-  printf("TEST INIT\n");
 }
 
 // A simulation step occurred.
@@ -118,13 +118,14 @@ void wb_robot_window_step(int time_step) {
       WbFieldRef custom_data_field =
           wb_supervisor_node_get_field(current_robot_node, "customData");
       wb_supervisor_field_set_sf_string(custom_data_field, "start");
-
       WbFieldRef rotation = wb_supervisor_node_get_field(current_robot_node, "rotation");
       wb_supervisor_field_set_sf_rotation(rotation, newRotation);
       WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
       wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
       wb_supervisor_node_reset_physics(current_robot_node);
       wb_supervisor_node_restart_controller(current_robot_node);
+
+      newStart = true;
       // if (strcmp(robot_name, "Shrimp") == 0 && challenge_number == 2) {
       //   printf("success\n");
       //   robot_node_def = "R4";
@@ -200,7 +201,6 @@ void wb_robot_window_step(int time_step) {
   }
 
   if (play_simulation) {
-
     wb_supervisor_set_label(1, "", 0, 0.1, 0.1, 0x00ff00, 0.2, "Impact");
     WbNodeRef robot_node = wb_supervisor_node_get_from_def(robot_node_def);
     WbFieldRef custom_data_field = wb_supervisor_node_get_field(robot_node, "customData");
@@ -210,12 +210,15 @@ void wb_robot_window_step(int time_step) {
     double remaining_distance = fabs(
         robot_position[1] - challenge_target_position[challenge_number][1]);
     if (remaining_distance < 0.2) {
-      play_simulation = false;
-      wb_supervisor_set_label(1, "Challenge achieved successfully!", 0, 0.1,
-                              0.1, 0x00ff00, 0.2, "Impact");
-      wb_robot_wwi_send_text("success");
-
-      wb_supervisor_field_set_sf_string(custom_data_field, "stop");
+      if (newStart)
+        newStart = false;
+      else {
+        play_simulation = false;
+        wb_supervisor_set_label(1, "Challenge achieved successfully!", 0, 0.1,
+                                0.1, 0x00ff00, 0.2, "Impact");
+        wb_robot_wwi_send_text("success");
+        wb_supervisor_field_set_sf_string(custom_data_field, "stop");
+      }
     }
     if (fabs(prev_remaining_distance - remaining_distance) < 0.00001) {
       count++;

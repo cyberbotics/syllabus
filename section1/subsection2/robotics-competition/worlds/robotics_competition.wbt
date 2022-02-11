@@ -455,11 +455,13 @@ TrafficCone {
 }
 Laptop {
   translation 1.84376 1.88259 0.7
+  controller ""
 }
 Laptop {
   translation 1.94376 0.12259 0.69
   rotation 0 0 1 -0.261795307179586
   name "laptop(1)"
+  controller ""
 }
 Cabinet {
   translation -9.5777 -11.1117 0
@@ -1011,7 +1013,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000475476658055 8.096689985137573e-09 0
+        translation -0.001000048181634683 8.204645851606074e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1115,7 +1117,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999997382801884 0.8799999922007721 0
+        translation -0.000999999734790591 0.8799999920967824 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1342,7 +1344,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000129820461334 -4.072262527188286e-09 0
+      hidden translation_5 0.001000013252505455 -4.157101329838042e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1876,7 +1878,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -1.2679113314817414e-08 2.173563551366442e-09 0
+        translation -1.3313068980558285e-08 2.282241728934764e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1980,7 +1982,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999997382801884 0.8799999922007887 0
+        translation -0.000999999734790591 0.8799999920967992 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {

@@ -51,7 +51,6 @@
         let serverUrl = webotsView._view.x3dScene.prefix;
         let ws;
         ws = serverUrl.substring(4);
-        console.log(ws)
         let url = serverUrl + 'robot_windows/competition_robot_window/competition_robot_window.html?name=robot&url=' + ws;
         let iframe = document.createElement('iframe');
         iframe.src = url;
@@ -64,7 +63,6 @@
           document.getElementById('partscreenButton').style.display = 'none';
         }
         autoPlay();
-        console.log(serverUrl)
       } else setTimeout(function () {
         displayRobotWindow()
       }, 100);
