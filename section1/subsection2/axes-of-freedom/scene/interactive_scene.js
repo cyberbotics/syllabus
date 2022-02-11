@@ -46,8 +46,10 @@ function buttonHandler() {
       document.getElementById('partscreenButton').style.display = 'none';
     }
 
-    if (document.getElementsByClassName('reset-sceneButton').length !== 0)
-      document.getElementsByClassName('reset-sceneButton')[0].onclick = () => resetRobotComponent();
+    if (document.getElementById('reset-sceneButton')) {
+      document.getElementById('reset-sceneButton').onclick = () => resetRobotComponent();
+      console.log("SET")
+    }
   } else
     setTimeout(() => buttonHandler(), 100);
 }
