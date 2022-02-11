@@ -46,13 +46,9 @@
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;
-           let ws;
-           if (serverUrl.indexOf('http') === 0)
-            ws = serverUrl.substring(4);
-           else
-            ws = serverUrl.substring(5);
-           console.log(ws)
-           let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger&url=' + ws;
+           let ws = serverUrl.substring(4); //remove http
+
+           let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger&url=ws' + ws;
            let iframe = document.createElement('iframe');
            iframe.src = url;
            document.body.appendChild(iframe)

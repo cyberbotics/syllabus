@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -45,10 +44,8 @@
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;
-           let ws;
-            ws = serverUrl.substring(4);
-           console.log(ws)
-           let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot&url=' + ws;
+           let ws = serverUrl.substring(4); // remove http
+           let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot&url=ws' + ws;
            let iframe = document.createElement('iframe');
            iframe.src = url;
            document.body.appendChild(iframe)
@@ -81,5 +78,4 @@
       }
     </script>
   </body>
-
 </html>
