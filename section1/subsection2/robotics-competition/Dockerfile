@@ -1,1 +1,1 @@
-FROM benjamindeleze/webots-test:webotsTest1
+FROM benjamindeleze/webots-test:webotsNumpy
