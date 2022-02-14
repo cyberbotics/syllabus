@@ -23,8 +23,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation 0.17572011686373765 0.12830336496573372 -0.9760433838041545 1.9032411246002692
-  position 0.9757067765591338 18.431593552897027 6.53959706343524
+  orientation -0.252234842837706 -0.15370172722537762 0.9553812658339984 4.196005851513827
+  position 3.1077350924025335 18.97559259748094 9.228145768336594
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -118,7 +118,7 @@ DEF STAIRS_CHALLENGE Transform {
       name "youBot flag(3)"
     }
     Solid {
-      translation -7.85 -6.08 0.01
+      translation -7.85 -6.08 0.001
       children [
         Shape {
           appearance Plastic {
@@ -132,7 +132,7 @@ DEF STAIRS_CHALLENGE Transform {
       name "line1(3)"
     }
     Solid {
-      translation -7.8 -0.43 0.01
+      translation -7.8 -0.43 0.001
       children [
         Shape {
           appearance Plastic {
@@ -220,23 +220,23 @@ DEF STAIRS_CHALLENGE Transform {
               ]
             }
             Transform {
-              translation 0 0.16 0
+              translation 0 0.14 0
               children [
                 Shape {
                   appearance USE OBJECTS_APPEARANCE
                   geometry Box {
-                    size 3 0.12 3.5
+                    size 3 0.08 3.5
                   }
                 }
               ]
             }
             Transform {
-              translation 0 0.295 0
+              translation 0 0.225 0
               children [
                 Shape {
                   appearance USE OBJECTS_APPEARANCE
                   geometry Box {
-                    size 3 0.15 2
+                    size 3 0.09 2
                   }
                 }
               ]
@@ -725,8 +725,13 @@ Solid {
   ]
   name "floor"
   model "floor"
-  boundingObject Box {
-    size 14.6 22.6 0.1
+  boundingObject Transform {
+    translation 0 0 -0.05
+    children [
+      Box {
+        size 14.6 22.6 0.1
+      }
+    ]
   }
   locked TRUE
 }
@@ -1013,7 +1018,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.001000048181634683 8.204645851606074e-09 0
+        translation -0.0010000545213234568 9.284204516291084e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1117,7 +1122,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999734790591 0.8799999920967824 0
+        translation -0.000999999699894616 0.8799999910568853 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1344,7 +1349,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.001000013252505455 -4.157101329838042e-09 0
+      hidden translation_5 0.0010000151457207063 -4.750972948386334e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1878,7 +1883,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -1.3313068980558285e-08 2.282241728934764e-09 0
+        translation -1.9652625637966992e-08 3.369023504617985e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1982,7 +1987,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999734790591 0.8799999920967992 0
+        translation -0.000999999699894616 0.8799999910569044 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2448,7 +2453,7 @@ Transform {
       boundingObject USE SIDE_3
     }
     DEF VIEWPOINT_0 Solid {
-      translation 0 7.99 0.01
+      translation 0 7.99 0.001
       children [
         Shape {
           appearance Plastic {
@@ -2462,7 +2467,7 @@ Transform {
       name "line1"
     }
     Solid {
-      translation 0 4.35 0.01
+      translation 0 4.35 0.001
       children [
         Shape {
           appearance Plastic {
@@ -2476,7 +2481,7 @@ Transform {
       name "line1(1)"
     }
     Solid {
-      translation -4.22 0.7 0.01
+      translation -4.22 0.7 0.001
       children [
         Shape {
           appearance Plastic {
@@ -2515,7 +2520,7 @@ YoubotFlag {
   name "youBot flag(2)"
 }
 Solid {
-  translation -2.17 -0.18 0.01
+  translation -2.17 -0.18 0.001
   children [
     Shape {
       appearance Plastic {
@@ -2529,7 +2534,7 @@ Solid {
   name "line3"
 }
 Solid {
-  translation -6.03 7.99 0.01
+  translation -6.03 7.99 0.001
   children [
     Shape {
       appearance Plastic {
@@ -2543,7 +2548,7 @@ Solid {
   name "line2"
 }
 Solid {
-  translation -9.54 0.390003 0.01
+  translation -9.54 0.390003 0.001
   rotation 0 0 1 1.5708
   children [
     Shape {
@@ -2558,7 +2563,7 @@ Solid {
   name "line_RED_1"
 }
 Solid {
-  translation 1.95 0.390035 0.01
+  translation 1.95 0.390035 0.001
   rotation 0 0 1 1.5708
   children [
     Shape {
@@ -2573,7 +2578,7 @@ Solid {
   name "line_RED_1(1)"
 }
 Solid {
-  translation -3.81 9.33003 0.01
+  translation -3.81 9.33003 0.001
   rotation 0 0 1 -3.1415853071795863
   children [
     Shape {
@@ -2588,7 +2593,7 @@ Solid {
   name "line_RED_1(2)"
 }
 Solid {
-  translation -3.80989 -8.56997 0.01
+  translation -3.80989 -8.56997 0.001
   rotation 0 0 1 -3.1415853071795863
   children [
     Shape {
@@ -2677,7 +2682,7 @@ DEF RAMP Solid {
   boundingObject USE RAMPE
 }
 DEF SPHERES Solid {
-  translation -8.14665 -3.6702 0.23998
+  translation -8.14665 -3.6702 0.10998
   rotation -1 1.88117e-06 1.19872e-08 -1.5707953071795862
   children [
     DEF BALLS Group {
@@ -2785,7 +2790,7 @@ DEF SPHERES Solid {
   boundingObject USE BALLS
 }
 DEF SPHERES2 Solid {
-  translation -7.51665 -3.2602 0.23998
+  translation -7.51665 -3.2602 0.09998
   rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 -2.094395307179586
   children [
     DEF BALLS Group {
@@ -2939,24 +2944,37 @@ AdvertisingBoard {
 DEF R0 AiboErs7 {
   translation 1008 1008 0.143
   controller "AiboErs7_competition"
+  customData "start"
 }
 DEF R1 Mavic2Pro {
   translation 1000 1000 0
   controller "Mavic2Pro_competition"
+  controllerArgs [
+    ""
+  ]
+  customData "stop"
 }
 DEF R2 Nao {
   translation 1001 1001 0.334
   controller "Nao_competition"
+  customData "start"
 }
 DEF R3 Pioneer3at {
   translation 1002 1002 0.1
   controller "Pioneer3at_competition"
+  customData "stop"
 }
 DEF R4 Shrimp {
   translation 1003 1003 0
   controller "Shrimp_competition"
+  customData "start"
 }
 DEF R5 SummitXlSteel {
   translation 1004 1004 0.118
   controller "SummitXlSteel_competition"
+  customData "stop"
+}
+DEF R6 trackedRobot {
+  translation 1006 1006 0.25
+  controller "trackedRobot_competition"
 }

@@ -136,6 +136,8 @@ class Mavic (Robot):
 
         point_list = options.patrol_coords.split(',')
         number_of_waypoints = len(point_list)
+        if number_of_waypoints == 4:
+            return
         waypoints = []
         for i in range(0, number_of_waypoints):
             waypoints.append([])

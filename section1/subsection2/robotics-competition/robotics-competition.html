@@ -49,9 +49,8 @@
     function displayRobotWindow() {
       if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
         let serverUrl = webotsView._view.x3dScene.prefix;
-        let ws;
-        ws = serverUrl.substring(4);
-        let url = serverUrl + 'robot_windows/competition_robot_window/competition_robot_window.html?name=robot&url=' + ws;
+        let ws = serverUrl.substring(4); // remove http
+        let url = serverUrl + 'robot_windows/competition_robot_window/competition_robot_window.html?name=robot&url=ws' + ws;
         let iframe = document.createElement('iframe');
         iframe.src = url;
         document.body.appendChild(iframe)

@@ -258,11 +258,11 @@ Robot {
               metalness 0
             }
             geometry Box {
-              size 0.044 0.005 0.09
+              size 0.044 0.09 0.005
             }
           }
           Transform {
-            translation 0 0.009 0
+            translation 0 0 0.003
             children [
               Shape {
                 appearance PBRAppearance {
@@ -271,7 +271,7 @@ Robot {
                   metalness 0
                 }
                 geometry Box {
-                  size 0.02 0.018 0.09
+                  size 0.02 0.09 0.011
                 }
               }
             ]

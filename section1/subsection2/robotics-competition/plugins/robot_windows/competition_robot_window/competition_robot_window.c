@@ -31,11 +31,9 @@ int max_count = 0;
 bool init = false;
 int current_robot = -1;
 WbNodeRef current_robot_node;
-char* robot_node_def;
+char *robot_node_def;
+char *old_robot_node_def;
 
-const char *challenge_start_position[] = {"-2.05 8.28 0.334", "-6.1 8.28 0.334",
-                                          "-7.24 -0.4 0.334",
-                                          "-2.17 0.44 0.334"};
 double challenge_target_position[4][2] = {
     {-1.81, 3.98}, {-6, 0.39}, {-7.85, -6.2}, {-1.5, -4.37}};
 
@@ -49,8 +47,7 @@ double viewpoint_pos[4][3] = {{0.166, 11.9, 3.14},
                               {-4.44, 4.9, 4.56}};
 
 // Window initialization: get some robot devices.
-void wb_robot_window_init() {
-}
+void wb_robot_window_init() {}
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
@@ -63,38 +60,48 @@ void wb_robot_window_step(int time_step) {
       char *robot_name = strtok(data, s);
       challenge_number = atoi(strtok(NULL, s));
 
-      // remove previous robot
-      // WbNodeRef old_robot_node = wb_supervisor_node_get_from_def("MY_ROBOT");
-      // if (old_robot_node) {
-        // wb_supervisor_node_remove(old_robot_node);
-      // }
+      char controllerArgs[0x100];
 
-      // load the robot in front of the given challenge number with its
-      // controller
-      // char robot_node_content[0x255];
-      // char controllerArgs[0x100];
-
-
-      if (strcmp(robot_name, "AiboErs7") == 0)
-        robot_node_def = "R0";
-      else if (strcmp(robot_name, "Mavic2Pro") == 0)
-        robot_node_def = "R1";
-      else if (strcmp(robot_name, "Nao") == 0)
-        robot_node_def = "R2";
-      else if (strcmp(robot_name, "Pioneer3at") == 0)
-        robot_node_def = "R3";
-      else if (strcmp(robot_name, "Shrimp") == 0)
-        robot_node_def = "R4";
-      else if (strcmp(robot_name, "SummitXlSteel") == 0)
-        robot_node_def = "R5";
-      else if (strcmp(robot_name, "trackedRobot") == 0)
-        robot_node_def = "R6";
-
-      double newRotation[4] = {0, 0, 1, -1.5708 };
       double newTranslation[3] = {-1000, -1000, -10};
+      double newRotation[4] = {0, 0, 1, -1.5708};
+      old_robot_node_def = robot_node_def;
+      if (strcmp(robot_name, "AiboErs7") == 0) {
+        robot_node_def = "R0";
+        newTranslation[2] = 0.153;
+      } else if (strcmp(robot_name, "Mavic2Pro") == 0) {
+        robot_node_def = "R1";
+        sprintf(controllerArgs, "--patrol_coords=%f %f",
+                challenge_target_position[challenge_number][0],
+                challenge_target_position[challenge_number][1]);
+        newTranslation[2] = 0.15;
+      } else if (strcmp(robot_name, "Nao") == 0) {
+        robot_node_def = "R2";
+        newTranslation[2] = 0.334;
+      } else if (strcmp(robot_name, "Pioneer3at") == 0) {
+        robot_node_def = "R3";
+        newTranslation[2] = 0.05;
+      } else if (strcmp(robot_name, "Shrimp") == 0) {
+        robot_node_def = "R4";
+        newTranslation[2] = 0.1;
+        newRotation[3] = -1.5708;
+      } else if (strcmp(robot_name, "SummitXlSteel") == 0) {
+        robot_node_def = "R5";
+        newTranslation[2] = 0.118;
+      } else if (strcmp(robot_name, "trackedRobot") == 0) {
+        robot_node_def = "R6";
+        newTranslation[2] = 0.334;
+      }
+
       if (current_robot_node) {
-        WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
+        WbFieldRef translation =
+            wb_supervisor_node_get_field(current_robot_node, "translation");
         wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
+        if (strcmp(old_robot_node_def, "R1") == 0) {
+          WbFieldRef controller_args = wb_supervisor_node_get_field(
+              current_robot_node, "controllerArgs");
+          wb_supervisor_field_set_mf_string(controller_args, -1, "");
+          wb_supervisor_node_restart_controller(current_robot_node);
+        }
       }
 
       if (challenge_number == 0) {
@@ -107,65 +114,30 @@ void wb_robot_window_step(int time_step) {
         newTranslation[0] = -7.24;
         newTranslation[1] = -0.4;
       } else if (challenge_number == 3) {
-        newTranslation[0] = -2.17 ;
+        newTranslation[0] = -2.17;
         newTranslation[1] = 0.44;
       }
 
-      newTranslation[2] = 0.334;
-
       current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
-
+      if (strcmp(robot_name, "Mavic2Pro") == 0) {
+        WbFieldRef controller_args =
+            wb_supervisor_node_get_field(current_robot_node, "controllerArgs");
+        wb_supervisor_field_set_mf_string(controller_args, -1, controllerArgs);
+      }
       WbFieldRef custom_data_field =
           wb_supervisor_node_get_field(current_robot_node, "customData");
       wb_supervisor_field_set_sf_string(custom_data_field, "start");
-      WbFieldRef rotation = wb_supervisor_node_get_field(current_robot_node, "rotation");
+      WbFieldRef rotation =
+          wb_supervisor_node_get_field(current_robot_node, "rotation");
       wb_supervisor_field_set_sf_rotation(rotation, newRotation);
-      WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
+      WbFieldRef translation =
+          wb_supervisor_node_get_field(current_robot_node, "translation");
       wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
       wb_supervisor_node_reset_physics(current_robot_node);
       wb_supervisor_node_restart_controller(current_robot_node);
 
       newStart = true;
-      // if (strcmp(robot_name, "Shrimp") == 0 && challenge_number == 2) {
-      //   printf("success\n");
-      //   robot_node_def = "R4";
-      //   current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
-      //   double newRotation[4] = {0, 0, 1, -1.82 };
-      //   double newTranslation[3] = {-6.1, 8.28, 0.334};
-      //   WbFieldRef rotation = wb_supervisor_node_get_field(current_robot_node, "rotation");
-      //   wb_supervisor_field_set_sf_rotation(rotation, newRotation);
-      //   WbFieldRef translation = wb_supervisor_node_get_field(current_robot_node, "translation");
-      //   wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
-      //   wb_supervisor_node_reset_physics(current_robot_node);
-      //   wb_supervisor_node_restart_controller(current_robot_node);
-      //
-      //   // sprintf(robot_node_content,
-      //           // "DEF MY_ROBOT %s { translation %s rotation 0 0 1 -1.82 "
-      //           // "controller \"%s_competition\" }",
-      //           // robot_name, challenge_start_position[challenge_number],
-      //           // robot_name);
-      // } else if (strcmp(robot_name, "AiboErs7") == 0 && challenge_number == 1) {
-      //   sprintf(robot_node_content,
-      //           "DEF MY_ROBOT %s { translation %s rotation 0 0 1 -1.6 "
-      //           "controller \"%s_competition\" }",
-      //           robot_name, challenge_start_position[challenge_number],
-      //           robot_name);
-      // } else if (strcmp(robot_name, "Mavic2Pro") == 0) {
-      //   sprintf(controllerArgs,
-      //           " controllerArgs [ \"--patrol_coords\" \"%f %f\" ]",
-      //           challenge_target_position[challenge_number][0],
-      //           challenge_target_position[challenge_number][1]);
-      //   sprintf(robot_node_content,
-      //           "DEF MY_ROBOT %s { translation %s rotation 0 0 1 -1.5708 "
-      //           "controller \"%s_competition\" %s }",
-      //           robot_name, challenge_start_position[challenge_number],
-      //           robot_name, controllerArgs);
-      // } else
-      //   sprintf(robot_node_content,
-      //           "DEF MY_ROBOT %s { translation %s rotation 0 0 1 -1.5708 "
-      //           "controller \"%s_competition\" }",
-      //           robot_name, challenge_start_position[challenge_number],
-      //           robot_name);
+
       if (strcmp(robot_name, "AiboErs7") == 0 && challenge_number == 2)
         max_count = 60;
       else if (strcmp(robot_name, "Nao") == 0 && challenge_number > 0)
@@ -173,23 +145,17 @@ void wb_robot_window_step(int time_step) {
       else
         max_count = 500;
 
-      // WbNodeRef root_node = wb_supervisor_node_get_root();
-      // WbFieldRef children_field =
-      //     wb_supervisor_node_get_field(root_node, "children");
-      // wb_supervisor_field_import_mf_node_from_string(children_field, -1,
-      //                                                robot_node_content);
-      //
-      // WbNodeRef viewpoint_node = wb_supervisor_node_get_from_def("VIEWPOINT");
-      // wb_supervisor_node_move_viewpoint(viewpoint_node);
-      //
-      // WbFieldRef viewpoint_orient_field =
-      //     wb_supervisor_node_get_field(viewpoint_node, "orientation");
-      // WbFieldRef viewpoint_pos_field =
-      //     wb_supervisor_node_get_field(viewpoint_node, "position");
-      // wb_supervisor_field_set_sf_rotation(viewpoint_orient_field,
-      //                                     viewpoint_orient[challenge_number]);
-      // wb_supervisor_field_set_sf_vec3f(viewpoint_pos_field,
-      //                                  viewpoint_pos[challenge_number]);
+      WbNodeRef viewpoint_node = wb_supervisor_node_get_from_def("VIEWPOINT");
+      wb_supervisor_node_move_viewpoint(viewpoint_node);
+
+      WbFieldRef viewpoint_orient_field =
+          wb_supervisor_node_get_field(viewpoint_node, "orientation");
+      WbFieldRef viewpoint_pos_field =
+          wb_supervisor_node_get_field(viewpoint_node, "position");
+      wb_supervisor_field_set_sf_rotation(viewpoint_orient_field,
+                                          viewpoint_orient[challenge_number]);
+      wb_supervisor_field_set_sf_vec3f(viewpoint_pos_field,
+                                       viewpoint_pos[challenge_number]);
 
     } else
       fprintf(stderr, "Unkown message: '%s'\n", message);
@@ -203,7 +169,8 @@ void wb_robot_window_step(int time_step) {
   if (play_simulation) {
     wb_supervisor_set_label(1, "", 0, 0.1, 0.1, 0x00ff00, 0.2, "Impact");
     WbNodeRef robot_node = wb_supervisor_node_get_from_def(robot_node_def);
-    WbFieldRef custom_data_field = wb_supervisor_node_get_field(robot_node, "customData");
+    WbFieldRef custom_data_field =
+        wb_supervisor_node_get_field(robot_node, "customData");
     const double *robot_position = wb_supervisor_node_get_position(robot_node);
     char answer[0x100];
     // if the robot reaches the target goal, stop the robot.
