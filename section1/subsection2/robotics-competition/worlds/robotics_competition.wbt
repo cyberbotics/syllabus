@@ -220,23 +220,23 @@ DEF STAIRS_CHALLENGE Transform {
               ]
             }
             Transform {
-              translation 0 0.14 0
+              translation 0 0.16 0
               children [
                 Shape {
                   appearance USE OBJECTS_APPEARANCE
                   geometry Box {
-                    size 3 0.08 3.5
+                    size 3 0.12 3.5
                   }
                 }
               ]
             }
             Transform {
-              translation 0 0.225 0
+              translation 0 0.295 0
               children [
                 Shape {
                   appearance USE OBJECTS_APPEARANCE
                   geometry Box {
-                    size 3 0.09 2
+                    size 3 0.15 2
                   }
                 }
               ]
@@ -1018,7 +1018,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000545213234568 9.284204516291084e-09 0
+        translation -0.0010000551552923342 9.392160382759585e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1122,7 +1122,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999699894616 0.8799999910568853 0
+        translation -0.0009999996964050184 0.8799999909528956 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1349,7 +1349,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000151457207063 -4.750972948386334e-09 0
+      hidden translation_5 0.0010000154161800279 -4.83581175103609e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1883,7 +1883,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -1.9652625637966992e-08 3.369023504617985e-09 0
+        translation -2.0286581303707862e-08 3.477701682186307e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1987,7 +1987,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.000999999699894616 0.8799999910569044 0
+        translation -0.0009999996964050184 0.8799999909529149 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2682,7 +2682,7 @@ DEF RAMP Solid {
   boundingObject USE RAMPE
 }
 DEF SPHERES Solid {
-  translation -8.14665 -3.6702 0.10998
+  translation -8.14665 -3.6702 0.23998
   rotation -1 1.88117e-06 1.19872e-08 -1.5707953071795862
   children [
     DEF BALLS Group {
@@ -2790,7 +2790,7 @@ DEF SPHERES Solid {
   boundingObject USE BALLS
 }
 DEF SPHERES2 Solid {
-  translation -7.51665 -3.2602 0.09998
+  translation -7.51665 -3.2602 0.23998
   rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 -2.094395307179586
   children [
     DEF BALLS Group {
