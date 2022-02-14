@@ -113,6 +113,13 @@ void wb_robot_window_step(int time_step) {
       } else if (challenge_number == 2) {
         newTranslation[0] = -7.24;
         newTranslation[1] = -0.4;
+
+        if (strcmp(robot_name, "Shrimp") == 0) {
+          newRotation[0] = 0;
+          newRotation[1] = 0;
+          newRotation[2] = 1;
+          newRotation[3] = -1.82;
+        }
       } else if (challenge_number == 3) {
         newTranslation[0] = -2.17;
         newTranslation[1] = 0.44;
@@ -124,6 +131,7 @@ void wb_robot_window_step(int time_step) {
             wb_supervisor_node_get_field(current_robot_node, "controllerArgs");
         wb_supervisor_field_set_mf_string(controller_args, -1, controllerArgs);
       }
+
       WbFieldRef custom_data_field =
           wb_supervisor_node_get_field(current_robot_node, "customData");
       wb_supervisor_field_set_sf_string(custom_data_field, "start");
@@ -190,8 +198,8 @@ void wb_robot_window_step(int time_step) {
     if (fabs(prev_remaining_distance - remaining_distance) < 0.00001) {
       count++;
     }
-    if (count > max_count) { // after 500 robot step we consider that the robot
-                             // is not moving anymore.
+    if (count > max_count) { // after 500 robot step we consider that the
+                             // robot is not moving anymore.
       play_simulation = false;
       wb_supervisor_set_label(1, "Challenge failed.", 0, 0.1, 0.1, 0xff0000,
                               0.2, "Impact");

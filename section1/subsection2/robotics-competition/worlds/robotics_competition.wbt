@@ -23,8 +23,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation -0.252234842837706 -0.15370172722537762 0.9553812658339984 4.196005851513827
-  position 3.1077350924025335 18.97559259748094 9.228145768336594
+  orientation -0.24840621710706373 -0.12689307817759 0.9603085431324531 4.0537162258394925
+  position 5.937499277417875 19.870120589518628 11.940500341109269
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -1018,7 +1018,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000551552923342 9.392160382759585e-09 0
+        translation -0.0010000576911678438 9.823983848633588e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1122,7 +1122,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996964050184 0.8799999909528956 0
+        translation -0.0009999996824466284 0.8799999905369368 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1349,7 +1349,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000154161800279 -4.83581175103609e-09 0
+      hidden translation_5 0.0010000162275579927 -5.090328158985358e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1883,7 +1883,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -2.0286581303707862e-08 3.477701682186307e-09 0
+        translation -2.2822403966671345e-08 3.9124143924595955e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1987,7 +1987,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996964050184 0.8799999909529149 0
+        translation -0.0009999996824466284 0.879999990536957 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2952,7 +2952,7 @@ DEF R1 Mavic2Pro {
   controllerArgs [
     ""
   ]
-  customData "stop"
+  customData "start"
 }
 DEF R2 Nao {
   translation 1001 1001 0.334
@@ -2967,7 +2967,7 @@ DEF R3 Pioneer3at {
 DEF R4 Shrimp {
   translation 1003 1003 0
   controller "Shrimp_competition"
-  customData "start"
+  customData "stop"
 }
 DEF R5 SummitXlSteel {
   translation 1004 1004 0.118
