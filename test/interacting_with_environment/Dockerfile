@@ -1,5 +1,6 @@
 FROM benjamindeleze/webots-test:webotsTest1
-ENV tmplocation="default_tmp_value"
+ARG TMP_DEFAULT #build default
+ENV tmplocation=$TMP_DEFAULT
 #CMD ["sh", "-c", "mkdir -p ${tmplocation}"]
 CMD  ["sh", "-c", "cp . ${tmplocation}"]
 RUN mkdir -p ${tmplocation}
