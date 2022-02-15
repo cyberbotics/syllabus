@@ -1,4 +1,5 @@
 FROM benjamindeleze/webots-test:webotsTest1
-RUN apt-get update
-ENTRYPOINT [“echo”, “Hello”]
-CMD [“World”]
+ENTRYPOINT ["RUN", "mkdir", "-p"]
+CMD ["default"]
+ENTRYPOINT ["COPY", "."]
+CMD ["default"]
