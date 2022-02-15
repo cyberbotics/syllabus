@@ -1,2 +1,3 @@
-FROM benjamindeleze/webots-test:webotsTest1i9
-ENTRYPOINT [“echo”, “Hello world”]
+FROM benjamindeleze/webots-test:webotsTest1
+ENTRYPOINT [“echo”, “Hello”]
+CMD [“World”]
