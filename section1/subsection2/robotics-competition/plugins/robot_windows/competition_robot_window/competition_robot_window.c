@@ -29,6 +29,7 @@ bool newStart = false;
 int count = 0;
 int max_count = 0;
 bool init = false;
+bool send_init = false;
 int current_robot = -1;
 WbNodeRef current_robot_node;
 char *robot_node_def;
@@ -184,6 +185,7 @@ void wb_robot_window_step(int time_step) {
     // if the robot reaches the target goal, stop the robot.
     double remaining_distance = fabs(
         robot_position[1] - challenge_target_position[challenge_number][1]);
+
     if (remaining_distance < 0.2) {
       if (newStart)
         newStart = false;
@@ -208,9 +210,12 @@ void wb_robot_window_step(int time_step) {
     }
 
     if (init) {
+      send_init = true;
+      init = false;
+    } else if (send_init) {
+      send_init = false;
       sprintf(answer, "init: %f", remaining_distance);
       wb_robot_wwi_send_text(answer);
-      init = false;
     }
     // At each step, send the remained distance value to JavaScript.
     else if (remaining_distance > 0 && !isnan(remaining_distance)) {
