@@ -1,7 +1,7 @@
 FROM benjamindeleze/webots-test:webotsTest1
 ENV TMP_LOC=tmp_default
 RUN mkdir -p $TMP_LOC
-COPY . $TMP_LOC
+#COPY . $TMP_LOC
 #RUN ["mkdir", "-p", "${TMP_LOC}"]
 #COPY [".", "${TMP_LOC}"]
 #CMD ["echo", "Created"]
