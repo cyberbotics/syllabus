@@ -7,7 +7,7 @@ ENV TMP_LOC=default_tmp_value
 #CMD ["echo", "Created"]
 #ENTRYPOINT ["cp", ".", "${TMP_LOC}"]
 #CMD [ "${TMP_LOC}" ]
-#CMD ["sh", "-c", "mkdir -p ${TMP_LOC}"]
+CMD ["sh", "-c", "mkdir -p ${TMP_LOC}"]
 #CMD  ["sh", "-c", "cp . ${TMP_LOC}"]
 #CMD [ "sh", "-c", "echo hello $TMP_LOC" ]
 #RUN echo "test ${TMP_LOC}"
