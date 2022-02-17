@@ -1,6 +1,6 @@
 FROM benjamindeleze/webots-test:webotsTest1
-ARG TMP_LOC
-RUN mkdir -p $TMP_LOC
-COPY . $TMP_LOC
+ARG TMP_FOLDER
+RUN mkdir -p $TMP_FOLDER
+COPY . $TMP_FOLDER
 
 
