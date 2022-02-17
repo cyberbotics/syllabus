@@ -9,3 +9,4 @@ ENV TMP_LOC=tmp_default
 #RUN echo "test ${TMP_LOC}"
 RUN mkdir -p $TMP_LOC
 COPY . $TMP_LOC
+CMD [“echo”, ”Created”]
