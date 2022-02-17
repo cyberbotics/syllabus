@@ -1,5 +1,5 @@
 FROM benjamindeleze/webots-test:webotsTest1
-#ENV TMP_LOC=tmp_default
+ENV TMP_LOC=tmp_default
 RUN ["mkdir", "-p", "${TMP_LOC}"]
 #ENTRYPOINT ["cp", ".", "${TMP_LOC}"]
 #CMD [ "${TMP_LOC}" ]
