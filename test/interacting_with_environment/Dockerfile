@@ -8,4 +8,3 @@ CMD "Hello docker!"
 ENTRYPOINT echo
 #RUN mkdir -p ${TMP_LOC}
 #COPY . ${TMP_LOC}
-
