@@ -4,5 +4,6 @@ ENV TMP_LOC=tmp_default
 #CMD  ["sh", "-c", "cp . ${TMP_LOC}"]
 #RUN [ "sh", "-c", "echo hello $TMP_LOC" ]
 RUN echo "test ${TMP_LOC}"
+t
 #RUN mkdir -p ${TMP_LOC}
 #COPY . ${TMP_LOC}
