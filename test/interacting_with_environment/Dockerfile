@@ -1,6 +1,5 @@
 ARG TMP_LOC=INVALID
-FROM benjamindeleze/webots-test:webotsTest1:${TMP_LOC}
-ARG ${TMP_LOC}
+FROM benjamindeleze/webots-test:webotsTest1
 ENV TMP_LOCATION=${TMP_LOC}
 RUN mkdir -p $TMP_LOCATION
 COPY . $TMP_LOCATION
