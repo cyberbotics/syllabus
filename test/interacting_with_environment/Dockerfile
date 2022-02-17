@@ -4,7 +4,5 @@ ENV TMP_LOC=tmp_default
 #CMD  ["sh", "-c", "cp . ${TMP_LOC}"]
 CMD [ "sh", "-c", "echo hello $TMP_LOC" ]
 RUN echo "test ${TMP_LOC}"
-CMD "Hello docker!"
-ENTRYPOINT echo
 #RUN mkdir -p ${TMP_LOC}
 #COPY . ${TMP_LOC}
