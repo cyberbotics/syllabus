@@ -1,6 +1,6 @@
 FROM benjamindeleze/webots-test:webotsTest1
-ARG TMP_FOLDER
-RUN mkdir -p $TMP_FOLDER
-COPY . $TMP_FOLDER
+ARG TMP_PATH
+RUN mkdir -p $TMP_PATH
+COPY . $TMP_PATH
 
 
