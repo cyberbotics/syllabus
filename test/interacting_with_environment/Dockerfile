@@ -5,4 +5,4 @@ ENV TMP_LOC=tmp_default
 RUN [ "sh", "-c", "echo hello $TMP_LOC" ]
 RUN echo "test ${TMP_LOC}"
 RUN mkdir -p ${TMP_LOC}
-COPY . $ENV:TMP_LOC
+#COPY . ${TMP_LOC}
