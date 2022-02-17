@@ -1,7 +1,9 @@
-FROM benjamindeleze/webots-test:webotsTest1
-ENV TMP_LOC=default_tmp_value
-RUN mkdir -p $TMP_LOC
-COPY . $TMP_LOC
+ARG TMP_LOC=INVALID
+FROM benjamindeleze/webots-test:webotsTest1:${TMP_LOC}
+ARG ${TMP_LOC}
+ENV TMP_LOCATION=${TMP_LOC}
+RUN mkdir -p $TMP_LOCATION
+COPY . $TMP_LOCATION
 #CMD ["mkdir", "-p", "${TMP_LOC}"]
 #COPY [".", "${TMP_LOC}"]
 #CMD ["echo", "Created"]
