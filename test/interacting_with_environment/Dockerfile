@@ -1,8 +1,8 @@
 FROM benjamindeleze/webots-test:webotsTest1
 ENV TMP_LOC=tmp_default
-ENTRYPOINT ["mkdir", "-p"]
-ENTRYPOINT ["cp", "."]
-CMD [ "${TMP_LOC}" ]
+ENTRYPOINT ["mkdir", "-p", "${TMP_LOC}"]
+ENTRYPOINT ["cp", ".", "${TMP_LOC}"]
+#CMD [ "${TMP_LOC}" ]
 #RUN ["sh", "-c", "mkdir -p ${TMP_LOC}"]
 #CMD  ["sh", "-c", "cp . ${TMP_LOC}"]
 #CMD [ "sh", "-c", "echo hello $TMP_LOC" ]
