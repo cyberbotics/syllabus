@@ -1,6 +1,6 @@
 FROM benjamindeleze/webots-test:webotsTest1
 ENV TMP_LOC=tmp_default
-RUN ["mkdir", "-p", "${TMP_LOC}"]
+CMD ["mkdir", "-p", "${TMP_LOC}"]
 #ENTRYPOINT ["cp", ".", "${TMP_LOC}"]
 #CMD [ "${TMP_LOC}" ]
 #RUN ["sh", "-c", "mkdir -p ${TMP_LOC}"]
