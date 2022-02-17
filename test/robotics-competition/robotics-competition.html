@@ -41,7 +41,7 @@
 
     let webotsView = new WebotsView();
     document.body.appendChild(webotsView);
-    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection2/robotics-competition/worlds/robotics_competition.wbt', 'x3d', false, false, displayRobotWindow);
+    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/test/robotics-competition/worlds/robotics_competition.wbt', 'x3d', false, false, displayRobotWindow);
     webotsView.showPlay = false;
     webotsView.showReset = false;
     webotsView.showQuit = false;
@@ -83,7 +83,7 @@
       }
     }
 
-    function autoPlay(){
+    function autoPlay() {
       if (webotsView.toolbar)
         webotsView.toolbar._triggerPlayPauseButton();
       else
