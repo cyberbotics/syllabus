@@ -13,9 +13,9 @@ services:
     deploy:
       resources:
         reservations:
-          - driver: nvidia
-            count: 1
-            capabilities: [gpu]
+          devices:
+            - capabilities:
+              - gpu
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
