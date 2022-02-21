@@ -14,9 +14,6 @@ services:
           devices:
             - capabilities:
               - gpu
-    devices:
-      - /dev/snd
-      - /dev/dri
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
