@@ -6,14 +6,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: webots_simulation
     command: $WEBOTS
+    container_name: webots_simulation
     deploy:
       resources:
         reservations:
           devices:
-            - capabilities:
-              - gpu
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
