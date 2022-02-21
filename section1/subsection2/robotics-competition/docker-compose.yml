@@ -32,7 +32,7 @@ services:
       #- $XAUTH:$XAUTH
       - $PORT_VOLUME
 
-  theia:
-    image: joachimhgg/theiatest:test1
-    ports:
-      - 3000:3000
+  #theia:
+  #  image: joachimhgg/theiatest:test1
+  #  ports:
+  #    - 3000:3000
