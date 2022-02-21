@@ -9,7 +9,7 @@ services:
       args:
         PROJECT_PATH: $PROJECT_PATH
     command: $WEBOTS
-    container_name: webots_simulation
+    container_name: webots
     deploy:
       resources:
         reservations:
