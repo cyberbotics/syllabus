@@ -8,20 +8,28 @@ services:
       dockerfile: Dockerfile
       network: host
     container_name: webots_simulation
+    command: $WEBOTS
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+              - gpu
     devices:
       - /dev/snd
       - /dev/dri
     environment:
       - DISPLAY=$DISPLAY
       - XAUTHORITY=$XAUTH
-    volume:
-      - $XAUTH:$XAUTH
+      - QT_X11_NO_MITSHM=1
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
-    command: $WEBOTS
     privileged: true
     stdin_open: true # docker run -i
     tty: true # docker run -t
+    volumes:
+      - $XAUTH:$XAUTH
+      - $PORT_VOLUME
 
   theia:
     image: joachimhgg/theiatest:test1
