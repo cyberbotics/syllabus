@@ -1,5 +1,5 @@
 FROM benjamindeleze/webots-test:webotsNumpy
-ARG TMP_PATH
-RUN mkdir -p $TMP_PATH
-COPY . $TMP_PATH
-RUN cd $TMP_PATH && make
+ENV PROJECT_PATH=~/project
+RUN mkdir -p $PROJECT_PATH
+COPY . $PROJECT_PATH
+RUN cd $PROJECT_PATH && make
