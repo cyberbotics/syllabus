@@ -10,13 +10,6 @@ services:
         PROJECT_PATH: $PROJECT_PATH
     command: $WEBOTS
     container_name: webots_simulation
-    deploy:
-      resources:
-        reservations:
-          devices:
-            driver: nvidia
-              count: 1
-              capabilities: [gpu]
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
