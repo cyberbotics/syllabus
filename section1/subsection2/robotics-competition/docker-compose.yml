@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  webots:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    container_name: webots_simulation
+    devices:
+      - /dev/snd
+      - /dev/dri
+    environment:
+      - DISPLAY=$DISPLAY
+      - XAUTHORITY=$XAUTH
+    volume:
+      - $XAUTH:$XAUTH
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    command: $WEBOTS
+    privileged: true
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+
+  theia:
+    image: joachimhgg/theiatest:test1
+    ports:
+      - 3000:3000
