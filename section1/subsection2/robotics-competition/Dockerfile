@@ -1,5 +1,5 @@
 FROM benjamindeleze/webots-test:webotsNumpy
-RUN mkdir -p webots-project
-COPY . webots-project
-RUN cd webots-project && make
-RUN ls webots-project/controllers/Pioneer3at_competition
+ARG PROJECT_PATH
+RUN mkdir -p $PROJECT_PATH
+COPY . $PROJECT_PATH
+RUN cd $PROJECT_PATH && make
