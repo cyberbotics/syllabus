@@ -31,7 +31,7 @@ services:
       - $PORT_VOLUME
       - /tmp:/tmp
 
-  theia:
-    image: joachimhgg/theiatest:test1
-    ports:
-      - 3000:3000
+  #theia:
+  #  image: joachimhgg/theiatest:test1
+  #  ports:
+  #    - 3000:3000
