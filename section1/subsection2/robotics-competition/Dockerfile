@@ -1,5 +1,4 @@
 FROM benjamindeleze/webots-test:webotsNumpy
-ARG PROJECT_PATH
-RUN mkdir -p project
-COPY . project
-CMD cd project && make
+RUN mkdir -p webots-project
+COPY . webots-project
+RUN cd webots-project && make
