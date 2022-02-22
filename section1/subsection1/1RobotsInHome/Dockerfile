@@ -1,4 +1,3 @@
 FROM benjamindeleze/webots-test:webotsTest1
-ARG PROJECT_PATH
-RUN mkdir -p $PROJECT_PATH
-COPY . $PROJECT_PATH
+RUN mkdir -p webots-project
+COPY . webots-project
