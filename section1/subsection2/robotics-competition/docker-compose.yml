@@ -9,15 +9,12 @@ services:
       args:
         PROJECT_PATH: $PROJECT_PATH
     command: $WEBOTS
-    container_name: webots
     deploy:
       resources:
         reservations:
           devices:
             - capabilities:
               - gpu
-    stdin_open: true
-    runtime: nvidia
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
