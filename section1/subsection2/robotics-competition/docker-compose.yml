@@ -37,3 +37,5 @@ services:
   #  image: joachimhgg/theiatest:test1
   #  ports:
   #    - 3000:3000
+  
+  #Xvfb :10 -screen 0 1024x768x16
