@@ -97,7 +97,7 @@ Table {
   name "table(1)"
   size 1 7 0.74
 }
-EpsonT6Scara {
+ScaraT6 {
   translation 1.64949 -3.95701 0.76
   rotation 0 0 1 1.5708
 }
