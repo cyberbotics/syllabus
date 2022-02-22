@@ -6,8 +6,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        PROJECT_PATH: $PROJECT_PATH
     command: $WEBOTS
     deploy:
       resources:
