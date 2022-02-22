@@ -1,4 +1,5 @@
 FROM benjamindeleze/webots-test:webotsTest1
-RUN mkdir -p webots-project
-COPY . webots-project
-RUN cd webots-project/controllers/sensors && make
+ARG PROJECT_PATH
+RUN mkdir -p $PROJECT_PATH
+COPY . $PROJECT_PATH
+RUN cd $PROJECT_PATH/controllers/sensors && make
