@@ -1,8 +1,9 @@
-version: "3.7"
+version: "3.3"
 
 services:
 
   webots:
+    network_mode: host
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,8 +24,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
     ports:
-        - "127.0.0.1:$PORT:$PORT"
-    #network_mode: host
+        - '$PORT:$PORT'
     privileged: true
     stdin_open: true # docker run -i
     tty: true # docker run -t
