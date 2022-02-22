@@ -32,6 +32,7 @@ services:
     volumes:
       #- $XAUTH:$XAUTH
       - $PORT_VOLUME
+      - /tmp:/tmp
 
   #theia:
   #  image: joachimhgg/theiatest:test1
