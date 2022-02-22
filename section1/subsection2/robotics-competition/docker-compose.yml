@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
       args:
         - FROM_IMAGE=$IMAGE
+        - PROJECT_PATH=$PROJECT_PATH
         - MAKE=$MAKE
     command: $WEBOTS
     deploy:
@@ -30,7 +31,6 @@ services:
     volumes:
       - ${XAUTH:-/dev/null}:${XAUTH:-/dev/null}
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /tmp:/tmp
 
   #theia:
   #  image: joachimhgg/theiatest:test1
