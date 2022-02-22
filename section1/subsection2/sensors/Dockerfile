@@ -1,5 +1,5 @@
 FROM benjamindeleze/webots-test:webotsTest1
-ARG TMP_PATH
-RUN mkdir -p $TMP_PATH
-COPY . $TMP_PATH
-RUN cd $TMP_PATH/controllers/sensors && make
+ARG PROJECT_PATH
+RUN mkdir -p $PROJECT_PATH
+COPY . $PROJECT_PATH
+RUN cd $PROJECT_PATH/controllers/sensors && make
