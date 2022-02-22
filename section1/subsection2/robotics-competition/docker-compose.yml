@@ -3,7 +3,6 @@ version: "3.3"
 services:
 
   webots:
-    network_mode: host
     build:
       context: .
       dockerfile: Dockerfile
