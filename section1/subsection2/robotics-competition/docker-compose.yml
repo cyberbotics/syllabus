@@ -16,6 +16,8 @@ services:
           devices:
             - capabilities:
               - gpu
+    stdin_open: true
+    runtime: nvidia
     environment:
       - DISPLAY=$DISPLAY
       #- XAUTHORITY=$XAUTH
