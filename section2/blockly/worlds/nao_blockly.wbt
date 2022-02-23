@@ -1,12 +1,9 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
   info [
-    "The humanoid sprint benchmark aims at programing a NAO robot in Python to run a 10 meter race. "
-    "The goal is to run the 10 meter as fast as possible. "
-    "All the sensors and actuators of the robot can be used to achieve the best performance. "
-    "Records are stored on the challenge web site. "
+    "Control the Nao robot to avoid the obstacle and reach the end of the track!"
   ]
-  title "Humanoid Sprint"
+  title "Nao race"
   window "humanoid_sprint"
   basicTimeStep 10
 }

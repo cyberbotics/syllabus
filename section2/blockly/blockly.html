@@ -40,6 +40,8 @@
 
       let webotsView = new WebotsView();
       webotsView.showQuit = false;
+      webotsView.showReset = false;
+      webotsView.showPlay = false;
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section2/blockly/worlds/nao_blockly.wbt', 'x3d', false, false, displayRobotWindow);
 
