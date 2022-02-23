@@ -29,6 +29,7 @@ WbDeviceTag emitter, receiver;
 const char * NAO;
 WbNodeRef naoRef, root_node;
 WbFieldRef root_children_field;
+bool hasFinished = false;
 
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
@@ -98,7 +99,10 @@ void wb_robot_window_step(int time_step) {
   }
 
   // Check if the NAO reached the end of the track
-  const double * position = wb_supervisor_node_get_position(naoRef);
-  if (position[0] > 1.3)
-   wb_robot_wwi_send_text("success");
+  const double * position = wb_supervisor_node_get_position(naoRef);	
+  if (position[0] > 3.7 && ! hasFinished) {	
+   wb_robot_wwi_send_text("success");	
+   wb_supervisor_set_label(0,"Success!",0,0,0.2,0xff0000,0,"Arial");
+   hasFinished = true;	
+  }
 }
