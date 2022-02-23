@@ -42,6 +42,7 @@
       webotsView.showQuit = false;
       webotsView.showReset = false;
       webotsView.showPlay = false;
+      webotsView.showStep = false;
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section2/blockly/worlds/nao_blockly.wbt', 'x3d', false, false, displayRobotWindow);
 
@@ -61,9 +62,9 @@
              document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
              document.getElementById('partscreenButton').style.display = 'none';
            }
-           console.log(serverUrl)
+           autoPlay();
         }else setTimeout(function () {
-          getPrefix()
+          displayRobotWindow()
         }, 100);
       }
 
@@ -81,6 +82,13 @@
             document.body.requestFullscreen();
           }
         }
+      }
+
+      function autoPlay(){
+        if (webotsView.toolbar)
+          webotsView.toolbar._triggerPlayPauseButton();
+        else
+          setTimeout(() => autoPlay(), 100);
       }
     </script>
   </body>
