@@ -31,14 +31,55 @@
         border: 0px;
         margin: 0px;
       }
+
+      .arrow-right{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 10px);
+        pointer-events: none;
+      }
+
+      .arrow-left{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 5px);
+        pointer-events: none;
+      }
+
+      .menu-button {
+        position: absolute;
+        top:calc(50% - 15px);
+        left: 500px;
+        width: 26px;
+        height: 52px;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        background-color: #333;
+        border-color: transparent;
+        z-index: 2;
+      }
     </style>
   </head>
 
   <body>
+    <button class="menu-button" id="menuButton" title="Show/Hide the blockly workspace."><div class="arrow-left" id="arrow"></div></button>
     <script type="module">
       import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
-
+      let showBlocklyComponent = true;
       let webotsView = new WebotsView();
+      webotsView.id = 'webotsView';
       webotsView.showQuit = false;
       webotsView.showReset = false;
       webotsView.showPlay = false;
@@ -54,6 +95,7 @@
            let url = serverUrl + 'robot_windows/blockly/blockly.html?name=supervisor&url=ws' + ws;
            let iframe = document.createElement('iframe');
            iframe.src = url;
+           iframe.id = 'blocklyComponent',
            document.body.appendChild(iframe)
 
            if (document.getElementById('fullscreenButton'))
@@ -63,6 +105,9 @@
              document.getElementById('partscreenButton').style.display = 'none';
            }
            autoPlay();
+
+           if (document.getElementsByClassName('menu-button').length !== 0)
+             document.getElementsByClassName('menu-button')[0].onclick = () => toggleDeviceComponent();
         }else setTimeout(function () {
           displayRobotWindow()
         }, 100);
@@ -82,13 +127,54 @@
             document.body.requestFullscreen();
           }
         }
-      }
+      }webotsView
 
       function autoPlay(){
         if (webotsView.toolbar)
           webotsView.toolbar._triggerPlayPauseButton();
         else
           setTimeout(() => autoPlay(), 100);
+      }
+
+      function showButton() {
+        if (document.getElementsByClassName('menu-button').length !== 0)
+          document.getElementsByClassName('menu-button')[0].style.display = '';
+      }
+
+      function hideButton() {
+        if (document.getElementsByClassName('menu-button').length !== 0)
+          document.getElementsByClassName('menu-button')[0].style.display = 'none';
+      }
+
+      function toggleDeviceComponent() {
+        showBlocklyComponent = !showBlocklyComponent;
+        updateBlocklyComponentDimension();
+
+        let arrow = document.getElementById('arrow');
+        if (arrow) {
+          if (arrow.className === 'arrow-right')
+            arrow.className = 'arrow-left';
+          else if (arrow.className === 'arrow-left')
+            arrow.className = 'arrow-right';
+        }
+      }
+
+      function updateBlocklyComponentDimension() {
+        const blocklyComponent = document.getElementById('blocklyComponent');
+        const webotsView = document.getElementById('webotsView');
+        const menuButton = document.getElementById('menuButton');
+
+        if (showBlocklyComponent === true) {
+          blocklyComponent.style.display = '';
+          webotsView.style.width = 'calc(100% - 500px)';
+          menuButton.style.left = '500px';
+        } else {
+          blocklyComponent.style.display = 'none';
+          webotsView.style.width = '100%';
+          menuButton.style.left = '0px';
+        }
+
+        webotsView.resize();
       }
     </script>
   </body>
