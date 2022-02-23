@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <link rel="icon" type="image/png" href="https://cyberbotics.com/assets/images/webots.png">
+  <script src="https://unpkg.com/blockly"></script>
+  <script src="acorn_interpreter.js"></script>
+  <link rel='stylesheet' type='text/css' href='blockly.css'>
+</head>
+
+<body>
+  <div id="content">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+      <div id=webotsPlaceholder></div>
+      <div id="blocklyDiv" style="position: absolute"></div>
+      <button id=run>Run</button>
+      <button id=reset>Reset Robot</button>
+
+      <script type="module">
+        import RobotWindow from 'https://cyberbotics.com/wwi/R2022b/RobotWindow.js';
+        window.onload = function() {
+          window.robotWindow = new RobotWindow();
+          window.robotWindow.receive = receive;
+        };
+        Blockly.defineBlocksWithJsonArray([
+          {
+            "type": "nao_move",
+            "message0": "Move %1",
+            "args0": [
+              {
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                  ["Forward", "forward"],
+                  ["Backward", "backward"],
+                ]
+              }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 355
+          }
+        ]);
+
+        Blockly.defineBlocksWithJsonArray([
+          {
+            "type": "nao_turn_left",
+            "message0": "Turn Left %1",
+            "args0": [
+              {
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                  ["40°", "turnLeft40"],
+                  ["60°", "turnLeft60"],
+                ]
+              }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 230
+          }
+        ]);
+
+        Blockly.defineBlocksWithJsonArray([
+          {
+            "type": "nao_turn_right",
+            "message0": "Turn Right %1",
+            "args0": [
+              {
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                  ["40°", "turnRight40"],
+                  ["60°", "turnRight60"],
+                ]
+              }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 210
+          }
+        ]);
+
+        Blockly.defineBlocksWithJsonArray([
+          {
+            "type": "nao_side_step",
+            "message0": "Side Step %1",
+            "args0": [
+              {
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                  ["Left", "sideStepLeft"],
+                  ["Right", "sideStepRight"],
+                ]
+              }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 280
+          }
+        ]);
+
+        Blockly.defineBlocksWithJsonArray([
+          {
+            "type": "nao_action",
+            "message0": "Perform %1",
+            "args0": [
+              {
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                  ["Taichi", "taichi"],
+                  ["Wipe Forehad", "wipeForehead"],
+                  ["Hand Wave", "handWave"],
+                ]
+              }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": 40
+          }
+        ]);
+
+        Blockly.inject('blocklyDiv', {
+          toolbox: document.getElementById('toolbox'),
+          scrollbars: false
+          });
+
+        function webotsBlock(block) {
+          let value = '\'' + block.getFieldValue('VALUE') + '\'';
+          return "sendMessage(" + value + ");1;"
+        }
+
+        Blockly.JavaScript['nao_move'] = webotsBlock;
+        Blockly.JavaScript['nao_turn_left'] = webotsBlock;
+        Blockly.JavaScript['nao_turn_right'] = webotsBlock;
+        Blockly.JavaScript['nao_side_step'] = webotsBlock;
+        Blockly.JavaScript['nao_action'] = webotsBlock;
+
+        let myInterpreter
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
+
+
+        document.getElementById('run').onclick = () => run();
+        let reachTheEnd = false
+
+        function run() {
+          let code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
+
+          var initFunc = function(interpreter, globalObject) {
+                var wrapper = function log(text) {
+                  console.log(text);
+                };
+                interpreter.setProperty(globalObject, 'log', interpreter.createNativeFunction(wrapper));
+
+                wrapper = function(id) { return Blockly.getMainWorkspace().highlightBlock(id);};
+                interpreter.setProperty(globalObject, 'highlightBlock',interpreter.createNativeFunction(wrapper));
+
+                wrapper = function(message) {return window.robotWindow.send(message);}
+                interpreter.setProperty(globalObject, 'sendMessage',interpreter.createNativeFunction(wrapper));
+
+              };
+          myInterpreter = new Interpreter(code, initFunc);
+          nextStep();
+        }
+
+        function nextStep() {
+          if (myInterpreter.value) {
+            if (!reachTheEnd){
+              reachTheEnd = true
+              return
+            }
+          } else if (reachTheEnd)
+            reachTheEnd = false;
+          if (myInterpreter.step()) {
+            window.setTimeout(nextStep, 0);
+          }
+        }
+
+        // A message coming from the robot has been received.
+        function receive(message, robot) {
+          if (message == 'next')
+            nextStep();
+          else if (message == 'success')
+            console.error("YOU HAVE SUCCEEDED");
+        }
+
+        document.getElementById('reset').onclick = () => window.robotWindow.send('reset');
+    </script>
+
+    <xml id="toolbox" style="display: none">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="nao_move"></block>
+      <block type="nao_side_step"></block>
+      <block type="nao_turn_left"></block>
+      <block type="nao_turn_right"></block>
+      <block type="nao_action"></block>
+    </xml>
+</body>
+
+</html>
