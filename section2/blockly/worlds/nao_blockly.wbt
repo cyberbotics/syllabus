@@ -1127,7 +1127,7 @@ Solid {
         }
         occlusionMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/slide_occlusion.jpg"
+            "webots://projects/objects/garden/protos/textures/slide_occlusion.jpg"
           ]
         }
       }
