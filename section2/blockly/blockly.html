@@ -41,7 +41,7 @@
       let webotsView = new WebotsView();
       webotsView.showQuit = false;
       document.body.appendChild(webotsView);
-      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/sensors/worlds/blockly.wbt', 'x3d', false, false, displayRobotWindow);
+      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section2/blockly/worlds/nao_blockly.wbt', 'x3d', false, false, displayRobotWindow);
 
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
