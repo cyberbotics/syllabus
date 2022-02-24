@@ -91,7 +91,7 @@
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;
            let ws = serverUrl.substring(4); //remove http
-           let url = serverUrl + 'robot_windows/blockly/blockly.html?name=supervisor&url=ws' + ws;
+           let url = serverUrl + 'robot_windows/blockly/blockly.html?name=supervisor';
            let iframe = document.createElement('iframe');
            iframe.src = url;
            iframe.id = 'blocklyComponent',
