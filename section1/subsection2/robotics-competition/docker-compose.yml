@@ -32,7 +32,7 @@ services:
       - ${XAUTH:-/dev/null}:${XAUTH:-/dev/null}
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
 
-  #theia:
-  #  image: joachimhgg/theiatest:test1
-  #  ports:
-  #    - 3000:3000
+  theia:
+    image: joachimhgg/theiatest:test1
+    ports:
+      - 3000:3000
