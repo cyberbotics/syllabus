@@ -41,7 +41,7 @@ for motor in ur_motors:
 
 shoulder_rotation = robot.getDevice('shoulder_pan_joint')
 
-shoulder_rotation.setPosition(1.5708)
+shoulder_rotation.setPosition(1.5)
 
 counter = 8
 
