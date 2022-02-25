@@ -22,7 +22,6 @@
         padding: 0px;
         margin: 0px;
         border: 0px;
-        border-right: 1px solid black;
       }
 
       webots-view {
@@ -33,7 +32,7 @@
         margin: 0px;
       }
 
-      .arrow-right{
+      .menu-button .arrow-right{
         border: solid white;
         border-width: 0 2px 2px 0;
         display: inline-block;
@@ -46,7 +45,7 @@
         pointer-events: none;
       }
 
-      .arrow-left{
+      .menu-button .arrow-left{
         border: solid white;
         border-width: 0 2px 2px 0;
         display: inline-block;
@@ -90,7 +89,6 @@
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;
-           let ws = serverUrl.substring(4); //remove http
            let url = serverUrl + 'robot_windows/blockly/blockly.html?name=supervisor';
            let iframe = document.createElement('iframe');
            iframe.src = url;
