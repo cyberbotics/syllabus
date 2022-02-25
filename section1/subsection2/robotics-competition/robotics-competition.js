@@ -28,7 +28,6 @@ function displayRobotWindow() {
         document.getElementsByClassName('menu-button')[0].onclick = () => toggleRobotWindow();
 
     let serverUrl = webotsView._view.x3dScene.prefix;
-    let ws = serverUrl.substring(4); // remove http
     let url = serverUrl + 'robot_windows/competition_robot_window/competition_robot_window.html?name=robot';
     let iframe = document.createElement('iframe');
     iframe.src = url;
