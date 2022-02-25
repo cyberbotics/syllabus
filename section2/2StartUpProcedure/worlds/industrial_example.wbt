@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3701440753966442 0.07856673707480595 -0.9256460615560255 2.7535724564698407
-  position 2.8804972041895045 0.674087254924559 2.9984448627996776
+  orientation 0.2515252109407217 -0.09348386445392853 -0.9633254047039271 3.829215183700242
+  position 2.3061519549108924 -1.8748361054335037 1.929696160899472
   exposure 1.7
 }
 TexturedBackground {
@@ -142,7 +142,7 @@ CardboardBox {
   size 0.4 0.6 0.3
 }
 SolidBox {
-  translation -0.135 -0.0123 0.305
+  translation 0.065 -0.002299 0.305
   rotation 0 0 1 4.692820414042842e-06
   size 1.5 0.5 0.61
   appearance GalvanizedMetal {
@@ -153,8 +153,8 @@ FireExtinguisher {
   rotation 0 0 -1 1.5708
 }
 UR5e {
-  translation 0 0 0.61
-  rotation 5.67193e-08 2.39745e-09 -1 1.5708
+  translation -2.15642e-16 2.79257e-16 0.61
+  rotation -2.7161e-08 -2.95584e-08 1 3.14159
   controller "ure_can_grasper_python"
   selfCollision FALSE
   toolSlot [
@@ -169,7 +169,7 @@ UR5e {
 ConveyorBelt {
   translation 3.18 -0.83 0
   rotation 0 0 1 3.141592
-  size 7.65 0.7 0.6
+  size 7.65 0.8 0.6
   appearance CorrugatedMetal {
     textureTransform TextureTransform {
       scale 6 3.1
