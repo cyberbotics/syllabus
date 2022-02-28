@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.17944920370624334 0.7027800325466491 0.6884026504473425 0.7103767938356982
-  position -3.3245515174785707 -2.9151265906592996 3.4329116384194824
+  orientation 0.3324365196065415 -0.0793133327639481 -0.939784739010889 3.5827281157778548
+  position 2.871539606254836 -1.3368510788551575 3.1657815921202457
   exposure 1.7
 }
 TexturedBackground {
@@ -142,9 +142,9 @@ CardboardBox {
   size 0.4 0.6 0.3
 }
 SolidBox {
-  translation 0.065 -0.002299 0.305
+  translation 0.095 -0.042299 0.305
   rotation 0 0 1 4.692820414042842e-06
-  size 1.5 0.5 0.61
+  size 1.6 0.5 0.61
   appearance GalvanizedMetal {
   }
 }
@@ -189,8 +189,23 @@ ConveyorBelt {
   speed 0.2
 }
 PlasticCrate {
-  translation 0.22 0.48 0
-  size 0.6 0.45 0.4
+  translation -0.43 0.45 0
+  size 0.5 0.45 0.3
+  color 0.937255 0.160784 0.160784
+  mass 1
+}
+PlasticCrate {
+  translation 0.09 0.45 0
+  name "plastic crate(1)"
+  size 0.5 0.45 0.3
+  color 0.160784 0.937255 0.160784
+  mass 1
+}
+PlasticCrate {
+  translation 0.61 0.45 0
+  name "plastic crate(3)"
+  size 0.5 0.45 0.3
+  color 0.160784 0.160784 0.937255
   mass 1
 }
 PlasticCrate {
@@ -198,13 +213,6 @@ PlasticCrate {
   rotation 0 0 1 -1.5707953071795862
   name "plastic crate(2)"
   size 0.8 0.45 0.2
-  color 0.827451 0.843137 0.811765
-  mass 1
-}
-PlasticCrate {
-  translation -0.41 0.48 0
-  name "plastic crate(1)"
-  size 0.6 0.45 0.4
   color 0.827451 0.843137 0.811765
   mass 1
 }
@@ -410,7 +418,7 @@ DEF CAN0 Solid {
   children [
     Shape {
       appearance DEF CAN0_APPEARANCE PBRAppearance {
-        baseColor 0.937255 0.160784 0.160784
+        baseColor 0.160784 0.160784 0.937255
         roughness 0.5
       }
       geometry IndexedFaceSet {
@@ -506,7 +514,7 @@ DEF CAN2 Solid {
   children [
     Shape {
       appearance DEF CAN2_APPEARANCE PBRAppearance {
-        baseColor 0.937255 0.160784 0.160784
+        baseColor 0.160784 0.937255 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {

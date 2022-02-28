@@ -2,7 +2,7 @@
 
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
-from controller import Robot, Motor, DistanceSensor, PositionSensor
+from controller import Robot, Motor, DistanceSensor, PositionSensor, Camera
 from enum import Enum
 
 class State(Enum):
@@ -51,6 +51,11 @@ distance_sensor.enable(TIME_STEP)
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
 
+camera = robot.getDevice('camera')
+camera.enable(TIME_STEP)
+
+color = 'red'
+
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 while robot.step(TIME_STEP) != -1:
@@ -62,10 +67,24 @@ while robot.step(TIME_STEP) != -1:
                 print("Grasping can")
                 for motor in hand_motors:
                     motor.setPosition(0.85)
+                cameraPixels = camera.getImage()
+                red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)
+                green = Camera.imageGetGreen(cameraPixels, camera.getWidth(), 0, 0)
+                blue = Camera.imageGetBlue(cameraPixels, camera.getWidth(), 0, 0)
+                if red > green and red > blue:
+                    color = 'red'
+                elif green > blue:
+                    color = 'green'
+                else:
+                    color = 'blue'
         elif state == state.GRASPING:
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
+                if color == 'blue':
+                    shoulder_rotation.setPosition(0.8)
+                elif color == 'red':
+                    shoulder_rotation.setPosition(2.2)
                 i += 1
                 print("Rotating arm")
                 state = state.ROTATING
@@ -81,6 +100,7 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(0.0)
                 print("Rotating arm back")
                 state = state.ROTATING_BACK
+                shoulder_rotation.setPosition(1.5)
         elif state == state.ROTATING_BACK:
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
