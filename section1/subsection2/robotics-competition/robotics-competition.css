@@ -17,10 +17,11 @@ iframe {
 
 webots-view {
   position: absolute !important;
-  right: 0px;
+  left: 350px;
   width: calc(100% - 350px);
   border: 0px;
   margin: 0px;
+  min-width: 320px;
 }
 
 .menu-button {

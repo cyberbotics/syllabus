@@ -26,10 +26,11 @@
 
       webots-view {
         position: absolute!important;
-        right: 0px;
+        left: 500px;
         width: calc(100% - 500px);
         border: 0px;
         margin: 0px;
+        min-width: 320px;
       }
 
       .menu-button .arrow-right{
@@ -170,10 +171,12 @@
         if (showBlocklyComponent === true) {
           blocklyComponent.style.display = '';
           webotsView.style.width = 'calc(100% - 500px)';
+          webotsView.style.left = '500px'
           menuButton.style.left = '500px';
         } else {
           blocklyComponent.style.display = 'none';
           webotsView.style.width = '100%';
+          webotsView.style.width = '0px';
           menuButton.style.left = '0px';
         }
 
