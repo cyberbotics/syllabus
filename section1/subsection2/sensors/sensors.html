@@ -26,19 +26,63 @@
 
       webots-view {
         position: absolute!important;
-        right: 0px;
+        left: 550px;
         width: calc(100% - 550px);
         border: 0px;
         margin: 0px;
+        min-width: 320px;
+      }
+
+      .menu-button .arrow-right{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 10px);
+        pointer-events: none;
+      }
+
+      .menu-button .arrow-left{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 5px);
+        pointer-events: none;
+      }
+
+      .menu-button {
+        position: absolute;
+        top:calc(50% - 15px);
+        left: 550px;
+        width: 26px;
+        height: 52px;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        background-color: #333;
+        border-color: transparent;
+        z-index: 2;
+        display: none;
       }
     </style>
   </head>
 
   <body>
+    <button class="menu-button" id="menuButton" title="Show/Hide the robot window."><div class="arrow-left" id="arrow"></div></button>
     <script type="module">
       import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
 
+      let showRWComponent = true;
       let webotsView = new WebotsView();
+      webotsView.id = 'webotsView';
       webotsView.showQuit = false;
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, displayRobotWindow);
@@ -49,6 +93,7 @@
            let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger';
            let iframe = document.createElement('iframe');
            iframe.src = url;
+           iframe.id = 'rwComponent';
            document.body.appendChild(iframe)
 
            if (document.getElementById('fullscreenButton'))
@@ -57,10 +102,48 @@
              document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
              document.getElementById('partscreenButton').style.display = 'none';
            }
-           console.log(serverUrl)
+
+           const menuButton = document.getElementById('menuButton');
+           if (menuButton) {
+             menuButton.style.display = 'block';
+             menuButton.onclick = () => toggleDeviceComponent();
+           }
         }else setTimeout(function () {
           displayRobotWindow()
         }, 100);
+      }
+
+      function toggleDeviceComponent() {
+        showRWComponent = !showRWComponent;
+        updateRWComponentDimension();
+
+        let arrow = document.getElementById('arrow');
+        if (arrow) {
+          if (arrow.className === 'arrow-right')
+            arrow.className = 'arrow-left';
+          else if (arrow.className === 'arrow-left')
+            arrow.className = 'arrow-right';
+        }
+      }
+
+      function updateRWComponentDimension() {
+        const rwComponent = document.getElementById('rwComponent');
+        const webotsView = document.getElementById('webotsView');
+        const menuButton = document.getElementById('menuButton');
+
+        if (showRWComponent === true) {
+          rwComponent.style.display = '';
+          webotsView.style.width = 'calc(100% - 550px)';
+          webotsView.style.left = '550px';
+          menuButton.style.left = '550px';
+        } else {
+          rwComponent.style.display = 'none';
+          webotsView.style.width = '100%';
+          webotsView.style.left = '0px';
+          menuButton.style.left = '0px';
+        }
+
+        webotsView.resize();
       }
 
       function toggleRobotComponentFullScreen(robot) {
