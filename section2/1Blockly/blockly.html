@@ -69,6 +69,7 @@
         background-color: #333;
         border-color: transparent;
         z-index: 2;
+        display: none;
       }
     </style>
   </head>
@@ -101,6 +102,11 @@
              document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
              document.getElementById('partscreenButton').style.display = 'none';
            }
+
+           const menuButton = document.getElementById('menuButton');
+           if (menuButton)
+            menuButton.style.display = 'block';
+
            autoPlay();
 
            if (document.getElementsByClassName('menu-button').length !== 0)
