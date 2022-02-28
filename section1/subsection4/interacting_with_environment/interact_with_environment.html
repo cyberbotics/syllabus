@@ -23,21 +23,65 @@
       }
       webots-view {
         position: absolute!important;
-        right: 0px;
+        left: 20%;
         width: 80%;
         border: 0px;
         margin: 0px;
+        min-width: 320px;
+      }
+
+      .menu-button .arrow-right{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 10px);
+        pointer-events: none;
+      }
+
+      .menu-button .arrow-left{
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        position: absolute;
+        top: calc(50% - 5px);
+        left: calc(50% - 5px);
+        pointer-events: none;
+      }
+
+      .menu-button {
+        position: absolute;
+        top:calc(50% - 15px);
+        left: 20%;
+        width: 26px;
+        height: 52px;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        background-color: #444444;
+        border-color: transparent;
+        z-index: 2;
+        display: none;
       }
     </style>
   </head>
 
   <body>
+    <button class="menu-button" id="menuButton" title="Show/Hide the robot window."><div class="arrow-left" id="arrow"></div></button>
     <script type="module">
       import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
 
+      let showRWComponent = true;
       let webotsView = new WebotsView();
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection4/interacting_with_environment/worlds/industrial_example.wbt', 'x3d', false, false, displayRobotWindow);
+      webotsView.id = 'webotsView';
       webotsView.showQuit = false;
       webotsView.showReload = true;
       webotsView.showReset = false;
@@ -47,6 +91,7 @@
            let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot';
            let iframe = document.createElement('iframe');
            iframe.src = url;
+           iframe.id = 'rwComponent';
            document.body.appendChild(iframe)
 
            if (document.getElementById('fullscreenButton'))
@@ -55,8 +100,11 @@
              document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
              document.getElementById('partscreenButton').style.display = 'none';
            }
-           console.log(serverUrl);
-        }else
+           const menuButton = document.getElementById('menuButton');
+           if (menuButton) {
+             menuButton.style.display = 'block';
+             menuButton.onclick = () => toggleDeviceComponent();
+           }        }else
           setTimeout(() => displayRobotWindow(), 100);
       }
 
@@ -74,6 +122,39 @@
             document.body.requestFullscreen();
           }
         }
+      }
+
+      function toggleDeviceComponent() {
+        showRWComponent = !showRWComponent;
+        updateRWComponentDimension();
+
+        let arrow = document.getElementById('arrow');
+        if (arrow) {
+          if (arrow.className === 'arrow-right')
+            arrow.className = 'arrow-left';
+          else if (arrow.className === 'arrow-left')
+            arrow.className = 'arrow-right';
+        }
+      }
+
+      function updateRWComponentDimension() {
+        const rwComponent = document.getElementById('rwComponent');
+        const webotsView = document.getElementById('webotsView');
+        const menuButton = document.getElementById('menuButton');
+
+        if (showRWComponent === true) {
+          rwComponent.style.display = '';
+          webotsView.style.width = '80%';
+          webotsView.style.left = '20%';
+          menuButton.style.left = '20%';
+        } else {
+          rwComponent.style.display = 'none';
+          webotsView.style.width = '100%';
+          webotsView.style.left = '0px';
+          menuButton.style.left = '0px';
+        }
+
+        webotsView.resize();
       }
     </script>
   </body>
