@@ -19,6 +19,8 @@ while supervisor.step(timestep) != -1:
     position = thymio.getPosition()
     x_diff = position[0] - starting_position[0]
     y_diff = position[1] - starting_position[1]
-    distance = math.sqrt((x_diff * x_diff) - (y_diff * y_diff))
+    distance = math.sqrt((x_diff * x_diff) + (y_diff * y_diff))
     
-    print(distance)
+    if distance > 2:
+        print("SUCCESS")
+        break

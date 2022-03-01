@@ -3639,4 +3639,5 @@ Robot {
 DEF THYMIO Thymio2 {
   translation -1.92164 -2.88506 -8.88182e-16
   rotation 0 0 1 1.5708
+  controller "avoid_obstacles"
 }

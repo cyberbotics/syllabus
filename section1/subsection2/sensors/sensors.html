@@ -80,6 +80,7 @@
     <script type="module">
       import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
 
+      let iframeDisplayed = false; //To avoid to reload an iframe when resetting the simulation
       let showRWComponent = true;
       let webotsView = new WebotsView();
       webotsView.id = 'webotsView';
@@ -87,7 +88,6 @@
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, displayRobotWindow);
 
-      let iframeDisplayed = false; //To avoid to reload an iframe when resetting the simulation
 
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
