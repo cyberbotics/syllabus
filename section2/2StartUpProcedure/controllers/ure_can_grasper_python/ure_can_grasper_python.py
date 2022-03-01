@@ -67,8 +67,8 @@ while robot.step(TIME_STEP) != -1:
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
                 i += 1
-                print("Rotating arm")
-                state = state.ROTATING
+            print("Rotating arm")
+            state = state.ROTATING
         elif state == state.ROTATING:
             if position_sensor.getValue() < -2.3:
                 counter = 8
@@ -79,8 +79,8 @@ while robot.step(TIME_STEP) != -1:
         elif state == state.RELEASING:
             for motor in ur_motors:
                 motor.setPosition(0.0)
-                print("Rotating arm back")
-                state = state.ROTATING_BACK
+            print("Rotating arm back")
+            state = state.ROTATING_BACK
         elif state == state.ROTATING_BACK:
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
