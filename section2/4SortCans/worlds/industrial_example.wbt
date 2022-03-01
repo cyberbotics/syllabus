@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3324365196065415 -0.0793133327639481 -0.939784739010889 3.5827281157778548
-  position 2.871539606254836 -1.3368510788551575 3.1657815921202457
+  orientation 0.17063381103222883 -0.5121709929544469 -0.8417630168335227 5.529448857829634
+  position -2.487988066016805 -2.9999587199417435 2.3672073985856246
   exposure 1.7
 }
 TexturedBackground {
@@ -269,7 +269,7 @@ Transform {
     }
   ]
 }
-Solid {
+DEF CAN0 Solid {
   translation 1.36 -0.83 0.66
   children [
     Shape {
@@ -317,7 +317,7 @@ Solid {
     0.666667 0 0
   ]
 }
-Solid {
+DEF CAN1 Solid {
   translation 3.36 -0.83 0.66
   children [
     Shape {
@@ -365,7 +365,7 @@ Solid {
     0.666667 0 0
   ]
 }
-Solid {
+DEF CAN2 Solid {
   translation 5.5 -0.83 0.66
   children [
     Shape {
@@ -413,11 +413,11 @@ Solid {
     0.666667 0 0
   ]
 }
-DEF CAN0 Solid {
+DEF CAN3 Solid {
   translation 1000 999.79 0
   children [
     Shape {
-      appearance DEF CAN0_APPEARANCE PBRAppearance {
+      appearance DEF CAN3_APPEARANCE PBRAppearance {
         baseColor 0.160784 0.160784 0.937255
         roughness 0.5
       }
@@ -461,11 +461,11 @@ DEF CAN0 Solid {
     0.666667 0 0
   ]
 }
-DEF CAN1 Solid {
+DEF CAN4 Solid {
   translation 1000 1000 0
   children [
     Shape {
-      appearance DEF CAN1_APPEARANCE PBRAppearance {
+      appearance DEF CAN4_APPEARANCE PBRAppearance {
         baseColor 0.937255 0.160784 0.160784
         roughness 0.5
       }
@@ -509,11 +509,11 @@ DEF CAN1 Solid {
     0.666667 0 0
   ]
 }
-DEF CAN2 Solid {
+DEF CAN5 Solid {
   translation 1000 1000.17 0
   children [
     Shape {
-      appearance DEF CAN2_APPEARANCE PBRAppearance {
+      appearance DEF CAN5_APPEARANCE PBRAppearance {
         baseColor 0.160784 0.937255 0.160784
         roughness 0.5
       }
@@ -557,12 +557,12 @@ DEF CAN2 Solid {
     0.666667 0 0
   ]
 }
-DEF CAN3 Solid {
+DEF CAN6 Solid {
   translation 1000 1000.34 0
   children [
     Shape {
-      appearance DEF CAN3_APPEARANCE PBRAppearance {
-        baseColor 0.937255 0.160784 0.160784
+      appearance DEF CAN6_APPEARANCE PBRAppearance {
+        baseColor 0.160784 0.937255 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {

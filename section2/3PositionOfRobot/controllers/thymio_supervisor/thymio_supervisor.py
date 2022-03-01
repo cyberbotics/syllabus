@@ -12,12 +12,16 @@ thymio = supervisor.getFromDef('THYMIO')
 
 thymio.enableContactPointsTracking(timestep)
 
+failure = False
 while supervisor.step(timestep) != -1:
     contactPoints = thymio.getContactPoints()
     for contactPoint in contactPoints:
         if contactPoint.point[2] > 0.001:
+            failure = True
             print("FAIL: an object was hit")
             break
+    if failure:
+        break
     position = thymio.getPosition()
     x_diff = position[0] - starting_position[0]
     y_diff = position[1] - starting_position[1]
