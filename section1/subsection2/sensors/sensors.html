@@ -87,8 +87,11 @@
       document.body.appendChild(webotsView);
       webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, displayRobotWindow);
 
+      let iframeDisplayed = false; //To avoid to reload an iframe when resetting the simulation
+
       function displayRobotWindow() {
-        if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
+        if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
+           console.log("ready")
            let serverUrl = webotsView._view.x3dScene.prefix;
            let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger';
            let iframe = document.createElement('iframe');
@@ -108,6 +111,7 @@
              menuButton.style.display = 'block';
              menuButton.onclick = () => toggleDeviceComponent();
            }
+           iframeDisplayed = true;
         }else setTimeout(function () {
           displayRobotWindow()
         }, 100);
