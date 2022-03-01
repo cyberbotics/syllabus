@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.2515252109407217 -0.09348386445392853 -0.9633254047039271 3.829215183700242
-  position 2.3061519549108924 -1.8748361054335037 1.929696160899472
+  orientation 0.3280924778529424 -0.0799525473072152 -0.9412560311389266 3.5925311658776327
+  position 3.1189912674872557 -1.3107331980524581 3.2978156320247027
   exposure 1.7
 }
 TexturedBackground {
@@ -166,6 +166,11 @@ UR5e {
     }
   ]
 }
+Robot {
+  name "supervisor"
+  controller "can_supervisor"
+  supervisor TRUE
+}
 ConveyorBelt {
   translation 3.18 -0.83 0
   rotation 0 0 1 3.141592
@@ -251,7 +256,7 @@ Transform {
     }
   ]
 }
-Can {
+DEF CAN Can {
   translation 0.7 -0.83 0.66
   name "can(13)"
 }

@@ -8,7 +8,7 @@ supervisor = Supervisor()
 timestep = int(supervisor.getBasicTimeStep())
 starting_position = [-1.92164, -2.88506, 0]
 
-thymio = supervisor.getFromDef("THYMIO")
+thymio = supervisor.getFromDef('THYMIO')
 
 thymio.enableContactPointsTracking(timestep)
 
