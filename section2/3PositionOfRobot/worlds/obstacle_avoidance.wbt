@@ -1,10 +1,8 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
   info [
-    "Benchmark objective: "
-    "cross a room filled with obstacles as quickly as possible."
+    "Program the robot to avoid the obstacles and move at least 1.8 meters away from its starting point"
   ]
-  title "Obstacle Avoidance"
   window "obstacle_avoidance"
   basicTimeStep 16
   contactProperties [
@@ -17,8 +15,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.22251584656853224 -0.24750380407552824 -0.9429891648338448 4.659643469802305
-  position -1.9271192892576956 -6.04137330925555 1.7239858624019213
+  orientation 0.33950949344077913 -0.35691170599011124 -0.870257052824517 4.556345958172448
+  position -1.8166434500516273 -6.214443975063278 3.388789883043255
   followSmoothness 0.01
 }
 TexturedBackground {
@@ -1143,7 +1141,7 @@ DEF A_BLOCK Solid {
   }
 }
 DEF B_BLOCK Solid {
-  translation -1.53988 -1.87954 0.033
+  translation -1.46414 -1.86284 0.033
   rotation 0 0 -1 1.132282
   scale 0.5 0.5 0.5
   children [
@@ -3512,7 +3510,7 @@ DEF CUBE_OBSTACLES Group {
       }
     }
     DEF W_BLOCK Solid {
-      translation -1.20704 -1.57071 0.0324975
+      translation -1.09711 -1.60806 0.0324975
       rotation -0.9468432551488287 -0.22747291042714773 -0.22747291091682303 -1.6253909029180083
       scale 0.5 0.5 0.5
       children [
@@ -5266,7 +5264,7 @@ DEF FLOOR Solid {
   ]
   name "floor(1)"
   model "floor"
-  boundingObject Plane {
+  boundingObject DEF PLANE Plane {
     size 3.5 3.5
   }
   locked TRUE
@@ -5279,4 +5277,8 @@ DEF THYMIO Thymio2 {
   translation -1.92164 -2.88506 -8.88182e-16
   rotation 0 0 1 1.5708
   controller "avoid_obstacles"
+  bodySlot [
+    GPS {
+    }
+  ]
 }

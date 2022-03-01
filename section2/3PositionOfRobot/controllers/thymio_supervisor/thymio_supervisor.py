@@ -8,16 +8,14 @@ supervisor = Supervisor()
 timestep = int(supervisor.getBasicTimeStep())
 starting_position = [-1.92164, -2.88506, 0]
 
-floor = supervisor.getFromDef("FLOOR")
-floor_id = floor.getId()
 thymio = supervisor.getFromDef("THYMIO")
 
-thymio.enableContactPointsTracking(timestep, True)
+thymio.enableContactPointsTracking(timestep)
 
 while supervisor.step(timestep) != -1:
-    contactPoints = thymio.getContactPoints(True)
+    contactPoints = thymio.getContactPoints()
     for contactPoint in contactPoints:
-        if contactPoint.node_id != floor_id:
+        if contactPoint.point[2] > 0.001:
             print("FAIL: an object was hit")
             break
     position = thymio.getPosition()
@@ -25,6 +23,6 @@ while supervisor.step(timestep) != -1:
     y_diff = position[1] - starting_position[1]
     distance = math.sqrt((x_diff * x_diff) + (y_diff * y_diff))
     
-    if distance > 2:
+    if distance > 1.8:
         print("SUCCESS")
         break

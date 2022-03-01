@@ -1,0 +1,17 @@
+<h2>Instructions</h2>
+
+The Thymio robot has a lot of distance sensors: 5 in the front, 2 in the back and two below, towards the ground. But for this exercise, we will use only the front sensors.
+
+If your robot touches obstacles:
+ - decrease speed
+ - adjust the calibration constant
+ - calibrate how much your robot must turn depending on the values of the sensors
+
+What happen if the central distance sensor detects something?
+
+If the robot get blocked:
+ - Try to detect it: this Thymio has an embedded GPS. If the value of the GPS does not change => the robot is blocked
+ - Try to understand why it is blocked: look in the robot window to see the values of the distance sensors
+ - Try to fix it:
+  - Go back and turn in a random direction.
+  - Turn on the point when all sensors detects something

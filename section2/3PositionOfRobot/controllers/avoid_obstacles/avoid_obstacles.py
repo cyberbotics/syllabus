@@ -35,7 +35,7 @@ leftMotor.setPosition(float('inf'))
 rightMotor.setPosition(float('inf'))
 
 # Set ideal motor velocity.
-initialVelocity = 0.7 * maxMotorVelocity
+initialVelocity = 0.5 * maxMotorVelocity
 
 # Set the initial velocity of the left and right wheel motors.
 leftMotor.setVelocity(initialVelocity)
