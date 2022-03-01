@@ -1,21 +1,25 @@
 """thymio_supervisor controller."""
 
-# You may need to import some classes of the controller module. Ex:
-#  from controller import Robot, Motor, DistanceSensor
 from controller import Supervisor
 import math
 
-# create the Robot instance.
 supervisor = Supervisor()
 
-# get the time step of the current world.
 timestep = int(supervisor.getBasicTimeStep())
 starting_position = [-1.92164, -2.88506, 0]
-thymio = supervisor.getFromDef("THYMIO");
 
-# Main loop:
-# - perform simulation steps until Webots is stopping the controller
+floor = supervisor.getFromDef("FLOOR")
+floor_id = floor.getId()
+thymio = supervisor.getFromDef("THYMIO")
+
+thymio.enableContactPointsTracking(timestep, True)
+
 while supervisor.step(timestep) != -1:
+    contactPoints = thymio.getContactPoints(True)
+    for contactPoint in contactPoints:
+        if contactPoint.node_id != floor_id:
+            print("FAIL: an object was hit")
+            break
     position = thymio.getPosition()
     x_diff = position[0] - starting_position[0]
     y_diff = position[1] - starting_position[1]
