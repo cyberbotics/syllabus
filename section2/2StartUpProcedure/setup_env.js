@@ -29,7 +29,7 @@ const config = {
         height: 60,
         componentName: 'RobotWindow',
         componentState: {
-          label: 'Spot'
+          label: 'Information'
         }
       }, {
         type: 'component',
@@ -51,6 +51,7 @@ let haveTerminal = 1;
 
 let terminal; // TODO put in a web component with terminalDiv
 let iframeDisplayed = false;
+let iframeUrl;
 let myLayout = new GoldenLayout(config, $(layoutContainer));
 window.addEventListener('resize', () => myLayout._resizeFunction());
 
@@ -58,6 +59,7 @@ function create(container) {
   if (typeof webotsView === 'undefined') {
     webotsView = document.createElement('webots-view');
     webotsView.id = 'webotsView';
+    webotsView.showQuit = false;
     // webotsView.connect("wss://cyberbotics1.epfl.ch/1999/session?url=file:///home/cyberbotics/webots/projects/robots/softbank/nao/worlds/nao_room.wbt");
     // webotsView.loadAnimation('https://benjamindeleze.github.io/sandbox/animations/pr2.x3d', 'https://benjamindeleze.github.io/sandbox/animations/pr2.json');
     webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt', 'x3d', false, false, onConnect);
@@ -72,10 +74,11 @@ function onConnect() {
     const elements = url.split('/').filter(element => element);
     let portString = elements[elements.length - 1];
     let port = parseFloat(portString) + 500;
-    url.replace(portString, port);
-    console.log(url)
+    iframeUrl = url.replace(portString, port) + '#/home/project/webots-project/';
     let iframe = document.createElement('iframe');
-    iframe.src = url;
+    iframe.src = iframeUrl;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
     document.getElementById('idePlaceHolder').appendChild(iframe);
 
     iframeDisplayed = true;
@@ -108,7 +111,10 @@ myLayout.registerComponent('WebotsView', function(container, componentState) {
 });
 
 myLayout.registerComponent('IDE', function(container, componentState) {
-  container.getElement().html('<div id=idePlaceHolder></div>');
+  if (iframeDisplayed)
+    container.getElement().html('<div id=idePlaceHolder style="width:90%;height:100%;"><iframe src=' + iframeUrl + ' style="width:100%;height:100%";></iframe></div>');
+  else
+    container.getElement().html('<div id=idePlaceHolder style="width:100%;height:100%;"></div>');
   container.on('destroy', () => {
     let img = document.getElementById('imgIDE');
     if (img)
@@ -123,12 +129,14 @@ myLayout.registerComponent('IDE', function(container, componentState) {
 
 myLayout.registerComponent('RobotWindow', function(container, componentState) {
   if (typeof robotWindow === 'undefined') {
-    robotWindow = document.createElement('h2');
-    robotWindow.innerHTML = componentState.label + '<img style="max-width:100%; min-width:100%; overflow:scroll;" src="robot_window.png"></img>';
+    robotWindow = document.createElement('iframe');
+    robotWindow.src = 'instructions.html';
+    robotWindow.height = '100%';
+    robotWindow.width = '100%';
   }
 
   container.getElement().html(robotWindow);
-  container.on('tab', () => container.tab.setTitle('Robot Window'));
+  container.on('tab', () => container.tab.setTitle('Information Window'));
   container.on('destroy', () => {
     let img = document.getElementById('imgRobotWindow');
     if (img)
@@ -180,7 +188,7 @@ myLayout.init();
 document.getElementById('terminal').parentNode.style.overflow = 'auto';
 
 let addMenuItem = function(name) {
-  let element = $('<button><img id=img' + name + ' src=icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + name + '</div></button>');
+  let element = $('<button class="side-menu-button"><img id=img' + name + ' src=icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + name + '</div></button>');
   $('#menuContainer').append(element);
   let newItemConfig = {
     type: 'component',
@@ -191,6 +199,7 @@ let addMenuItem = function(name) {
   };
 
   element.click(function() {
+    console.log(name)
     switch (name) {
       case 'WebotsView':
         if (haveWebotsView === 1) {
@@ -206,7 +215,7 @@ let addMenuItem = function(name) {
         break;
       case 'RobotWindow':
         if (haveRobotWindow === 1) {
-          $("[title|='Robot Window']").find('.lm_close_tab').click();
+          $("[title|='Information Window']").find('.lm_close_tab').click();
           return;
         }
         break;

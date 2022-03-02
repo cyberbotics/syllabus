@@ -16,14 +16,14 @@ html, body{
   list-style-type:none;
 }
 
-button {
+.side-menu-button {
   background: transparent;
   margin-top: 10px;
   position: relative;
   border: none;
 }
 
-button:hover .buttonInfo {
+.side-menu-button:hover .buttonInfo {
   display: block;
 }
 
