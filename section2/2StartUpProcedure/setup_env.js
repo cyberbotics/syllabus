@@ -50,7 +50,7 @@ let haveIDE = 1;
 let haveTerminal = 1;
 
 let terminal; // TODO put in a web component with terminalDiv
-
+let iframeDisplayed = false;
 let myLayout = new GoldenLayout(config, $(layoutContainer));
 window.addEventListener('resize', () => myLayout._resizeFunction());
 
@@ -60,9 +60,30 @@ function create(container) {
     webotsView.id = 'webotsView';
     // webotsView.connect("wss://cyberbotics1.epfl.ch/1999/session?url=file:///home/cyberbotics/webots/projects/robots/softbank/nao/worlds/nao_room.wbt");
     // webotsView.loadAnimation('https://benjamindeleze.github.io/sandbox/animations/pr2.x3d', 'https://benjamindeleze.github.io/sandbox/animations/pr2.json');
-    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt');
+    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt', 'x3d', false, false, onConnect);
   }
   container.getElement().html(webotsView);
+}
+
+function onConnect() {
+  if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
+    let serverUrl = webotsView._view.x3dScene.prefix;
+    let url = serverUrl;
+    const elements = url.split('/').filter(element => element);
+    let portString = elements[elements.length - 1];
+    let port = parseFloat(portString) + 500;
+    url.replace(portString, port);
+    console.log(url)
+    let iframe = document.createElement('iframe');
+    iframe.src = url;
+    document.getElementById('idePlaceHolder').appendChild(iframe);
+
+    iframeDisplayed = true;
+  } else {
+    setTimeout(function() {
+      onConnect();
+    }, 100);
+  }
 }
 
 myLayout.registerComponent('WebotsView', function(container, componentState) {
@@ -87,7 +108,7 @@ myLayout.registerComponent('WebotsView', function(container, componentState) {
 });
 
 myLayout.registerComponent('IDE', function(container, componentState) {
-  container.getElement().html('<iframe src=http://localhost:3000/#/home/benjamin/webots-ide style="width: 100%;height: 100%;"></iframe>');
+  container.getElement().html('<div id=idePlaceHolder></div>');
   container.on('destroy', () => {
     let img = document.getElementById('imgIDE');
     if (img)
