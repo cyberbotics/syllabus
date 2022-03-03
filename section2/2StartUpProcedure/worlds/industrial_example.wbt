@@ -161,6 +161,7 @@ UR5e {
     DistanceSensor {
       translation 0 0.1 0
       rotation 0 0 1 1.570796
+      name "distance_sensor"
     }
     Robotiq3fGripper {
     }

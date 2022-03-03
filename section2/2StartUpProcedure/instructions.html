@@ -57,7 +57,7 @@
   <li>At this point, if you run the simulation, the manipulator must move to be positioned perpendicular to the conveyor belt.</li>
   <li>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. We will turn it on:
     <ul>
-      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.
+      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.
       <li>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.
           The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.
           The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.
