@@ -18,13 +18,14 @@
 <h3>Goals</h3>
 <p>The goal of this exercise is to develop a startup procedure for the UR5e robot.</p>
 <p>You will learn what is a timestep, how to initialize sensors and how to activate a motor in Webots.</p>
-<p>You have already seen this simulation in section1/subsection4/object grasping. This time however, you will have to initialize the robot and put it in the good starting position for him to be able to complete its task.</p>
+<p>You have already seen this simulation in section1/subsection4/object grasping.</p>
+<p>This time however, you will have to initialize the robot and put it in the good starting position for him to be able to complete its task.</p>
 <h3>What is already done?</h3>
 <p>The code to detect, grab and place the cans in the box is already done.</p>
 <h3>What is left to do?</h3>
 <ul>
-  <li>First, you will need to start and initialize the sensors and motors.</li>
-  <li>Then, you will actuate one of the motor to put the arm in position.</li>
+  <li>First, you will actuate one of the motor to put the arm in position.</li>
+  <li>Then, you will need to start and initialize the sensors and modify some parameters in the motors.</li>
 </ul>
 <h3>How to proceed?</h3>
 <p>You will find hereafter a step-by-step procedure to complete those tasks.</p>
@@ -38,7 +39,7 @@
       <li>Finally the code to detect if a can is approaching the gripper, grasp it and moving it to the box.</li>
     </ul>
   </li>
-  <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab can.
+  <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab cans.
       To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you will need two commands:
       <ul>
         <li><code>shoulder_motor= robot.getDevice('shoulder_pan_joint')</code></li>
@@ -56,20 +57,26 @@
   <li>At this point, if you run the simulation, the manipulator must move to be positioned perpendicular to the conveyor belt.</li>
   <li>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. We will turn it on:
     <ul>
-      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance sensor</code>.
+      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.
       <li>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.
           The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.
           The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.
       </li>
     </ul>
-    Added those two lines to the code and dont forget to save! Then if you reset and play again the simulation you should see the gripper grasp the first can.
+    Add those two lines to the code and dont forget to save! Then if you reset and play again the simulation you should see the gripper grasp the first can.
   </li>
   <li>
     We are progressing! Now we need to release the can once the arm is in position above the box. For that, we will use the position sensor of the wrist.
     The code to open the gripper according to the value of the position sensor is already written, but you still have to initialize the sensor.
-    The sensor is called <code>wrist_1_joint_sensor</code>. The procedure to initialize it is same as for the distance sensor.
+    The sensor is called <code>wrist_1_joint_sensor</code>. The procedure to initialize it is the same as for the distance sensor. This time, the variable should be named <code>position_sensor</code>.
   </li>
-
-      no need to set velocity for the soulder motor because we want it to be ready as soon as possble
+  <li><p>Once the position sensor is initialized you shoud see some...interesting results: the robots release the can but the can is not thrown in the box. What happens is that the manipulator move too quickly. Renember, we controll it in position, so it means that we just tell him to go to a position, but we do not control its speed!</p>
+      To fix that, we will reduce the maximum velocity of the robot. We are satisfied with the velocity of the gripper, so we will just modifiy the speed of the arm itself. We can achieve that by fixing the speed of each motors of the arm:<br>
+      <code>for motor in ur_motors:</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;motor.setVelocity(speed)</code><br>
+      Note that we do not modify the velocity of the shoulder joint because we want the manipulator to be in position over the conveyor belt as soon as possible.
+  </li>
+  <li>Save and run the simulation again. Normally the arm should grab and put the can in the box correctly</li>
+  <li>Congratulation! you achieved the first exercise about programming robot in python. As you could realize, it is way more complex to control robots from a lower level.</li>
 </body>
 <html>
