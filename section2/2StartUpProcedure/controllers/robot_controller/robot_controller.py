@@ -41,6 +41,7 @@ hand_motors[2] = robot.getDevice('finger_middle_joint_1')
 
 
 #####################################################################
+
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 counter = 8

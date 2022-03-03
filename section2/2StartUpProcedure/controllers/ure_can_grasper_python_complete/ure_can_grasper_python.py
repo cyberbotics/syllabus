@@ -43,13 +43,13 @@ shoulder_rotation = robot.getDevice('shoulder_pan_joint')
 
 shoulder_rotation.setPosition(1.5708)
 
-counter = 8
-
 distance_sensor = robot.getDevice('distance sensor')
 distance_sensor.enable(TIME_STEP)
 
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
+
+counter = 8
 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller

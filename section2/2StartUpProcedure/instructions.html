@@ -13,7 +13,7 @@
 
 <h3>Goals</h3>
 <p>The goal of this exercise is to develop a startup procedure for the UR5e robot.</p>
-<p>You will learn what is a timestep, how to initialize sensors and motors in Webots and how to activate a motor.</p>
+<p>You will learn what is a timestep, how to initialize sensors and how to activate a motor in Webots.</p>
 <p>You have already seen this simulation in section1/subsection4/object grasping. This time however, you will have to initialize the robot and put it in the good starting position for him to be able to complete its task.</p>
 <h3>What is already done?</h3>
 <p>The code to detect, grab and place the cans in the box is already done.</p>
@@ -22,10 +22,20 @@
   <li>First, you will need to start and initialize the sensors and motors.</li>
   <li>Then, you will actuate one of the motor to put the arm in position.</li>
 <ul>
-<h3>How to proceed?<h3>
+<h3>How to proceed?</h3>
 <p> You will find hereafter a step-by-step procedure to complete those tasks.</p>
 <ul>
   <li>First, have a look at the simulation without changing the code, to see how the robot is acting for now.</li>
-  <li>Then, open the
+  <li>Then, go in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
+  <li>Look at the python file, it is divided in three:
+    <ul>
+      <li>A first part of code that contains some imports, constants initialization and some Webots specific code</li>
+      <li>Then, an empty space where you will write your code</li>
+      <li>Finally the code to detect if a can is approaching the gripper, grasp it and moving it to the box.</li>
+    </ul>
+  </li>
+  <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab can.
+      To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you must follow these steps:
+      <ul></ul>
 </body>
 <html>

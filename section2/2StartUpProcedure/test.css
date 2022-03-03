@@ -12,6 +12,7 @@ html, body{
 
 *{
   margin: 0;
+  border: 0;
   padding: 0;
   list-style-type:none;
 }
