@@ -113,7 +113,7 @@
              menuButton.onclick = () => toggleDeviceComponent();
            }
            iframeDisplayed = true;
-        }else if(iframeDisplayed) {
+        } else if(iframeDisplayed) {
           let oldIframe = document.getElementById('rwComponent');
           oldIframe.parentNode.removeChild(oldIframe);
           let serverUrl = webotsView._view.x3dScene.prefix;
@@ -122,7 +122,7 @@
           iframe.src = url;
           iframe.id = 'rwComponent';
           document.body.appendChild(iframe)
-        }else setTimeout(function () {
+        } else setTimeout(function () {
           displayRobotWindow()
         }, 100);
       }
