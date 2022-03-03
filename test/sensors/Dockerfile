@@ -5,5 +5,5 @@ COPY . $PROJECT_PATH
 RUN apt-get update && apt-get install -y apt-utils curl \
     && rm -rf /var/lib/apt/lists/*
 RUN curl -fsSL https://get.docker.com | sh \
-    && echo "{\n  "storage-driver": "vfs"\n}" >> my_file.txt \
+    && echo "{\n  "storage-driver": "vfs"\n}" >> /etc/docker/daemon.json  \
     && service docker start
