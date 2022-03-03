@@ -2,7 +2,22 @@ FROM benjamindeleze/webots-test:webotsTest1
 ARG PROJECT_PATH
 RUN mkdir -p $PROJECT_PATH
 COPY . $PROJECT_PATH
-RUN apt-get update && apt-get install -y --no-install-recommends curl apt-utils
-RUN curl -fsSL https://get.docker.com | sh \
-    && mkdir /etc/docker && echo "{\n  "storage-driver": "vfs"\n}" >> /etc/docker/daemon.json  \
-    && service docker start
+
+# Let's start with some basic stuff.
+RUN apt-get update -qq && apt-get install -qqy \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    lxc \
+    iptables
+    
+# Install Docker from Docker Inc. repositories.
+RUN curl -sSL https://get.docker.com/ | sh
+
+# Install the magic wrapper.
+ADD ./wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/wrapdocker
+
+# Define additional metadata for our image.
+VOLUME /var/lib/docker
+CMD ["wrapdocker"]
