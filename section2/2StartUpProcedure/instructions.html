@@ -21,7 +21,7 @@
 <ul>
   <li>First, you will need to start and initialize the sensors and motors.</li>
   <li>Then, you will actuate one of the motor to put the arm in position.</li>
-<ul>
+</ul>
 <h3>How to proceed?</h3>
 <p> You will find hereafter a step-by-step procedure to complete those tasks.</p>
 <ul>
@@ -36,6 +36,9 @@
   </li>
   <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab can.
       To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you must follow these steps:
-      <ul></ul>
+      <ul>
+        <li><code>shoulder_rotation = robot.getDevice('shoulder_pan_joint')</code></li>
+        <li>shoulder_rotation.setPosition(1.5708)</li>
+      </ul>
 </body>
 <html>

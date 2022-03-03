@@ -8,8 +8,21 @@ const config = {
     type: 'row',
     content: [{
       type: 'column',
-      width: 70,
+      width: 30,
       content: [{
+        type: 'component',
+        height: 60,
+        componentName: 'InformationWindow',
+        componentState: {
+          label: 'Information'
+        }
+      }, {
+        type: 'component',
+        componentName: 'Terminal'
+      }]
+    }, {
+      type: 'column',
+      content: [ {
         type: 'component',
         componentName: 'WebotsView',
         componentState: {
@@ -21,19 +34,6 @@ const config = {
         componentState: {
           label: 'B'
         }
-      }]
-    }, {
-      type: 'column',
-      content: [{
-        type: 'component',
-        height: 60,
-        componentName: 'InformationWindow',
-        componentState: {
-          label: 'Information'
-        }
-      }, {
-        type: 'component',
-        componentName: 'Terminal'
       }]
     }]
   }]
@@ -280,7 +280,7 @@ if (img)
 
 
 function tryToConnectTerminal() {
-  if (typeof terminal !== 'undefined' && webotsView.hasView()) {
+  if (typeof terminal !== 'undefined' && typeof webotsView !== 'undefined' && webotsView.hasView()) {
     webotsView.setWebotsMessageCallback(_ => terminal.createMessage(_));
     webotsView.setWebotsErrorMessageCallback(_ => terminal.createErrorMessage(_));
   } else {
