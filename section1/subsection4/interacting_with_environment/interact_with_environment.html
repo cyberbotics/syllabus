@@ -109,7 +109,16 @@
              menuButton.onclick = () => toggleDeviceComponent();
            }
            iframeDisplayed = true;
-         }else
+         } else if(iframeDisplayed) {
+           let oldIframe = document.getElementById('rwComponent');
+           oldIframe.parentNode.removeChild(oldIframe);
+           let serverUrl = webotsView._view.x3dScene.prefix;
+           let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot';
+           let iframe = document.createElement('iframe');
+           iframe.src = url;
+           iframe.id = 'rwComponent';
+           document.body.appendChild(iframe)
+         } else
           setTimeout(() => displayRobotWindow(), 100);
       }
 
