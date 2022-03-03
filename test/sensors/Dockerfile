@@ -5,5 +5,5 @@ COPY . $PROJECT_PATH
 RUN apt-get update && apt-get install -y apt-utils \
     curl \
     && rm -rf /var/lib/apt/lists/*
-RUN curl -fsSL https://get.docker.com | sh
+RUN curl -fsSL https://get.docker.com | sh && service docker start
 RUN cd $PROJECT_PATH/controllers/sensors && make
