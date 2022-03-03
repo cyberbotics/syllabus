@@ -113,6 +113,15 @@
              menuButton.onclick = () => toggleDeviceComponent();
            }
            iframeDisplayed = true;
+        }else if(iframeDisplayed) {
+          let oldIframe = document.getElementById('rwComponent');
+          oldIframe.parentNode.removeChild(oldIframe);
+          let serverUrl = webotsView._view.x3dScene.prefix;
+          let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger';
+          let iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.id = 'rwComponent';
+          document.body.appendChild(iframe)
         }else setTimeout(function () {
           displayRobotWindow()
         }, 100);
