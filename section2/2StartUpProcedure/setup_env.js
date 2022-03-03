@@ -8,10 +8,10 @@ const config = {
     type: 'row',
     content: [{
       type: 'column',
-      width: 30,
+      width: 50,
       content: [{
         type: 'component',
-        height: 60,
+        height: 70,
         componentName: 'InformationWindow',
         componentState: {
           label: 'Information'
