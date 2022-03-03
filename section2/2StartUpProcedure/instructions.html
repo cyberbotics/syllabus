@@ -6,6 +6,10 @@
     margin: 0;
     padding: 0;
   }
+  code {
+    background-color: grey;
+    padding: 2px;
+  }
 </style>
 
 <body>
@@ -23,7 +27,7 @@
   <li>Then, you will actuate one of the motor to put the arm in position.</li>
 </ul>
 <h3>How to proceed?</h3>
-<p> You will find hereafter a step-by-step procedure to complete those tasks.</p>
+<p>You will find hereafter a step-by-step procedure to complete those tasks.</p>
 <ul>
   <li>First, have a look at the simulation without changing the code, to see how the robot is acting for now.</li>
   <li>Then, go in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
@@ -35,10 +39,37 @@
     </ul>
   </li>
   <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab can.
-      To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you must follow these steps:
+      To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you will need two commands:
       <ul>
-        <li><code>shoulder_rotation = robot.getDevice('shoulder_pan_joint')</code></li>
-        <li>shoulder_rotation.setPosition(1.5708)</li>
+        <li><code>shoulder_motor= robot.getDevice('shoulder_pan_joint')</code></li>
+        <li><code>shoulder_motor.setPosition(0.2)</code></li>
       </ul>
+      The first command is used to retrieve the motor controlling the soulder link. To detail more:
+      <ul>
+        <li><code>robot</code> is the UR5e robotic arm</li>
+        <li>The <code>getDevice</code> function of the robot allows us to retrieve a device (motor or sensor) by its name (<code>shoulder_pan_joint</code>)</li>
+      </ul>
+      Here we are controlling the motor in position. As it is a rotational motor, we have to give it an angle in radian, that is what the second command does.
+  <li>Once you have written thos two lines, save the code (CTRL + s, or File->Save), reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again. You shoud see the arm move a bit.
+      However, the arm does not reach the correct position on the conveyor belt (perpendicular to the belt) because the value of <code>setPosition()</code> is not big enough.
+      Find the right value before going further!</li>
+  <li>At this point, if you run the simulation, the manipulator must move to be positioned perpendicular to the conveyor belt.</li>
+  <li>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. We will turn it on:
+    <ul>
+      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance sensor</code>.
+      <li>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.
+          The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.
+          The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.
+      </li>
+    </ul>
+    Added those two lines to the code and dont forget to save! Then if you reset and play again the simulation you should see the gripper grasp the first can.
+  </li>
+  <li>
+    We are progressing! Now we need to release the can once the arm is in position above the box. For that, we will use the position sensor of the wrist.
+    The code to open the gripper according to the value of the position sensor is already written, but you still have to initialize the sensor.
+    The sensor is called <code>wrist_1_joint_sensor</code>. The procedure to initialize it is same as for the distance sensor.
+  </li>
+
+      no need to set velocity for the soulder motor because we want it to be ready as soon as possble
 </body>
 <html>

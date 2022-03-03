@@ -30,7 +30,19 @@ hand_motors[0] = robot.getDevice('finger_1_joint_1')
 hand_motors[1] = robot.getDevice('finger_2_joint_1')
 hand_motors[2] = robot.getDevice('finger_middle_joint_1')
 
+ur_motors = [None] * 4
+ur_motors[0] = robot.getDevice('shoulder_lift_joint')
+ur_motors[1] = robot.getDevice('elbow_joint')
+ur_motors[2] = robot.getDevice('wrist_1_joint')
+ur_motors[3] = robot.getDevice('wrist_2_joint')
+
 #################### WRITE YOUR CODE HERE ###########################
+
+
+
+
+
+
 
 
 
