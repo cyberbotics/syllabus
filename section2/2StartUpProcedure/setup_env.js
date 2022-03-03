@@ -27,7 +27,7 @@ const config = {
       content: [{
         type: 'component',
         height: 60,
-        componentName: 'RobotWindow',
+        componentName: 'InformationWindow',
         componentState: {
           label: 'Information'
         }
@@ -41,13 +41,15 @@ const config = {
 
 let webotsView;
 let terminalDiv;
+let informationWindow;
 let robotWindow;
 let minimizedStorage = document.getElementById('minimizedContent');
 
 let haveWebotsView = 1;
-let haveRobotWindow = 1;
+let haveInformationWindow = 1;
 let haveIDE = 1;
 let haveTerminal = 1;
+let haveRobotWindow = 0;
 
 let terminal; // TODO put in a web component with terminalDiv
 let iframeDisplayed = false;
@@ -60,9 +62,8 @@ function create(container) {
     webotsView = document.createElement('webots-view');
     webotsView.id = 'webotsView';
     webotsView.showQuit = false;
-    // webotsView.connect("wss://cyberbotics1.epfl.ch/1999/session?url=file:///home/cyberbotics/webots/projects/robots/softbank/nao/worlds/nao_room.wbt");
-    // webotsView.loadAnimation('https://benjamindeleze.github.io/sandbox/animations/pr2.x3d', 'https://benjamindeleze.github.io/sandbox/animations/pr2.json');
-    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt', 'x3d', false, false, onConnect);
+    webotsView.onready = onConnect;
+    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt');
   }
   container.getElement().html(webotsView);
 }
@@ -127,6 +128,33 @@ myLayout.registerComponent('IDE', function(container, componentState) {
   haveIDE = 1;
 });
 
+myLayout.registerComponent('InformationWindow', function(container, componentState) {
+  if (typeof informationWindow === 'undefined') {
+    informationWindow = document.createElement('iframe');
+    informationWindow.src = 'instructions.html';
+    informationWindow.height = '100%';
+    informationWindow.width = '100%';
+  }
+
+  container.getElement().html(informationWindow);
+  container.on('tab', () => container.tab.setTitle('Information Window'));
+  container.on('destroy', () => {
+    let img = document.getElementById('imgInformationWindow');
+    if (img)
+      img.src = 'icons/InformationWindow_grey.png';
+    if (minimizedStorage)
+      minimizedStorage.appendChild(informationWindow);
+    informationWindow.style.display = 'none';
+    haveInformationWindow = 0;
+  });
+
+  informationWindow.style.display = 'block';
+  haveInformationWindow = 1;
+  let img = document.getElementById('imgInformationWindow');
+  if (img)
+    img.src = 'icons/InformationWindow_white.png';
+});
+
 myLayout.registerComponent('RobotWindow', function(container, componentState) {
   if (typeof robotWindow === 'undefined') {
     robotWindow = document.createElement('iframe');
@@ -136,7 +164,7 @@ myLayout.registerComponent('RobotWindow', function(container, componentState) {
   }
 
   container.getElement().html(robotWindow);
-  container.on('tab', () => container.tab.setTitle('Information Window'));
+  container.on('tab', () => container.tab.setTitle('Robot Window'));
   container.on('destroy', () => {
     let img = document.getElementById('imgRobotWindow');
     if (img)
@@ -153,6 +181,7 @@ myLayout.registerComponent('RobotWindow', function(container, componentState) {
   if (img)
     img.src = 'icons/RobotWindow_white.png';
 });
+
 
 myLayout.registerComponent('Terminal', function(container, componentState) {
   if (typeof terminal === 'undefined') {
@@ -213,8 +242,8 @@ let addMenuItem = function(name) {
           return;
         }
         break;
-      case 'RobotWindow':
-        if (haveRobotWindow === 1) {
+      case 'InformationWindow':
+        if (haveInformationWindow === 1) {
           $("[title|='Information Window']").find('.lm_close_tab').click();
           return;
         }
@@ -222,6 +251,12 @@ let addMenuItem = function(name) {
       case 'Terminal':
         if (haveTerminal === 1) {
           $("[title|='Terminal']").find('.lm_close_tab').click();
+          return;
+        }
+        break;
+      case 'RobotWindow':
+        if (haveRobotWindow === 1) {
+          $("[title|='Robot Window']").find('.lm_close_tab').click();
           return;
         }
         break;
@@ -233,9 +268,16 @@ let addMenuItem = function(name) {
   });
 };
 addMenuItem('WebotsView');
-addMenuItem('RobotWindow');
+addMenuItem('InformationWindow');
 addMenuItem('IDE');
 addMenuItem('Terminal');
+addMenuItem('RobotWindow');
+if (!haveRobotWindow) {
+let img = document.getElementById('imgRobotWindow');
+if (img)
+  img.src = 'icons/RobotWindow_grey.png';
+}
+
 
 function tryToConnectTerminal() {
   if (typeof terminal !== 'undefined' && webotsView.hasView()) {

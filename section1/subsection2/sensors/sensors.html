@@ -86,7 +86,8 @@
       webotsView.id = 'webotsView';
       webotsView.showQuit = false;
       document.body.appendChild(webotsView);
-      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt', 'x3d', false, false, displayRobotWindow);
+      webotsView.onready = displayRobotWindow;
+      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section1/subsection2/sensors/worlds/sensors.wbt');
 
 
       function displayRobotWindow() {

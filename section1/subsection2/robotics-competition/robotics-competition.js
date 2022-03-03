@@ -2,7 +2,8 @@ import WebotsView from 'https://cyberbotics.com/wwi/R2022b/WebotsView.js';
 
 let webotsView = new WebotsView();
 document.body.appendChild(webotsView);
-webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection2/robotics-competition/worlds/robotics_competition.wbt', 'x3d', false, false, displayRobotWindow);
+webotsView.onready = displayRobotWindow;
+webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section1/subsection2/robotics-competition/worlds/robotics_competition.wbt');
 webotsView.showPlay = false;
 webotsView.showReset = false;
 webotsView.showQuit = false;
