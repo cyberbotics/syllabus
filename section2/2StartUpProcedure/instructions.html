@@ -60,7 +60,7 @@
   </ul>
 <p>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab cans. To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you will need two commands:</p>
       <ul>
-        <li><code>shoulder_motor= robot.getDevice('shoulder_pan_joint')</code></li>
+        <li><code>shoulder_motor = robot.getDevice('shoulder_pan_joint')</code></li>
         <li><code>shoulder_motor.setPosition(0.2)</code></li>
       </ul>
 <p>The first command is used to retrieve the motor controlling the soulder link. To detail more:</p>
@@ -83,7 +83,7 @@
 
 <h4>3 Calibrate the position</h4>
 
-<p><u>Explanation</u></p><
+<p><u>Explanation</u></p>
 
 <p>The arm does not reach the correct position on the conveyor belt (perpendicular to the belt) because the value of <code>setPosition()</code> is not big enough.</p>
 <p>Remember that the value passed to <code>setPosition()</code> is an angle in radian.</p>
@@ -102,10 +102,10 @@
 <h4>4 Enable the distance sensor</h4>
 
 <p><u> Explanation</u></p>
-<p>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. The code that links the value return by the sensor to the motors of the gripper has already be written. However, you will need to turn the sensor on for it to work.</p>
+<p>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. The code that links the value returned by the sensor to the motors of the gripper has already be written. However, you will need to turn the sensor on for it to work.</p>
 <p>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.</p>
 <p>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.</p>
-<p>The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.</p>
+<p>The <code>enable</code> function takes the sampling period as argument. As we are in a simulation, the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.</p>
 <p>The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.</p>
 
 <p><u>Task</u></p>
