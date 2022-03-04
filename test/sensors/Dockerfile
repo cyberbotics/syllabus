@@ -3,7 +3,7 @@ ARG PROJECT_PATH
 ARG PORT
 RUN mkdir -p $PROJECT_PATH
 COPY . $PROJECT_PATH
-
+EXPOSE $PORT
 #From https://github.com/jpetazzo/dind:
 # Let's start with some basic stuff.
 RUN apt-get update -qq && apt-get install -qqy \
