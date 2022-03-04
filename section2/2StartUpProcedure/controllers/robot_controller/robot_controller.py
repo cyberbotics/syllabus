@@ -53,6 +53,14 @@ ur_motors[3] = robot.getDevice('wrist_2_joint')
 
 
 
+
+##################### Check that the variables are defined ##########
+if not 'distance_sensor' in locals() or not distance_sensor:
+    print("Distance sensor not defined, not valid or incorrectly named. Done in Step 4.")
+elif not 'position_sensor' in locals() or not position_sensor:
+    print("Position sensor not defined, not valid or incorrectly named. Done in Step 5.")
+
+
 ##################### Pick and Place the cans #######################
 
 # Main loop:
@@ -62,7 +70,7 @@ while robot.step(TIME_STEP) != -1:
     if counter <= 0:
         if state == state.WAITING:
             # Grasp a can
-            if distance_sensor.getValue() < 500:
+            if 'distance_sensor' in locals() and distance_sensor and distance_sensor.getValue() < 500:
                 state = state.GRASPING
                 counter = 8
                 for motor in hand_motors:
@@ -76,7 +84,7 @@ while robot.step(TIME_STEP) != -1:
             state = state.ROTATING
         elif state == state.ROTATING:
             # Release the can
-            if position_sensor.getValue() < -2.3:
+            if 'position_sensor' in locals() and position_sensor and position_sensor.getValue() < -2.3:
                 counter = 8
                 state = state.RELEASING
                 for motor in hand_motors:

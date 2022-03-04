@@ -42,7 +42,6 @@ const config = {
 let webotsView;
 let terminalDiv;
 let informationWindow;
-let robotWindow;
 let minimizedStorage = document.getElementById('minimizedContent');
 
 let haveWebotsView = 1;
@@ -54,6 +53,7 @@ let haveRobotWindow = 0;
 let terminal; // TODO put in a web component with terminalDiv
 let iframeDisplayed = false;
 let iframeUrl;
+let rwIframeUrl;
 let myLayout = new GoldenLayout(config, $(layoutContainer));
 window.addEventListener('resize', () => myLayout._resizeFunction());
 
@@ -83,6 +83,13 @@ function onConnect() {
     iframe.style.height = '100%';
     document.getElementById('idePlaceHolder').appendChild(iframe);
 
+    let rwIframe = document.createElement('iframe');
+    rwIframeUrl = serverUrl + 'robot_windows/generic/generic.html?name=UR5e';
+    rwIframe.src = rwIframeUrl;
+    rwIframe.style.width = '100%';
+    rwIframe.style.height = '100%';
+    rwIframe.style.backgroundColor = 'white';
+    document.getElementById('idePlaceHolder').appendChild(rwIframe);
     iframeDisplayed = true;
   } else {
     setTimeout(function() {
@@ -138,7 +145,7 @@ myLayout.registerComponent('InformationWindow', function(container, componentSta
   }
 
   container.getElement().html(informationWindow);
-  container.on('tab', () => container.tab.setTitle('Information Window'));
+  container.on('tab', () => container.tab.setTitle('Information'));
   container.on('destroy', () => {
     let img = document.getElementById('imgInformationWindow');
     if (img)
@@ -157,26 +164,19 @@ myLayout.registerComponent('InformationWindow', function(container, componentSta
 });
 
 myLayout.registerComponent('RobotWindow', function(container, componentState) {
-  if (typeof robotWindow === 'undefined') {
-    robotWindow = document.createElement('iframe');
-    robotWindow.src = 'instructions.html';
-    robotWindow.height = '100%';
-    robotWindow.width = '100%';
-  }
+  if (iframeDisplayed)
+    container.getElement().html('<div id=rwPlaceHolder style="width:100%;height:100%;"><iframe src=' + rwIframeUrl + ' style="width:100%;height:100%;background-color:white"></iframe></div>');
+  else
+    container.getElement().html('<div id=rwPlaceHolder style="width:100%;height:100%;"></div>');
 
-  container.getElement().html(robotWindow);
   container.on('tab', () => container.tab.setTitle('Robot Window'));
   container.on('destroy', () => {
     let img = document.getElementById('imgRobotWindow');
     if (img)
       img.src = 'icons/RobotWindow_grey.png';
-    if (minimizedStorage)
-      minimizedStorage.appendChild(robotWindow);
-    robotWindow.style.display = 'none';
     haveRobotWindow = 0;
   });
 
-  robotWindow.style.display = 'block';
   haveRobotWindow = 1;
   let img = document.getElementById('imgRobotWindow');
   if (img)
@@ -218,7 +218,26 @@ myLayout.init();
 document.getElementById('terminal').parentNode.style.overflow = 'auto';
 
 let addMenuItem = function(name) {
-  let element = $('<button class="side-menu-button"><img id=img' + name + ' src=icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + name + '</div></button>');
+  let buttonTitle;
+  switch (name) {
+    case 'WebotsView':
+      buttonTitle = 'Simulation';
+      break;
+    case 'InformationWindow':
+      buttonTitle = 'Information';
+      break;
+    case 'IDE':
+      buttonTitle = 'IDE';
+      break;
+    case 'Terminal':
+      buttonTitle = 'Terminal';
+      break;
+    case 'RobotWindow':
+      buttonTitle = 'Robot window';
+      break;
+  }
+  let element = $('<button class="side-menu-button"><img id=img' + name + ' src=icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + buttonTitle + '</div></button>');
+  element.html = 'salut';
   $('#menuContainer').append(element);
   let newItemConfig = {
     type: 'component',
@@ -229,7 +248,6 @@ let addMenuItem = function(name) {
   };
 
   element.click(function() {
-    console.log(name)
     switch (name) {
       case 'WebotsView':
         if (haveWebotsView === 1) {
@@ -245,7 +263,7 @@ let addMenuItem = function(name) {
         break;
       case 'InformationWindow':
         if (haveInformationWindow === 1) {
-          $("[title|='Information Window']").find('.lm_close_tab').click();
+          $("[title|='Information']").find('.lm_close_tab').click();
           return;
         }
         break;
@@ -279,6 +297,17 @@ if (!haveRobotWindow) {
     img.src = 'icons/RobotWindow_grey.png';
 }
 
+const fullscreenButton = $('<button class="side-menu-button" id="fullscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=icons/fullscreen.png width=40px style=transparency/><div class="buttonInfo">Full screen</div></button>');
+$('#menuContainer').append(fullscreenButton);
+const exitFullscreenButton = $('<button class="side-menu-button" id="partscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=icons/exitfullscreen.png width=40px style=transparency/><div class="buttonInfo">Exit full screen</div></button>');
+$('#menuContainer').append(exitFullscreenButton);
+
+if (document.getElementById('fullscreenGlobal'))
+  document.getElementById('fullscreenGlobal').onclick = () => toggleRobotComponentFullScreen();
+if (document.getElementById('partscreenGlobal')) {
+  document.getElementById('partscreenGlobal').onclick = () => toggleRobotComponentFullScreen();
+  document.getElementById('partscreenGlobal').style.display = 'none';
+}
 function tryToConnectTerminal() {
   if (typeof terminal !== 'undefined' && typeof webotsView !== 'undefined' && webotsView.hasView()) {
     webotsView.setWebotsMessageCallback(_ => terminal.createMessage(_));
@@ -287,5 +316,20 @@ function tryToConnectTerminal() {
     setTimeout(function() {
       tryToConnectTerminal();
     }, 100);
+  }
+}
+
+function toggleRobotComponentFullScreen(robot) {
+  if (document.fullscreenElement) {
+    document.getElementById('fullscreenGlobal').style.display = '';
+    document.getElementById('partscreenGlobal').style.display = 'none';
+
+    if (document.exitFullscreen)
+      document.exitFullscreen();
+  } else {
+    document.getElementById('fullscreenGlobal').style.display = 'none';
+    document.getElementById('partscreenGlobal').style.display = '';
+    if (document.body.requestFullscreen)
+      document.body.requestFullscreen();
   }
 }
