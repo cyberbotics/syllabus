@@ -1,5 +1,6 @@
 FROM benjamindeleze/webots-test:webotsTest1
 ARG PROJECT_PATH
+ARG PORT
 RUN mkdir -p $PROJECT_PATH
 COPY . $PROJECT_PATH
 
