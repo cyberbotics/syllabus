@@ -24,7 +24,7 @@ export default class Terminal {
   }
 
   createErrorMessage(msg) {
-    if (msg === 'WARNING: It is not recommended to run Webots as root.')
+    if (msg.startsWith('WARNING: It is not recommended to run Webots as root.'))
       return;
 
     this.text += '<span style="color:red">' + msg + '</span></br>';
