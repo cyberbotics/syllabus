@@ -345,7 +345,7 @@ Robot {
                     }
                     geometry Mesh {
                       url [
-                        "webots://projects/robots/generic/trackedRobot/protos/meshes/shaft.obj"
+                        "meshes/shaft.obj"
                       ]
                     }
                   }
@@ -371,7 +371,7 @@ Robot {
                       }
                       geometry Mesh {
                         url [
-                          "webots://projects/robots/generic/trackedRobot/protos/meshes/camera.obj"
+                          "meshes/camera.obj"
                         ]
                       }
                     }
@@ -391,13 +391,13 @@ Robot {
       translation -0.773 -0.137 0.023
       rotation 0.11611260301955266 0.17784936149720515 -0.9771834362263105 1.58783
       children [
-        Shape {
+        DEF ANTENNA_SHAPE Shape {
           appearance Plastic {
             colorOverride 0.180392 0.203922 0.211765
           }
           geometry Mesh {
             url [
-              "webots://projects/robots/generic/trackedRobot/protos/meshes/antenna.obj"
+              "meshes/antenna.obj"
             ]
           }
         }
@@ -407,16 +407,7 @@ Robot {
       translation -0.773 0.137 0.023
       rotation -0.14253600610763875 -0.08370290358665233 -0.9862440422603559 1.56261
       children [
-        Shape {
-          appearance Plastic {
-            colorOverride 0.180392 0.203922 0.211765
-          }
-          geometry Mesh {
-            url [
-              "webots://projects/robots/generic/trackedRobot/protos/meshes/antenna.obj"
-            ]
-          }
-        }
+        USE ANTENNA_SHAPE
       ]
     }
   ]
