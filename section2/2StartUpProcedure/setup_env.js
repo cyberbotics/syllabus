@@ -64,6 +64,7 @@ function create(container) {
     webotsView.showQuit = false;
     webotsView.onready = onConnect;
     webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt');
+    // webotsView.connect('ws://localhost:1234');
   }
   container.getElement().html(webotsView);
 }
@@ -273,11 +274,10 @@ addMenuItem('IDE');
 addMenuItem('Terminal');
 addMenuItem('RobotWindow');
 if (!haveRobotWindow) {
-let img = document.getElementById('imgRobotWindow');
-if (img)
-  img.src = 'icons/RobotWindow_grey.png';
+  let img = document.getElementById('imgRobotWindow');
+  if (img)
+    img.src = 'icons/RobotWindow_grey.png';
 }
-
 
 function tryToConnectTerminal() {
   if (typeof terminal !== 'undefined' && typeof webotsView !== 'undefined' && webotsView.hasView()) {

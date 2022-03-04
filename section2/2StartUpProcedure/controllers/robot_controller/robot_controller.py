@@ -1,4 +1,5 @@
 """ure_can_grasper_python controller."""
+######################## Initialization ################################
 
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
@@ -54,39 +55,41 @@ ur_motors[3] = robot.getDevice('wrist_2_joint')
 
 #####################################################################
 
+##################### Pick and Place the cans #######################
+
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 counter = 8
 while robot.step(TIME_STEP) != -1:
     if counter <= 0:
         if state == state.WAITING:
+            # Grasp a can
             if distance_sensor.getValue() < 500:
                 state = state.GRASPING
                 counter = 8
-                print("Grasping can")
                 for motor in hand_motors:
                     motor.setPosition(0.85)
         elif state == state.GRASPING:
+            # Rotate the arm above the storage box
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
                 i += 1
-            print("Rotating arm")
             state = state.ROTATING
         elif state == state.ROTATING:
+            # Release the can
             if position_sensor.getValue() < -2.3:
                 counter = 8
-                print("Releasing can")
                 state = state.RELEASING
                 for motor in hand_motors:
                     motor.setPosition(motor.getMinPosition())
         elif state == state.RELEASING:
+            # Rotate the arm back
             for motor in ur_motors:
                 motor.setPosition(0.0)
-            print("Rotating arm back")
             state = state.ROTATING_BACK
         elif state == state.ROTATING_BACK:
+            # Wait for the next can
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
-                print("Waiting can")
     counter -= 1

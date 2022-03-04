@@ -5,6 +5,7 @@
     border: 0;
     margin: 0;
     padding: 0;
+    line-height: 2em;
   }
   code {
     background-color: grey;
@@ -25,58 +26,134 @@
   <li>First, you will actuate one of the motor to put the arm in position.</li>
   <li>Then, you will need to start and initialize the sensors and modify some parameters in the motors.</li>
 </ul>
+
 <h3>What is already done?</h3>
 <p>The code to detect, grab and place the cans in the box is already done but it needs the initialization of the sensors to work properly.</p>
-<h3>How to proceed?</h3>
-<p>You will find hereafter a step-by-step procedure to complete those tasks.</p>
+
+<h3>Hands-on</h3>
+
+<h4>1 Preparatory phase</h4>
+
+<p><u>Explanation</u></p>
+
+<p>First, it is important to have a look a the scene, in order to better understand what is the situation and what you will have to achieve. Then you will need to open the controller file.</p>
+
+<p><u>Task</u></p>
 <ul>
-  <li>First, have a look at the simulation without changing the code, to see how the robot is acting for now.</li>
-  <li>Then, go in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
-  <li>Look at the python file, it is divided in three:
-    <ul>
-      <li>A first part of code that contains some imports, constants initialization and some Webots specific code</li>
-      <li>Then, an empty space where you will write your code</li>
-      <li>Finally the code to detect if a can is approaching the gripper, grasp it and moving it to the box.</li>
-    </ul>
-  </li>
-  <li>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab cans.
-      To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you will need two commands:
+  <li>Have a look at the simulation, in the simulation window. If you closed it, you can reopen it by clicking the 3D cube icon.</li>
+  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>The robotic arm should not move at all.</p>
+
+<h4>2 Move the arm</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Start by looking at the python file, is divided in three:</p>
+  <ul>
+    <li>A first part of code that contains some imports, constants initialization and some Webots specific code</li>
+    <li>Then, an empty space where you will write your code</li>
+    <li>Finally the code to detect if a can is approaching the gripper, grasp it and moving it to the box.</li>
+  </ul>
+<p>Now let's get your hands on! When you looked at the simulation you should have realized that the manipulator is not in the right position to grab cans. To fix this, we need to activate the rotational motor that controls the shoulder joint of the robot. To do so you will need two commands:</p>
       <ul>
         <li><code>shoulder_motor= robot.getDevice('shoulder_pan_joint')</code></li>
         <li><code>shoulder_motor.setPosition(0.2)</code></li>
       </ul>
-      The first command is used to retrieve the motor controlling the soulder link. To detail more:
-      <ul>
-        <li><code>robot</code> is the UR5e robotic arm</li>
-        <li>The <code>getDevice</code> function of the robot allows us to retrieve a device (motor or sensor) by its name (<code>shoulder_pan_joint</code>)</li>
-      </ul>
-      Here we are controlling the motor in position. As it is a rotational motor, we have to give it an angle in radian, that is what the second command does.
-  <li>Once you have written thos two lines, save the code (CTRL + s, or File->Save), reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again. You shoud see the arm move a bit.
-      However, the arm does not reach the correct position on the conveyor belt (perpendicular to the belt) because the value of <code>setPosition()</code> is not big enough.
-      Find the right value before going further!</li>
-  <li>At this point, if you run the simulation, the manipulator must move to be positioned perpendicular to the conveyor belt.</li>
-  <li>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. We will turn it on:
-    <ul>
-      <li>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.
-      <li>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.
-          The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.
-          The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.
-      </li>
-    </ul>
-    Add those two lines to the code and dont forget to save! Then if you reset and play again the simulation you should see the gripper grasp the first can.
-  </li>
-  <li>
-    We are progressing! Now we need to release the can once the arm is in position above the box. For that, we will use the position sensor of the wrist.
-    The code to open the gripper according to the value of the position sensor is already written, but you still have to initialize the sensor.
-    The sensor is called <code>wrist_1_joint_sensor</code>. The procedure to initialize it is the same as for the distance sensor. This time, the variable should be named <code>position_sensor</code>.
-  </li>
-  <li><p>Once the position sensor is initialized you shoud see some...interesting results: the robots release the can but the can is not thrown in the box. What happens is that the manipulator move too quickly. Renember, we controll it in position, so it means that we just tell him to go to a position, but we do not control its speed!</p>
-      To fix that, we will reduce the maximum velocity of the robot. We are satisfied with the velocity of the gripper, so we will just modifiy the speed of the arm itself. We can achieve that by fixing the speed of each motors of the arm:<br>
-      <code>for motor in ur_motors:</code><br>
-      <code>&nbsp;&nbsp;&nbsp;&nbsp;motor.setVelocity(speed)</code><br>
-      Note that we do not modify the velocity of the shoulder joint because we want the manipulator to be in position over the conveyor belt as soon as possible.
-  </li>
-  <li>Save and run the simulation again. Normally the arm should grab and put the can in the box correctly</li>
-  <li>Congratulation! you achieved the first exercise about programming robot in python. As you could realize, it is way more complex to control robots from a lower level.</li>
+<p>The first command is used to retrieve the motor controlling the soulder link. To detail more:</p>
+<ul>
+  <li><code>robot</code> is the UR5e robotic arm</li>
+  <li>The <code>getDevice</code> function of the robot allows us to retrieve a device (motor or sensor) by its name (<code>shoulder_pan_joint</code>)</li>
+</ul>
+<p>Here we are controlling the motor in position. As it is a rotational motor, we have to give it an angle in radian, that is what the second command does.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Write the two lines of code needed to move the arm in position.</li>
+  <li>Save the code (CTRL + s, or File->Save)</li>
+  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>You shoud see the arm move a bit. However, it does not reach the correct position on the conveyor belt (perpendicular to the belt)</p>
+
+<h4>3 Calibrate the position</h4>
+
+<p><u>Explanation</u></p><
+
+<p>The arm does not reach the correct position on the conveyor belt (perpendicular to the belt) because the value of <code>setPosition()</code> is not big enough.</p>
+<p>Remember that the value passed to <code>setPosition()</code> is an angle in radian.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Find the right value for the arm to move until it is perpendicular to the conveyor belt.</li>
+  <li>Save the code (CTRL + s, or File->Save)</li>
+  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>At this point, if you run the simulation, the manipulator must move to be positioned perpendicular to the conveyor belt. But the gripper does not close on the cans</p>
+
+<h4>4 Enable the distance sensor</h4>
+
+<p><u> Explanation</u></p>
+<p>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. The code that links the value return by the sensor to the motors of the gripper has already be written. However, you will need to turn the sensor on for it to work.</p>
+<p>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.</p>
+<p>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.</p>
+<p>The <code>enable</code> function takes the sampling period as argument. As we are in a simulation the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.</p>
+<p>The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Write the two lines of code needed to enable the distance sensor</li>
+  <li>Save the code (CTRL + s, or File->Save)</li>
+  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+<p>The arm should now move, grab a can and move until the can is on top of the box. But it will not release the can.</p>
+
+<h4>5 Enable the position sensor</h4>
+
+<p><u> Explanation</u></p>
+
+<p>We are progressing! Now we need to release the can once the arm is in position above the box. For that, we will use the position sensor of the wrist. The code to open the gripper according to the value of the position sensor is already written, but you still have to initialize the sensor.</p>
+<p>The sensor is called <code>wrist_1_joint_sensor</code>. The procedure to initialize it is the same as for the distance sensor. This time, the variable should be named <code>position_sensor</code>.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Write the two lines of code needed to enable the position sensor</li>
+  <li>Save the code (CTRL + s, or File->Save)</li>
+  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+<p>Once the position sensor is initialized you shoud see some...interesting results: the robots release the can but the can is not thrown in the box. What happens is that the manipulator move too quickly.</p>
+
+<h4>6 Reduce the maximum velocity of the arm</h4>
+
+<p><u> Explanation</u></p>
+<p>The arm move too quickly to correctly drop the can, it order to fix that, we need to reduce its speed.</p>
+<p>However, remember that we controll it in position, so it means that we can just tell him to go to a position, but we do not control its speed directly!</p>
+<p>To fix that, we will reduce the maximum velocity of the robot. We are satisfied with the velocity of the gripper, so we will just modifiy the speed of the arm itself. We can achieve that by fixing the speed of each motors of the arm:<p>
+<p><code>for motor in ur_motors:</code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;motor.setVelocity(speed)</code></p>
+<p>Note that we do not modify the velocity of the shoulder joint because we want the manipulator to be in position over the conveyor belt as soon as possible.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Reduce the maximum velocity of the motors of the arm</li>
+  <li>Save the code (CTRL + s, or File->Save)</li>
+  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+<p>The manipulator should now work correctly. It should wait for the cans, grab them and put them in the box.</p>
+<p>Congratulation! you achieved the first exercise about programming robot in python. As you could realize, it is way more complex to control robots from a lower level.</p>
 </body>
 <html>
