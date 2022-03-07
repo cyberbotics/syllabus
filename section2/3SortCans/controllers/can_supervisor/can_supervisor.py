@@ -27,7 +27,7 @@ for i in range(3, 7):
     positionField = canNode.getField('translation')
     colorField = appearanceNode.getField('baseColor')
     positionField.setSFVec3f([6.96, -0.83, 0.66])
-    randomColor = 0#random.randint(0,2)
+    randomColor = random.randint(0,2)
     colorField.setSFColor(color[randomColor])
     cans_colors[i] = randomColor
     canNode.resetPhysics()

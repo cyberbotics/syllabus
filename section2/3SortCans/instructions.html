@@ -1,0 +1,58 @@
+<html>
+<style>
+  body {
+    color: white;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+  }
+  code {
+    background-color: grey;
+    padding: 2px;
+  }
+</style>
+
+<body>
+<h2>Instructions</h2>
+
+
+<h3>Situation and Goal</h3>
+<p>This exercise is the direct continuation from the previsou one.</p>
+<p>In the last exercise, you implemented a start-up procedure for the robot to be able to successfully detect, pick and place cans.</p>
+<p>This time, you will go one step further.</p>
+<p>There is now three kinds of cans (red, green and blue). The robot have to grasp each cans and to put it in the box corresponding to its color (red cans in the red box, green cans in the green box, blue cans in the blue box).</p>
+<p>In order to identify the color of the cans, the UR5e robot is now equiped with a camera</p>
+<p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color.</p>
+
+<h3>What is already done?</h3>
+<p> The code of the manipulator is similar to the one you had obtained at the end of the previous exercise: it does the initialization of the manipulator and then pick and place all the can in one box.
+
+<h3>What is left to do?</h3>
+<ul>
+  <li>In a first time, you will need to determine the color of each can</li>
+  <li>Then, you will have to modify the movement of the arm according to the detected color</li>
+</ul>
+
+<h3>Hands-on</h3>
+
+<h4>1 Preparatory phase</h4>
+
+<p><u>Explanation</u></p>
+
+<p>First, it is important to have a look a the scene, in order to better understand what is the situation and what you will have to achieve. Then you will need to open the controller file.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Have a look at the simulation, in the simulation window. If you closed it, you can reopen it by clicking the 3D cube icon.</li>
+  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>The robotic arm should put all the cans in the same box</p>
+
+
+<p>HINTS: it is enough to control the rotational motor of the shoulder to achieve that</p>
+</body>
+<html>
