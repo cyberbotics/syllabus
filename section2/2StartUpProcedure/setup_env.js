@@ -333,3 +333,11 @@ function toggleRobotComponentFullScreen(robot) {
       document.body.requestFullscreen();
   }
 }
+
+window.addEventListener('beforeunload', e => {
+  e.preventDefault();
+  const message =
+    'If you leave or reload the page, all your code will be lost. Do you want to continue?';
+  e.returnValue = message;
+  return message;
+});

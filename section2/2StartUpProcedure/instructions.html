@@ -52,7 +52,7 @@
 
 <p><u>Explanation</u></p>
 
-<p>Start by looking at the python file, is divided in three:</p>
+<p>Start by looking at the python file, it is divided in three parts:</p>
   <ul>
     <li>A first part of code that contains some imports, constants initialization and some Webots specific code</li>
     <li>Then, an empty space where you will write your code</li>
@@ -74,7 +74,7 @@
 <ul>
   <li>Write the two lines of code needed to move the arm in position.</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
@@ -92,7 +92,7 @@
 <ul>
   <li>Find the right value for the arm to move until it is perpendicular to the conveyor belt.</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
@@ -102,8 +102,8 @@
 <h4>4 Enable the distance sensor</h4>
 
 <p><u> Explanation</u></p>
-<p>You should see that the gripper does not close on the cans. It is because, the robot is using a distance sensor in order to detect the cans. The code that links the value returned by the sensor to the motors of the gripper has already be written. However, you will need to turn the sensor on for it to work.</p>
-<p>First use the <code>getDevice</code> function to retrieve the distance sensor. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.</p>
+<p>You should see that the gripper does not close on the cans. The reason is that the robot is using a distance sensor in order to detect the cans. The code that links the value returned by the sensor to the motors of the gripper has already be written. However, you will need to turn the sensor on for it to work.</p>
+<p>First use the <code>getDevice</code> function to retrieve the distance sensor, as you used it to get the motor in the first part. The sensor is called <code>distance_sensor</code> and you should put the result in a variable called <code>distance_sensor</code>.</p>
 <p>Then you need to enable it, for that, you should use this line: <code>distance_sensor.enable(TIME_STEP)</code>. Where <code>distance_sensor</code> is the variable in which we put the result of the call to <code>getDevice()</code>.</p>
 <p>The <code>enable</code> function takes the sampling period as argument. As we are in a simulation, the time is discrete. It means that the simulation is advancing by very small steps: a few tens of milliseconds.</p>
 <p>The <code>TIME_STEP</code> variable was defined to 32 at the beginning of the code and we will use this number as the sampling period of the distance sensor. It means that every 32 milliseconds, the distance sensor will check if there is an object in front of it.</p>
@@ -112,7 +112,7 @@
 <ul>
   <li>Write the two lines of code needed to enable the distance sensor</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
@@ -129,7 +129,7 @@
 <ul>
   <li>Write the two lines of code needed to enable the position sensor</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
@@ -143,13 +143,14 @@
 <p>To fix that, we will reduce the maximum velocity of the robot. We are satisfied with the velocity of the gripper, so we will just modifiy the speed of the arm itself. We can achieve that by fixing the speed of each motors of the arm:<p>
 <p><code>for motor in ur_motors:</code><br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;motor.setVelocity(speed)</code></p>
+<p>You do not have to define <code>ur_motors</code> and <code>speed</code>, it was done in the first part of the code.</p>
 <p>Note that we do not modify the velocity of the shoulder joint because we want the manipulator to be in position over the conveyor belt as soon as possible.</p>
 
 <p><u>Task</u></p>
 <ul>
   <li>Reduce the maximum velocity of the motors of the arm</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
