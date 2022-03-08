@@ -5,6 +5,7 @@ export default class Terminal {
 
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.code === 'KeyL') {
+        e.preventDefault();
         this.text = '';
         let terminal = document.getElementById('terminal');
         if (terminal)
@@ -31,9 +32,5 @@ export default class Terminal {
     let terminal = document.getElementById('terminal');
     if (terminal)
       terminal.innerHTML = this.text + '</br>';
-  }
-  _cleanKeyboardHandler(e) {
-    if (e.code === 'KeyK')
-      this._triggerPlayPauseButton();
   }
 }

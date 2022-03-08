@@ -32,8 +32,4 @@ export default class Terminal {
     if (terminal)
       terminal.innerHTML = this.text + '</br>';
   }
-  _cleanKeyboardHandler(e) {
-    if (e.code === 'KeyK')
-      this._triggerPlayPauseButton();
-  }
 }
