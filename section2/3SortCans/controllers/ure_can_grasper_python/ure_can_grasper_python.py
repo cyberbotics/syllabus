@@ -111,7 +111,7 @@ while robot.step(TIME_STEP) != -1:
             for motor in ur_motors:
                 motor.setPosition(0.0)
             state = state.ROTATING_BACK
-#################### PUT THE ARME BACK IN POSITION HERE ####################
+#################### PUT THE ARM BACK IN POSITION HERE ####################
             shoulder_rotation.setPosition(1.5)
 
 ############################################################################
