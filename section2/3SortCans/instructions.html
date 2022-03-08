@@ -139,5 +139,13 @@ So in our exercise, we need to write code in control loop to recognize the color
 
 <p>The manipulator should be able to grab and sort correctly all seven cans</p>
 
+<h4>6 Bonus: prevent cans from piling up</h4>
+
+<p><u>Explanation</u></p>
+
+<p>If you look at the box, you can see that because the robot always puts the cans in the same position, they stack up. If we try to put too many cans of the same color in a box, it is possible that the stack will crumble and some cans may fall out of the box.
+To avoid this, you can add a small random amount to the angle of the shoulder joint. This way, the robot will not place the boxes in the same place and they will pile up less.</p>
+<p>Hints: <code>random.uniform(0,0.1)</code> will return a number between 0 and 0.1</p>
+
 </body>
 <html>
