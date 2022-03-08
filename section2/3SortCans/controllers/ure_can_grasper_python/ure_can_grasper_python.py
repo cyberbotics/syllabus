@@ -1,4 +1,5 @@
 """ure_can_grasper_python controller."""
+#################### IMPORTS AND INITIALIZATION ###########################
 
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
@@ -51,12 +52,19 @@ distance_sensor.enable(TIME_STEP)
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
 
+color = 'red'
+#################### INITIALIZE THE CAMERA HERE ###########################
+
+
 camera = robot.getDevice('arm_camera')
 camera.enable(TIME_STEP)
 
-color = 'red'
 
-# Main loop:
+
+
+
+#################### MAINS LOOP ############################################
+
 # - perform simulation steps until Webots is stopping the controller
 while robot.step(TIME_STEP) != -1:
     if counter <= 0:
@@ -64,9 +72,10 @@ while robot.step(TIME_STEP) != -1:
             if distance_sensor.getValue() < 500:
                 state = state.GRASPING
                 counter = 8
-                print("Grasping can")
                 for motor in hand_motors:
                     motor.setPosition(0.85)
+
+#################### GET THE COLOR OF THE CAN HERE #########################
                 cameraPixels = camera.getImage()
                 red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)
                 green = Camera.imageGetGreen(cameraPixels, camera.getWidth(), 0, 0)
@@ -77,32 +86,36 @@ while robot.step(TIME_STEP) != -1:
                     color = 'green'
                 else:
                     color = 'blue'
+
+############################################################################
         elif state == state.GRASPING:
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
+#################### MOVE THE ARM HERE #####################################
                 if color == 'blue':
                     shoulder_rotation.setPosition(0.8)
                 elif color == 'red':
                     shoulder_rotation.setPosition(2.4)
-                i += 1
-            print("Rotating arm")
+
+############################################################################
+            i += 1
             state = state.ROTATING
         elif state == state.ROTATING:
             if position_sensor.getValue() < -2.3:
                 counter = 8
-                print("Releasing can")
                 state = state.RELEASING
                 for motor in hand_motors:
                     motor.setPosition(motor.getMinPosition())
         elif state == state.RELEASING:
             for motor in ur_motors:
                 motor.setPosition(0.0)
-            print("Rotating arm back")
             state = state.ROTATING_BACK
+#################### PUT THE ARME BACK IN POSITION HERE ####################
             shoulder_rotation.setPosition(1.5)
+
+############################################################################
         elif state == state.ROTATING_BACK:
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
-                print("Waiting can")
     counter -= 1

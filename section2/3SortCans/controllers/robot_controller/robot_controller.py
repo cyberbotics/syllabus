@@ -59,6 +59,8 @@ color = 'red'
 
 
 
+
+
 #################### MAINS LOOP ############################################
 
 # - perform simulation steps until Webots is stopping the controller
@@ -76,14 +78,20 @@ while robot.step(TIME_STEP) != -1:
 
 
 
+
+
+
+
+
+
+
+
 ############################################################################
         elif state == state.GRASPING:
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
 #################### MOVE THE ARM HERE #####################################
-
-
 
 
 
@@ -104,6 +112,7 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(0.0)
             state = state.ROTATING_BACK
 #################### PUT THE ARME BACK IN POSITION HERE ####################
+
 
 
 
