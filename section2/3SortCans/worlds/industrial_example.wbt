@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.17063381103222883 -0.5121709929544469 -0.8417630168335227 5.529448857829634
-  position -2.487988066016805 -2.9999587199417435 2.3672073985856246
+  orientation 0.09372633885429113 -0.9362297668355506 -0.3386579352326199 5.708337929296444
+  position -2.638994767239779 -1.0807259462838075 2.0178002935927144
   exposure 1.7
 }
 TexturedBackground {
@@ -161,6 +161,39 @@ UR5e {
     Camera {
       translation 2.56255e-07 0.06 -0.08
       rotation 0.7040620326088978 0.7040630326089441 0.09269250429308819 -2.9567353071795863
+      children [
+        Transform {
+          translation 0 0 -0.0052293
+          children [
+            Shape {
+              appearance RoughPolymer {
+                baseColor 0 0 0
+              }
+              geometry Box {
+                size 0.005 0.03 0.03
+              }
+            }
+            Transform {
+              translation 0.00501919 0 0.00514414
+              rotation 0 1 0 1.5708
+              children [
+                Shape {
+                  appearance RoughPolymer {
+                    baseColor 0 0 0
+                  }
+                  geometry Cylinder {
+                    height 0.005
+                    radius 0.007
+                  }
+                }
+              ]
+              translationStep 0
+            }
+          ]
+          translationStep 0
+        }
+      ]
+      name "arm_camera"
       width 1
       height 1
     }
@@ -466,7 +499,7 @@ DEF CAN4 Solid {
   children [
     Shape {
       appearance DEF CAN4_APPEARANCE PBRAppearance {
-        baseColor 0.937255 0.160784 0.160784
+        baseColor 0.160784 0.937255 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {
@@ -514,7 +547,7 @@ DEF CAN5 Solid {
   children [
     Shape {
       appearance DEF CAN5_APPEARANCE PBRAppearance {
-        baseColor 0.160784 0.937255 0.160784
+        baseColor 0.160784 0.160784 0.937255
         roughness 0.5
       }
       geometry IndexedFaceSet {

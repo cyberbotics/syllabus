@@ -51,7 +51,7 @@ distance_sensor.enable(TIME_STEP)
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
 
-camera = robot.getDevice('camera')
+camera = robot.getDevice('arm_camera')
 camera.enable(TIME_STEP)
 
 color = 'red'

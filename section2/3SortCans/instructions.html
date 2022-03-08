@@ -52,7 +52,84 @@
 
 <p>The robotic arm should put all the cans in the same box</p>
 
+<h4>2 Initialize the camera</h4>
 
-<p>HINTS: it is enough to control the rotational motor of the shoulder to achieve that</p>
+<p><u>Explanation</u></p>
+
+<p>To begin we need to initialize the camera. The camera is a sensor, like the distance sensor or the position sensor of the previous exercise. It means that you can initialize it in the same way.</p>
+<p>First, use the <code>getDevice</code> function to get the camera, the name of the camera device is <code>arm_camera</camera> and you should put the result in a variable named <code>camera</code>.</p>
+<p>Once you have the camera, you have to enable it. Remember that to do that, you have to call the <code>enable</code> function on the camera with the <code>TIME_STEP</code> as argument to define the sampling period.</p>
+<p>This camera is a very basic one. It has a resolution of one pixel! But it is enough in our case to determine the color of the can.
+
+<p><u>Task</u></p>
+<p>Write the two lines of code needed to initialize the camera in the code section named "INITIALIZE THE CAMERA HERE"</p>
+
+<p><u>Expected result</u></p>
+
+<p>If you play the simulatin and open the robot window, you should see that the camera is enable (remember that the camera size is only 1x1 pixel).</p>
+
+<h4>3 Get the color of the can</h4>
+
+<p><u>Explanation</u></p>
+
+<p>We will now write some code in the main loop. The controller of a robot is generally divided in two or three parts</p>
+<ul>
+  <li>The first part consists of the initialization and start-up.</li>
+  <li>The second part is where the robot performs its actions until it is told to turn off.</li>
+  <li>The third part contains some cleanup and actions to execute just before shutdown.</li>
+</ul>
+
+<p>Let's take two examples to illustrate that:</p>
+<ul>
+  <li>A vaccum cleaner robot: the initialization phase consists to turn on, power on the motors, initialize the sensors. Then in the main loop, the robot will repeat the two following actions: cleans by going straight, turn when encountering a obstacle.
+    Finally, it will exist this loop if it runs low on battery, has finished to clean or it told to turn off, it will then enter the third phase, maybe go back to a predefined position and turn off.
+  </li>
+  <li>Our robotic arm: it initializes itself by enabling sensors and retrieving motors. Then the main loop consists in waiting for a can, catching it and putting it in a box, and finally rotate back to the waiting position.
+     As we never exist the loop with our code, the third part is not needed but we could imagine something like: rotating back to the side and shuting down the sensors and motors.
+  </li>
+</ul>
+
+So in our exercise, we need to write code in main loop to recognize the color of a can when the arm grab it.
+<ul>
+  <li>First, you need to retrieve the image of the camera, you can do it with <code>cameraPixels = camera.getImage()</code></li>
+  <li>Then, you have to extract the color component of the image with <code>red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)</code>. The <code>imageGetRed</code> function takes four parameters: the camera image, the width of the image and the x and y position of the pixel whose color we want.
+  Our camera has only one pixel and thus it is located as coordinate (0, 0). Use the <code>imageGetGreen</code> and <code>imageGetBlue</code> to retrieve also the green and blue component of the pixel.</li>
+  <li>Finally you need to compare the three value you obtained: red, blue and green to determine which one is largest. If the red component is larger than the blue and green one, you know that the can is red.</li>
+</ul>
+
+<p><u>Task</u></p>
+<p>Write the code to get the color of the can in the code section named "GET THE COLOR OF THE CAN HERE".</p>
+
+<p><u>Expected result</u></p>
+
+<p>You will not see any change in the simulation, but you can add some print in the code to be sure that the correct color is detected.</p>
+
+<h4>4 Move the arm according to the color</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Now that you know the color of the can, you have to move the manipulator accordingly such that it will drop the can in the right box.</p>
+<p>Programming the movement of the robotic arm is something complex because you would have to control the motor of each joint! However, in the exercise, moving only the should joint is enough</p>
+<p>You can use the </code>shoulder_rotation.setPosition(x)</code> function where x is the value of the position, in radian.</p>
+
+<p><u>Task</u></p>
+<p>Write the code needed to move the arm such that each can is dropped in the good box in the code section named "MOVE THE ARM HERE"</p>
+<p><u>Expected result</u></p>
+
+<p>The first can should be put in the right box. However, the arm will not return in the right position, preventing it to grab the second can</p>
+
+<h4>5 Rotate the arm back in position</h4>
+
+<p><u>Explanation</u></p>
+
+<p>As we have added a movement (the movement of the shoulder joint) to the arm, to deposit the cans in some specific boxes, we will need to also add a command to put this joint back in the correct position.</p>
+<p>You will use the </code>shoulder_rotation.setPosition(x)</code> function again to achieve that.</p>
+<p><u>Task</u></p>
+<p>Write the code to put the shoulder joint back in the correct position in the code section called "PUT THE ARME BACK IN POSITION HERE".</p>
+
+<p><u>Expected result</u></p>
+
+<p>The manipulator should be able to grab and sort correctly all seven cans</p>
+
 </body>
 <html>
