@@ -1,4 +1,4 @@
-import Terminal from './Terminal.js';
+import Terminal from '../resources/Terminal.js';
 
 const config = {
   settings: {
@@ -105,7 +105,7 @@ myLayout.registerComponent('WebotsView', function(container, componentState) {
   container.on('destroy', () => {
     let img = document.getElementById('imgWebotsView');
     if (img)
-      img.src = 'icons/WebotsView_grey.png';
+      img.src = '../resources/icons/WebotsView_grey.png';
     if (minimizedStorage)
       minimizedStorage.appendChild(webotsView);
     haveWebotsView = 0;
@@ -115,7 +115,7 @@ myLayout.registerComponent('WebotsView', function(container, componentState) {
   webotsView.style.display = 'block';
   let img = document.getElementById('imgWebotsView');
   if (img)
-    img.src = 'icons/WebotsView_white.png';
+    img.src = '../resources/icons/WebotsView_white.png';
   haveWebotsView = 1;
 });
 
@@ -127,12 +127,12 @@ myLayout.registerComponent('IDE', function(container, componentState) {
   container.on('destroy', () => {
     let img = document.getElementById('imgIDE');
     if (img)
-      img.src = 'icons/IDE_grey.png';
+      img.src = '../resources/icons/IDE_grey.png';
     haveIDE = 0;
   });
   let img = document.getElementById('imgIDE');
   if (img)
-    img.src = 'icons/IDE_white.png';
+    img.src = '../resources/icons/IDE_white.png';
   haveIDE = 1;
 });
 
@@ -149,7 +149,7 @@ myLayout.registerComponent('InformationWindow', function(container, componentSta
   container.on('destroy', () => {
     let img = document.getElementById('imgInformationWindow');
     if (img)
-      img.src = 'icons/InformationWindow_grey.png';
+      img.src = '../resources/icons/InformationWindow_grey.png';
     if (minimizedStorage)
       minimizedStorage.appendChild(informationWindow);
     informationWindow.style.display = 'none';
@@ -160,7 +160,7 @@ myLayout.registerComponent('InformationWindow', function(container, componentSta
   haveInformationWindow = 1;
   let img = document.getElementById('imgInformationWindow');
   if (img)
-    img.src = 'icons/InformationWindow_white.png';
+    img.src = '../resources/icons/InformationWindow_white.png';
 });
 
 myLayout.registerComponent('RobotWindow', function(container, componentState) {
@@ -173,14 +173,14 @@ myLayout.registerComponent('RobotWindow', function(container, componentState) {
   container.on('destroy', () => {
     let img = document.getElementById('imgRobotWindow');
     if (img)
-      img.src = 'icons/RobotWindow_grey.png';
+      img.src = '../resources/icons/RobotWindow_grey.png';
     haveRobotWindow = 0;
   });
 
   haveRobotWindow = 1;
   let img = document.getElementById('imgRobotWindow');
   if (img)
-    img.src = 'icons/RobotWindow_white.png';
+    img.src = '../resources/icons/RobotWindow_white.png';
 });
 
 
@@ -200,7 +200,7 @@ myLayout.registerComponent('Terminal', function(container, componentState) {
     container.getElement().html(terminalDiv);
     let img = document.getElementById('imgTerminal');
     if (img)
-      img.src = 'icons/Terminal_grey.png';
+      img.src = '../resources/icons/Terminal_grey.png';
     if (minimizedStorage)
       minimizedStorage.appendChild(terminalDiv);
     terminalDiv.style.display = 'none';
@@ -210,7 +210,7 @@ myLayout.registerComponent('Terminal', function(container, componentState) {
   terminalDiv.style.display = 'block';
   let img = document.getElementById('imgTerminal');
   if (img)
-    img.src = 'icons/Terminal_white.png';
+    img.src = '../resources/icons/Terminal_white.png';
   haveTerminal = 1;
 });
 
@@ -236,7 +236,7 @@ let addMenuItem = function(name) {
       buttonTitle = 'Robot window';
       break;
   }
-  let element = $('<button class="side-menu-button"><img id=img' + name + ' src=icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + buttonTitle + '</div></button>');
+  let element = $('<button class="side-menu-button"><img id=img' + name + ' src=../resources/icons/' + name + '_white.png width=40px style=transparency/><div class="buttonInfo">' + buttonTitle + '</div></button>');
   element.html = 'salut';
   $('#menuContainer').append(element);
   let newItemConfig = {
@@ -294,12 +294,12 @@ addMenuItem('RobotWindow');
 if (!haveRobotWindow) {
   let img = document.getElementById('imgRobotWindow');
   if (img)
-    img.src = 'icons/RobotWindow_grey.png';
+    img.src = '../resources/icons/RobotWindow_grey.png';
 }
 
-const fullscreenButton = $('<button class="side-menu-button" id="fullscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=icons/fullscreen.png width=40px style=transparency/><div class="buttonInfo">Full screen</div></button>');
+const fullscreenButton = $('<button class="side-menu-button" id="fullscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=../resources/icons/fullscreen.png width=40px style=transparency/><div class="buttonInfo">Full screen</div></button>');
 $('#menuContainer').append(fullscreenButton);
-const exitFullscreenButton = $('<button class="side-menu-button" id="partscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=icons/exitfullscreen.png width=40px style=transparency/><div class="buttonInfo">Exit full screen</div></button>');
+const exitFullscreenButton = $('<button class="side-menu-button" id="partscreenGlobal" style="bottom:0px;left:9px;position:absolute;"><img id=img' + name + ' src=../resources/icons/exitfullscreen.png width=40px style=transparency/><div class="buttonInfo">Exit full screen</div></button>');
 $('#menuContainer').append(exitFullscreenButton);
 
 if (document.getElementById('fullscreenGlobal'))
