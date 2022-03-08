@@ -92,14 +92,14 @@ while robot.step(TIME_STEP) != -1:
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
+                i += 1
 #################### MOVE THE ARM HERE #####################################
-                if color == 'blue':
-                    shoulder_rotation.setPosition(0.8)
-                elif color == 'red':
-                    shoulder_rotation.setPosition(2.4)
+            if color == 'blue':
+                shoulder_rotation.setPosition(0.8)
+            elif color == 'red':
+                shoulder_rotation.setPosition(2.4)
 
 ############################################################################
-            i += 1
             state = state.ROTATING
         elif state == state.ROTATING:
             if position_sensor.getValue() < -2.3:
