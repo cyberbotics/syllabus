@@ -100,7 +100,7 @@ So in our exercise, we need to write code in control loop to recognize the color
   Our camera has only one pixel and thus it is located as coordinate (0, 0). Use the <code>imageGetGreen</code> and <code>imageGetBlue</code> to retrieve also the green and blue component of the pixel.</li>
   <li>Finally you need to compare the three value you obtained: red, blue and green to determine which one is largest. If the red component is larger than the blue and green one, you know that the can is red.</li>
 </ul>
-<p>Note: you can store the color of the can in the <code>color</code> variable that has been initiae21276e232b2lized at the beginning of the code (line 55).
+<p>Note: you can store the color of the can in the <code>color</code> variable that has been initialized at the beginning of the code (line 55).
 <p>WARNING: you need to be careful about the indentation. Your code is supposed to be executed only when a can is detected, so only when the <code>if distance_sensor.getValue() < 500</code> condition is true, but not in the motors loop.</p>
 <p><u>Task</u></p>
 <p>Write the code to get the color of the can in the code section named "GET THE COLOR OF THE CAN HERE".</p>
