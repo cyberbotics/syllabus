@@ -26,11 +26,11 @@
 <p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color (among red, green and blue).</p>
 
 <h3>What is already done?</h3>
-<p> The code of the manipulator is similar to the one you had obtained at the end of the previous exercise: it does the initialization of the manipulator and then pick and place all the can in one box.
+<p> The code of the manipulator is similar to the one you had obtained at the end of the previous exercise: it does the initialization of the manipulator and then pick and place all the cans in one box.
 
 <h3>What is left to do?</h3>
 <ul>
-  <li>In a first time, you will need to determine the color of each can</li>
+  <li>In a first time, you will need to determine the color of each can.</li>
   <li>Then, you will have to modify the movement of the arm according to the detected color.</li>
 </ul>
 
@@ -76,32 +76,32 @@
 
 <p><u>Explanation</u></p>
 
-<p>We will now write some code in the main loop. The controller of a robot is generally divided in two or three parts</p>
+<p>We will now write some code in the control loop. The controller of a robot is generally divided in two or three parts</p>
 <ul>
   <li>The first part consists of the initialization and start-up.</li>
-  <li>The second part is where the robot performs its actions until it is told to turn off.</li>
+  <li>The second part is where the robot performs its actions until it is told to turn off, it is the control loop.</li>
   <li>The third part contains some cleanup and actions to execute just before shutdown.</li>
 </ul>
 
 <p>Let's take two examples to illustrate that:</p>
 <ul>
-  <li>A vaccum cleaner robot: the initialization phase consists to turn on, power on the motors and initialize the sensors. Then in the main loop, the robot will repeat the two following actions: clean by going straight and turn when encountering a obstacle.
-    Finally, it will exist this loop if it runs low on battery, has finished to clean or is told to turn off, it will then enter the third phase, maybe go back to a predefined position and turn off.
+  <li>A vaccum cleaner robot: the initialization phase consists to turn on, power on the motors and initialize the sensors. Then in the control loop, the robot will repeat the two following actions: clean by going straight and turn when encountering a obstacle.
+    Finally, it will exit this loop if it runs low on battery, has finished to clean or is told to turn off, it will then enter the third phase, maybe go back to a predefined position and turn off.
   </li>
-  <li>Our robotic arm: it initializes itself by enabling sensors and retrieving motors. Then the main loop consists in waiting for a can, catching it and putting it in a box, and finally rotating back to the waiting position.
-     As we never exist the loop with our code, the third part is not needed but we could imagine something like: rotating back to the side and shuting down the sensors and motors.
+  <li>Our robotic arm: it initializes itself by enabling sensors and retrieving motors. Then the control loop consists of waiting for a can, catching it and putting it in a box, and finally rotating back to the waiting position.
+     As we never exit the loop with our code, the third part is not needed but we could imagine something like: rotating back to the side and shuting down the sensors and motors.
   </li>
 </ul>
 
-So in our exercise, we need to write code in main loop to recognize the color of a can when the arm grab it.
+So in our exercise, we need to write code in control loop to recognize the color of a can when the arm grab it.
 <ul>
   <li>First, you need to retrieve the image of the camera, you can do it with <code>cameraPixels = camera.getImage()</code></li>
   <li>Then, you have to extract the color component of the image with <code>red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)</code>. The <code>imageGetRed</code> function takes four parameters: the camera image, the width of the image and the x and y position of the pixel whose color we want.
   Our camera has only one pixel and thus it is located as coordinate (0, 0). Use the <code>imageGetGreen</code> and <code>imageGetBlue</code> to retrieve also the green and blue component of the pixel.</li>
   <li>Finally you need to compare the three value you obtained: red, blue and green to determine which one is largest. If the red component is larger than the blue and green one, you know that the can is red.</li>
 </ul>
-<p>Note: you can store the color of the can in the <code>color</code> variable that has been initialized at the beginning of the code (line 55).
-<p>WARNING: you need to be careful about the indentation. Your code is supposed to be executed only when a can is detected, so only when the <code>if distance_sensor.getValue() < 500</code> condition is true.</p>
+<p>Note: you can store the color of the can in the <code>color</code> variable that has been initiae21276e232b2lized at the beginning of the code (line 55).
+<p>WARNING: you need to be careful about the indentation. Your code is supposed to be executed only when a can is detected, so only when the <code>if distance_sensor.getValue() < 500</code> condition is true, but not in the motors loop.</p>
 <p><u>Task</u></p>
 <p>Write the code to get the color of the can in the code section named "GET THE COLOR OF THE CAN HERE".</p>
 
@@ -120,7 +120,7 @@ So in our exercise, we need to write code in main loop to recognize the color of
 <p>WARNING: once again, you will need to watch your indentation, you want you code to be executed if we enter the <code>elif</code> condition but <b>after</b> the loop, not inside.
 
 <p><u>Task</u></p>
-<p>Write the code needed to move the arm such that each can is dropped in the good box in the code section named "MOVE THE ARM HERE"</p>
+<p>Write the code needed to move the arm such that each can is dropped in the correct box in the code section named "MOVE THE ARM HERE"</p>
 <p><u>Expected result</u></p>
 
 <p>The first can should be put in the right box. However, the arm will not return in the right position, preventing it to grab the second can</p>
@@ -131,9 +131,10 @@ So in our exercise, we need to write code in main loop to recognize the color of
 
 <p>As we have added a movement (the movement of the shoulder joint) to the arm, to deposit the cans in some specific boxes, we will need to also add a command to put this joint back in the correct position.</p>
 <p>You will use the </code>shoulder_rotation.setPosition(x)</code> function again to achieve that.</p>
+<p>WARNING: again, you will need to watch your indentation, you want you code to be executed only if we enter the <code>elif</code> condition.
+
 <p><u>Task</u></p>
 <p>Write the code to put the shoulder joint back in the correct position in the code section called "PUT THE ARM BACK IN POSITION HERE".</p>
-<p>WARNING: again, you will need to watch your indentation, you want you code to be executed only if we enter the <code>elif</code> condition.
 <p><u>Expected result</u></p>
 
 <p>The manipulator should be able to grab and sort correctly all seven cans</p>

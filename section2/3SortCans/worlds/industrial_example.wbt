@@ -1,9 +1,9 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
   info [
-    "Universal Robot UR3e, UR5e and UR10e grasping cans using Robotiq 3F grippers."
+    "Universal Robot UR5e grasping and sorting cans using Robotiq 3F grippers."
   ]
-  title "Universal Robot"
+  title "Universal Robot with camera"
   basicTimeStep 8
   physicsDisableAngularThreshold 0.1
   contactProperties [
@@ -451,7 +451,7 @@ DEF CAN3 Solid {
   children [
     Shape {
       appearance DEF CAN3_APPEARANCE PBRAppearance {
-        baseColor 0.160784 0.160784 0.937255
+        baseColor 0.937255 0.160784 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {
@@ -499,7 +499,7 @@ DEF CAN4 Solid {
   children [
     Shape {
       appearance DEF CAN4_APPEARANCE PBRAppearance {
-        baseColor 0.160784 0.937255 0.160784
+        baseColor 0.937255 0.160784 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {
@@ -547,7 +547,7 @@ DEF CAN5 Solid {
   children [
     Shape {
       appearance DEF CAN5_APPEARANCE PBRAppearance {
-        baseColor 0.160784 0.160784 0.937255
+        baseColor 0.937255 0.160784 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {
@@ -595,7 +595,7 @@ DEF CAN6 Solid {
   children [
     Shape {
       appearance DEF CAN6_APPEARANCE PBRAppearance {
-        baseColor 0.160784 0.937255 0.160784
+        baseColor 0.937255 0.160784 0.160784
         roughness 0.5
       }
       geometry IndexedFaceSet {
