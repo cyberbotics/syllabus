@@ -56,8 +56,6 @@ color = 'red'
 #################### INITIALIZE THE CAMERA HERE ###########################
 
 
-camera = robot.getDevice('arm_camera')
-camera.enable(TIME_STEP)
 
 
 
@@ -76,16 +74,16 @@ while robot.step(TIME_STEP) != -1:
                     motor.setPosition(0.85)
 
 #################### GET THE COLOR OF THE CAN HERE #########################
-                cameraPixels = camera.getImage()
-                red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)
-                green = Camera.imageGetGreen(cameraPixels, camera.getWidth(), 0, 0)
-                blue = Camera.imageGetBlue(cameraPixels, camera.getWidth(), 0, 0)
-                if red > green and red > blue:
-                    color = 'red'
-                elif green > blue:
-                    color = 'green'
-                else:
-                    color = 'blue'
+
+
+
+
+
+
+
+
+
+
 
 ############################################################################
         elif state == state.GRASPING:
@@ -94,10 +92,15 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(TARGET_POSITIONS[i])
                 i += 1
 #################### MOVE THE ARM HERE #####################################
-            if color == 'blue':
-                shoulder_rotation.setPosition(0.8)
-            elif color == 'red':
-                shoulder_rotation.setPosition(2.4)
+
+
+
+
+
+
+
+
+
 
 ############################################################################
             state = state.ROTATING
@@ -112,7 +115,9 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(0.0)
             state = state.ROTATING_BACK
 #################### PUT THE ARME BACK IN POSITION HERE ####################
-            shoulder_rotation.setPosition(1.5)
+
+
+
 
 ############################################################################
         elif state == state.ROTATING_BACK:
