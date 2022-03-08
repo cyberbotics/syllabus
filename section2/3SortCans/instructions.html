@@ -23,7 +23,7 @@
 <p>This time, you will go one step further.</p>
 <p>There is now three kinds of cans (red, green and blue). The robot have to grasp each cans and to put it in the box corresponding to its color (red cans in the red box, green cans in the green box, blue cans in the blue box).</p>
 <p>In order to identify the color of the cans, the UR5e robot is now equiped with a camera</p>
-<p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color.</p>
+<p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color (among red, green and blue).</p>
 
 <h3>What is already done?</h3>
 <p> The code of the manipulator is similar to the one you had obtained at the end of the previous exercise: it does the initialization of the manipulator and then pick and place all the can in one box.
@@ -31,7 +31,7 @@
 <h3>What is left to do?</h3>
 <ul>
   <li>In a first time, you will need to determine the color of each can</li>
-  <li>Then, you will have to modify the movement of the arm according to the detected color</li>
+  <li>Then, you will have to modify the movement of the arm according to the detected color.</li>
 </ul>
 
 <h3>Hands-on</h3>
@@ -57,7 +57,7 @@
 <p><u>Explanation</u></p>
 
 <p>To begin we need to initialize the camera. The camera is a sensor, like the distance sensor or the position sensor of the previous exercise. It means that you can initialize it in the same way.</p>
-<p>First, use the <code>getDevice</code> function to get the camera, the name of the camera device is <code>arm_camera</camera> and you should put the result in a variable named <code>camera</code>.</p>
+<p>First, use the <code>getDevice</code> function to get the camera, the name of the camera device is <code>arm_camera</code> and you should put the result in a variable named <code>camera</code>.</p>
 <p>Once you have the camera, you have to enable it. Remember that to do that, you have to call the <code>enable</code> function on the camera with the <code>TIME_STEP</code> as argument to define the sampling period.</p>
 <p>This camera is a very basic one. It has a resolution of one pixel! But it is enough in our case to determine the color of the can.
 
@@ -65,12 +65,12 @@
 <ul>
   <li>Write the two lines of code needed to initialize the camera in the code section named "INITIALIZE THE CAMERA HERE".</li>
   <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button <img src='icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
+  <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
 
-<p>If you play the simulatin and open the robot window, you should see that the camera is enable (remember that the camera size is only 1x1 pixel).</p>
+<p>If you play the simulation and open the robot window, you should see that the camera is enable (remember that the camera size is only 1x1 pixel).</p>
 
 <h4>3 Get the color of the can</h4>
 
