@@ -1,4 +1,5 @@
 """Braitenberg-based obstacle-avoiding robot controller."""
+#################### IMPORTS AND INITIALIZATION ###########################
 
 from controller import Robot
 
@@ -29,6 +30,8 @@ centralLeftSensor.enable(timeStep)
 centralSensor.enable(timeStep)
 centralRightSensor.enable(timeStep)
 outerRightSensor.enable(timeStep)
+
+#################### WRITE YOUR CODE HERE ###########################
 
 # Disable motor PID control mode.
 leftMotor.setPosition(float('inf'))

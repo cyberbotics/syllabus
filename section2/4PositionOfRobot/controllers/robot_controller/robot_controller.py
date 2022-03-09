@@ -1,4 +1,5 @@
 """Braitenberg-based obstacle-avoiding robot controller."""
+#################### IMPORTS AND INITIALIZATION ###########################
 
 from controller import Robot
 
@@ -30,25 +31,4 @@ centralSensor.enable(timeStep)
 centralRightSensor.enable(timeStep)
 outerRightSensor.enable(timeStep)
 
-# Disable motor PID control mode.
-leftMotor.setPosition(float('inf'))
-rightMotor.setPosition(float('inf'))
-
-# Set ideal motor velocity.
-initialVelocity = 0.5 * maxMotorVelocity
-
-# Set the initial velocity of the left and right wheel motors.
-leftMotor.setVelocity(initialVelocity)
-rightMotor.setVelocity(initialVelocity)
-
-while robot.step(timeStep) != -1:
-    # Read values from four distance sensors and calibrate.
-    outerLeftSensorValue = outerLeftSensor.getValue() / distanceSensorCalibrationConstant
-    centralLeftSensorValue = centralLeftSensor.getValue() / distanceSensorCalibrationConstant
-    centralSensorValue = centralSensor.getValue() / distanceSensorCalibrationConstant
-    centralRightSensorValue = centralRightSensor.getValue() / distanceSensorCalibrationConstant
-    outerRightSensorValue = outerRightSensor.getValue() / distanceSensorCalibrationConstant
-
-    # Set wheel velocities based on sensor values, prefer right turns if the central sensor is triggered.
-    leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2)
-    rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue)
+#################### WRITE YOUR CODE HERE ###########################
