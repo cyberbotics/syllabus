@@ -1,7 +1,7 @@
 <html>
 <style>
   body {
-    color: white;
+    /* color: white; */
     border: 0;
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@
 <h2>Instructions</h2>
 
 <h3>Situation and Goal</h3>
-<p>In the first part of this exercise, you will learn to control a Thymio robot in position, speed and force.</p>
+<p>In the first part of this exercise, you will learn to control a Thymio robot in position and speed.</p>
 <p>Then, you will take into account the values returned by the distance sensors of the Thymio to make your robot avoid the obstacle automatically</p>
 
 <h3>What is already done?</h3>
@@ -33,46 +33,168 @@
 <p><u>Explanation</u></p>
 
 <p>First, you wil control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only motor, the <code>leftMotor</code></p>
+<p>To actuate the motor in position, remember that you can use <code>leftMotor.setPosition(x)</code> where x is an angle in radian. Do not hesitate to give x a high value (>10) to better see the result.</p>
 
 <p><u>Task</u></p>
 <ul>
-  <li>Have a look at the simulation, in the simulation window. If you closed it, you can reopen it by clicking the 3D cube icon.</li>
-  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
+  <li>Write the line needed to actuate the left motors.</li>
+  <li>Save the code (CTRL + s, or File->Save).</li>
+  <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
 
 <p><u>Expected result</u></p>
 
-<p></p>
+<p>The Thymio should go round and round.</p>
+
+<h4>2 Control both motors in position</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Repeat what you did on the previous step, but for the <code>rightMotor</code> such that both motor are actuated.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Actuate the right motor.</li>
+  <li>Experiment with the same x value for both wheels, with different x values, with negative values, with opposite values.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>Depending of the values you chose for x, you should be able to make the Thymio go forward/backward, turn on itself, go forward/backward and then turn right/left.</p>
+
+<h4>3 Control the motors in speed</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Now that you have mastered the control in position, it is time to go the next level: the control in speed.</p>
+<p>To achieve that, first remove or comment the code that you write before.</p>
+<p>Then you have to disable the control in position: <code>leftMotor.setPosition(float('inf'))</code>, repeate this operation for the right motor.</p>
+<p>Once it is done, you are ready to control the motor in velocity, use the <code>setVelocity(x)</code> where x is the desired speed in radians per second. Note that the max speed of each motor 9.53.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Remove your previous code, disable the control in position and set the velocity of both motors.</li>
+  <li>Experiment with the same x value for both wheels, with different x values, with negative values, with opposite values.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>You should have realized that your Thymio does not stop any more. That is because you defined it a speed and it is trying to maintain this speed indefinitly.</p>
+<p>By modifying the x values, you should be able to make the Thymio turn on itself, go forward/backward, turn left/right with different curves.</p>
+
+<h4>4 Modify the speed of the robot</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Now that you are able to define the speed of a motor, the next step consists in being capable of modifying this speed during the exectution of the controller.</p>
+<p>To achieve that, we will need to use the control loop: <code>while robot.step(TIME_STEP) != -1:</code>. The <code>robot.step(TIME_STEP)</code> instructions is something specific to the Webots and it synchronizes the sensors and motors values between Webots and the controller.
+What you need to know, is that this loop is an infinite loop that is necessary and executed every <code>TIME_STEP</code> which is equal to 16 milliseconds in our case.</p>
+<p>In this exercise we want to go forward until the we reach the green cube and then turn left.</p>
+<p>Later, we will automate this process by using the distance sensors. However, for now, we will settle for a simpler method: count the number of time we enter the loop and modifiy the speed after a certain time.</p>
+<p>Your code will look like this:<br>
+  <code>i = 0<br>
+        while robot.step(TIME_STEP) != -1:<br>
+        &nbsp;&nbsp;&nbsp;&nbspif i == 100:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbspleftMotor.setVelocity(x)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsprightMotor.setVelocity(x)<br>
+        &nbsp;&nbsp;&nbsp;&nbspi += 1
+  </code>
+</p>
+<p>If you want your robot to go forward again you can just add another <code>if</code> with a larger value of <code>i</code> and modify the speed again.
+<p><u>Task</u></p>
+<p>Add the control loop and the code to modifiy the speed such that the Thymio does not touch the green cube</p>
+
+<p><u>Expected result</u></p>
+
+<p>The robot should now move forward and avoid the first green cube</p>
+
+<h4>5 React to the value of the sensors</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Now that we have seen how to modify the speed, we will do it again but instead of hardcoding the change after a certain time, we will turn only if a sensor detects an obstacle.</p>
+<p>To do that you can remove the code related to the <code>i</code> variable as you will not use it anymore.</p>
+<p>Instead, you will get the value of the central distance sensor, you can achieve that with <code>centralSensorValue = centralSensor.getValue()</code>.</p>
+<p>You want to call this function in the loop as you want to get the value at every step of the simulation</p>
+<p>If you print the value of the distance sensor, you will see that it has relatively small range. Depending on the speed of your robot, it is possible that it will not have the time to turn before hitting the box once the distance sensor detected the obstacle.
+  In this case, it may be a good idea to reduce the speed of the robot.</p>
+
+
+<p><u>Task</u></p>
+<ul>
+  <li>Write the code necessary to make the robot turn when approaching the green cube based on the value returned by the distance sensor.</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>You robot should detect the green cube with the central distance sensor and turn to avoid it.</p>
+
+<h4>6 Using more sensors</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Using only one sensor limits the possibility of the robot. The Thymio actually has a lot of distance sensors: 5 in the front, 2 in the back and two below, towards the ground.
+  But we will only use the front ones in this exercises.
+</p>
+<p>The first thing to do is to retrieve the value of those five sensors at each iteration of the loop. Look at the code to find their name in the initialization part.</p>
+<p>Finally we will combine the value of those sensors to determine the speed of each motor at each step with something like that:<br>
+<code>leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2)<br>
+      rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue)
+</code>
+</p>
+<p>This formula consists in taking the initial speed (that you should define), and reducing it depending on the value of the sensors: for example, if the distance sensors on the left detects an obstacle, we reduce the speed of the right motor to turn right and avoid the obstacle.
+  The second line has a additional term: the <code>centralSensorValue</code>. If you detect a obstacle straight ahead, it is up to you if you want to turn right or left, in this example, we chose to turn right.<p>
+<p>If you plug the values of the sensors directly in the formula above, the result will be larger than the maximum speed. It could still work as if you provide a too high value for the speed, Webots will automatically clamp it to the maximum speed.
+  However it will result in very jerky motions. To avoid that, you should before divide the value of each sensor by a calibration constant. A constant already exists: <code>distanceSensorCalibrationConstant</code> and is defined to 360.</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Modifiy your code such that the speed of the motors is defined at each time step by the values of the distance sensors.
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>The robot should turn to avoid the obstacles, however it is possible that it does not turn in time to avoid them.</p>
+
+<h4>7 Calibration</h4>
+
+<p><u>Explanation</u></p>
+
+<p>To complete this exercice, your robot must be more than 1.8 meters always from its starting point and it must not have collided with any object.</p>
+<p>You normally already have all the necessary code to achieve that, however you should maybe calibrate the values</p>
+<p>If your robot touches obstacles you can try to:</p>
+<ul>
+  <li>Decrease the inital speed.</li>
+  <li>Adjust the calibration constant.</li>
+  <li>Modify the formula that determine the velocity of the motors</li>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Your robot should move and avoid all obstacles
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>Your robot should move more than 1.8m meters from its starting point</p>
+
+<h4>8 BONUS: Improvement</h4>
+
+<p><u>Explanation</u></p>
+
+<p>Congratulation! You finished the exercices, however if you want to go a bit further, you can improve your code.</p>
+<p>If you let the simulatin run long enough, it is possible that you robot get stuck in a corner or between two obstacles</p>
+<p>First try to understand why this situation happens, you can use the robot window to see the value of the distance sensors</p>
+<p>Then you will need to detect in the controller when it happens</p>
+<p>Finally, you should implement a special behaviour in this case, maybe turn on the point, maybe go forward and turn in a random direction. It is up to you!</p>
+
+<p><u>Task</u></p>
+<ul>
+  <li>Improve the algorithm of the robot</li>
+</ul>
+
+<p><u>Expected result</u></p>
+
+<p>Your robot should not get blocked anymore</p>
 
 </body>
 <html>
-The Thymio robot has a lot of distance sensors: 5 in the front, 2 in the back and two below, towards the ground. But for this exercise, we will use only the front sensors.
-
-If your robot touches obstacles:
- - decrease speed
- - adjust the calibration constant
- - calibrate how much your robot must turn depending on the values of the sensors
-
-What happen if the central distance sensor detects something?
-
-If the robot get blocked:
- - Try to detect it: this Thymio has an embedded GPS. If the value of the GPS does not change => the robot is blocked
- - Try to understand why it is blocked: look in the robot window to see the values of the distance sensors
- - Try to fix it:
-  - Go back and turn in a random direction.
-  - Turn on the point when all sensors detects something
-
-  <h4>1 Control one motor in position</h4>
-
-  <p><u>Explanation</u></p>
-
-  <p></p>
-
-  <p><u>Task</u></p>
-  <ul>
-  
-  </ul>
-
-  <p><u>Expected result</u></p>
-
-  <p></p>

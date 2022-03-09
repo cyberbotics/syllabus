@@ -7,7 +7,7 @@ from controller import Robot
 robot = Robot()
 
 # Get simulation step length.
-timeStep = int(robot.getBasicTimeStep())
+TIME_STEP = int(robot.getBasicTimeStep())
 
 # Constants of the Thymio II motors and distance sensors.
 maxMotorVelocity = 9.53
@@ -25,11 +25,11 @@ centralRightSensor = robot.getDevice('prox.horizontal.3')
 outerRightSensor = robot.getDevice('prox.horizontal.4')
 
 # Enable distance sensors.
-outerLeftSensor.enable(timeStep)
-centralLeftSensor.enable(timeStep)
-centralSensor.enable(timeStep)
-centralRightSensor.enable(timeStep)
-outerRightSensor.enable(timeStep)
+outerLeftSensor.enable(TIME_STEP)
+centralLeftSensor.enable(TIME_STEP)
+centralSensor.enable(TIME_STEP)
+centralRightSensor.enable(TIME_STEP)
+outerRightSensor.enable(TIME_STEP)
 
 #################### WRITE YOUR CODE HERE ###########################
 
@@ -44,7 +44,7 @@ initialVelocity = 0.5 * maxMotorVelocity
 leftMotor.setVelocity(initialVelocity)
 rightMotor.setVelocity(initialVelocity)
 
-while robot.step(timeStep) != -1:
+while robot.step(TIME_STEP) != -1:
     # Read values from four distance sensors and calibrate.
     outerLeftSensorValue = outerLeftSensor.getValue() / distanceSensorCalibrationConstant
     centralLeftSensorValue = centralLeftSensor.getValue() / distanceSensorCalibrationConstant
