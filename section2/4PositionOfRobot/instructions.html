@@ -24,7 +24,7 @@
 <p>All the initializations are already done: the front distance sensors are enable and we retrieved the motors for you and put them in variables.
 
 <h3>What is left to do?</h3>
-<p>This time, you will program the whole behaviour of the robot. To begin, you will activate the engine and then link their speed with the value of the distance sensors.</p>
+<p>This time, you will program the whole behaviour of the robot. To begin, you will activate the engines and then link their speed with the value of the distance sensors.</p>
 
 <h3>Hands-on</h3>
 
@@ -32,11 +32,12 @@
 
 <p><u>Explanation</u></p>
 
-<p>First, you will control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only motor, the <code>leftMotor</code>.</p>
+<p>First, you will control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only one motor, the <code>leftMotor</code>.</p>
 <p>To actuate the motor in position, remember that you can use <code>leftMotor.setPosition(x)</code> where x is an angle in radian. Do not hesitate to give x a high value (>10) to better see the result.</p>
 
 <p><u>Task</u></p>
 <ul>
+  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
   <li>Write the line needed to actuate the left motor.</li>
   <li>Save the code (CTRL + s, or File->Save).</li>
   <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
@@ -44,7 +45,7 @@
 
 <p><u>Expected result</u></p>
 
-<p>The Thymio should go round and round.</p>
+<p>The Thymio should go round and round until the wheel has rotated the specified amount of radian.</p>
 
 <h4>2 Control both motors in position</h4>
 
@@ -67,7 +68,7 @@
 <p><u>Explanation</u></p>
 
 <p>Now that you have mastered the control in position, it is time to go to the next level: the control in speed.</p>
-<p>To achieve that, first remove or comment the code that you write before.</p>
+<p>To achieve that, first remove or comment the code that you wrote before.</p>
 <p>Then disable the control in position: <code>leftMotor.setPosition(float('inf'))</code>, repeate this operation for the right motor.</p>
 <p>Once it is done, you are ready to control the motor in velocity, use the <code>setVelocity(x)</code> function where x is the desired speed in radians per second. Note that the max speed of each motor 9.53[rad/s].</p>
 
@@ -87,12 +88,17 @@
 <p><u>Explanation</u></p>
 
 <p>Now that you are able to define the speed of a motor, the next step consists in being capable of modifying this speed during the exectution of the controller.</p>
-<p>To achieve that, we will need to use the control loop: <code>while robot.step(TIME_STEP) != -1:</code>. The <code>robot.step(TIME_STEP)</code> instructions is something specific to the Webots and it synchronizes the sensors and motors values between Webots and the controller.
-What you need to know, is that this loop is an infinite loop that is necessary and executed every <code>TIME_STEP</code> which is equal to 16 milliseconds in our case.</p>
-<p>In this exercise we want to go forward until the we reach the green cube and then turn left.</p>
+<p>To achieve that, we will need to use the control loop: <code>while robot.step(TIME_STEP) != -1:</code>. The <code>robot.step(TIME_STEP)</code> instructions is something specific to Webots and it synchronizes the sensors and motors values between Webots and the controller.
+What you need to know, is that this loop is an infinite loop that is executed every <code>TIME_STEP</code> which is equal to 16 milliseconds in our case.</p>
+<p>In this exercise we want to go forward until we reach the green cube and then turn left.</p>
 <p>Later, we will automate this process by using the distance sensors. However, for now, we will settle for a simpler method: count the number of time we enter the loop and modifiy the speed after a certain time.</p>
 <p>Your code will look like this:<br>
-  <code>i = 0<br>
+  <code>leftMotor.setPosition(float('inf'))<br>
+        rightMotor.setPosition(float('inf'))<br>
+        <br>
+        leftMotor.setVelocity(3)<br>
+        rightMotor.setVelocity(3)<br>
+        i = 0<br>
         while robot.step(TIME_STEP) != -1:<br>
         &nbsp;&nbsp;&nbsp;&nbspif i == 100:<br>
         &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbspleftMotor.setVelocity(x)<br>
@@ -114,7 +120,7 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 
 <p>Now that we have seen how to modify the speed, we will do it again but instead of hardcoding the change after a certain time, we will turn only if a sensor detects an obstacle.</p>
 <p>To do that you can remove the code related to the <code>i</code> variable as you will not use it anymore.</p>
-<p>Instead, you will get the value of the central distance sensor, you can achieve that with <code>centralSensorValue = centralSensor.getValue()</code>.</p>
+<p>Instead, you will get the value of the central distance sensor. You can achieve that with <code>centralSensorValue = centralSensor.getValue()</code>.</p>
 <p>You want to call this function in the loop as you want the value to get updated at each step of the simulation.</p>
 <p>If you print the value of the distance sensor, you will see that it has a relatively small range. Depending on the speed of your robot, it is possible that it will not have the time to turn before hitting the box once the distance sensor detected the obstacle.
   In this case, it may be a good idea to reduce the speed of the robot.</p>
@@ -134,7 +140,7 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 <p><u>Explanation</u></p>
 
 <p>Using only one sensor limits the possibility of the robot. The Thymio actually has a lot of distance sensors: 5 in the front, 2 in the back and two below, towards the ground.
-  But we will only use the front ones in this exercises.
+  But we will only use the front ones in this exercise.
 </p>
 <p>The first thing to do is to retrieve the value of those five sensors at each iteration of the loop. Look at the code to find their name in the initialization part.</p>
 <p>Finally we will combine the value of those sensors to determine the speed of each motor at each step with something like that:<br>
