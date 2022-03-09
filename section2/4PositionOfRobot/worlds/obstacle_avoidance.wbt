@@ -40,7 +40,7 @@ Floor {
   appearance PBRAppearance {
     baseColorMap ImageTexture {
       url [
-        "webots://projects/default/worlds/textures/square_block_parquetry.jpg"
+        "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/default/worlds/textures/square_block_parquetry.jpg"
       ]
     }
     roughness 1
@@ -56,7 +56,7 @@ DEF BALL Solid {
         baseColor 0.729412 0.741176 0.713725
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/beach_ball.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/beach_ball.jpg"
           ]
         }
         roughness 0.4
@@ -82,7 +82,7 @@ DEF BALL Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/beach_ball.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/beach_ball.jpg"
           ]
         }
         roughness 0.5
@@ -136,7 +136,7 @@ DEF CEILING Solid {
         baseColor 0.415686 0.647059 0.545098
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/wall.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/wall.jpg"
           ]
         }
         roughness 0.5
@@ -305,7 +305,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -370,7 +370,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -435,7 +435,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -500,7 +500,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -565,7 +565,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -630,7 +630,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -695,7 +695,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -760,7 +760,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -825,7 +825,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -890,7 +890,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -955,7 +955,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -1020,7 +1020,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -1085,7 +1085,7 @@ DEF A_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
           ]
         }
         roughness 0.5
@@ -1150,7 +1150,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1215,7 +1215,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1280,7 +1280,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1345,7 +1345,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1410,7 +1410,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1475,7 +1475,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1540,7 +1540,7 @@ DEF B_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
           ]
         }
         roughness 0.5
@@ -1605,7 +1605,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1670,7 +1670,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1735,7 +1735,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1800,7 +1800,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1865,7 +1865,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1930,7 +1930,7 @@ DEF W_BLOCK Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
           ]
         }
         roughness 0.5
@@ -1997,7 +1997,7 @@ DEF CARPET Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/carpet.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/carpet.jpg"
           ]
         }
         roughness 1
@@ -2681,7 +2681,7 @@ DEF ART_WALL Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/art_banner.png"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/art_banner.png"
           ]
         }
         transparency 0.5
@@ -2705,7 +2705,7 @@ DEF WORLD_MAP_BANNER Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/world_map_text.png"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/world_map_text.png"
           ]
         }
         transparency 0.5
@@ -2729,7 +2729,7 @@ DEF ALPHABET_POSTER Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/alphabet.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/alphabet.jpg"
           ]
         }
         transparency 0.20000000298023224
@@ -2753,7 +2753,7 @@ DEF SHAPES_POSTER Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/shapes_poster.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/shapes_poster.jpg"
           ]
         }
         transparency 0.20000000298023224
@@ -2777,7 +2777,7 @@ DEF PINBOARD Solid {
         baseColor 0.3 0.3 0.3
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/cork.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/cork.jpg"
           ]
         }
         roughness 0.5
@@ -2805,7 +2805,7 @@ DEF PINBOARD Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/default/worlds/textures/wood.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/default/worlds/textures/wood.jpg"
           ]
         }
         roughness 0.5
@@ -2838,7 +2838,7 @@ DEF FIRST_DRAWING Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/first_drawing.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/first_drawing.jpg"
           ]
         }
         roughness 0.5
@@ -2890,7 +2890,7 @@ DEF SECOND_DRAWING Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/second_drawing.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/second_drawing.jpg"
           ]
         }
         roughness 0.5
@@ -2942,7 +2942,7 @@ DEF WORLD_MAP Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/world_map.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/world_map.jpg"
           ]
         }
         roughness 0.5
@@ -2964,7 +2964,7 @@ DEF COAT_PEGS Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/default/worlds/textures/lightwood.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/default/worlds/textures/lightwood.jpg"
           ]
         }
         roughness 0.5
@@ -2987,7 +2987,7 @@ DEF COAT_PEGS Solid {
         baseColor 0.8 0.8 0.8
         baseColorMap ImageTexture {
           url [
-            "webots://projects/default/worlds/textures/wood.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/default/worlds/textures/wood.jpg"
           ]
         }
         roughness 0.5
@@ -3105,7 +3105,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3174,7 +3174,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3243,7 +3243,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -3312,7 +3312,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -3381,7 +3381,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -3450,7 +3450,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3519,7 +3519,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3588,7 +3588,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3657,7 +3657,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
               ]
             }
             roughness 0.5
@@ -3726,7 +3726,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3795,7 +3795,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3864,7 +3864,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -3933,7 +3933,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -4002,7 +4002,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -4071,7 +4071,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -4140,7 +4140,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
               ]
             }
             roughness 0.5
@@ -4209,7 +4209,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
               ]
             }
             roughness 0.5
@@ -4278,7 +4278,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
               ]
             }
             roughness 0.5
@@ -4347,7 +4347,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_b.jpg"
               ]
             }
             roughness 0.5
@@ -4416,7 +4416,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -4485,7 +4485,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -4554,7 +4554,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -4623,7 +4623,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_w.jpg"
               ]
             }
             roughness 0.5
@@ -4692,7 +4692,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
@@ -4761,7 +4761,7 @@ DEF CUBE_OBSTACLES Group {
             baseColor 0.8 0.8 0.8
             baseColorMap ImageTexture {
               url [
-                "webots://projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/robotbenchmark/obstacle_avoidance/worlds/textures/letter_a.jpg"
               ]
             }
             roughness 0.5
