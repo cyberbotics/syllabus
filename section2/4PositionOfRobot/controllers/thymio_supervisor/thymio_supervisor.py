@@ -26,7 +26,7 @@ while supervisor.step(timestep) != -1:
     x_diff = position[0] - starting_position[0]
     y_diff = position[1] - starting_position[1]
     distance = math.sqrt((x_diff * x_diff) + (y_diff * y_diff))
-    
-    if distance > 1.8:
+
+    if distance > 1.5:
         print("SUCCESS")
         break
