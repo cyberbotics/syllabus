@@ -22,7 +22,7 @@
 <p>In the last exercise, you implemented a start-up procedure for the robot to be able to successfully detect, pick and place cans.</p>
 <p>This time, you will go one step further.</p>
 <p>There is now three kinds of cans (red, green and blue). The robot have to grasp each cans and to put it in the box corresponding to its color (red cans in the red box, green cans in the green box, blue cans in the blue box).</p>
-<p>In order to identify the color of the cans, the UR5e robot is now equiped with a camera</p>
+<p>In order to identify the color of the cans, the UR5e robot is now equiped with a camera.</p>
 <p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color (among red, green and blue).</p>
 
 <h3>What is already done?</h3>
@@ -50,7 +50,7 @@
 
 <p><u>Expected result</u></p>
 
-<p>The robotic arm should put all the cans in the same box</p>
+<p>The robotic arm should put all the cans in the same box.</p>
 
 <h4>2 Initialize the camera</h4>
 
@@ -76,7 +76,7 @@
 
 <p><u>Explanation</u></p>
 
-<p>We will now write some code in the control loop. The controller of a robot is generally divided in two or three parts</p>
+<p>We will now write some code in the control loop. The controller of a robot is generally divided in two or three parts:</p>
 <ul>
   <li>The first part consists of the initialization and start-up.</li>
   <li>The second part is where the robot performs its actions until it is told to turn off, it is the control loop.</li>
@@ -95,7 +95,7 @@
 
 So in our exercise, we need to write code in control loop to recognize the color of a can when the arm grab it.
 <ul>
-  <li>First, you need to retrieve the image of the camera, you can do it with <code>cameraPixels = camera.getImage()</code></li>
+  <li>First, you need to retrieve the image of the camera, you can do it with <code>cameraPixels = camera.getImage()</code>.</li>
   <li>Then, you have to extract the color component of the image with <code>red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)</code>. The <code>imageGetRed</code> function takes four parameters: the camera image, the width of the image and the x and y position of the pixel whose color we want.
   Our camera has only one pixel and thus it is located as coordinate (0, 0). Use the <code>imageGetGreen</code> and <code>imageGetBlue</code> to retrieve also the green and blue component of the pixel.</li>
   <li>Finally you need to compare the three value you obtained: red, blue and green to determine which one is largest. If the red component is larger than the blue and green one, you know that the can is red.</li>
@@ -115,15 +115,15 @@ So in our exercise, we need to write code in control loop to recognize the color
 <p><u>Explanation</u></p>
 
 <p>Now that you know the color of the can, you have to move the manipulator accordingly such that it will drop the can in the right box.</p>
-<p>Programming the movement of the robotic arm is something complex because you would have to control the motor of each joint! However, in the exercise, moving only the shoulder joint is enough</p>
+<p>Programming the movement of the robotic arm is something complex because you would have to control the motor of each joint! However, in the exercise, moving only the shoulder joint is enough.</p>
 <p>You can use the <code>shoulder_rotation.setPosition(x)</code> function where x is the value of the position, in radian.</p>
 <p>WARNING: once again, you will need to watch your indentation, you want you code to be executed if we enter the <code>elif</code> condition but <b>after</b> the loop, not inside.
 
 <p><u>Task</u></p>
-<p>Write the code needed to move the arm such that each can is dropped in the correct box in the code section named "MOVE THE ARM HERE"</p>
+<p>Write the code needed to move the arm such that each can is dropped in the correct box in the code section named "MOVE THE ARM HERE".</p>
 <p><u>Expected result</u></p>
 
-<p>The first can should be put in the right box. However, the arm will not return in the right position, preventing it to grab the second can</p>
+<p>The first can should be put in the right box. However, the arm will not return in the right position, preventing it to grab the second can.</p>
 
 <h4>5 Rotate the arm back in position</h4>
 
@@ -137,7 +137,7 @@ So in our exercise, we need to write code in control loop to recognize the color
 <p>Write the code to put the shoulder joint back in the correct position in the code section called "PUT THE ARM BACK IN POSITION HERE".</p>
 <p><u>Expected result</u></p>
 
-<p>The manipulator should be able to grab and sort correctly all seven cans</p>
+<p>The manipulator should be able to grab and sort correctly all seven cans.</p>
 
 <h4>6 Bonus: prevent cans from piling up</h4>
 

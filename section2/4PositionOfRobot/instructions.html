@@ -1,7 +1,7 @@
 <html>
 <style>
   body {
-    /* color: white; */
+    color: white;
     border: 0;
     margin: 0;
     padding: 0;
@@ -18,10 +18,10 @@
 
 <h3>Situation and Goal</h3>
 <p>In the first part of this exercise, you will learn to control a Thymio robot in position and speed.</p>
-<p>Then, you will take into account the values returned by the distance sensors of the Thymio to make your robot avoid the obstacle automatically</p>
+<p>Then, you will take into account the values returned by the distance sensors of the Thymio to make your robot avoid the obstacle automatically.</p>
 
 <h3>What is already done?</h3>
-<p>All the initializations is already done: the front distance sensors are enable and we retrieved the motors for you and put them in variables.
+<p>All the initializations are already done: the front distance sensors are enable and we retrieved the motors for you and put them in variables.
 
 <h3>What is left to do?</h3>
 <p>This time, you will program the whole behaviour of the robot. To begin, you will activate the engine and then link their speed with the value of the distance sensors.</p>
@@ -32,12 +32,12 @@
 
 <p><u>Explanation</u></p>
 
-<p>First, you wil control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only motor, the <code>leftMotor</code></p>
+<p>First, you will control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only motor, the <code>leftMotor</code>.</p>
 <p>To actuate the motor in position, remember that you can use <code>leftMotor.setPosition(x)</code> where x is an angle in radian. Do not hesitate to give x a high value (>10) to better see the result.</p>
 
 <p><u>Task</u></p>
 <ul>
-  <li>Write the line needed to actuate the left motors.</li>
+  <li>Write the line needed to actuate the left motor.</li>
   <li>Save the code (CTRL + s, or File->Save).</li>
   <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
 </ul>
@@ -50,7 +50,7 @@
 
 <p><u>Explanation</u></p>
 
-<p>Repeat what you did on the previous step, but for the <code>rightMotor</code> such that both motor are actuated.</p>
+<p>Repeat what you did on the previous step, but for the <code>rightMotor</code> such that both motors are actuated.</p>
 
 <p><u>Task</u></p>
 <ul>
@@ -66,10 +66,10 @@
 
 <p><u>Explanation</u></p>
 
-<p>Now that you have mastered the control in position, it is time to go the next level: the control in speed.</p>
+<p>Now that you have mastered the control in position, it is time to go to the next level: the control in speed.</p>
 <p>To achieve that, first remove or comment the code that you write before.</p>
-<p>Then you have to disable the control in position: <code>leftMotor.setPosition(float('inf'))</code>, repeate this operation for the right motor.</p>
-<p>Once it is done, you are ready to control the motor in velocity, use the <code>setVelocity(x)</code> where x is the desired speed in radians per second. Note that the max speed of each motor 9.53.</p>
+<p>Then disable the control in position: <code>leftMotor.setPosition(float('inf'))</code>, repeate this operation for the right motor.</p>
+<p>Once it is done, you are ready to control the motor in velocity, use the <code>setVelocity(x)</code> function where x is the desired speed in radians per second. Note that the max speed of each motor 9.53[rad/s].</p>
 
 <p><u>Task</u></p>
 <ul>
@@ -102,11 +102,11 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 </p>
 <p>If you want your robot to go forward again you can just add another <code>if</code> with a larger value of <code>i</code> and modify the speed again.
 <p><u>Task</u></p>
-<p>Add the control loop and the code to modifiy the speed such that the Thymio does not touch the green cube</p>
+<p>Add the control loop and the code to modifiy the speed such that the Thymio does not touch the green cube.</p>
 
 <p><u>Expected result</u></p>
 
-<p>The robot should now move forward and avoid the first green cube</p>
+<p>The robot should now move forward and avoid the first green cube.</p>
 
 <h4>5 React to the value of the sensors</h4>
 
@@ -115,8 +115,8 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 <p>Now that we have seen how to modify the speed, we will do it again but instead of hardcoding the change after a certain time, we will turn only if a sensor detects an obstacle.</p>
 <p>To do that you can remove the code related to the <code>i</code> variable as you will not use it anymore.</p>
 <p>Instead, you will get the value of the central distance sensor, you can achieve that with <code>centralSensorValue = centralSensor.getValue()</code>.</p>
-<p>You want to call this function in the loop as you want to get the value at every step of the simulation</p>
-<p>If you print the value of the distance sensor, you will see that it has relatively small range. Depending on the speed of your robot, it is possible that it will not have the time to turn before hitting the box once the distance sensor detected the obstacle.
+<p>You want to call this function in the loop as you want the value to get updated at each step of the simulation.</p>
+<p>If you print the value of the distance sensor, you will see that it has a relatively small range. Depending on the speed of your robot, it is possible that it will not have the time to turn before hitting the box once the distance sensor detected the obstacle.
   In this case, it may be a good idea to reduce the speed of the robot.</p>
 
 
@@ -127,7 +127,7 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 
 <p><u>Expected result</u></p>
 
-<p>You robot should detect the green cube with the central distance sensor and turn to avoid it.</p>
+<p>Your robot should detect the green cube with the central distance sensor and turn to avoid it.</p>
 
 <h4>6 Using more sensors</h4>
 
@@ -142,10 +142,10 @@ What you need to know, is that this loop is an infinite loop that is necessary a
       rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue)
 </code>
 </p>
-<p>This formula consists in taking the initial speed (that you should define), and reducing it depending on the value of the sensors: for example, if the distance sensors on the left detects an obstacle, we reduce the speed of the right motor to turn right and avoid the obstacle.
+<p>This formula consists in taking the initial speed (that you should define), and reducing it depending on the value of the sensors: for example, if the distance sensors on the left detect an obstacle, we reduce the speed of the right motor to turn right and avoid the obstacle.
   The second line has a additional term: the <code>centralSensorValue</code>. If you detect a obstacle straight ahead, it is up to you if you want to turn right or left, in this example, we chose to turn right.<p>
 <p>If you plug the values of the sensors directly in the formula above, the result will be larger than the maximum speed. It could still work as if you provide a too high value for the speed, Webots will automatically clamp it to the maximum speed.
-  However it will result in very jerky motions. To avoid that, you should before divide the value of each sensor by a calibration constant. A constant already exists: <code>distanceSensorCalibrationConstant</code> and is defined to 360.</p>
+  However it will result in very jerky motions. To avoid that, you should divide the value of each sensor by a calibration constant before calling <code>setVelocity</code>. Such constant already exists: <code>distanceSensorCalibrationConstant</code> and is defined to 360.</p>
 
 <p><u>Task</u></p>
 <ul>
@@ -161,40 +161,41 @@ What you need to know, is that this loop is an infinite loop that is necessary a
 <p><u>Explanation</u></p>
 
 <p>To complete this exercice, your robot must be more than 1.8 meters always from its starting point and it must not have collided with any object.</p>
-<p>You normally already have all the necessary code to achieve that, however you should maybe calibrate the values</p>
+<p>You normally already have all the necessary code to achieve that, however you should maybe calibrate the values.</p>
 <p>If your robot touches obstacles you can try to:</p>
 <ul>
   <li>Decrease the inital speed.</li>
   <li>Adjust the calibration constant.</li>
-  <li>Modify the formula that determine the velocity of the motors</li>
+  <li>Modify the formula that determine the velocity of the motors.</li>
+</ul>
 
 <p><u>Task</u></p>
 <ul>
-  <li>Your robot should move and avoid all obstacles
+  <li>Your robot should move and avoid all obstacles.
 </ul>
 
 <p><u>Expected result</u></p>
 
-<p>Your robot should move more than 1.8m meters from its starting point</p>
+<p>Your robot should be able to move more than 1.8m meters from its starting point.</p>
 
 <h4>8 BONUS: Improvement</h4>
 
 <p><u>Explanation</u></p>
 
 <p>Congratulation! You finished the exercices, however if you want to go a bit further, you can improve your code.</p>
-<p>If you let the simulatin run long enough, it is possible that you robot get stuck in a corner or between two obstacles</p>
-<p>First try to understand why this situation happens, you can use the robot window to see the value of the distance sensors</p>
-<p>Then you will need to detect in the controller when it happens</p>
-<p>Finally, you should implement a special behaviour in this case, maybe turn on the point, maybe go forward and turn in a random direction. It is up to you!</p>
+<p>If you let the simulation run long enough, it is possible that your robot get stuck in a corner or between two obstacles.</p>
+<p>First try to understand why this situation happens, you can use the robot window to see the value of the distance sensors.</p>
+<p>Then you will need to detect in the controller when it happens.</p>
+<p>Finally, you should implement a special behaviour in this case, maybe turn on the point, maybe go backward and turn in a random direction. It is up to you!</p>
 
 <p><u>Task</u></p>
 <ul>
-  <li>Improve the algorithm of the robot</li>
+  <li>Improve the algorithm of the robot.</li>
 </ul>
 
 <p><u>Expected result</u></p>
 
-<p>Your robot should not get blocked anymore</p>
+<p>Your robot should not get blocked anymore.</p>
 
 </body>
 <html>
