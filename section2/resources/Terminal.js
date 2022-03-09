@@ -20,8 +20,10 @@ export default class Terminal {
     let html = this.ansiUp.ansi_to_html(msg);
     this.text += html + '</br>';
     let terminal = document.getElementById('terminal');
-    if (terminal)
+    if (terminal) {
       terminal.innerHTML = this.text + '</br>';
+      terminal.parentNode.scrollTop = terminal.parentNode.scrollHeight;
+    }
   }
 
   createErrorMessage(msg) {
