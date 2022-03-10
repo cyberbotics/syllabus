@@ -55,9 +55,9 @@ ur_motors[3] = robot.getDevice('wrist_2_joint')
 
 
 ##################### Check that the variables are defined ##########
-if not 'distance_sensor' in locals() or not distance_sensor:
+if 'distance_sensor' not in locals() or not distance_sensor:
     print("Distance sensor not defined, not valid or incorrectly named. Done in Step 4.")
-elif not 'position_sensor' in locals() or not position_sensor:
+elif 'position_sensor' not in locals() or not position_sensor:
     print("Position sensor not defined, not valid or incorrectly named. Done in Step 5.")
 
 

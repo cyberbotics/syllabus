@@ -5,6 +5,6 @@ sceneTreePerspectives: 000000ff0000000100000002000000c0000000fa01000000020100000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 1 "controllers/supervisor_add_items/supervisor_add_items.c" "plugins/robot_windows/interact_with_environment/interact_with_environment.c"
-robotWindow: UR5e
+textFiles: 0 "plugins/robot_windows/interact_with_environment/interact_with_environment.c"
+robotWindow: robot
 consoles: Console:All:All
