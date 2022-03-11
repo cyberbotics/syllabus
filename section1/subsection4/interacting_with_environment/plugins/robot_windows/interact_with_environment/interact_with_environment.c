@@ -21,29 +21,49 @@
 #include <stdio.h>
 
 // Window initialization: get some robot devices.
-void wb_robot_window_init() {printf("init\n");}
+void wb_robot_window_init() { printf("init\n"); }
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
+  int bottle_added = 0; // Allow the addition of only one bottle at a time.
+  int length = 0;
+  const char *message = wb_robot_wwi_receive(&length);
+  int character_read = 0;
+  while (character_read < length) {
+    if (message) {
+      WbNodeRef root_node = wb_supervisor_node_get_root();
+      WbFieldRef root_children_field =
+          wb_supervisor_node_get_field(root_node, "children");
 
-  // Window initialization: get some robot devices.
-  const char *message = wb_robot_wwi_receive_text();
-  if (message) {
-    WbNodeRef root_node = wb_supervisor_node_get_root();
-    WbFieldRef root_children_field = wb_supervisor_node_get_field(root_node, "children");
-
-    if (strncmp(message, "waterbottle", 11) == 0)
-      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, "WaterBottle{translation 4.9 -0.83 0.6}");
-    else if (strncmp(message, "storage", 7) == 0) {
-      WbNodeRef storageNode = wb_supervisor_node_get_from_def("STORAGE");
-      if (storageNode)
-        wb_supervisor_node_remove(storageNode);
-    } else if (strncmp(message, "cardboardBox", 12) == 0) {
-      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, "CardboardBox{translation 0.219139 0.941823 0.3 size 0.5 0.5 0.6 mass 0.4}");
-      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, "CardboardBox{translation 0.320341 0.846947 0.75 rotation 0 0 1 2.094395 size 0.4 0.6 0.3 mass 0.4}");
-      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, "CardboardBox{translation 0.30946 0.834497 1.15 rotation 0 0 1 -0.5235 size 0.5 0.5 0.5 mass 0.4}");
+      if (strncmp(message, "waterbottle", 11) == 0) {
+        if (!bottle_added) {
+          wb_supervisor_field_import_mf_node_from_string(
+              root_children_field, -1,
+              "WaterBottle{translation 4.9 -0.83 0.6}");
+          bottle_added = 1;
+        }
+      } else if (strncmp(message, "storage", 7) == 0) {
+        WbNodeRef storageNode = wb_supervisor_node_get_from_def("STORAGE");
+        if (storageNode)
+          wb_supervisor_node_remove(storageNode);
+      } else if (strncmp(message, "cardboardBox", 12) == 0) {
+        wb_supervisor_field_import_mf_node_from_string(
+            root_children_field, -1,
+            "CardboardBox{translation 0.219139 0.941823 0.3 size 0.5 0.5 0.6 "
+            "mass 0.4}");
+        wb_supervisor_field_import_mf_node_from_string(
+            root_children_field, -1,
+            "CardboardBox{translation 0.320341 0.846947 0.75 rotation 0 0 1 "
+            "2.094395 size 0.4 0.6 0.3 mass 0.4}");
+        wb_supervisor_field_import_mf_node_from_string(
+            root_children_field, -1,
+            "CardboardBox{translation 0.30946 0.834497 1.15 rotation 0 0 1 "
+            "-0.5235 size 0.5 0.5 0.5 mass 0.4}");
+      } else
+        fprintf(stderr, "Unkown message: '%s'\n", message);
     }
-    else
-      fprintf(stderr, "Unkown message: '%s'\n", message);
+    int current_message_length = strlen(message) + 1;
+    character_read += current_message_length;
+    message += current_message_length;
   }
 }
