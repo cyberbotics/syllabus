@@ -241,19 +241,19 @@ DEF NAO_ARENA Transform {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/nao_10m_track_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/master/section2/1Blockly/worlds/textures/nao_10m_track_base_color.jpg"
               ]
             }
             roughness 1
             roughnessMap ImageTexture {
               url [
-                "textures/nao_10m_track_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/master/section2/1Blockly/worlds/textures/nao_10m_track_roughness.jpg"
               ]
             }
             metalness 0
             normalMap ImageTexture {
               url [
-                "textures/nao_10m_track_normal.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/master/section2/1Blockly/worlds/textures/nao_10m_track_normal.jpg"
               ]
             }
           }
