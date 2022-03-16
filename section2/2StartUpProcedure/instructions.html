@@ -9,6 +9,7 @@
   <style>
     body {
       color: #78797a;
+      background-color: white !important;
       border: 0;
       padding: 0px 30px;
       overflow-y: auto;
@@ -16,6 +17,11 @@
       line-height: 2em;
       font-family: "Montserrat", sans-serif;
       font-size: 1em;
+    }
+
+    img {
+      padding: 2px;
+      background-color: #78797a;
     }
 
     code {
@@ -625,22 +631,26 @@ shoulder_motor.setPosition(0.2)
 </code></pre>
                   <p class="list-p-bottom-2022 edit-html">
                     The first command sets the specific manipulator arm joint we want to move as a variable.</p>
-                    <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
-                      <li class="actual-lists-li-2022 edit-html">The
-                    variable <code>robot</code> is an instance of the class <code>Robot</code>, a blueprint or plan of the real-life UR5e robotic
-                    arm object.</li>
-                    <li class="actual-lists-li-2022 edit-html">The <code>getDevice</code> method of the <code>robot</code> allows us to retrieve a motor or
-                    sensor by its
-                    name (<code>shoulder_pan_joint</code>).</li>
-                    <li class="actual-lists-li-2022 edit-html">In the second command, we control the motor's position with another Class method.
-                    As it is a rotational motor, we give it an angle value of 0.2 radians. A radian is the standard international unit for measuring angles and it is what the robot controller expects to be used. </li>
-                    </ol>
+                  <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                    <li class="actual-lists-li-2022 edit-html">The
+                      variable <code>robot</code> is an instance of the class <code>Robot</code>, a blueprint or plan of
+                      the real-life UR5e robotic
+                      arm object.</li>
+                    <li class="actual-lists-li-2022 edit-html">The <code>getDevice</code> method of the
+                      <code>robot</code> allows us to retrieve a motor or
+                      sensor by its
+                      name (<code>shoulder_pan_joint</code>).</li>
+                    <li class="actual-lists-li-2022 edit-html">In the second command, we control the motor's position
+                      with another class method.
+                      As it is a rotational motor, we give it an angle value of 0.2 radians. A radian is the standard
+                      scientific unit for measuring angles and it is what the robot controller expects to be used. </li>
+                  </ol>
                 </div>
               </div>
             </li>
 
             <li class="st-accordion-list  edit-html">
-              <a href="#">Extra Task<span class="st-arrow">Open or Close</span></a>
+              <a href="#">Task<span class="st-arrow">Open or Close</span></a>
               <div class="st-content">
                 <!-- Sample Content-->
                 <div class="all-sections Extra Task">
@@ -669,7 +679,7 @@ shoulder_motor.setPosition(0.2)
                   <p class="edit-html">The arm does not reach the correct position on the conveyor belt (perpendicular
                     to the belt) because the value of <code>setPosition()</code> is not big enough.</p>
                   <p class="edit-html">Remember that the value passed to <code>setPosition()</code> is an angle in
-                    radians.
+                    radians and that a value of two pi radians (about 6.283 radians) constitutes a full rotation.
                   </p>
                 </div>
               </div>
@@ -691,8 +701,11 @@ shoulder_motor.setPosition(0.2)
                       toolbar of the simulation window and play again.</li>
                   </ol>
                   <p class="list-p-bottom-2022 edit-html">
-                    At this point, if you run the simulation, the manipulator will move to be positioned perpendicular
-                    to the conveyor belt, but the gripper does not close on the cans.</p>
+                    At this point, if you run the simulation, the manipulator should move to be positioned perpendicular
+                    to the conveyor belt, but the gripper does not close on the cans. If the gripper is not in the
+                    correct position, remember that a full rotation is two pi radians, and you want a quarter rotation
+                    which is half of pi in radians.
+                  </p>
                 </div>
               </div>
             </li>
@@ -716,7 +729,8 @@ shoulder_motor.setPosition(0.2)
                   <p class="edit-html">Where <code>distance_sensor</code> is the variable in which we put the result of
                     the
                     call to <code>getDevice()</code>.</p>
-                  <p class="edit-html">The <code>enable</code> function takes the sampling period as an argument. The simulation,
+                  <p class="edit-html">The <code>enable</code> function takes the sampling period as an argument. The
+                    simulation,
                     like a movie, is advancing in tiny steps: a few tens of milliseconds. This is also how a real-world
                     robot sees its environment. Although time is continuous, the robot's clock speed or sensor sample
                     rate will have a set period.</p>
@@ -740,7 +754,8 @@ shoulder_motor.setPosition(0.2)
                       sensor</li>
                     <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or File-&gt;Save)</li>
                     <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing the reset icon <img
-                      alt="reset icon" src='../resources/icons/reset.png'> in the toolbar of the simulation window and press play again.</li>
+                        alt="reset icon" src='../resources/icons/reset.png'> in the toolbar of the simulation window and
+                      press play again.</li>
                   </ol>
                   <p class="list-p-bottom-2022 edit-html">
                     The arm should now move, grab a can and move until the can is on top of the box. But it will not
@@ -760,14 +775,14 @@ shoulder_motor.setPosition(0.2)
                     to open the gripper according to the value of the position sensor is already written, but you still
                     have to initialise the sensor.</p>
                   <p class="edit-html">The sensor is called <code>wrist_1_joint_sensor</code>.</p>
-                  <p class="edit-html">The procedure to initialise it is the same as for the distance sensor. This time,
-                    the variable should be named <code>position_sensor</code>.</p>
+                  <p class="edit-html">The procedure to initialise it is the same as for the distance sensor. This new
+                    variable should be named <code>position_sensor</code>.</p>
                 </div>
               </div>
             </li>
 
             <li class="st-accordion-list  edit-html">
-              <a href="#">Task<span class="st-arrow">Open or Close</span></a>
+              <a href="#">Extra Task<span class="st-arrow">Open or Close</span></a>
               <div class="st-content">
                 <!-- Sample Content-->
                 <div class="all-sections Task">
@@ -778,7 +793,7 @@ shoulder_motor.setPosition(0.2)
                       sensor</li>
                     <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or File-&gt;Save)</li>
                     <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing the reset icon <img
-                      alt="reset icon" src='../resources/icons/reset.png'> in the
+                        alt="reset icon" src='../resources/icons/reset.png'> in the
                       toolbar of the simulation window. Then press play again.</li>
                   </ol>
                   <p class="list-p-bottom-2022 edit-html">
@@ -807,7 +822,8 @@ shoulder_motor.setPosition(0.2)
     motor.setVelocity(speed)
 </code></pre>
                   <p class="list-p-bottom-2022 edit-html">
-                    You do not have to define <code>ur_motors</code> and <code>speed</code>, as it was done for you in the first part
+                    You do not have to define <code>ur_motors</code> and <code>speed</code>, as it was done for you in
+                    the first part
                     of
                     the code.</p>
                   <p class="edit-html">Note that we do not modify the velocity of the shoulder joint because we want the
@@ -828,7 +844,7 @@ shoulder_motor.setPosition(0.2)
                     </li>
                     <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or File-&gt;Save)</li>
                     <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing the reset icon <img
-                      alt="reset icon" src='../resources/icons/reset.png'> in the
+                        alt="reset icon" src='../resources/icons/reset.png'> in the
                       toolbar of the simulation window. Then play it again.</li>
                   </ol>
                   <p class="list-p-bottom-2022 edit-html">
@@ -857,10 +873,9 @@ shoulder_motor.setPosition(0.2)
     </div> <!-- End of wrapper section -->
 
   </div> <!-- End of LMS Template Section -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
   </script>
-  <!-- <script  src="js/jquery.accordion.js"></script> -->
-  <script >
+  <script>
     (function (window, $, undefined) {
 
       /*
@@ -946,7 +961,7 @@ shoulder_motor.setPosition(0.2)
           // hide the contents so we can fade it in afterwards
           this.$items.find('div.st-content').hide();
 
-          // save original height and top of each item
+          // save original height and top of each item    
           this._saveDimValues();
 
           // if we want a default opened item...
@@ -1118,8 +1133,7 @@ shoulder_motor.setPosition(0.2)
 
     })(window, jQuery);
   </script>
-  <!-- <script  src="js/jquery.easing.1.3.js"></script> -->
-  <script >
+  <script>
     /*
      * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
      *
@@ -1127,33 +1141,33 @@ shoulder_motor.setPosition(0.2)
      * to offer multiple easing options
      *
      * TERMS OF USE - jQuery Easing
-     *
-     * Open source under the BSD License.
-     *
+     * 
+     * Open source under the BSD License. 
+     * 
      * Copyright © 2008 George McGinley Smith
      * All rights reserved.
-     *
-     * Redistribution and use in source and binary forms, with or without modification,
+     * 
+     * Redistribution and use in source and binary forms, with or without modification, 
      * are permitted provided that the following conditions are met:
-     *
-     * Redistributions of source code must retain the above copyright notice, this list of
+     * 
+     * Redistributions of source code must retain the above copyright notice, this list of 
      * conditions and the following disclaimer.
-     * Redistributions in binary form must reproduce the above copyright notice, this list
-     * of conditions and the following disclaimer in the documentation and/or other materials
+     * Redistributions in binary form must reproduce the above copyright notice, this list 
+     * of conditions and the following disclaimer in the documentation and/or other materials 
      * provided with the distribution.
-     *
-     * Neither the name of the author nor the names of contributors may be used to endorse
+     * 
+     * Neither the name of the author nor the names of contributors may be used to endorse 
      * or promote products derived from this software without specific prior written permission.
-     *
-     * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+     * 
+     * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
      * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
      * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
      *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
      *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-     *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+     *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
      * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-     *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-     * OF THE POSSIBILITY OF SUCH DAMAGE.
+     *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+     * OF THE POSSIBILITY OF SUCH DAMAGE. 
      *
      */
 
@@ -1313,44 +1327,44 @@ shoulder_motor.setPosition(0.2)
     /*
      *
      * TERMS OF USE - EASING EQUATIONS
-     *
-     * Open source under the BSD License.
-     *
+     * 
+     * Open source under the BSD License. 
+     * 
      * Copyright © 2001 Robert Penner
      * All rights reserved.
-     *
-     * Redistribution and use in source and binary forms, with or without modification,
+     * 
+     * Redistribution and use in source and binary forms, with or without modification, 
      * are permitted provided that the following conditions are met:
-     *
-     * Redistributions of source code must retain the above copyright notice, this list of
+     * 
+     * Redistributions of source code must retain the above copyright notice, this list of 
      * conditions and the following disclaimer.
-     * Redistributions in binary form must reproduce the above copyright notice, this list
-     * of conditions and the following disclaimer in the documentation and/or other materials
+     * Redistributions in binary form must reproduce the above copyright notice, this list 
+     * of conditions and the following disclaimer in the documentation and/or other materials 
      * provided with the distribution.
-     *
-     * Neither the name of the author nor the names of contributors may be used to endorse
+     * 
+     * Neither the name of the author nor the names of contributors may be used to endorse 
      * or promote products derived from this software without specific prior written permission.
-     *
-     * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+     * 
+     * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
      * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
      * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
      *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
      *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-     *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+     *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
      * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-     *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-     * OF THE POSSIBILITY OF SUCH DAMAGE.
+     *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+     * OF THE POSSIBILITY OF SUCH DAMAGE. 
      *
      */
   </script>
-  <script >
+  <script>
     $(function () {
 
       $('#st-accordion').accordion();
 
     });
   </script>
-  <script >
+  <script>
     $(document).ready(function () {
       setTimeout(function () {
         $("li.st-open").removeAttr("style");
