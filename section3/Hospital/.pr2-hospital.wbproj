@@ -7,3 +7,9 @@ centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 0 "../section1/subsection1/3RobotsInHospital/controllers/pr2_hospital/pr2_hospital.c"
 consoles: Console:All:All
+renderingDevicePerspectives: PR2:high_def_sensor;1;0.937908;0;0
+renderingDevicePerspectives: PR2:l_forearm_cam_sensor;1;1;0;0
+renderingDevicePerspectives: PR2:r_forearm_cam_sensor;1;1;0;0
+renderingDevicePerspectives: PR2:wide_stereo_l_stereo_camera_sensor;1;1;0;0
+renderingDevicePerspectives: PR2:wide_stereo_r_stereo_camera_sensor;1;1;0;0
+renderingDevicePerspectives: television:display;1;1;0;0
