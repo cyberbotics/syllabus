@@ -8,8 +8,8 @@
   <title>Instructions</title>
   <style>
     body {
-      color: #78797a;
-      background-color: white !important;
+      color: #ffffff;
+      background-color: #222222;
       border: 0;
       padding: 0px 30px;
       overflow-y: auto;
@@ -25,9 +25,10 @@
     }
 
     code {
-      background-color: #e6ecf0;
+      background-color: #1e1e1e ;
       padding: 2px;
       font-family: monospace;
+      font-size: 1.3em;
     }
 
     .list-padding-left-2022 {
@@ -277,7 +278,6 @@
       width: fit-content;
       box-shadow: none !important;
       margin: 7px 0 7px !important;
-      background-color: white !important;
     }
 
     #exp-btn,
@@ -480,7 +480,6 @@
     }
 
     .st-accordion>ul>li>a {
-      text-shadow: 1px 1px 1px #fff;
       font-size: 20px;
       display: block;
       outline: none;
@@ -633,13 +632,13 @@ shoulder_motor.setPosition(0.2)
                     The first command sets the specific manipulator arm joint we want to move as a variable.</p>
                   <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
                     <li class="actual-lists-li-2022 edit-html">The
-                      variable <code>robot</code> is an instance of the class <code>Robot</code>, a blueprint or plan of
+                      variable <code class="orange">robot</code> is an instance of the class <code class="orange">Robot</code>, a blueprint or plan of
                       the real-life UR5e robotic
                       arm object.</li>
-                    <li class="actual-lists-li-2022 edit-html">The <code>getDevice</code> method of the
-                      <code>robot</code> allows us to retrieve a motor or
+                    <li class="actual-lists-li-2022 edit-html">The <code class="orange">getDevice</code> method of the
+                      <code class="orange">robot</code> allows us to retrieve a motor or
                       sensor by its
-                      name (<code>shoulder_pan_joint</code>).</li>
+                      name (<code class="orange">shoulder_pan_joint</code>).</li>
                     <li class="actual-lists-li-2022 edit-html">In the second command, we control the motor's position
                       with another class method.
                       As it is a rotational motor, we give it an angle value of 0.2 radians. A radian is the standard
@@ -677,8 +676,8 @@ shoulder_motor.setPosition(0.2)
                   <p class="edit-html no-top-margin-2022">You should see the arm move a bit. However, it does not reach
                     the correct position on the conveyor belt (perpendicular to it).</p>
                   <p class="edit-html">The arm does not reach the correct position on the conveyor belt (perpendicular
-                    to the belt) because the value of <code>setPosition()</code> is not big enough.</p>
-                  <p class="edit-html">Remember that the value passed to <code>setPosition()</code> is an angle in
+                    to the belt) because the value of <code class="orange">setPosition()</code> is not big enough.</p>
+                  <p class="edit-html">Remember that the value passed to <code class="orange">setPosition()</code> is an angle in
                     radians and that a value of two pi radians (about 6.283 radians) constitutes a full rotation.
                   </p>
                 </div>
@@ -719,22 +718,22 @@ shoulder_motor.setPosition(0.2)
                   <p class="edit-html no-top-margin-2022">The gripper does not close on the cans as the robot uses a
                     distance sensor to detect the cans. The code that links the value returned by the sensor to the
                     gripper motors is written for you. However, you will need to turn the sensor on for it to work.</p>
-                  <p class="edit-html">First, use the <code>getDevice</code> method to retrieve the distance sensor in
+                  <p class="edit-html">First, use the <code class="orange">getDevice</code> method to retrieve the distance sensor in
                     the
-                    same manner as for the shoulder motor. The sensor is called <code>distance_sensor</code>, and you
+                    same manner as for the shoulder motor. The sensor is called <code class="orange">distance_sensor</code>, and you
                     must
-                    name the variable <code>distance_sensor</code>, as well.</p>
-                  <p class="edit-html">Then you need to enable it using the code command:<code>
+                    name the variable <code class="orange">distance_sensor</code>, as well.</p>
+                  <p class="edit-html">Then you need to enable it using the code command:<code class="orange">
                       distance_sensor.enable(TIME_STEP) </code></p>
-                  <p class="edit-html">Where <code>distance_sensor</code> is the variable in which we put the result of
+                  <p class="edit-html">Where <code class="orange">distance_sensor</code> is the variable in which we put the result of
                     the
-                    call to <code>getDevice()</code>.</p>
-                  <p class="edit-html">The <code>enable</code> function takes the sampling period as an argument. The
+                    call to <code class="orange">getDevice()</code>.</p>
+                  <p class="edit-html">The <code class="orange">enable</code> function takes the sampling period as an argument. The
                     simulation,
                     like a movie, is advancing in tiny steps: a few tens of milliseconds. This is also how a real-world
                     robot sees its environment. Although time is continuous, the robot's clock speed or sensor sample
                     rate will have a set period.</p>
-                  <p class="edit-html">The code defined this <code>TIME_STEP</code> constant as 32. We will use this
+                  <p class="edit-html">The code defined this <code class="orange">TIME_STEP</code> constant as 32. We will use this
                     constant
                     value as the sampling period of the distance sensor. Therefore, every 32 milliseconds, the distance
                     sensor will check if there is an object in front of it.</p>
@@ -774,9 +773,9 @@ shoulder_motor.setPosition(0.2)
                     arm is in position above the box. For that, we will use the position sensor of the wrist. The code
                     to open the gripper according to the value of the position sensor is already written, but you still
                     have to initialise the sensor.</p>
-                  <p class="edit-html">The sensor is called <code>wrist_1_joint_sensor</code>.</p>
+                  <p class="edit-html">The sensor is called <code class="orange">wrist_1_joint_sensor</code>.</p>
                   <p class="edit-html">The procedure to initialise it is the same as for the distance sensor. This new
-                    variable should be named <code>position_sensor</code>.</p>
+                    variable should be named <code class="orange">position_sensor</code>.</p>
                 </div>
               </div>
             </li>
@@ -822,7 +821,7 @@ shoulder_motor.setPosition(0.2)
     motor.setVelocity(speed)
 </code></pre>
                   <p class="list-p-bottom-2022 edit-html">
-                    You do not have to define <code>ur_motors</code> and <code>speed</code>, as it was done for you in
+                    You do not have to define <code class="orange">ur_motors</code> and <code class="orange">speed</code>, as it was done for you in
                     the first part
                     of
                     the code.</p>
