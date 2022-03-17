@@ -14,8 +14,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.46941092405007623 -0.0013624769251018634 0.8829787811941362 3.1038506191986635
-  position -0.5057864466945718 -0.31214547335501164 3.054268224243466
+  orientation 0.29211604278440595 -0.5277781962812472 -0.7975703060408483 5.142605970751287
+  position -2.702051221267846 -2.6766672002308027 3.259576444989486
 }
 TexturedBackground {
   texture "empty_office"
@@ -664,17 +664,17 @@ Curtain {
   rotation 0 0 1 -1.5707953071795862
   name "curtain2"
 }
-Transform {
+DEF RAIL Transform {
   translation 0 0 2.98
   children [
     Transform {
-      translation 0 -1.25 0
+      translation 0 -1.27 0
       children [
         Shape {
           appearance BrushedAluminium {
           }
           geometry Box {
-            size 0.01 5.5 0.01
+            size 0.01 5.45 0.01
           }
         }
       ]
@@ -693,24 +693,20 @@ Transform {
       ]
     }
     Transform {
+      translation 0.493682 1.4194 -4.43702e-06
+      rotation -1 0 0 -1.5708053071795867
       children [
-        Transform {
-          translation 0.494307 1.42 5.21587e-06
-          rotation 1 0 0 1.5708
-          children [
-            Shape {
-              appearance BrushedAluminium {
-              }
-              geometry Mesh {
-                url [
-                  "/home/benjamin/Downloads/curve.obj"
-                ]
-              }
-            }
-          ]
-          translationStep 0
+        Shape {
+          appearance BrushedAluminium {
+          }
+          geometry Mesh {
+            url [
+              "/home/benjamin/syllabus/section3/Hospital/meshes/rail_curve.obj"
+            ]
+          }
         }
       ]
+      translationStep 0
     }
   ]
 }
@@ -747,7 +743,25 @@ Transform {
   translationStep 0
 }
 Transform {
-  translation -2.0214 -0.596735 0.475247
+  translation -2.2948 -0.535008 0.589277
+  rotation 0 1 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.827451 0.843137 0.811765
+        roughness 1
+        metalness 0
+        name "Color_001"
+      }
+      geometry Box {
+        size 0.4 0.2 0.09
+      }
+    }
+  ]
+  translationStep 0
+}
+Transform {
+  translation -2.0214 -0.596735 0.476106
   rotation 0 0 1 -0.523595307179586
   children [
     Shape {
@@ -765,7 +779,7 @@ Transform {
   translationStep 0
 }
 Transform {
-  translation -2.0214 -0.596735 0.475247
+  translation -2.03633 -0.588101 0.600943
   rotation 0 0 1 -0.523595307179586
   children [
     Shape {
@@ -776,7 +790,7 @@ Transform {
         name "Color_001"
       }
       geometry Box {
-        size 0.3 0.2 0.2
+        size 0.26 0.2 0.05
       }
     }
   ]
@@ -870,8 +884,8 @@ DEF Oldman Solid {
   name "Scene"
 }
 Solid {
-  translation -2.23 -1 0.409998
-  rotation 1 0 0 1.5708
+  translation -2.27 -0.949791 0.389891
+  rotation 1 0 0 1.58134
   children [
     Solid {
       rotation 0 1 0 0
@@ -909,4 +923,5 @@ Solid {
     }
   ]
   name "blanket.obj"
+  rotationStep 0
 }
