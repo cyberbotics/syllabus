@@ -13,14 +13,14 @@ WorldInfo {
     ContactProperties {
       material1 "slope"
       coulombFriction [
-        0.5
+        0.3
       ]
     }
   ]
 }
 Viewpoint {
-  orientation 0.34840626856654205 0.3684487250003545 -0.861892457948874 1.6633482166779139
-  position 0.6662398403734276 1.2718089428088668 1.3520676861442913
+  orientation -0.48032405321379557 -0.4913631816405137 0.7265335695151206 4.4199085712567525
+  position -0.08128978707750228 1.572290871184783 2.9897002824820627
   exposure 1.7
 }
 TexturedBackground {
@@ -217,7 +217,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 0.876047 0.369235 0.837316
+  translation 0.876047 0.374235 0.845976
   rotation -0.35740594784661306 -0.5685519170357731 0.7409518918788259 -1.7177753071795863
   name "box(7)"
   size 0.05 0.02 0.5
@@ -225,8 +225,8 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 0.654397 0.384662 0.837316
-  rotation 0.6215147047339717 -0.7237696561552123 -0.29979485757499186 -2.2515953071795867
+  translation 0.648086 0.358855 0.837316
+  rotation -0.6215147047339717 0.7237696561552123 0.29979485757499186 2.2516
   name "box(8)"
   size 0.05 0.02 0.5
   appearance GalvanizedMetal {
@@ -303,10 +303,10 @@ UR3e {
   ]
 }
 ConveyorBelt {
-  translation 1.77 2.55 0.75
+  translation 1.77 1.69 0.75
   rotation 0 0 1 -1.5707973071795864
   name "conveyor belt(2)"
-  size 10 0.15 0.15
+  size 8 0.15 0.15
   appearance CorrugatedMetal {
     textureTransform TextureTransform {
       scale 6 3.1
@@ -326,30 +326,59 @@ ConveyorBelt {
     }
   }
   borderHeight 0
-  speed 0.062
+  speed 0.02
   acceleration 0.012
   timer 90
 }
 Can {
-  translation 1.77 3.8 0.96
-  name "can(15)"
+  translation 1.77 0.53 0.96
+  name "can(1)"
 }
 Can {
-  translation 1.77 4.7 0.96
-  name "can(16)"
+  translation 1.77 1.43 0.96
+  name "can(2)"
 }
 Can {
-  translation 1.77 5.6 0.96
-  name "can(17)"
+  translation 1.77 2.33 0.96
+  name "can(3)"
 }
 Can {
-  translation 1.77 6.5 0.96
-  name "can(18)"
+  translation 1.77 3.23 0.96
+  name "can(4)"
 }
 Can {
-  translation 1.77 7.4 0.96
-  name "can(19)"
+  translation 1.77 4.13 0.96
+  name "can(5)"
+}
+Can {
+  translation 1.77 5.03 0.96
+  name "can(6)"
 }
 CardboardContainer {
-  translation 0.72 0.62 0.55
+  translation 0.69 0.622 0.545
+  mass 1
+}
+CardboardContainer {
+  translation 0.485 0.622 0.545
+  rotation 0 1 0 0
+  name "cardboard container(1)"
+  mass 1
+}
+CardboardContainer {
+  translation 0.281 0.622 0.545
+  rotation 0 1 0 0
+  name "cardboard container(2)"
+  mass 1
+}
+CardboardContainer {
+  translation 0.077 0.622 0.545
+  rotation 0 1 0 0
+  name "cardboard container(3)"
+  mass 1
+}
+CardboardContainer {
+  translation -0.127 0.622 0.545
+  rotation 0 1 0 0
+  name "cardboard container(4)"
+  mass 1
 }
