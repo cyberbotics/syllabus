@@ -4,6 +4,7 @@ simulationViewPerspectives: 000000ff0000000100000002000001000000051a010000000201
 sceneTreePerspectives: 000000ff0000000100000002000001ee000000fa0100000002010000000200
 maximizedDockId: -1
 centralWidgetVisible: 1
+renderingMode: PLAIN
 orthographicViewHeight: 1
-textFiles: -1
+textFiles: 0 "../../../webots2/projects/objects/factory/containers/protos/CardboardBox.proto"
 consoles: Console:All:All

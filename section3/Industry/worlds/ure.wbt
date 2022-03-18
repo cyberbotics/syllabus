@@ -19,20 +19,26 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.48032405321379557 -0.4913631816405137 0.7265335695151206 4.4199085712567525
-  position -0.08128978707750228 1.572290871184783 2.9897002824820627
+  orientation 0.32746131585610616 0.4951117012850786 -0.8047567892651685 1.3892179069031423
+  position -0.2731321985980196 2.1350892721882784 2.604725886082818
   exposure 1.7
 }
 TexturedBackground {
   texture "factory"
 }
 Floor {
-  size 17 5
+  translation 2.2 0 0
+  size 8.3 5
   appearance ThreadMetalPlate {
   }
 }
+WoodenChair {
+  translation -0.85749 -0.929635 -3.55271e-15
+  rotation 0 0 1 2.35619
+  name "wooden chair(1)"
+}
 SquareManhole {
-  translation 0.560459 -1.782 -0.03
+  translation 0.560459 -1.582 -0.03
   rotation 0 0 1 -1.5707963071795863
 }
 Table {
@@ -74,7 +80,7 @@ ComputerMouse {
   mass 0
 }
 Table {
-  translation -1.419911 -0.81333 0
+  translation -1.38991 -0.81333 0
   rotation 0 0 1 -1.5707963071795863
   name "table(1)"
   size 1.8 0.7 0.8
@@ -90,7 +96,7 @@ Table {
 }
 OfficeTelephone {
   translation -1.34381 -0.209288 0.8
-  rotation 0 0 1 -2.3561953071795863
+  rotation 0 0 -1 0.785399
   enablePhysics FALSE
 }
 Wrench {
@@ -98,16 +104,12 @@ Wrench {
   rotation 0 0 1 -2.6179953071795863
 }
 Hammer {
-  translation -1.60381 -0.359288 0.81
-  rotation 0 0 1 1.5708
+  translation -1.50011 -1.07447 0.81
+  rotation 0 0 1 1.8326
 }
 PlatformCart {
   translation 0.927687 1.793317 0
   rotation 0 0 1 -2.8797933071795865
-}
-LeverValve {
-  translation -0.73 -0.83 0.502
-  rotation 0 0 1 3.14159
 }
 Radiator {
   translation 0.528902 2.341308 0.33
@@ -139,50 +141,106 @@ CardboardBox {
   translation -1.21 2.18 0.3
 }
 CardboardBox {
-  translation -1.198389 2.100678 0.75
+  translation -1.19839 2.10068 0.75
   rotation 0 0 1 2.094395
   name "cardboard box(1)"
   size 0.4 0.6 0.3
 }
-Wall {
-  translation -2.835 2.58 0
-  rotation 0 1 0 0
-  size 9 0.2 2.4
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 2 1
+Transform {
+  translation 2.25 -2.29 1.2
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Plane {
+        size 8 2.4
+      }
     }
-  }
+  ]
 }
-Wall {
-  translation 4.375 2.58 0
-  name "wall(2)"
-  size 5 0.2 2.4
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 2 1
+Transform {
+  translation 4.062 2.49 1.2
+  rotation 1 0 0 1.5708
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Plane {
+        size 4.375 2.4
+      }
     }
-  }
+  ]
 }
-Wall {
-  translation 1.77 2.58 1.2
-  name "wall(3)"
-  size 0.21 0.2 1.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 0.1 0.7
+Transform {
+  translation 1.772 2.49 1.8
+  rotation 1 0 0 1.5708
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 0.1 1
+        }
+      }
+      geometry Plane {
+        size 0.21 1.2
+      }
     }
-  }
+  ]
 }
-Wall {
-  translation 0 -2.42 0
-  name "wall(1)"
-  size 15 0.2 2.4
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 2 1
+Transform {
+  translation -0.04 2.49 1.2
+  rotation 1 0 0 1.5708
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Plane {
+        size 3.415 2.4
+      }
     }
-  }
+  ]
+}
+Transform {
+  translation 6.25 0 1.2
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Plane {
+        size 2.4 5
+      }
+    }
+  ]
+}
+Transform {
+  translation -1.75 0 1.2
+  rotation 0 1 0 1.5708
+  children [
+    Shape {
+      appearance Roughcast {
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Plane {
+        size 2.4 5
+      }
+    }
+  ]
 }
 Transform {
   translation 1.77 2.67 1.05
@@ -201,31 +259,31 @@ Transform {
   ]
 }
 SolidBox {
-  translation 1.015 -0.0323 0.45
+  translation 0.965 -0.0323 0.45
   name "box(5)"
-  size 0.8 0.4 0.91
+  size 1 0.4 0.91
   appearance GalvanizedMetal {
   }
 }
 SolidBox {
-  translation 0.8 0.3324 0.8246
+  translation 0.76 0.34106 0.8196
   rotation 1 0 0 2.61799
   name "box(6)"
-  size 0.3 0.5 0.02
+  size 0.38 0.46 0.02
   contactMaterial "slope"
   appearance GalvanizedMetal {
   }
 }
 SolidBox {
-  translation 0.876047 0.374235 0.845976
+  translation 0.876047 0.374235 0.842
   rotation -0.35740594784661306 -0.5685519170357731 0.7409518918788259 -1.7177753071795863
   name "box(7)"
-  size 0.05 0.02 0.5
+  size 0.053 0.02 0.5
   appearance GalvanizedMetal {
   }
 }
 SolidBox {
-  translation 0.648086 0.358855 0.837316
+  translation 0.648086 0.363855 0.845976
   rotation -0.6215147047339717 0.7237696561552123 0.29979485757499186 2.2516
   name "box(8)"
   size 0.05 0.02 0.5
@@ -233,7 +291,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 0.64 0.239196 0.583496
+  translation 0.6 0.239196 0.583496
   rotation 0.6947470600351803 0.6947460600350939 -0.1861570160863869 2.773492
   name "box(9)"
   size 0.05 0.02 0.5
@@ -241,7 +299,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 0.96 0.239196 0.583496
+  translation 0.92 0.239196 0.583496
   rotation 0.6947470600351803 0.6947460600350939 -0.1861570160863869 2.773492
   name "box(10)"
   size 0.05 0.02 0.5
@@ -260,7 +318,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 1.77 -2.28 0.375
+  translation 1.77 -2.04 0.375
   rotation 0 0 1 3.1415919999999997
   name "box(4)"
   size 0.2 0.18 0.75
@@ -316,10 +374,10 @@ ConveyorBelt {
   speed 0.2
 }
 ConveyorBelt {
-  translation 0 0.69 0
+  translation 2.23 0.63 0
   rotation 0 1 0 0
   name "conveyor belt(1)"
-  size 13 0.5 0.54
+  size 8 0.3 0.54
   appearance CorrugatedMetal {
     textureTransform TextureTransform {
       scale 6 3.1
@@ -329,6 +387,109 @@ ConveyorBelt {
   speed 0.02
   acceleration 0.012
   timer 90
+}
+Solid {
+  translation -1.35277 2.33379 0.6
+  rotation 0 0 1 0.523599
+  children [
+    DEF GEOM Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/enhancement-protos-cardboard/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+        ]
+      }
+    }
+  ]
+  name "paper boat"
+  model "paper boat"
+  immersionProperties [
+    ImmersionProperties {
+      fluidName "water"
+      dragForceCoefficients 0.05 0 0
+      viscousResistanceForceCoefficient 200
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0 0.01
+        children [
+          Box {
+            size 0.3 0.02 0.02
+          }
+        ]
+      }
+      Transform {
+        translation 0 0 0.034
+        rotation 0 1 0 1.5707997
+        children [
+          Capsule {
+            height 0.342
+            radius 0.014
+            subdivision 16
+          }
+        ]
+      }
+      Transform {
+        translation 0 -0.0308 0.038
+        rotation -0.6598636808886814 0.6598616808896486 -0.35939182619743615 -2.45157
+        children [
+          Box {
+            size 0.06 0.24 0.008
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.032 0.038
+        rotation 0.45445109957547297 -0.4544500995752539 0.7661261678670722 1.83411
+        children [
+          Box {
+            size 0.06 0.24 0.008
+          }
+        ]
+      }
+      Transform {
+        translation 0 0 0.086
+        rotation 0 1 0 0.78540031
+        children [
+          Box {
+            size 0.08 0.012 0.08
+          }
+        ]
+      }
+      Transform {
+        translation -0.184 0 0.052
+        rotation 0 1 0 5.754342
+        children [
+          Capsule {
+            height 0.032
+            radius 0.01
+            subdivision 16
+          }
+        ]
+      }
+      Transform {
+        translation 0.184 0 0.052
+        rotation 0 1 0 -5.75434
+        children [
+          Capsule {
+            height 0.032
+            radius 0.01
+            subdivision 16
+          }
+        ]
+      }
+    ]
+  }
 }
 Can {
   translation 1.77 0.53 0.96
@@ -381,4 +542,43 @@ CardboardContainer {
   rotation 0 1 0 0
   name "cardboard container(4)"
   mass 1
+}
+Nut {
+  translation -0.29 2.27 0.032
+  rotation 0 1 0 -1.5707953071795862
+}
+Nut {
+  translation -0.36 2.27 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(1)"
+}
+Nut {
+  translation -0.36 2.2 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(2)"
+}
+Nut {
+  translation -0.335307 2.19221 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(3)"
+}
+Nut {
+  translation -0.306308 2.19228 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(4)"
+}
+Nut {
+  translation -0.259556 2.22071 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(5)"
+}
+Nut {
+  translation -0.38493 2.21832 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(7)"
+}
+Nut {
+  translation -0.279784 2.20266 0.032
+  rotation 0 1 0 -1.5707953071795862
+  name "nut(6)"
 }
