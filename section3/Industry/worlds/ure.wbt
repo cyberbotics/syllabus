@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.32746131585610616 0.4951117012850786 -0.8047567892651685 1.3892179069031423
-  position -0.2731321985980196 2.1350892721882784 2.604725886082818
+  orientation 0.25704066653722996 0.3402129974355885 -0.9045359098023631 1.4087590757439323
+  position -0.40988587923841974 2.797244648214717 2.0982253089836007
   exposure 1.7
 }
 TexturedBackground {
@@ -515,33 +515,45 @@ Can {
   translation 1.77 5.03 0.96
   name "can(6)"
 }
-CardboardContainer {
-  translation 0.69 0.622 0.545
+CardboardBox {
+  translation 0.69 0.622 0.62
+  rotation 0 0 1 -1.5707953071795862
+  name "cardboard box(2)"
+  size 0.1 0.2 0.15
   mass 1
+  lidAngle 4.1
 }
-CardboardContainer {
-  translation 0.485 0.622 0.545
-  rotation 0 1 0 0
-  name "cardboard container(1)"
+CardboardBox {
+  translation 0.485 0.622 0.62
+  rotation 0 0 1 -1.5707953071795862
+  name "cardboard box(3)"
+  size 0.1 0.2 0.15
   mass 1
+  lidAngle 4.1
 }
-CardboardContainer {
-  translation 0.281 0.622 0.545
-  rotation 0 1 0 0
-  name "cardboard container(2)"
+CardboardBox {
+  translation 0.281 0.622 0.62
+  rotation 0 0 1 -1.5707953071795862
+  name "cardboard box(4)"
+  size 0.1 0.2 0.15
   mass 1
+  lidAngle 4.1
 }
-CardboardContainer {
-  translation 0.077 0.622 0.545
-  rotation 0 1 0 0
-  name "cardboard container(3)"
+CardboardBox {
+  translation -0.127 0.622 0.62
+  rotation 0 0 1 -1.5707953071795862
+  name "cardboard box(5)"
+  size 0.1 0.2 0.15
   mass 1
+  lidAngle 4.1
 }
-CardboardContainer {
-  translation -0.127 0.622 0.545
-  rotation 0 1 0 0
-  name "cardboard container(4)"
+CardboardBox {
+  translation 0.077 0.622 0.62
+  rotation 0 0 1 -1.5707953071795862
+  name "cardboard box(6)"
+  size 0.1 0.2 0.15
   mass 1
+  lidAngle 4.1
 }
 Nut {
   translation -0.29 2.27 0.032
