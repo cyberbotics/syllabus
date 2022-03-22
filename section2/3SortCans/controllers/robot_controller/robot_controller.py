@@ -1,10 +1,12 @@
 """ure_can_grasper_python controller."""
-#################### IMPORTS AND INITIALIZATION ###########################
+#################### IMPORTS AND INITIALISATION ###########################
 
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot, Motor, DistanceSensor, PositionSensor, Camera
 from enum import Enum
+import random
+
 
 class State(Enum):
     WAITING = 1
@@ -12,6 +14,7 @@ class State(Enum):
     ROTATING = 3
     RELEASING = 4
     ROTATING_BACK = 5
+
 
 # create the Robot instance.
 robot = Robot()
@@ -23,7 +26,7 @@ TIME_STEP = 32
 counter = 0
 state = State.WAITING
 TARGET_POSITIONS = [-1.88, -2.14, -2.38, -1.51]
-speed = 1.0
+SPEED = 1.0
 
 
 hand_motors = [None] * 3
@@ -38,7 +41,7 @@ ur_motors[2] = robot.getDevice('wrist_1_joint')
 ur_motors[3] = robot.getDevice('wrist_2_joint')
 
 for motor in ur_motors:
-  motor.setVelocity(speed)
+    motor.setVelocity(SPEED)
 
 shoulder_rotation = robot.getDevice('shoulder_pan_joint')
 
@@ -52,18 +55,13 @@ distance_sensor.enable(TIME_STEP)
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
 
-color = 'red'
-#################### INITIALIZE THE CAMERA HERE ###########################
-
-
-
-
-
+colour = 'red'
+#################### INITIALISE THE CAMERA HERE ###########################
 
 
 #################### MAINS LOOP ############################################
 
-# - perform simulation steps until Webots is stopping the controller
+# - perform simulation steps until Webots stops the controller
 while robot.step(TIME_STEP) != -1:
     if counter <= 0:
         if state == state.WAITING:
@@ -73,16 +71,7 @@ while robot.step(TIME_STEP) != -1:
                 for motor in hand_motors:
                     motor.setPosition(0.85)
 
-#################### GET THE COLOR OF THE CAN HERE #########################
-
-
-
-
-
-
-
-
-
+#################### GET THE COLOUR OF THE CAN HERE #########################
 
 
 ############################################################################
@@ -92,14 +81,6 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(TARGET_POSITIONS[i])
                 i += 1
 #################### MOVE THE ARM HERE #####################################
-
-
-
-
-
-
-
-
 
 
 ############################################################################
@@ -114,13 +95,10 @@ while robot.step(TIME_STEP) != -1:
             for motor in ur_motors:
                 motor.setPosition(0.0)
             state = state.ROTATING_BACK
-#################### PUT THE ARM BACK IN POSITION HERE ####################
-
-
-
-
-############################################################################
         elif state == state.ROTATING_BACK:
+            #################### PUT THE ARM BACK IN POSITION HERE ####################
+
+            ############################################################################
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
     counter -= 1
