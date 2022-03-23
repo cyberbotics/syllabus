@@ -493,7 +493,7 @@ PROTO trackedRobot [
           }
         ]
         animatedGeometry USE ANIMATED_GEOM
-        geometriesCount 40
+        geometriesCount 47
       }
       DEF ANTENNA_1 Transform {
         translation -0.89 -0.137 0.023
