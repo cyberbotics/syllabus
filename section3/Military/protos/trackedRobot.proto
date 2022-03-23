@@ -348,7 +348,7 @@ PROTO trackedRobot [
         boundingObject DEF TRACK_BO Group {
           children [
             Transform {
-              translation 0 0 -0.05
+              translation 0 0 -0.09
               rotation 1 0 0 1.570796
               children [
                 Box {

@@ -35,5 +35,5 @@ leftMotor.setVelocity(0)
 rightMotor.setVelocity(0)
 turretMotor.setPosition(0.93)
 
-robot.step(500)
+robot.step(600)
 gunsMotor.setPosition(-0.05)
