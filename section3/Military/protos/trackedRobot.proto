@@ -59,7 +59,7 @@ PROTO trackedRobot [
                             appearance DEF PBR_TURRET PBRAppearance {
                               baseColorMap ImageTexture {
                                 url [
-                                  "textures/Turret_Color.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section3/Military/protos/textures/Turret_Color.jpg"
                                 ]
                               }
                               roughness -9
@@ -159,7 +159,7 @@ PROTO trackedRobot [
             appearance PBRAppearance {
               baseColorMap ImageTexture {
                 url [
-                  "/home/benjamin/syllabus/section3/Military/protos/textures/desert_camo1.jpg"
+                  "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section3/Military/protos/textures/desert_camo1.jpg"
                 ]
               }
               roughness 1
@@ -170,7 +170,7 @@ PROTO trackedRobot [
             }
             geometry Mesh {
               url [
-                "/home/benjamin/syllabus/section3/Military/protos/meshes/chassis.obj"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section3/Military/protos/meshes/chassis.obj"
               ]
             }
           }
