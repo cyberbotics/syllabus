@@ -48,7 +48,7 @@ PROTO trackedRobot [
                       }
                       device [
                         RotationalMotor {
-                          name "Guns_motor"
+                          name "guns_motor"
                         }
                       ]
                       endPoint Solid {

@@ -5,5 +5,5 @@ sceneTreePerspectives: 000000ff0000000100000002000000c0000000fa01000000020100000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 1 "../../../webots/projects/robots/universal_robots/controllers/ure_can_grasper/ure_can_grasper.c" "controllers/military_robot/military_robot.py"
+textFiles: 0 "controllers/military_robot/military_robot.py"
 consoles: Console:All:All
