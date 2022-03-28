@@ -55,11 +55,22 @@ distance_sensor.enable(TIME_STEP)
 position_sensor = robot.getDevice('wrist_1_joint_sensor')
 position_sensor.enable(TIME_STEP)
 
-colour = 'red'
-#################### INITIALISE THE CAMERA HERE ###########################
+#################### INITIALISE THE CAMERA HERE ##################
 
+########### CREATE 1St FUNCTION HERE #############################
+
+
+def get_colour_of_can():
+    pass
+
+########### CREATE 2ND FUNCTION HERE ##############################
+
+
+def rotate_robotic_shoulder():
+    pass
 
 #################### MAINS LOOP ############################################
+
 
 # - perform simulation steps until Webots stops the controller
 while robot.step(TIME_STEP) != -1:
@@ -71,19 +82,17 @@ while robot.step(TIME_STEP) != -1:
                 for motor in hand_motors:
                     motor.setPosition(0.85)
 
-#################### GET THE COLOUR OF THE CAN HERE #########################
-
-
-############################################################################
+                ######## GET THE COLOUR OF THE CAN HERE ############
+                colour = get_colour_of_can()
+                ####################################################
         elif state == state.GRASPING:
             i = 0
             for motor in ur_motors:
                 motor.setPosition(TARGET_POSITIONS[i])
                 i += 1
-#################### MOVE THE ARM HERE #####################################
-
-
-############################################################################
+            ######### MOVE THE ARM HERE ##############
+            rotate_robotic_shoulder()
+            ##########################################
             state = state.ROTATING
         elif state == state.ROTATING:
             if position_sensor.getValue() < -2.3:
@@ -96,9 +105,9 @@ while robot.step(TIME_STEP) != -1:
                 motor.setPosition(0.0)
             state = state.ROTATING_BACK
         elif state == state.ROTATING_BACK:
-            #################### PUT THE ARM BACK IN POSITION HERE ####################
+            ####### PUT THE ARM BACK IN POSITION HERE ##############
 
-            ############################################################################
+            ########################################################
             if position_sensor.getValue() > -0.1:
                 state = state.WAITING
     counter -= 1

@@ -1,151 +1,1947 @@
-<html>
-<style>
-  body {
-    color: white;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    line-height: 2em;
-  }
-  code {
-    background-color: grey;
-    padding: 2px;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <style>
+        body {
+            color: #ffffff;
+            background-color: #222222;
+            border: 0;
+            padding: 0px 30px;
+            overflow-y: auto;
+            margin: 10px 0px 10px 0px;
+            line-height: 2em;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1em;
+        }
+
+        img {
+            padding: 2px;
+            background-color: #78797a;
+        }
+
+        code {
+            background-color: #1e1e1e;
+            padding: 2px;
+            font-family: monospace;
+            font-size: 1.3em;
+        }
+
+        .orange {
+            color: #e84610;
+        }
+
+        .long-block-icon {
+            font-size: 38px !important;
+            line-height: 38px !important;
+            color: #23bbbb;
+        }
+
+        .long-block-icon-container {
+            margin-bottom: -15px !important;
+        }
+
+        .long-block-icon-end-container {
+            text-align: right;
+            margin-bottom: -20px !important;
+        }
+
+        .long-example-block {
+            border-left: solid 3px #efb920;
+            padding: 10px 0px 10px 10px;
+            margin-left: 30px !important;
+        }
+
+        .xmodule_display.xmodule_HtmlBlock .long-example-block p:not(.long-block-icon-container, .long-block-icon-end-container) {
+            line-height: 1.4em !important;
+        }
+
+        .long-example-block p:nth-of-type(2) {
+            text-indent: 30px;
+        }
+
+        .quiz-pre-text {
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+
+        .quiz-pre-heading {
+            font-size: 20px !important;
+        }
+
+        .nobr-2022 {
+            white-space: nowrap;
+        }
+
+        .supsub-2022 {
+            display: inline-block;
+            margin: -9em 0;
+            vertical-align: -0.55em;
+            line-height: 1.35em;
+            font-size: 70%;
+            text-align: left;
+        }
+
+        .icon-img-2022 {
+            width: 25px;
+        }
+
+        .actual-lists-2022+p {
+            margin-top: 5px !important;
+            margin-bottom: 5px;
+        }
+
+        .pre-2022+p {
+            margin-top: 5px !important;
+            margin-bottom: 5px;
+        }
+
+        .st-content>.all-sections> :first-child {
+            margin-top: 0 !important;
+        }
+
+        .st-content>.all-sections> :last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .close-panel-2022 {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .open-panel-2022 {
+            display: block;
+        }
+
+        li.st-accordion-list>a {
+            color: #0075b4;
+            cursor: pointer;
+        }
+
+        /*************************************************************/
+        .list-padding-left-2022 {
+            padding-left: 45px !important;
+        }
+
+        .actual-lists-2022 {
+            margin: 10px 0 !important;
+        }
+
+        .actual-lists-li-2022 {
+            margin: 5px 0 !important;
+        }
+
+        .list-style-decimal-2022 {
+            list-style: decimal !important;
+        }
+
+        .list-style-roman-2022 {
+            list-style: lower-roman !important;
+        }
+
+        .list-style-alpha-2022 {
+            list-style: lower-alpha !important;
+        }
+
+        .list-style-disc-2022 {
+            list-style: disc !important;
+        }
+
+        .nested-lists-2022 {
+            margin: 5px 0 !important;
+            padding-left: 30px !important;
+        }
+
+        .list-style-none-2022 {
+            list-style: none !important;
+            padding-left: 10px !important;
+        }
+
+        .list-style-dash-2022 {
+            list-style: none !important;
+            padding-left: 25px !important;
+        }
+
+        .list-style-dash-2022 li:before {
+            content: "– ";
+            margin-left: -1em;
+        }
+
+        .list-style-dash-o-2022 {
+            list-style: none !important;
+            padding-left: 45px !important;
+        }
+
+        .list-style-dash-o-2022 li:before {
+            content: "– ";
+            margin-left: -1em;
+        }
+
+        .less-top-margin-2022 {
+            margin-top: 8px !important;
+        }
+
+        .no-bottom-margin-2022 {
+            margin-bottom: 0 !important;
+        }
+
+        .no-top-margin-2022 {
+            margin-top: 0 !important;
+        }
+
+        .basic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .basic-grid hr {
+            grid-column: 1/3;
+            width: 90%;
+        }
+
+        .multi-3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+
+        .multi-2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+
+        .img-wrap-2022 {
+            padding: 5px;
+        }
+
+        .basic-grid-gap {
+            grid-column-gap: 15px;
+        }
+
+        h3 {
+            padding-left: 5px;
+        }
+
+        .figure-2022 {
+            margin: 10px 0 15px 0;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .figure-2022.special {
+            border: 2px solid #ededed;
+            padding-left: 33%;
+        }
+
+        .figure-2022.special img {
+            width: 50%;
+        }
+
+        .all-sections .figure-2022 img {
+            box-sizing: border-box;
+        }
+
+        .figcaption-2022 {
+            background: white;
+            padding: 10px 0 5px;
+        }
+
+        .no-bottom-border-2022 {
+            border-bottom: none !important;
+        }
+
+        /* *************************************************************** */
+        .lists-padding-left-2022 {
+            padding-left: 45px;
+        }
+
+        .list-style-2022 {
+            display: grid;
+            grid-template-columns: 35px auto;
+            line-height: 1.3rem !important;
+        }
+
+        .n-list-style-2022 {
+            display: grid;
+            grid-template-columns: 15px auto;
+            line-height: 1.3rem !important;
+            padding-left: 15px !important;
+        }
+
+        .n-list-style-2022.d-list-2022 {
+            padding-left: 25px !important;
+        }
+
+        .n-list-style-2022.d-l-list-2022 {
+            grid-template-columns: 17px auto !important;
+        }
+
+        .l-hide-2022 {
+            color: white !important;
+        }
+
+        .n-list-style-2022 p {
+            padding: inherit !important;
+            line-height: inherit !important;
+            margin: 3px !important;
+        }
+
+        .list-style-2022 p {
+            margin: 3px 0 0 0 !important;
+            padding: inherit !important;
+        }
+
+        .h3-2022 {
+            padding-left: 0;
+            color: #e84610;
+        }
+
+        .indented-pre-2022 {
+            padding: 3px !important;
+            padding-left: 25px !important
+        }
+
+        .indented-2022 {
+            padding-left: 23px !important;
+        }
+
+        .orange {
+            color: #e84610;
+        }
+
+        .disabled-2022 {
+            color: #a09e9e !important;
+            background: lightgray !important;
+            border: 1px solid #a09e9e !important;
+            cursor: not-allowed !important;
+        }
+
+        .left-section-image-2022 {
+            margin: 15px 0;
+        }
+
+        .left-section-image-2022 img {
+            width: 100%;
+        }
+
+        .list-p-2022 {
+            padding-left: 5px;
+            margin: 3px !important;
+            line-height: 1.3 !important;
+        }
+
+        .list-p-top-2022 {
+            margin-top: 15px;
+            margin-bottom: 5px !important;
+        }
+
+        .list-p-bottom-2022 {
+            margin-top: 5px !important;
+            margin-bottom: 15px;
+        }
+
+        .runnable-controls-2022 {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 170px auto;
+            grid-column-gap: 5px;
+            margin-top: 5px;
+        }
+
+        .right-hand-section {
+            margin-left: 10px;
+        }
+
+        .right-section-controls {
+            padding-left: 234px;
+            position: relative;
+        }
+
+        .controls-large {
+            top: 10px;
+        }
+
+        .controls-small {
+            top: 36px;
+            z-index: 9;
+        }
+
+        .snippet-2022 {
+            background: #1e1e1e !important;
+            color: #dcdcdc !important;
+            padding: 3px 5px !important;
+            display: block;
+            width: fit-content;
+        }
+
+        pre.pre-2022 {
+            padding: 0.5rem;
+            width: fit-content;
+            box-shadow: none !important;
+            margin: 7px 0 7px !important;
+        }
+
+        #exp-btn,
+        .rcc-1,
+        .rcc-2,
+        .rcc-3 {
+            display: inline-block;
+            width: 100px;
+            height: 22px;
+            padding: 1px;
+            text-align: center;
+            border: 1px solid darkgrey;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-family: 'Questrial';
+            vertical-align: top;
+        }
+
+        .rcc-3,
+        .rcc-1,
+        .rcc-2 {
+            color: white;
+            background: #23BBBB;
+            border: 1px solid #23BBBB;
+        }
+
+        #exp-btn {
+            width: 120px;
+        }
+
+        #exp-btn:hover {
+            color: #6d6d6d;
+            background: #bab9b9;
+        }
+
+        .rcc-1:hover,
+        .rcc-2:hover,
+        .rcc-3:hover {
+            color: #23BBBB;
+            background: white;
+            border: 1px solid #23BBBB;
+        }
+
+        .disabled-2022 {
+            color: #a09e9e !important;
+            background: lightgray !important;
+            border: 1px solid #a09e9e !important;
+            cursor: not-allowed !important;
+        }
+
+        input#exp-btn {
+            width: 100%;
+            color: green;
+            font-size: 1em;
+            height: 35px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .lesson-img {
+            display: grid;
+            grid-row-gap: 10px;
+            margin: 0 auto;
+            width: 90%;
+            padding-top: 20px;
+        }
+
+        .lesson-wrapper-extra {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .lesson-wrapper {
+            /* margin-right: -9px; */
+            padding: 0 20px 0 0;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .display-btn {
+            display: block;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .full-screen {
+            position: fixed;
+            top: 0;
+            background: white;
+            width: 100%;
+            left: 0;
+            padding: 0 5% 0 5%;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .normal-screen {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .large-frame {
+            margin-top: -50px;
+            height: 100vh;
+        }
+
+        .small-frame {
+            margin-top: -50px;
+            height: 87vh;
+        }
+
+        #exp {
+            margin-top: 10px;
+            display: grid;
+            padding-bottom: 20px;
+        }
+
+        .hide-title {
+            display: none !important;
+        }
+
+        .l3-pre {
+            box-shadow: 0 0 1px var(--t-grey);
+        }
+
+        .sticky-a {
+            position: sticky;
+            top: 35px;
+            z-index: 0;
+        }
+
+        .sticky-img {
+            position: sticky;
+            top: 35px;
+            z-index: 0;
+        }
+
+        .challenge-box {
+            width: 80%;
+            margin: 30px auto;
+            border: 1px solid grey;
+            padding: 20px;
+            background-color: #e6ecf0;
+        }
+
+        .flex-code {
+            margin: 30px 50px;
+        }
+
+        .runnable2022 {
+            padding: 10px;
+        }
+
+        .left {
+            width: 100%;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .special-lists {
+            margin: 5px 20px 5px;
+            display: inline-block;
+        }
+
+        /*-- ++++++++++++++++++++++++++++++++++++++++++Accordion +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+        /* Flexible Slide-to-top Accordion Style*/
+        .wrapper {
+            width: 100%;
+        }
+
+        .l3-pre {
+            box-shadow: 0 0 1px var(--t-darkgrey);
+        }
+
+        .lesson-content {
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+
+        .st-accordion {
+            width: 100%;
+            min-width: 270px;
+            margin-left: 0;
+        }
+
+        .st-accordion-list {
+            border-bottom: 1px solid #c7deef;
+            border-top: 1px solid #fff;
+            overflow: hidden;
+            list-style-type: none !important;
+        }
+
+        .st-accordion>ul>li:first-child {
+            border-top: none;
+        }
+
+        .st-accordion>ul>li>a {
+            font-size: 20px;
+            display: block;
+            outline: none;
+            color: #0075b4;
+            -webkit-transition: color 0.2s ease-in-out;
+            -moz-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .st-accordion>ul>li>a span {
+            background: transparent url(../images/down.png) no-repeat center center;
+            text-indent: -9000px;
+            width: 26px;
+            height: 14px;
+            position: absolute;
+            top: 50%;
+            right: -26px;
+            margin-top: -7px;
+            opacity: 0;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            display: none;
+        }
+
+        .st-accordion>ul>li>a:hover {
+            color: #1693eb;
+        }
+
+        .st-accordion>ul>li>a:hover span {
+            opacity: 1;
+            right: 10px;
+        }
+
+        .st-accordion>ul>li.st-accordion-list>a:first-child {
+            text-decoration: none;
+        }
+
+        /* .st-accordion>ul>li.st-accordion-list>a:first-child {
+            padding: 8px 0;
+        } */
+
+        #st-accordion>ul {
+            margin-bottom: 80px;
+        }
+
+        .st-accordion>ul>li.st-open>a>h2 {
+            *color: #1693eb;
+        }
+
+        .st-accordion>ul>li.st-open>a span {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            transform: rotate(180deg);
+            right: 10px;
+            opacity: 1;
+        }
+
+        .st-content {
+            padding: 5px 0px 15px 0px;
+        }
+
+        .lists {
+            margin-left: 20px !important;
+        }
+
+        @media screen and (max-width: 320px) {
+            .st-accordion ul li>a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
 
 <body>
-<h2>Instructions</h2>
+    <section>
+        <div class="grid-section">
+
+            <div class="lesson-wrapper">
+                <!-- Left section -->
+                <div class="left">
+                    <div class="lesson-content">
+                        <h2 class="heading-2022 edit-html">
+                            Develop an operating programme
+                        </h2>
+                        <div class="all-sections section section-content">
+
+                            <h3 class="h3-2022 edit-html">Situation and Goal</h3>
+
+                            <p class="edit-html">The robot and production line are the same as in the last topic. </p>
+                            <p class="edit-html">This topic starts off where the last one finished.</p>
 
 
-<h3>Situation and Goal</h3>
-<p>This exercise is the direct continuation from the previous one.</p>
-<p>In the last exercise, you implemented a start-up procedure for the robot to be able to successfully detect, pick and place cans.</p>
-<p>This time, you will go one step further.</p>
-<p>There is now three kinds of cans (red, green and blue). The robot have to grasp each cans and to put it in the box corresponding to its color (red cans in the red box, green cans in the green box, blue cans in the blue box).</p>
-<p>In order to identify the color of the cans, the UR5e robot is now equiped with a camera.</p>
-<p>There is seven cans, the first three have a fixed color (red, green and then blue) but the last four have a random color (among red, green and blue).</p>
-
-<h3>What is already done?</h3>
-<p> The code of the manipulator is similar to the one you had obtained at the end of the previous exercise: it does the initialization of the manipulator and then pick and place all the cans in one box.
-
-<h3>What is left to do?</h3>
-<ul>
-  <li>In a first time, you will need to determine the color of each can.</li>
-  <li>Then, you will have to modify the movement of the arm according to the detected color.</li>
-</ul>
-
-<h3>Hands-on</h3>
-
-<h4>1 Preparatory phase</h4>
-
-<p><u>Explanation</u></p>
-
-<p>First, it is important to have a look a the scene, in order to better understand what is the situation and what you will have to achieve. Then you will need to open the controller file.</p>
-
-<p><u>Task</u></p>
-<ul>
-  <li>Have a look at the simulation, in the simulation window. If you closed it, you can reopen it by clicking the 3D cube icon.</li>
-  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
-</ul>
-
-<p><u>Expected result</u></p>
-
-<p>The robotic arm should put all the cans in the same box.</p>
-
-<h4>2 Initialize the camera</h4>
-
-<p><u>Explanation</u></p>
-
-<p>To begin we need to initialize the camera. The camera is a sensor, like the distance sensor or the position sensor of the previous exercise. It means that you can initialize it in the same way.</p>
-<p>First, use the <code>getDevice</code> function to get the camera, the name of the camera device is <code>arm_camera</code> and you should put the result in a variable named <code>camera</code>.</p>
-<p>Once you have the camera, you have to enable it. Remember that to do that, you have to call the <code>enable</code> function on the camera with the <code>TIME_STEP</code> as argument to define the sampling period.</p>
-<p>This camera is a very basic one. It has a resolution of one pixel! But it is enough in our case to determine the color of the can.
-
-<p><u>Task</u></p>
-<ul>
-  <li>Write the two lines of code needed to initialize the camera in the code section named "INITIALIZE THE CAMERA HERE".</li>
-  <li>Save the code (CTRL + s, or File->Save)</li>
-  <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
-</ul>
-
-<p><u>Expected result</u></p>
-
-<p>If you play the simulation and open the robot window, you should see that the camera is enable (remember that the camera size is only 1x1 pixel).</p>
-
-<h4>3 Get the color of the can</h4>
-
-<p><u>Explanation</u></p>
-
-<p>We will now write some code in the control loop. The controller of a robot is generally divided in two or three parts:</p>
-<ul>
-  <li>The first part consists of the initialization and start-up.</li>
-  <li>The second part is where the robot performs its actions until it is told to turn off, it is the control loop.</li>
-  <li>The third part contains some cleanup and actions to execute just before shutdown.</li>
-</ul>
-
-<p>Let's take two examples to illustrate that:</p>
-<ul>
-  <li>A vaccum cleaner robot: the initialization phase consists to turn on, power on the motors and initialize the sensors. Then in the control loop, the robot will repeat the two following actions: clean by going straight and turn when encountering a obstacle.
-    Finally, it will exit this loop if it runs low on battery, has finished to clean or is told to turn off, it will then enter the third phase, maybe go back to a predefined position and turn off.
-  </li>
-  <li>Our robotic arm: it initializes itself by enabling sensors and retrieving motors. Then the control loop consists of waiting for a can, catching it and putting it in a box, and finally rotating back to the waiting position.
-     As we never exit the loop with our code, the third part is not needed but we could imagine something like: rotating back to the side and shuting down the sensors and motors.
-  </li>
-</ul>
-
-So in our exercise, we need to write code in control loop to recognize the color of a can when the arm grab it.
-<ul>
-  <li>First, you need to retrieve the image of the camera, you can do it with <code>cameraPixels = camera.getImage()</code>.</li>
-  <li>Then, you have to extract the color component of the image with <code>red = Camera.imageGetRed(cameraPixels, camera.getWidth(), 0, 0)</code>. The <code>imageGetRed</code> function takes four parameters: the camera image, the width of the image and the x and y position of the pixel whose color we want.
-  Our camera has only one pixel and thus it is located as coordinate (0, 0). Use the <code>imageGetGreen</code> and <code>imageGetBlue</code> to retrieve also the green and blue component of the pixel.</li>
-  <li>Finally you need to compare the three value you obtained: red, blue and green to determine which one is largest. If the red component is larger than the blue and green one, you know that the can is red.</li>
-</ul>
-<p>Note: you can store the color of the can in the <code>color</code> variable that has been initialized at the beginning of the code (line 55).
-<p>WARNING: you need to be careful about the indentation. Your code is supposed to be executed only when a can is detected, so only when the <code>if distance_sensor.getValue() < 500</code> condition is true, but not in the motors loop.</p>
-<p><u>Task</u></p>
-<p>Write the code to get the color of the can in the code section named "GET THE COLOR OF THE CAN HERE".</p>
+                            <p class="edit-html">In the previous topic, you implemented a start-up procedure for the
+                                robot to be able to detect, pick and place cans successfully.</p>
 
 
-<p><u>Expected result</u></p>
+                            <p class="edit-html">This time, you will go one step further.</p>
 
-<p>You will not see any change in the simulation, but you can add a print in the code to be sure that the correct color is detected. The result of the print will be displayed in the Terminal window.</p>
 
-<h4>4 Move the arm according to the color</h4>
+                            <p class="edit-html">There are now three kinds of cans (red, green and blue). The robot has
+                                to grasp each can and put it in the box corresponding to its colour (red cans in the red
+                                box, green cans in the green box, blue cans in the blue box).</p>
 
-<p><u>Explanation</u></p>
 
-<p>Now that you know the color of the can, you have to move the manipulator accordingly such that it will drop the can in the right box.</p>
-<p>Programming the movement of the robotic arm is something complex because you would have to control the motor of each joint! However, in the exercise, moving only the shoulder joint is enough.</p>
-<p>You can use the <code>shoulder_rotation.setPosition(x)</code> function where x is the value of the position, in radian.</p>
-<p>WARNING: once again, you will need to watch your indentation, you want you code to be executed if we enter the <code>elif</code> condition but <b>after</b> the loop, not inside.
+                            <p class="edit-html">The UR5e robot is now equipped with a camera to identify the colour of
+                                the cans.</p>
 
-<p><u>Task</u></p>
-<p>Write the code needed to move the arm such that each can is dropped in the correct box in the code section named "MOVE THE ARM HERE".</p>
-<p><u>Expected result</u></p>
 
-<p>The first can should be put in the right box. However, the arm will not return in the right position, preventing it to grab the second can.</p>
+                            <p class="edit-html">In this simulation, there are seven cans, the first three have a fixed
+                                colour order (red, green and then blue, respectively), but the last four have a random
+                                colour chosen from red, green and blue.</p>
 
-<h4>5 Rotate the arm back in position</h4>
 
-<p><u>Explanation</u></p>
+                            <h3 class="h3-2022 edit-html">What is already done?</h3>
 
-<p>As we have added a movement (the movement of the shoulder joint) to the arm, to deposit the cans in some specific boxes, we will need to also add a command to put this joint back in the correct position.</p>
-<p>You will use the </code>shoulder_rotation.setPosition(x)</code> function again to achieve that.</p>
-<p>WARNING: again, you will need to watch your indentation, you want you code to be executed only if we enter the <code>elif</code> condition.
+                            <p class="edit-html">The code for the manipulator is similar to the end of the previous
+                                topic: it performs the initialisation of the manipulator and then picks and places all
+                                the cans into one box.</p>
 
-<p><u>Task</u></p>
-<p>Write the code to put the shoulder joint back in the correct position in the code section called "PUT THE ARM BACK IN POSITION HERE".</p>
-<p><u>Expected result</u></p>
 
-<p>The manipulator should be able to grab and sort correctly all seven cans.</p>
+                            <h3 class="h3-2022 edit-html no-bottom-margin-2022">What is left to do?</h3>
 
-<h4>6 Bonus: prevent cans from piling up</h4>
+                            <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                <li class="actual-lists-li-2022 edit-html">First, you will need to determine the colour
+                                    of each can.</li>
+                                <li class="actual-lists-li-2022 edit-html">Then, you will have to modify the movement of
+                                    the arm according to the detected colour.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="st-accordion" class="st-accordion">
+                        <ul class="st-accordion-list no-bottom-border-2022 robo-section">
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Challenge (Preparatory phase)<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
 
-<p><u>Explanation</u></p>
 
-<p>If you look at the box, you can see that because the robot always puts the cans in the same position, they stack up. If we try to put too many cans of the same color in a box, it is possible that the stack will crumble and some cans may fall out of the box.
-To avoid this, you can add a small random amount to the angle of the shoulder joint. This way, the robot will not place the boxes in the same place and they will pile up less.</p>
-<p>Hints: <code>random.uniform(0,0.1)</code> will return a number between 0 and 0.1</p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Have a look at the simulation,
+                                                and think about what movements the manipulator will have to make.</li>
+                                            <li class="actual-lists-li-2022 edit-html">Open the code editor(IDE) by
+                                                clicking on the<em> &lt; &gt;</em> icon</li>
+                                            <li class="actual-lists-li-2022 edit-html">To open the code file, click:
+                                                File-&gt;Open and choose the <em>robot_controller.py</em> file.</li>
+                                            <li class="actual-lists-li-2022 edit-html">Then, run the simulation to see
+                                                what the robotic arm is presently programmed to do.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robotic arm will put all the cans in the same box.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">At the moment, the manipulator cannot see the cans. To
+                                            enable this functionality, we need to initialise the camera. The camera is a
+                                            sensor, like the distance sensor or the position sensor of the previous
+                                            exercise. It means that you can initialise it in the same way.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task (Initialise the camera)<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">This camera is a very basic one. It
+                                            has a resolution of just one pixel! But it is enough in our case to
+                                            determine the colour of the can.</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Write the <em>two</em> lines of
+                                                code needed to initialise the camera in the <em>"INITIALISE THE CAMERA
+                                                    HERE"</em> code section.<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Use the
+                                                        <code class="orange">robot.getDevice</code> method to get the
+                                                        camera.<ul class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">The name of the
+                                                                camera device is <code class="orange">arm_camera</code>
+                                                            </li>
+                                                            <li class="actual-lists-li-2022 edit-html">And you should
+                                                                assign the result to a variable named
+                                                                <code class="orange">camera</code>.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Once you have an instance of the
+                                                camera:<ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">You must <em>enable</em>
+                                                        it. Similarly to the previous topic’s code.<ul
+                                                            class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">You have to call
+                                                                the <code class="orange">enable</code> method on the
+                                                                <code class="orange">camera</code> variable.</li>
+                                                            <li class="actual-lists-li-2022 edit-html">Use
+                                                                <code class="orange">TIME_STEP</code> as the argument to
+                                                                define the
+                                                                sampling
+                                                                period.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <p class="edit-html no-bottom-margin-2022">After completing those two lines of
+                                            code, you must:</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File-&gt;Save)</li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing
+                                                the reset button in the toolbar of the simulation window.</li>
+                                            <li class="actual-lists-li-2022 edit-html">Press the play button again.</li>
+                                        </ol>
+                                        <p class="edit-html">Now the camera is enabled.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Control loop aside<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">The controller code is generally
+                                            divided into two or three phases:</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">The initialisation phase consists
+                                                of the initialisation and start-up.</li>
+                                            <li class="actual-lists-li-2022 edit-html">The execution phase is where the
+                                                robot performs actions until it is told to turn off. This step is where
+                                                the control loop code is.</li>
+                                            <li class="actual-lists-li-2022 edit-html">The cleanup phase includes using
+                                                the motors to move to a rest position and deactivating the sensors
+                                                before shutdown.</li>
+                                        </ol>
+                                        <p class="edit-html no-bottom-margin-2022">Let us look at an example to
+                                            illustrate this:</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">The robot controller in this
+                                                topic:<ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Initialises the arm by:
+                                                        <ul class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Enabling sensors
+                                                            </li>
+                                                            <li class="actual-lists-li-2022 edit-html">Rotating the
+                                                                joints to put the robot in its starting position.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="actual-lists-li-2022 edit-html">The control loop consists
+                                                        of:<ul class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Waiting for a
+                                                                can</li>
+                                                            <li class="actual-lists-li-2022 edit-html">Grabbing the can
+                                                            </li>
+                                                            <li class="actual-lists-li-2022 edit-html">Putting the can
+                                                                in a box.</li>
+                                                            <li class="actual-lists-li-2022 edit-html">Rotating the arm
+                                                                back to the waiting position.</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="actual-lists-li-2022 edit-html">The cleanup phase is:<ul
+                                                            class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Rotating the arm
+                                                                back to the side</li>
+                                                            <li class="actual-lists-li-2022 edit-html">Closing log files
+                                                            </li>
+                                                            <li class="actual-lists-li-2022 edit-html">Deleting variable
+                                                                values</li>
+                                                            <li class="actual-lists-li-2022 edit-html">Shutting down the
+                                                                sensors and motors</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <p class="edit-html">Within this simulation, we never exit the control loop, so
+                                            the cleanup phase is not used. However, in a real-world factory, You would
+                                            use the cleanup phase when powering down the arm.</p>
+                                        <p class="edit-html">We will write the code required within the control loop in
+                                            the next task. This code needs to recognise the colour of a can when the arm
+                                            grabs it.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task (Get the colour of the can)<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">In the <em>"CREATE
+                                                1ST FUNCTION HERE"</em> section, we created an empty function named
+                                            <code class="orange">get_colour_of_can</code> for you.</p>
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">####### CREATE 1ST FUNCTION HERE #######
+def get_colour_of_can():
+    pass
+########################################</code></pre>
+                                        <p class="edit-html no-bottom-margin-2022">In the section named <em>"GET THE
+                                                COLOUR OF THE CAN HERE"</em> we call the function and assign the
+                                            function
+                                            <code class="orange">return</code> value to a variable named <code
+                                                class="orange">colour</code>. This
+                                            assignment allows us to use the variable <code class="orange">colour</code>
+                                            elsewhere in
+                                            our code. Note
+                                            how the code is
+                                            <em>indented</em> in the snippet. Look at the flow of the code to understand
+                                            why.
+
+                                        </p>
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">                ####### GET THE COLOUR OF THE CAN HERE #########
+                colour = get_colour_of_can()
+                ################################################</code></pre>
+                                        <p class="edit-html no-bottom-margin-2022">Follow the steps below to create the
+                                            code for the function.</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">First, delete the
+                                                <code class="orange">pass</code>
+                                                keyword.<ul class="nested-lists-2022">
+                                                    <li class="actual-lists-li-2022 edit-html">The <code
+                                                            class="orange">pass</code>
+                                                        keyword is a
+                                                        placeholder statement allowing the function to be called but do
+                                                        nothing.</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                        <p class="edit-html no-bottom-margin-2022">Next, within this function, you need
+                                            to write the code to do the following:</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">You need to retrieve the image
+                                                from the camera using:<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"><code
+                                                            class="orange">camerapixels =
+                                                            camera.getImage()</code></li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Then, you have to extract the
+                                                colour component of the image using:<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"><code class="orange">red
+                                                            =
+                                                            Camera.imageGetRed(camerapixels, camera.getWidth(), 0,
+                                                            0)</code>
+                                                        <ul class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html"><em>Note:</em>
+                                                                The
+                                                                <code class="orange">imageGetRed</code> method takes
+                                                                four parameters;
+                                                                the
+                                                                camera image, the width of the image and the x and y
+                                                                position of the pixel whose colour we want.</li>
+                                                            <li class="actual-lists-li-2022 edit-html"><em>Note:
+                                                                </em>Our
+                                                                camera has only one pixel, and thus it is located at
+                                                                coordinate (0, 0).</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Use the
+                                                <code class="orange">imageGetGreen</code>
+                                                and
+                                                <code class="orange">imageGetBlue</code> methods in a similar manner to
+                                                retrieve the
+                                                green
+                                                and blue pixel information.</li>
+                                        </ol>
+                                        <p class="edit-html no-bottom-margin-2022">Finally, you need to print the colour
+                                            of the <em>can</em> grabbed by the robotic arm. You will need to compare
+                                            the
+                                            three values you obtained; red, blue and green to determine which one is the
+                                            largest. This can be done using the<code class="orange"> max()</code>
+                                            function and an
+                                            <code class="orange">if elif
+                                                else</code> statement.</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Create a variable named
+                                                <code class="orange">largest</code>
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Assign the value
+                                                        returned from <code class="orange">max(red, green, blue)</code>
+                                                        to it.</li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Create a variable named
+                                                <code class="orange">colour</code>
+                                                <ul class="nested-lists-2022">
+                                                    <li class="actual-lists-li-2022 edit-html">Assign an empty string to
+                                                        it.
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Using an <code class="orange">if
+                                                    elif
+                                                    else</code>
+                                                statement:<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Check if the
+                                                        variable&nbsp;<code class="orange">red</code> is equal to the
+                                                        variable
+                                                        <code class="orange">largest</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html"> If it is, assign
+                                                                the string&nbsp;<em>"red"</em> to the variable named
+                                                                <code class="orange">colour</code></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="actual-lists-li-2022 edit-html">Check if the
+                                                        variable <code class="orange">blue</code> is equal to the
+                                                        variable
+                                                        <code class="orange">largest</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html"> If it is, assign
+                                                                the string <em>"blue"</em> to the variable named
+                                                                <code class="orange">colour</code></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="actual-lists-li-2022 edit-html">Else the
+                                                        variable&nbsp;<code class="orange">green</code> must be equal to
+                                                        the
+                                                        variable<code class="orange">
+                                                            largest</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Assign the
+                                                                string <em>"green"</em> to the variable
+                                                                <code class="orange">colour</code>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Then outside your <code
+                                                    class="orange">if elif
+                                                    else</code> statement body:</li>
+                                            <li class="actual-lists-li-2022 edit-html">Print out the <code
+                                                    class="orange">colour
+                                                </code>variable</li>
+                                            <li class="actual-lists-li-2022 edit-html">Under the <code
+                                                    class="orange">print</code>
+                                                statement place:
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"><code
+                                                            class="orange">return
+                                                            colour</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Returning the
+                                                                <code class="orange">colour</code> variable allows its
+                                                                use elsewhere in the code.
+
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <p class="edit-html">You can now reset the simulation and press the play button.
+                                        </p>
+                                        <p class="edit-html no-bottom-margin-2022">You should see the following events
+                                            happen:</p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">When the robotic arm picks up a
+                                                can:
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">The colour of the can is
+                                                        printed in the terminal window.<ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">click
+                                                                <em>&gt;_</em>
+                                                                to
+                                                                see the terminal window.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">A message:
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"> If the can is red or
+                                                        blue, a
+                                                        message will be displayed stating the arm placed the can in the
+                                                        incorrect container.
+
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution for (Get the colour of the can)<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">def get_colour_of_can():
+    camerapixels = camera.getImage()
+    red = Camera.imageGetRed(camerapixels, camera.getWidth(), 0, 0)
+    green = Camera.imageGetGreen(camerapixels, camera.getWidth(), 0, 0)
+    blue = Camera.imageGetBlue(camerapixels, camera.getWidth(), 0, 0)
+
+    largest = max(red, green, blue)
+    colour = ""
+    if red == largest:
+        colour = 'red'
+    elif green == largest:
+        colour = 'green'
+    else:
+        colour = 'blue'
+
+    print(colour)    
+    return colour</code></pre>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task (Move the arm according to the can colour)<span
+                                        class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">Thanks to the function <code
+                                                class="orange">get_colour_of_can</code> you
+                                            wrote,
+                                            the robotic arm can now determine the colour of a can.</p>
+                                        <p class="edit-html">The next step is to move the manipulator so that it will
+                                            drop the can in the correct box.
+                                        </p>
+                                        <p class="edit-html">The robot arm has many degrees of freedom, but how many
+                                            joints need to be rotated to place a can above the correct box? Thankfully
+                                            it is only the shoulder joint that needs to be moved.
+                                        </p>
+                                        <p class="edit-html no-bottom-margin-2022">To complete this task, you will need
+                                            another function named <code class="orange">rotate_robotic_shoulder</code>,
+                                            and like
+                                            previously,
+                                            we have started this function for you in the section named <em>"CREATE 2ND
+                                                FUNCTION HERE"</em></p>
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">###### CREATE 2ND FUNCTION HERE ######
+def rotate_robotic_shoulder():
+    pass
+######################################</code></pre>
+                                        <p class="edit-html no-bottom-margin-2022">In the section named "MOVE THE ARM
+                                            HERE", we call and use the function</p>
+
+
+                                        <pre class="pre-2022 edit-html no-bottom-margin-2022"><code class="snippet-2022 edit-html">            ###### MOVE THE ARM HERE ######
+            rotate_robotic_shoulder()
+            ###############################</code></pre>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">First delete the
+                                                <code class="orange">pass</code>
+                                                statement.</li>
+                                            <li class="actual-lists-li-2022 edit-html">Using an <code class="orange">if
+                                                    elif
+                                                </code>statement:
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Check if the variable
+                                                        <code class="orange">colour</code> is equal to <code
+                                                            class="orange">"red"</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">If it is, use:
+                                                                <code
+                                                                    class="orange">shoulder_rotation.setPosition(2.5)</code>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="actual-lists-li-2022 edit-html">Check if the variable
+                                                        <code class="orange">colour</code> is equal to <code
+                                                            class="orange">"blue"</code>
+                                                        <ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">If it is, use:
+                                                                <code
+                                                                    class="orange">shoulder_rotation.setPosition(1)</code>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <p class="edit-html">Note: you do not have to check if the variable
+                                            <code class="orange">colour</code> is
+                                            equal to <code class="orange">"green"</code>, as the robotic arms' default
+                                            behaviour is to
+                                            drop cans in
+                                            the green container. You can adjust the radian values of 2.5 and 1 slightly
+                                            to better centre the arm above the red and blue boxes. </p>
+                                        <p class="edit-html">Reset the simulation and press play.</p>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robot will put the first can in the correct box.
+                                            However, the arm will not return to the correct position, preventing it from
+                                            grabbing the second can.</p>
+                                        <p class="edit-html">In the next task, you will fix this issue.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution for (Move the arm according to the can colour)<span
+                                        class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">def rotate_robotic_shoulder():
+    if colour == 'red':
+        shoulder_rotation.setPosition(2.5)
+    elif colour == 'blue':
+        shoulder_rotation.setPosition(1)</code></pre>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task (Put the arm back into the correct position)<span
+                                        class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">By moving the arms shoulder joint to deposit the can in the
+                                            correct box, it is now no longer in the correct position to receive the next
+                                            can. So for this task, you will need to add a command to put this joint back
+                                            in the correct position.</p>
+                                        <p class="edit-html no-bottom-margin-2022">In the section <em>"PUT THE ARM BACK
+                                                IN POSITION HERE"</em></p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Write the following command:<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">
+                                                        <code class="orange">shoulder_rotation.setPosition(1.5)</code>
+                                                        <ul class=" nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">You will
+                                                                recognise this command from the previous function you
+                                                                created.</li>
+                                                            <li class="actual-lists-li-2022 edit-html"><em>Note:</em>
+                                                                You need to indent this code line within the elif body
+                                                                correctly. Use the first <code class="orange">#</code>
+                                                                of the comment
+                                                                as a guide. </li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation and press
+                                                play.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected Result</h3>
+                                        <p class="edit-html">The manipulator should be able to grab and sort all seven
+                                            cans correctly.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution (Put the arm back into the correct position)<span
+                                        class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">            ####### PUT THE ARM BACK IN POSITION HERE ###### 
+            shoulder_rotation.setPosition(1.5)
+            ################################################</code></pre>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task (Bonus: prevent cans from piling up)<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">If you look at the box, you can see that the cans stack up
+                                            because the robot always puts the cans in the same position. If we try to
+                                            put too many cans of the same colour in a box, the stack may topple, and
+                                            some cans may fall out of the box. To avoid this, you can add a small random
+                                            amount to the angle of the shoulder joint. This way, the robot will not
+                                            place the boxes in the same place and pile up less.</p>
+                                        <p class="edit-html no-bottom-margin-2022">Hint:
+                                            <code class="orange">random.uniform(0,0.1)</code>
+                                            will return a number between 0 and 0.1</p>
+                                        <p class="edit-html no-bottom-margin-2022">Return to the
+                                            <code class="orange">rotate_robotic_shoulder</code> function you created.
+                                        </p>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">In each of the
+                                                <code class="orange">shoulder_rotation.setPosition</code> methods,
+                                                <em>add or
+                                                    deduct</em> this
+                                                random value from the existing value.</li>
+
+
+                                            <li class="actual-lists-li-2022 edit-html">To stop the green cans from
+                                                stacking:
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"> Add an <code
+                                                            class="orange">else</code>
+                                                        statement<ul class="nested-lists-2022">
+                                                            <li class="actual-lists-li-2022 edit-html">Within the else
+                                                                statement body, add the required code to prevent the
+                                                                green cans from stacking</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0"> Review<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">In this topic, you have extended the capability of the
+                                            operating programme beyond a startup initialisation and added basic
+                                            functionality to carry out a production line task. In the next topic, you
+                                            will write code to get robots to deal with unexpected obstacles.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- End of accordion -->
+                </div> <!-- End of Left section -->
+
+            </div> <!-- End of wrapper section -->
+
+        </div> <!-- End of LMS Template Section -->
+    </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
+    </script>
+    <script>
+        (function (window, $, undefined) {
+
+            /*
+             * smartresize: debounced resize event for jQuery
+             *
+             * latest version and complete README available on Github:
+             * https://github.com/louisremi/jquery.smartresize.js
+             *
+             * Copyright 2011 @louis_remi
+             * Licensed under the MIT license.
+             */
+
+            var $event = $.event,
+                resizeTimeout;
+
+            $event.special.smartresize = {
+                setup: function () {
+                    $(this).bind("resize", $event.special.smartresize.handler);
+                },
+                teardown: function () {
+                    $(this).unbind("resize", $event.special.smartresize.handler);
+                },
+                handler: function (event, execAsap) {
+                    // Save the context
+                    var context = this,
+                        args = arguments;
+
+                    // set correct event type
+                    event.type = "smartresize";
+
+                    if (resizeTimeout) {
+                        clearTimeout(resizeTimeout);
+                    }
+                    resizeTimeout = setTimeout(function () {
+                        jQuery.event.handle.apply(context, args);
+                    }, execAsap === "execAsap" ? 0 : 100);
+                }
+            };
+
+            $.fn.smartresize = function (fn) {
+                return fn ? this.bind("smartresize", fn) : this.trigger("smartresize", ["execAsap"]);
+            };
+
+            $.Accordion = function (options, element) {
+
+                this.$el = $(element);
+                // list items
+                this.$items = this.$el.children('ul').children('li');
+                // total number of items
+                this.itemsCount = this.$items.length;
+
+                // initialize accordion
+                this._init(options);
+
+            };
+
+            $.Accordion.defaults = {
+                // index of opened item. -1 means all are closed by default.
+                open: 0,
+                // if set to true, only one item can be opened. Once one item is opened, any other that is opened will be closed first
+                oneOpenedItem: false,
+                // speed of the open / close item animation
+                speed: 600,
+                // easing of the open / close item animation
+                easing: 'easeInOutExpo',
+                // speed of the scroll to action animation
+                scrollSpeed: 900,
+                // easing of the scroll to action animation
+                scrollEasing: 'easeInOutExpo'
+            };
+
+            $.Accordion.prototype = {
+                _init: function (options) {
+
+                    this.options = $.extend(true, {}, $.Accordion.defaults, options);
+
+                    // validate options
+                    this._validate();
+
+                    // current is the index of the opened item
+                    this.current = this.options.open;
+
+                    // hide the contents so we can fade it in afterwards
+                    this.$items.find('div.st-content').hide();
+
+                    // save original height and top of each item    
+                    this._saveDimValues();
+
+                    // if we want a default opened item...
+                    if (this.current != -1)
+                        this._toggleItem(this.$items.eq(this.current));
+
+                    // initialize the events
+                    this._initEvents();
+
+                },
+                _saveDimValues: function () {
+
+                    this.$items.each(function () {
+
+                        var $item = $(this);
+
+                        $item.data({
+                            originalHeight: $item.find('a:first').height(),
+                            offsetTop: $item.offset().top
+                        });
+
+                    });
+
+                },
+                // validate options
+                _validate: function () {
+
+                    // open must be between -1 and total number of items, otherwise we set it to -1
+                    if (this.options.open < -1 || this.options.open > this.itemsCount - 1)
+                        this.options.open = -1;
+
+                },
+                _initEvents: function () {
+
+                    var instance = this;
+
+                    // open / close item
+                    this.$items.find('a:first').bind('click.accordion', function (event) {
+
+                        var $item = $(this).parent();
+
+                        // close any opened item if oneOpenedItem is true
+                        if (instance.options.oneOpenedItem && instance._isOpened() && instance
+                            .current !== $item.index()) {
+
+                            instance._toggleItem(instance.$items.eq(instance.current));
+
+                        }
+
+                        // open / close item
+                        instance._toggleItem($item);
+
+                        return false;
+
+                    });
+
+                    $(window).bind('smartresize.accordion', function (event) {
+
+                        // reset orinal item values
+                        instance._saveDimValues();
+
+                        // reset the content's height of any item that is currently opened
+                        instance.$el.find('li.st-open').each(function () {
+
+                            var $this = $(this);
+                            $this.css('height', $this.data('originalHeight') + $this.find(
+                                'div.st-content').outerHeight(true));
+
+                        });
+
+                        // scroll to current
+                        //if( instance._isOpened() )
+                        //instance._scroll();
+
+                    });
+
+                },
+                // checks if there is any opened item
+                _isOpened: function () {
+
+                    return (this.$el.find('li.st-open').length > 0);
+
+                },
+                // open / close item
+                _toggleItem: function ($item) {
+
+                    var $content = $item.find('div.st-content');
+
+                    ($item.hasClass('st-open'))
+
+                    ?
+                    (this.current = -1, $content.stop(true, true).fadeOut(this.options.speed), $item
+                        .removeClass('st-open').stop().animate({
+                            height: $item.data('originalHeight')
+                        }, this.options.speed, this.options.easing))
+
+                    :
+                    (this.current = $item.index(), $content.stop(true, true).fadeIn(this.options.speed),
+                        $item.addClass('st-open').stop().animate({
+                            height: $item.data('originalHeight') + $content.outerHeight(true)
+                        }, this.options.speed, this.options.easing), this._scroll(this))
+
+                },
+                // scrolls to current item or last opened item if current is -1
+                _scroll: function (instance) {
+
+                    var instance = instance || this,
+                        current;
+
+                    (instance.current !== -1) ? current = instance.current: current = instance.$el.find(
+                        'li.st-open:last').index();
+
+                    $('html, body').stop().animate({
+                        //scrollTop   : ( instance.options.oneOpenedItem ) ? instance.$items.eq( current ).data( 'offsetTop' ) : instance.$items.eq( current ).offset().top
+                    }, instance.options.scrollSpeed, instance.options.scrollEasing);
+
+                }
+            };
+
+            var logError = function (message) {
+
+                if (this.console) {
+
+                    console.error(message);
+
+                }
+
+            };
+
+            $.fn.accordion = function (options) {
+
+                if (typeof options === 'string') {
+
+                    var args = Array.prototype.slice.call(arguments, 1);
+
+                    this.each(function () {
+
+                        var instance = $.data(this, 'accordion');
+
+                        if (!instance) {
+                            logError("cannot call methods on accordion prior to initialization; " +
+                                "attempted to call method '" + options + "'");
+                            return;
+                        }
+
+                        if (!$.isFunction(instance[options]) || options.charAt(0) === "_") {
+                            logError("no such method '" + options + "' for accordion instance");
+                            return;
+                        }
+
+                        instance[options].apply(instance, args);
+
+                    });
+
+                } else {
+
+                    this.each(function () {
+                        var instance = $.data(this, 'accordion');
+                        if (!instance) {
+                            $.data(this, 'accordion', new $.Accordion(options, this));
+                        }
+                    });
+
+                }
+
+                return this;
+
+            };
+
+        })(window, jQuery);
+    </script>
+
+    <script>
+        /*
+         * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+         *
+         * Uses the built in easing capabilities added In jQuery 1.1
+         * to offer multiple easing options
+         *
+         * TERMS OF USE - jQuery Easing
+         * 
+         * Open source under the BSD License. 
+         * 
+         * Copyright © 2008 George McGinley Smith
+         * All rights reserved.
+         * 
+         * Redistribution and use in source and binary forms, with or without modification, 
+         * are permitted provided that the following conditions are met:
+         * 
+         * Redistributions of source code must retain the above copyright notice, this list of 
+         * conditions and the following disclaimer.
+         * Redistributions in binary form must reproduce the above copyright notice, this list 
+         * of conditions and the following disclaimer in the documentation and/or other materials 
+         * provided with the distribution.
+         * 
+         * Neither the name of the author nor the names of contributors may be used to endorse 
+         * or promote products derived from this software without specific prior written permission.
+         * 
+         * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+         * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+         * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+         *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+         *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+         *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+         * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+         *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+         * OF THE POSSIBILITY OF SUCH DAMAGE. 
+         *
+         */
+
+        // t: current time, b: begInnIng value, c: change In value, d: duration
+        jQuery.easing['jswing'] = jQuery.easing['swing'];
+
+        jQuery.extend(jQuery.easing, {
+            def: 'easeOutQuad',
+            swing: function (x, t, b, c, d) {
+                //alert(jQuery.easing.default);
+                return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+            },
+            easeInQuad: function (x, t, b, c, d) {
+                return c * (t /= d) * t + b;
+            },
+            easeOutQuad: function (x, t, b, c, d) {
+                return -c * (t /= d) * (t - 2) + b;
+            },
+            easeInOutQuad: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+                return -c / 2 * ((--t) * (t - 2) - 1) + b;
+            },
+            easeInCubic: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t + b;
+            },
+            easeOutCubic: function (x, t, b, c, d) {
+                return c * ((t = t / d - 1) * t * t + 1) + b;
+            },
+            easeInOutCubic: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+                return c / 2 * ((t -= 2) * t * t + 2) + b;
+            },
+            easeInQuart: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t * t + b;
+            },
+            easeOutQuart: function (x, t, b, c, d) {
+                return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+            },
+            easeInOutQuart: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+                return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+            },
+            easeInQuint: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t * t * t + b;
+            },
+            easeOutQuint: function (x, t, b, c, d) {
+                return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+            },
+            easeInOutQuint: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+                return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+            },
+            easeInSine: function (x, t, b, c, d) {
+                return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+            },
+            easeOutSine: function (x, t, b, c, d) {
+                return c * Math.sin(t / d * (Math.PI / 2)) + b;
+            },
+            easeInOutSine: function (x, t, b, c, d) {
+                return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+            },
+            easeInExpo: function (x, t, b, c, d) {
+                return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+            },
+            easeOutExpo: function (x, t, b, c, d) {
+                return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+            },
+            easeInOutExpo: function (x, t, b, c, d) {
+                if (t == 0) return b;
+                if (t == d) return b + c;
+                if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+                return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+            },
+            easeInCirc: function (x, t, b, c, d) {
+                return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+            },
+            easeOutCirc: function (x, t, b, c, d) {
+                return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+            },
+            easeInOutCirc: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+                return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+            },
+            easeInElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d) == 1) return b + c;
+                if (!p) p = d * .3;
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+            },
+            easeOutElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d) == 1) return b + c;
+                if (!p) p = d * .3;
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+            },
+            easeInOutElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d / 2) == 2) return b + c;
+                if (!p) p = d * (.3 * 1.5);
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                if (t < 1) return -.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math
+                    .PI) / p)) + b;
+                return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * .5 +
+                    c + b;
+            },
+            easeInBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                return c * (t /= d) * t * ((s + 1) * t - s) + b;
+            },
+            easeOutBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+            },
+            easeInOutBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+                return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+            },
+            easeInBounce: function (x, t, b, c, d) {
+                return c - jQuery.easing.easeOutBounce(x, d - t, 0, c, d) + b;
+            },
+            easeOutBounce: function (x, t, b, c, d) {
+                if ((t /= d) < (1 / 2.75)) {
+                    return c * (7.5625 * t * t) + b;
+                } else if (t < (2 / 2.75)) {
+                    return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+                } else if (t < (2.5 / 2.75)) {
+                    return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+                } else {
+                    return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+                }
+            },
+            easeInOutBounce: function (x, t, b, c, d) {
+                if (t < d / 2) return jQuery.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
+                return jQuery.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+            }
+        });
+
+        /*
+         *
+         * TERMS OF USE - EASING EQUATIONS
+         * 
+         * Open source under the BSD License. 
+         * 
+         * Copyright © 2001 Robert Penner
+         * All rights reserved.
+         * 
+         * Redistribution and use in source and binary forms, with or without modification, 
+         * are permitted provided that the following conditions are met:
+         * 
+         * Redistributions of source code must retain the above copyright notice, this list of 
+         * conditions and the following disclaimer.
+         * Redistributions in binary form must reproduce the above copyright notice, this list 
+         * of conditions and the following disclaimer in the documentation and/or other materials 
+         * provided with the distribution.
+         * 
+         * Neither the name of the author nor the names of contributors may be used to endorse 
+         * or promote products derived from this software without specific prior written permission.
+         * 
+         * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+         * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+         * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+         *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+         *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+         *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+         * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+         *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+         * OF THE POSSIBILITY OF SUCH DAMAGE. 
+         *
+         */
+    </script>
+    <script>
+        $(function () {
+
+            $('#st-accordion').accordion();
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("li.st-open").removeAttr("style");
+            }, 600)
+            $("#exp-btn").click(function () {
+                if ($(".flex-section").hasClass("normal-screen")) {
+                    $(this).text("Exit full screen");
+                    $(".lesson-wrapper").addClass("lesson-wrapper-extra");
+                    $(".cover").removeClass("cover-over-name");
+                    $(".runnable2022").removeClass("sticky-a");
+                    $(".flex-section").removeClass("normal-screen").addClass("full-screen");
+                    $(".white-box").removeClass("sticky-a");
+                    $(".run-frame").removeClass("small-frame").addClass("large-frame");
+                    $(".right-section-controls").removeClass("controls-small").addClass(
+                        "controls-large");
+                    $(".sequence-bottom").css("display", "none");
+                    $("footer").css("display", "none");
+                    $("#exp-1").addClass("display-btn").removeClass("hide-btn");
+                    $(".navbar.course-tabs.pb-0.navbar-expand").css('display', 'none');
+                    $('body,html').css('overflow-y', 'hidden');
+                } else {
+                    $(".lesson-wrapper").removeClass("lesson-wrapper-extra");
+                    $(".cover").addClass("cover-over-name");
+                    $(".flex-section").removeClass("full-screen").addClass("normal-screen");
+                    $(".runnable2022").addClass("sticky-a");
+                    $(".white-box").addClass("sticky-a");
+                    $(".sequence-bottom").css("display", "flex");
+                    $("footer").css("display", "block");
+                    $(".run-frame").removeClass("large-frame").addClass("small-frame");
+                    $(".right-section-controls").addClass("controls-small").removeClass(
+                        "controls-large");
+                    $(this).text("View full screen");
+                    $("#exp-1").removeClass("display-btn").addClass("hide-btn");
+                    $(".navbar.course-tabs.pb-0.navbar-expand").css('display', 'block');
+                    $('body,html').css('overflow-y', 'auto');
+                }
+            });
+
+            $(".rcc-1").click(function () {
+                $("#frame-1").removeClass("hide-btn");
+                $("#frame-2").addClass("hide-btn");
+                $("#frame-3").addClass("hide-btn");
+            })
+
+            $(".rcc-2").click(function () {
+                if (!$(this).hasClass("disabled-2022")) {
+                    $("#frame-1").addClass("hide-btn");
+                    $("#frame-2").removeClass("hide-btn");
+                    $("#frame-3").addClass("hide-btn");
+                }
+            })
+
+            $(".rcc-3").click(function () {
+                if (!$(this).hasClass("disabled-2022")) {
+                    $("#frame-1").addClass("hide-btn");
+                    $("#frame-2").addClass("hide-btn");
+                    $("#frame-3").removeClass("hide-btn");
+                }
+            })
+
+
+        });
+    </script>
 
 </body>
-<html>
+
+</html>
