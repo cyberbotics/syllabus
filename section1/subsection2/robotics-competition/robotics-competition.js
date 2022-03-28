@@ -8,6 +8,8 @@ webotsView.showPlay = false;
 webotsView.showReset = false;
 webotsView.showQuit = false;
 webotsView.showStep = false;
+webotsView.showIde = false;
+webotsView.showRobotWindow = false;
 
 let showRobotWindow = true;
 

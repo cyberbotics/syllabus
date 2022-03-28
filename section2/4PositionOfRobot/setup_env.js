@@ -62,6 +62,8 @@ function create(container) {
     webotsView = document.createElement('webots-view');
     webotsView.id = 'webotsView';
     webotsView.showQuit = false;
+    webotsView.showIde = false;
+    webotsView.showRobotWindow = false;
     webotsView.onready = onConnect;
     webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/4PositionOfRobot/worlds/obstacle_avoidance.wbt');
     // webotsView.connect('ws://localhost:1234');
