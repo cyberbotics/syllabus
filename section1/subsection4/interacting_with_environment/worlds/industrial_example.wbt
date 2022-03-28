@@ -20,7 +20,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.1382577795360077 0.03866103356912961 0.9896414051974276 2.601658867268536
-  position 6.226428653392895 -2.914913119636703 2.3517541221016605
+  position 4.6971577266927875 -1.9871487522614542 1.842026072134189
   exposure 1.7
 }
 TexturedBackground {
@@ -276,4 +276,25 @@ Can {
 }
 PaperBoat {
   translation -0.41 2.14 0
+}
+DEF BOX1 CardboardBox {
+  translation 1000 1000 0
+  rotation 0.7259254898898104 0.6877733515688427 -4.6317458966795185e-12 0.00017510155578262773
+  name "cardboard box(2)"
+  size 0.5 0.5 0.6
+  mass 0.4
+}
+DEF BOX2 CardboardBox {
+  translation 1005 1005 0.75
+  rotation 0 0 1 2.094395
+  name "cardboard box(4)"
+  size 0.4 0.6 0.3
+  mass 0.4
+}
+DEF BOX3 CardboardBox {
+  translation 1010 1010 0
+  rotation 0 0 1 -0.5235
+  name "cardboard box(6)"
+  size 0.5 0.5 0.5
+  mass 0.4
 }

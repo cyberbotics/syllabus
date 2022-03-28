@@ -45,18 +45,20 @@ void wb_robot_window_step(int time_step) {
       if (storageNode)
         wb_supervisor_node_remove(storageNode);
     } else if (strncmp(message, "cardboardBox", 12) == 0) {
-      wb_supervisor_field_import_mf_node_from_string(
-          root_children_field, -1,
-          "CardboardBox{translation 0.219139 0.941823 0.3 size 0.5 0.5 0.6 "
-          "mass 0.4}");
-      wb_supervisor_field_import_mf_node_from_string(
-          root_children_field, -1,
-          "CardboardBox{translation 0.320341 0.846947 0.75 rotation 0 0 1 "
-          "2.094395 size 0.4 0.6 0.3 mass 0.4}");
-      wb_supervisor_field_import_mf_node_from_string(
-          root_children_field, -1,
-          "CardboardBox{translation 0.30946 0.834497 1.15 rotation 0 0 1 "
-          "-0.5235 size 0.5 0.5 0.5 mass 0.4}");
+      WbNodeRef box1 = wb_supervisor_node_get_from_def("BOX1");
+      WbNodeRef box2 = wb_supervisor_node_get_from_def("BOX2");
+      WbNodeRef box3 = wb_supervisor_node_get_from_def("BOX3");
+ 
+      WbFieldRef box1_translation = wb_supervisor_node_get_field(box1, "translation");
+      WbFieldRef box2_translation = wb_supervisor_node_get_field(box2, "translation");
+      WbFieldRef box3_translation = wb_supervisor_node_get_field(box3, "translation");
+
+      const double position1[3] = {0.219139, 0.941823, 0.3};
+      wb_supervisor_field_set_sf_vec3f(box1_translation, position1);
+      const double position2[3] = {0.320341, 0.846947, 0.75};
+      wb_supervisor_field_set_sf_vec3f(box2_translation, position2);
+      const double position3[3] = {0.30946, 0.834497, 1.15};
+      wb_supervisor_field_set_sf_vec3f(box3_translation, position3);
     } else
       fprintf(stderr, "Unkown message: '%s'\n", message);
 
