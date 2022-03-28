@@ -20,7 +20,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.1382577795360077 0.03866103356912961 0.9896414051974276 2.601658867268536
-  position 4.6971577266927875 -1.9871487522614542 1.842026072134189
+  position 4.565914512453757 -1.9075272963736394 1.7982808164718196
   exposure 1.7
 }
 TexturedBackground {
@@ -126,6 +126,45 @@ WoodenPalletStack {
   rotation 0 0 1 -1.5707953071795862
   palletNumber 5
   palletSize 0.8 1 0.11
+}
+DEF BOTTLE1 WaterBottle {
+  translation 1500 0 0
+}
+DEF BOTTLE2 WaterBottle {
+  translation 1501 0 0
+  name "water bottle(1)"
+}
+DEF BOTTLE3 WaterBottle {
+  translation 1502 0 0
+  name "water bottle(2)"
+}
+DEF BOTTLE4 WaterBottle {
+  translation 1504 0 0
+  name "water bottle(3)"
+}
+DEF BOTTLE5 WaterBottle {
+  translation 1505 0 0
+  name "water bottle(4)"
+}
+DEF BOTTLE6 WaterBottle {
+  translation 1506 0 0
+  name "water bottle(5)"
+}
+DEF BOTTLE7 WaterBottle {
+  translation 1507 0 0
+  name "water bottle(6)"
+}
+DEF BOTTLE8 WaterBottle {
+  translation 1508 0 0
+  name "water bottle(7)"
+}
+DEF BOTTLE9 WaterBottle {
+  translation 1509 0 0
+  name "water bottle(8)"
+}
+DEF BOTTLE0 WaterBottle {
+  translation 1520 0 0
+  name "water bottle(19)"
 }
 Cabinet {
   translation -0.41 2.47 0

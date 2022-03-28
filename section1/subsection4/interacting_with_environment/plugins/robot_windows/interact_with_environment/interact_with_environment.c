@@ -23,10 +23,15 @@
 // Window initialization: get some robot devices.
 void wb_robot_window_init() { printf("init\n"); }
 
+int bottle_counter = '0';
+int bottle_added = 0; // Allow the addition of only one bottle every 5 time step
+
+
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
-  int bottle_added = 0; // Allow the addition of only one bottle at a time.
   const char *message = wb_robot_wwi_receive_text();
+  if (bottle_added > 0)
+    bottle_added--;
   while (message) {
     printf("%s\n", message);
     fflush(stdout);
@@ -36,9 +41,19 @@ void wb_robot_window_step(int time_step) {
 
     if (strncmp(message, "waterbottle", 11) == 0) {
       if (!bottle_added) {
-        wb_supervisor_field_import_mf_node_from_string(
-            root_children_field, -1, "WaterBottle{translation 4.9 -0.83 0.6}");
-        bottle_added = 1;
+        if (bottle_counter <= '9') {
+          char name[7] = "BOTTLE0";
+          name[6] = bottle_counter;
+          fflush(stdout);
+          WbNodeRef bottle = wb_supervisor_node_get_from_def(name);
+          WbFieldRef bottle_translation = wb_supervisor_node_get_field(bottle, "translation");
+          const double position[3] = {4.9, -0.83, 0.6};
+          wb_supervisor_field_set_sf_vec3f(bottle_translation, position);
+          bottle_counter++;
+        } else {
+          wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, "WaterBottle{translation 4.9 -0.83 0.7}");
+        }
+        bottle_added = 100;
       }
     } else if (strncmp(message, "storage", 7) == 0) {
       WbNodeRef storageNode = wb_supervisor_node_get_from_def("STORAGE");
