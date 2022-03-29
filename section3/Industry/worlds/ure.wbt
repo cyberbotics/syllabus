@@ -20,7 +20,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.3018491766943954 0.5614306735728856 -0.7705080618010507 1.055090291029027
-  position -0.9163038439380551 2.7725637207907936 3.232018668968047
+  position -0.9253878386540815 2.3485119074947733 3.020580978156274
   exposure 1.7
 }
 TexturedBackground {
@@ -396,7 +396,7 @@ Solid {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/enhancement-protos-cardboard/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
           ]
         }
         roughness 1
