@@ -185,7 +185,7 @@ Glass {
   translation -1.55243 0.0602258 0.74
 }
 Table {
-  translation -1.37 -0.08 0
+  translation -1.37 -0.06 0
   name "table 2"
   size 0.5 0.5 0.74
   feetSize 0.05 0.05
@@ -701,7 +701,7 @@ DEF RAIL Transform {
           }
           geometry Mesh {
             url [
-              "/home/benjamin/syllabus/section3/Hospital/meshes/rail_curve.obj"
+              "meshes/rail_curve.obj"
             ]
           }
         }
@@ -809,7 +809,7 @@ DEF Oldman Solid {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/brown_eye.png"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section3/Hospital/worlds/textures/brown_eye.png"
               ]
             }
             metalness 0
@@ -848,7 +848,7 @@ DEF Oldman Solid {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/old_lightskinned_male_diffuse.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section3/Hospital/worlds/textures/old_lightskinned_male_diffuse.jpg"
               ]
             }
             roughness 1
