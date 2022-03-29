@@ -32,7 +32,7 @@
 #define TIME_STEP 16
 
 // PR2 constants
-#define MAX_WHEEL_SPEED 3.0        // maximum velocity for the wheels [rad / s]
+#define MAX_WHEEL_SPEED 6.0        // maximum velocity for the wheels [rad / s]
 #define WHEELS_DISTANCE 0.4492     // distance between 2 caster wheels (the four wheels are located in square) [m]
 #define SUB_WHEELS_DISTANCE 0.098  // distance between 2 sub wheels of a caster wheel [m]
 #define WHEEL_RADIUS 0.08          // wheel radius
