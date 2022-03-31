@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.29037321760771645 -0.07166725898535702 -0.9542259682515811 3.604179630159097
-  position 1.3827939049180027 -1.0928821793517798 1.7536793429464317
+  orientation -0.15970094291497328 0.012062121709402397 0.9870917455089655 2.9927767490854214
+  position 3.3467388506086007 -0.34278836457924267 2.1752707779665985
   exposure 1.7
 }
 TexturedBackground {
@@ -59,4 +59,26 @@ UR5e {
   rotation 5.67193e-08 2.39745e-09 -1 1.5708
   controller ""
   selfCollision FALSE
+}
+Transform {
+  translation 0 0 0.41
+  rotation 0 1 0 1.5708
+  children [
+    DEF GEOM Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+        ]
+      }
+    }
+  ]
 }
