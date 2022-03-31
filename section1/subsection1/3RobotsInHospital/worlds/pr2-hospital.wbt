@@ -388,7 +388,7 @@ Solid {
   }
 }
 Solid {
-  translation -2.8 -1 1.19909
+  translation -2.8 -1 1.5
   rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 2.0944
   children [
     DEF Wall Shape {

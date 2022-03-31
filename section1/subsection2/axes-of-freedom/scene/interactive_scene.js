@@ -14,7 +14,6 @@ let showDeviceComponent = true;
 let pointer;
 let pointedID;
 
-let timeout;
 let category = document.createElement('div');
 category.classList.add('device-category');
 category.innerHTML = '<div class="device-title">' + 'Rotational Motor' + '</div>';
@@ -247,20 +246,5 @@ function sliderMotorCallback(slider, render) {
       let q = glm.angleAxis(value, axis);
       q = q.mul(vec4ToQuaternion(init));
       webotsView.updateNode(slider.getAttribute('webots-id'), 'rotation', quaternionToVec4(q).toString(), render);
-      if (timeout)
-        clearTimeout(timeout);
-      timeout = setTimeout(renderX10, 250);
-      break;
-  }
-}
-
-// To get rid of gtao artifact
-async function renderX10() {
-  if (webotsView) {
-    for (let i = 0; i < 10; i++) {
-      setTimeout(function() {
-        webotsView._view.x3dScene.render();
-      }, 40 * i);
-    };
   }
 }
