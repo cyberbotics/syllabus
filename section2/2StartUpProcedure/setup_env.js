@@ -321,20 +321,27 @@ function tryToConnectTerminal() {
   }
 }
 
-function toggleRobotComponentFullScreen(robot) {
+function toggleRobotComponentFullScreen() {
   if (document.fullscreenElement) {
-    document.getElementById('fullscreenGlobal').style.display = '';
-    document.getElementById('partscreenGlobal').style.display = 'none';
-
     if (document.exitFullscreen)
       document.exitFullscreen();
   } else {
-    document.getElementById('fullscreenGlobal').style.display = 'none';
-    document.getElementById('partscreenGlobal').style.display = '';
     if (document.body.requestFullscreen)
       document.body.requestFullscreen();
   }
 }
+
+function onFullscreenChange() {
+  if (!document.fullscreenElement) {
+    document.getElementById('fullscreenGlobal').style.display = '';
+    document.getElementById('partscreenGlobal').style.display = 'none';
+  } else {
+    document.getElementById('fullscreenGlobal').style.display = 'none';
+    document.getElementById('partscreenGlobal').style.display = '';
+  }
+}
+
+document.addEventListener('fullscreenchange', () => onFullscreenChange());
 
 window.addEventListener('beforeunload', e => {
   e.preventDefault();
