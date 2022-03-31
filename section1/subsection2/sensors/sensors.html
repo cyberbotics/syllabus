@@ -124,6 +124,15 @@
           iframe.src = url;
           iframe.id = 'rwComponent';
           document.body.appendChild(iframe)
+
+          const menuButton = document.getElementById('menuButton');
+          if (menuButton) {
+            let arrow = document.getElementById('arrow');
+            if (arrow && arrow.className === 'arrow-right')
+                arrow.className = 'arrow-left';
+                menuButton.style.left = '550px';
+                showRWComponent = true;
+          }
         } else setTimeout(function () {
           displayRobotWindow()
         }, 100);
