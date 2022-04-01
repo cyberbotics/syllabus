@@ -6,6 +6,6 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 0 "controllers/sensors/sensors.c"
-robotWindow: TurtleBot3Burger
 globalOptionalRendering: DistanceSensorRays::LightSensorRays::LightPositions
 consoles: Console:All:All
+renderingDevicePerspectives: TurtleBot3Burger:camera;1;0.91875;0;0
