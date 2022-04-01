@@ -65,8 +65,7 @@ function create(container) {
     webotsView.showIde = false;
     webotsView.showRobotWindow = false;
     webotsView.onready = onConnect;
-    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/3SortCans/worlds/industrial_example.wbt');
-    // webotsView.connect('ws://localhost:1234');
+    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/3SortCans/worlds/industrial_example.wbt', undefined, undefined, undefined, 300);
   }
   container.getElement().html(webotsView);
 }

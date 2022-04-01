@@ -84,11 +84,10 @@
       webotsView.id = 'webotsView';
       webotsView.showQuit = false;
       webotsView.showReset = false;
-      webotsView.showPlay = false;
       webotsView.showStep = false;
       document.body.appendChild(webotsView);
       webotsView.onready = displayRobotWindow;
-      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section2/1Blockly/worlds/nao_blockly.wbt');
+      webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/blob/main/section2/1Blockly/worlds/nao_blockly.wbt', undefined, undefined, undefined, 900);
       function displayRobotWindow() {
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
            let serverUrl = webotsView._view.x3dScene.prefix;
