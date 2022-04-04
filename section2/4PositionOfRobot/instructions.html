@@ -1,207 +1,1864 @@
-<html>
-<style>
-  body {
-    color: white;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    line-height: 2em;
-  }
-  code {
-    background-color: grey;
-    padding: 2px;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <style>
+        body {
+            color: #ffffff;
+            background-color: #222222;
+            border: 0;
+            padding: 0px 30px;
+            overflow-y: auto;
+            margin: 10px 0px 10px 0px;
+            line-height: 2em;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1em;
+        }
+
+        img {
+            padding: 2px;
+            background-color: #78797a;
+        }
+
+        code {
+            background-color: #1e1e1e;
+            padding: 2px;
+            font-family: monospace;
+            font-size: 1.3em;
+        }
+
+        .orange {
+            color: #e84610;
+        }
+
+        .long-block-icon {
+            font-size: 38px !important;
+            line-height: 38px !important;
+            color: #23bbbb;
+        }
+
+        .long-block-icon-container {
+            margin-bottom: -15px !important;
+        }
+
+        .long-block-icon-end-container {
+            text-align: right;
+            margin-bottom: -20px !important;
+        }
+
+        .long-example-block {
+            border-left: solid 3px #efb920;
+            padding: 10px 0px 10px 10px;
+            margin-left: 30px !important;
+        }
+
+        .xmodule_display.xmodule_HtmlBlock .long-example-block p:not(.long-block-icon-container, .long-block-icon-end-container) {
+            line-height: 1.4em !important;
+        }
+
+        .long-example-block p:nth-of-type(2) {
+            text-indent: 30px;
+        }
+
+        .quiz-pre-text {
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+
+        .quiz-pre-heading {
+            font-size: 20px !important;
+        }
+
+        .nobr-2022 {
+            white-space: nowrap;
+        }
+
+        .supsub-2022 {
+            display: inline-block;
+            margin: -9em 0;
+            vertical-align: -0.55em;
+            line-height: 1.35em;
+            font-size: 70%;
+            text-align: left;
+        }
+
+        .icon-img-2022 {
+            width: 25px;
+        }
+
+        .actual-lists-2022+p {
+            margin-top: 5px !important;
+            margin-bottom: 5px;
+        }
+
+        .pre-2022+p {
+            margin-top: 5px !important;
+            margin-bottom: 5px;
+        }
+
+        .st-content>.all-sections> :first-child {
+            margin-top: 0 !important;
+        }
+
+        .st-content>.all-sections> :last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .close-panel-2022 {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .open-panel-2022 {
+            display: block;
+        }
+
+        li.st-accordion-list>a {
+            color: #0075b4;
+            cursor: pointer;
+        }
+
+        /*************************************************************/
+        .list-padding-left-2022 {
+            padding-left: 45px !important;
+        }
+
+        .actual-lists-2022 {
+            margin: 10px 0 !important;
+        }
+
+        .actual-lists-li-2022 {
+            margin: 5px 0 !important;
+        }
+
+        .list-style-decimal-2022 {
+            list-style: decimal !important;
+        }
+
+        .list-style-roman-2022 {
+            list-style: lower-roman !important;
+        }
+
+        .list-style-alpha-2022 {
+            list-style: lower-alpha !important;
+        }
+
+        .list-style-disc-2022 {
+            list-style: disc !important;
+        }
+
+        .nested-lists-2022 {
+            margin: 5px 0 !important;
+            padding-left: 30px !important;
+        }
+
+        .list-style-none-2022 {
+            list-style: none !important;
+            padding-left: 10px !important;
+        }
+
+        .list-style-dash-2022 {
+            list-style: none !important;
+            padding-left: 25px !important;
+        }
+
+        .list-style-dash-2022 li:before {
+            content: "– ";
+            margin-left: -1em;
+        }
+
+        .list-style-dash-o-2022 {
+            list-style: none !important;
+            padding-left: 45px !important;
+        }
+
+        .list-style-dash-o-2022 li:before {
+            content: "– ";
+            margin-left: -1em;
+        }
+
+        .less-top-margin-2022 {
+            margin-top: 8px !important;
+        }
+
+        .no-bottom-margin-2022 {
+            margin-bottom: 0 !important;
+        }
+
+        .no-top-margin-2022 {
+            margin-top: 0 !important;
+        }
+
+        .basic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .basic-grid hr {
+            grid-column: 1/3;
+            width: 90%;
+        }
+
+        .multi-3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+
+        .multi-2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+
+        .img-wrap-2022 {
+            padding: 5px;
+        }
+
+        .basic-grid-gap {
+            grid-column-gap: 15px;
+        }
+
+        h3 {
+            padding-left: 5px;
+        }
+
+        .figure-2022 {
+            margin: 10px 0 15px 0;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .figure-2022.special {
+            border: 2px solid #ededed;
+            padding-left: 33%;
+        }
+
+        .figure-2022.special img {
+            width: 50%;
+        }
+
+        .all-sections .figure-2022 img {
+            box-sizing: border-box;
+        }
+
+        .figcaption-2022 {
+            background: white;
+            padding: 10px 0 5px;
+        }
+
+        .no-bottom-border-2022 {
+            border-bottom: none !important;
+        }
+
+        /* *************************************************************** */
+        .lists-padding-left-2022 {
+            padding-left: 45px;
+        }
+
+        .list-style-2022 {
+            display: grid;
+            grid-template-columns: 35px auto;
+            line-height: 1.3rem !important;
+        }
+
+        .n-list-style-2022 {
+            display: grid;
+            grid-template-columns: 15px auto;
+            line-height: 1.3rem !important;
+            padding-left: 15px !important;
+        }
+
+        .n-list-style-2022.d-list-2022 {
+            padding-left: 25px !important;
+        }
+
+        .n-list-style-2022.d-l-list-2022 {
+            grid-template-columns: 17px auto !important;
+        }
+
+        .l-hide-2022 {
+            color: white !important;
+        }
+
+        .n-list-style-2022 p {
+            padding: inherit !important;
+            line-height: inherit !important;
+            margin: 3px !important;
+        }
+
+        .list-style-2022 p {
+            margin: 3px 0 0 0 !important;
+            padding: inherit !important;
+        }
+
+        .h3-2022 {
+            padding-left: 0;
+            color: #e84610;
+        }
+
+        .indented-pre-2022 {
+            padding: 3px !important;
+            padding-left: 25px !important
+        }
+
+        .indented-2022 {
+            padding-left: 23px !important;
+        }
+
+        .orange {
+            color: #e84610;
+        }
+
+        .disabled-2022 {
+            color: #a09e9e !important;
+            background: lightgray !important;
+            border: 1px solid #a09e9e !important;
+            cursor: not-allowed !important;
+        }
+
+        .left-section-image-2022 {
+            margin: 15px 0;
+        }
+
+        .left-section-image-2022 img {
+            width: 100%;
+        }
+
+        .list-p-2022 {
+            padding-left: 5px;
+            margin: 3px !important;
+            line-height: 1.3 !important;
+        }
+
+        .list-p-top-2022 {
+            margin-top: 15px;
+            margin-bottom: 5px !important;
+        }
+
+        .list-p-bottom-2022 {
+            margin-top: 5px !important;
+            margin-bottom: 15px;
+        }
+
+        .runnable-controls-2022 {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 170px auto;
+            grid-column-gap: 5px;
+            margin-top: 5px;
+        }
+
+        .right-hand-section {
+            margin-left: 10px;
+        }
+
+        .right-section-controls {
+            padding-left: 234px;
+            position: relative;
+        }
+
+        .controls-large {
+            top: 10px;
+        }
+
+        .controls-small {
+            top: 36px;
+            z-index: 9;
+        }
+
+        .snippet-2022 {
+            background: #1e1e1e !important;
+            color: #dcdcdc !important;
+            padding: 3px 5px !important;
+            display: block;
+            width: fit-content;
+        }
+
+        pre.pre-2022 {
+            padding: 0.5rem;
+            width: fit-content;
+            box-shadow: none !important;
+            margin: 7px 0 7px !important;
+        }
+
+        #exp-btn,
+        .rcc-1,
+        .rcc-2,
+        .rcc-3 {
+            display: inline-block;
+            width: 100px;
+            height: 22px;
+            padding: 1px;
+            text-align: center;
+            border: 1px solid darkgrey;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-family: 'Questrial';
+            vertical-align: top;
+        }
+
+        .rcc-3,
+        .rcc-1,
+        .rcc-2 {
+            color: white;
+            background: #23BBBB;
+            border: 1px solid #23BBBB;
+        }
+
+        #exp-btn {
+            width: 120px;
+        }
+
+        #exp-btn:hover {
+            color: #6d6d6d;
+            background: #bab9b9;
+        }
+
+        .rcc-1:hover,
+        .rcc-2:hover,
+        .rcc-3:hover {
+            color: #23BBBB;
+            background: white;
+            border: 1px solid #23BBBB;
+        }
+
+        .disabled-2022 {
+            color: #a09e9e !important;
+            background: lightgray !important;
+            border: 1px solid #a09e9e !important;
+            cursor: not-allowed !important;
+        }
+
+        input#exp-btn {
+            width: 100%;
+            color: green;
+            font-size: 1em;
+            height: 35px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .lesson-img {
+            display: grid;
+            grid-row-gap: 10px;
+            margin: 0 auto;
+            width: 90%;
+            padding-top: 20px;
+        }
+
+        .lesson-wrapper-extra {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .lesson-wrapper {
+            /* margin-right: -9px; */
+            padding: 0 20px 0 0;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .display-btn {
+            display: block;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .full-screen {
+            position: fixed;
+            top: 0;
+            background: white;
+            width: 100%;
+            left: 0;
+            padding: 0 5% 0 5%;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .normal-screen {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .large-frame {
+            margin-top: -50px;
+            height: 100vh;
+        }
+
+        .small-frame {
+            margin-top: -50px;
+            height: 87vh;
+        }
+
+        #exp {
+            margin-top: 10px;
+            display: grid;
+            padding-bottom: 20px;
+        }
+
+        .hide-title {
+            display: none !important;
+        }
+
+        .l3-pre {
+            box-shadow: 0 0 1px var(--t-grey);
+        }
+
+        .sticky-a {
+            position: sticky;
+            top: 35px;
+            z-index: 0;
+        }
+
+        .sticky-img {
+            position: sticky;
+            top: 35px;
+            z-index: 0;
+        }
+
+        .challenge-box {
+            width: 80%;
+            margin: 30px auto;
+            border: 1px solid grey;
+            padding: 20px;
+            background-color: #e6ecf0;
+        }
+
+        .flex-code {
+            margin: 30px 50px;
+        }
+
+        .runnable2022 {
+            padding: 10px;
+        }
+
+        .left {
+            width: 100%;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .special-lists {
+            margin: 5px 20px 5px;
+            display: inline-block;
+        }
+
+        /*-- ++++++++++++++++++++++++++++++++++++++++++Accordion +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+        /* Flexible Slide-to-top Accordion Style*/
+        .wrapper {
+            width: 100%;
+        }
+
+        .l3-pre {
+            box-shadow: 0 0 1px var(--t-darkgrey);
+        }
+
+        .lesson-content {
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+
+        .st-accordion {
+            width: 100%;
+            min-width: 270px;
+            margin-left: 0;
+        }
+
+        .st-accordion-list {
+            border-bottom: 1px solid #c7deef;
+            border-top: 1px solid #fff;
+            overflow: hidden;
+            list-style-type: none !important;
+        }
+
+        .st-accordion>ul>li:first-child {
+            border-top: none;
+        }
+
+        .st-accordion>ul>li>a {
+            font-size: 20px;
+            display: block;
+            outline: none;
+            color: #0075b4;
+            -webkit-transition: color 0.2s ease-in-out;
+            -moz-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .st-accordion>ul>li>a span {
+            background: transparent url(../images/down.png) no-repeat center center;
+            text-indent: -9000px;
+            width: 26px;
+            height: 14px;
+            position: absolute;
+            top: 50%;
+            right: -26px;
+            margin-top: -7px;
+            opacity: 0;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            display: none;
+        }
+
+        .st-accordion>ul>li>a:hover {
+            color: #1693eb;
+        }
+
+        .st-accordion>ul>li>a:hover span {
+            opacity: 1;
+            right: 10px;
+        }
+
+        .st-accordion>ul>li.st-accordion-list>a:first-child {
+            text-decoration: none;
+        }
+
+        /* .st-accordion>ul>li.st-accordion-list>a:first-child {
+            padding: 8px 0;
+        } */
+
+        #st-accordion>ul {
+            margin-bottom: 80px;
+        }
+
+        .st-accordion>ul>li.st-open>a>h2 {
+            *color: #1693eb;
+        }
+
+        .st-accordion>ul>li.st-open>a span {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            transform: rotate(180deg);
+            right: 10px;
+            opacity: 1;
+        }
+
+        .st-content {
+            padding: 5px 0px 15px 0px;
+        }
+
+        .lists {
+            margin-left: 20px !important;
+        }
+
+        @media screen and (max-width: 320px) {
+            .st-accordion ul li>a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
 
 <body>
-<h2>Instructions</h2>
+    <section>
+        <div class="grid-section">
 
-<h3>Situation and Goal</h3>
-<p>In the first part of this exercise, you will learn to control a Thymio robot in position and speed.</p>
-<p>Then, you will take into account the values returned by the distance sensors of the Thymio to make your robot avoid the obstacle automatically.</p>
+            <div class="lesson-wrapper">
+                <!-- Left section -->
+                <div class="left">
+                    <div class="lesson-content">
+                        <h2 class="heading-2022 edit-html">
+                            Test and verify the position of a robot manually
+                        </h2>
+                    </div>
+                    <div id="st-accordion" class="st-accordion">
+                        <ul class="st-accordion-list no-bottom-border-2022 robo-section">
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Challenge<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">The goal is for the robot to travel
+                                            one and a half metres avoiding collisions with the objects on the floor.</p>
 
-<h3>What is already done?</h3>
-<p>All the initializations are already done: the front distance sensors are enable and we retrieved the motors for you and put them in variables.
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">This challenge will be in two
+                                                parts. In the first part, you will learn to control a Thymio robot via
+                                                position and speed. You have already covered the theory behind this in
+                                                the <em>"Coding the movement of a robot"</em> topic. </li>
+                                            <li class="actual-lists-li-2022 edit-html">In the second part, you will use
+                                                the values returned by the distance sensors of the Thymio 2 to make your
+                                                robot avoid any obstacle automatically.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">What is already done?</h3>
+                                        <p class="edit-html">All sensor initialisations are done. The front distance
+                                            sensors are enabled, and both motors are set as variables ready for use.</p>
+                                        <h3 class="h3-2022 edit-html">What is left to do?</h3>
+                                        <p class="edit-html no-bottom-margin-2022">In this challenge, you will program
+                                            all the robot’s behaviours. </p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">To begin, you will actuate the
+                                                motors and then modify their speed based on distance sensor values.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">Control one motor using position.
+                                        </p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Open the robot_controller.py
+                                                file.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Actuate the <code
+                                                    class="orange">lhs_motor</code> with <code
+                                                    class="orange">lhs_motor.setPosition(x)</code> where x is an angle
+                                                in radians.<ol
+                                                    class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Use a large enough radian
+                                                        value to see multiple rotations (>10)
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File->Save).</li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing
+                                                the reset button in the toolbar of the simulation window and playing
+                                                again.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robot will spin clockwise on the spot. </p>
 
-<h3>What is left to do?</h3>
-<p>This time, you will program the whole behaviour of the robot. To begin, you will activate the engines and then link their speed with the value of the distance sensors.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">The Thymio will spin clockwise until the left wheel has
+                                            rotated the specified number of radians.</p>
 
-<h3>Hands-on</h3>
+                                    </div>
+                                </div>
+                            </li>
 
-<h4>1 Control one motor in position</h4>
-
-<p><u>Explanation</u></p>
-
-<p>First, you will control the motor of a wheel in position, exactly as you did in the previous exercises. And to really begin with the simplest thing, you will activate only one motor, the <code>leftMotor</code>.</p>
-<p>To actuate the motor in position, remember that you can use <code>leftMotor.setPosition(x)</code> where x is an angle in radian. Do not hesitate to give x a high value (>10) to better see the result.</p>
-
-<p><u>Task</u></p>
-<ul>
-  <li>Open the controller by going in the code editor(IDE)->File->Open... and open the robot_controller.py file.</li>
-  <li>Write the line needed to actuate the left motor.</li>
-  <li>Save the code (CTRL + s, or File->Save).</li>
-  <li>Reset the simulation by pressing the reset button <img src='../resources/icons/reset.png'></img> in the toolbar of the simulation window and play it again.</li>
-</ul>
-
-<p><u>Expected result</u></p>
-
-<p>The Thymio should go round and round until the wheel has rotated the specified amount of radian.</p>
-
-<h4>2 Control both motors in position</h4>
-
-<p><u>Explanation</u></p>
-
-<p>Repeat what you did on the previous step, but for the <code>rightMotor</code> such that both motors are actuated.</p>
-
-<p><u>Task</u></p>
-<ul>
-  <li>Actuate the right motor.</li>
-  <li>Experiment with the same x value for both wheels, with different x values, with negative values, with opposite values.</li>
-</ul>
-
-<p><u>Expected result</u></p>
-
-<p>Depending of the values you chose for x, you should be able to make the Thymio go forward/backward, turn on itself, go forward/backward and then turn right/left.</p>
-
-<h4>3 Control the motors in speed</h4>
-
-<p><u>Explanation</u></p>
-
-<p>Now that you have mastered the control in position, it is time to go to the next level: the control in speed.</p>
-<p>To achieve that, first remove or comment the code that you wrote before.</p>
-<p>Then disable the control in position: <code>leftMotor.setPosition(float('inf'))</code>, repeate this operation for the right motor.</p>
-<p>Once it is done, you are ready to control the motor in velocity, use the <code>setVelocity(x)</code> function where x is the desired speed in radians per second. Note that the max speed of each motor 9.53[rad/s].</p>
-
-<p><u>Task</u></p>
-<ul>
-  <li>Remove your previous code, disable the control in position and set the velocity of both motors.</li>
-  <li>Experiment with the same x value for both wheels, with different x values, with negative values, with opposite values.</li>
-</ul>
-
-<p><u>Expected result</u></p>
-
-<p>You should have realized that your Thymio does not stop any more. That is because you defined it a speed and it is trying to maintain this speed indefinitly.</p>
-<p>By modifying the x values, you should be able to make the Thymio turn on itself, go forward/backward, turn left/right with different curves.</p>
-
-<h4>4 Modify the speed of the robot</h4>
-
-<p><u>Explanation</u></p>
-
-<p>Now that you are able to define the speed of a motor, the next step consists in being capable of modifying this speed during the exectution of the controller.</p>
-<p>To achieve that, we will need to use the control loop: <code>while robot.step(TIME_STEP) != -1:</code>. The <code>robot.step(TIME_STEP)</code> instructions is something specific to Webots and it synchronizes the sensors and motors values between Webots and the controller.
-What you need to know, is that this loop is an infinite loop that is executed every <code>TIME_STEP</code> which is equal to 16 milliseconds in our case.</p>
-<p>In this exercise we want to go forward until we reach the green cube and then turn left.</p>
-<p>Later, we will automate this process by using the distance sensors. However, for now, we will settle for a simpler method: count the number of time we enter the loop and modifiy the speed after a certain time.</p>
-<p>Your code will look like this:<br>
-  <code>leftMotor.setPosition(float('inf'))<br>
-        rightMotor.setPosition(float('inf'))<br>
-        <br>
-        leftMotor.setVelocity(3)<br>
-        rightMotor.setVelocity(3)<br>
-        i = 0<br>
-        while robot.step(TIME_STEP) != -1:<br>
-        &nbsp;&nbsp;&nbsp;&nbspif i == 100:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbspleftMotor.setVelocity(x)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsprightMotor.setVelocity(x)<br>
-        &nbsp;&nbsp;&nbsp;&nbspi += 1
-  </code>
-</p>
-<p>If you want your robot to go forward again you can just add another <code>if</code> with a larger value of <code>i</code> and modify the speed again.
-<p><u>Task</u></p>
-<p>Add the control loop and the code to modifiy the speed such that the Thymio does not touch the green cube.</p>
-
-<p><u>Expected result</u></p>
-
-<p>The robot should now move forward and avoid the first green cube.</p>
-
-<h4>5 React to the value of the sensors</h4>
-
-<p><u>Explanation</u></p>
-
-<p>Now that we have seen how to modify the speed, we will do it again but instead of hardcoding the change after a certain time, we will turn only if a sensor detects an obstacle.</p>
-<p>To do that you can remove the code related to the <code>i</code> variable as you will not use it anymore.</p>
-<p>Instead, you will get the value of the central distance sensor. You can achieve that with <code>centralSensorValue = centralSensor.getValue()</code>.</p>
-<p>You want to call this function in the loop as you want the value to get updated at each step of the simulation.</p>
-<p>If you print the value of the distance sensor, you will see that it has a relatively small range. Depending on the speed of your robot, it is possible that it will not have the time to turn before hitting the box once the distance sensor detected the obstacle.
-  In this case, it may be a good idea to reduce the speed of the robot.</p>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">Control both motors using position
+                                        </p>
 
 
-<p><u>Task</u></p>
-<ul>
-  <li>Write the code necessary to make the robot turn when approaching the green cube based on the value returned by the distance sensor.</li>
-</ul>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Repeat what you did in the
+                                                previous step, but for the <code class="orange">rhs_motor</code> such
+                                                that both motors are actuated.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File->Save).
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing
+                                                the reset button in the toolbar of the simulation window and playing
+                                                again.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robot will move forwards. </p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 decimal edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Experiment with the values in
+                                                these two lines of code by setting the values for the two wheels to
+                                                other positive, negative and opposing values.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">By choosing suitable values, you can make the robot move
+                                            forwards, backwards, left, right and spin. </p>
 
-<p><u>Expected result</u></p>
+                                    </div>
+                                </div>
+                            </li>
 
-<p>Your robot should detect the green cube with the central distance sensor and turn to avoid it.</p>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">Depending on the values you chose for
+                                            the two motors, you can make the Thymio go forward or backwards, spin on the
+                                            spot and turn right or left. You will recall using position to control
+                                            motors from the <em>"Coding the movement of a robot"</em> topic.
+                                        </p>
 
-<h4>6 Using more sensors</h4>
+                                    </div>
+                                </div>
+                            </li>
 
-<p><u>Explanation</u></p>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">You learned to control motors with
+                                            speed values in the topic <em>"Coding the movement of a robot"</em>. Let us
+                                            try that
+                                            method now.</p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Either delete or comment out the
+                                                two lines of code used for the position control task.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Disable position control using
+                                                this line of code: <code
+                                                    class="orange">lhs_motor.setPosition(float('inf'))</code></li>
+                                            <li class="actual-lists-li-2022 edit-html">Repeat the step for the <code
+                                                    class="orange">rhs_motor</code>.</li>
+                                            <li class="actual-lists-li-2022 edit-html">Use the <code
+                                                    class="orange">setVelocity(x)</code> method to control the motors
+                                                with speed where x is the desired speed in radians per second.
 
-<p>Using only one sensor limits the possibility of the robot. The Thymio actually has a lot of distance sensors: 5 in the front, 2 in the back and two below, towards the ground.
-  But we will only use the front ones in this exercise.
-</p>
-<p>The first thing to do is to retrieve the value of those five sensors at each iteration of the loop. Look at the code to find their name in the initialization part.</p>
-<p>Finally we will combine the value of those sensors to determine the speed of each motor at each step with something like that:<br>
-<code>leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2)<br>
-      rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue)
-</code>
-</p>
-<p>This formula consists in taking the initial speed (that you should define), and reducing it depending on the value of the sensors: for example, if the distance sensors on the left detect an obstacle, we reduce the speed of the right motor to turn right and avoid the obstacle.
-  The second line has a additional term: the <code>centralSensorValue</code>. If you detect a obstacle straight ahead, it is up to you if you want to turn right or left, in this example, we chose to turn right.<p>
-<p>If you plug the values of the sensors directly in the formula above, the result will be larger than the maximum speed. It could still work as if you provide a too high value for the speed, Webots will automatically clamp it to the maximum speed.
-  However it will result in very jerky motions. To avoid that, you should divide the value of each sensor by a calibration constant before calling <code>setVelocity</code>. Such constant already exists: <code>distanceSensorCalibrationConstant</code> and is defined to 360.</p>
+                                                <ul class=" nested-lists-2022">
+                                                    <li class="actual-lists-li-2022 edit-html">
+                                                        Note that the max speed of each motor is 9.53 radians per second
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File->Save).</li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing
+                                                the reset button in the toolbar of the simulation window and then
+                                                pressing play.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robot can again move forwards, backwards, left, right
+                                            and spin, but you can now control how fast it moves.</p>
 
-<p><u>Task</u></p>
-<ul>
-  <li>Modifiy your code such that the speed of the motors is defined at each time step by the values of the distance sensors.
-</ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">As you control speed, the motors will
+                                            keep turning, and the robot will keep moving until it hits an immovable
+                                            object. The speed is maintained indefinitely. You still have control to go
+                                            forward or backwards, spin on the spot and turn right or left.
+                                        </p>
 
-<p><u>Expected result</u></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
 
-<p>The robot should turn to avoid the obstacles, however it is possible that it does not turn in time to avoid them.</p>
+                                        <p class="edit-html no-bottom-margin-2022">Now, you can define the speed of a
+                                            motor; the next step is modifying this speed. To do this, we require a
+                                            control loop. </p>
 
-<h4>7 Calibration</h4>
 
-<p><u>Explanation</u></p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Create a while loop of
+                                                <code class="orange"> while robot.step(TIME_STEP) != -1:</code>
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">
+                                                        This loop will control the robot at an interval of <code
+                                                            class="orange">TIME_STEP</code> (which is a constant of 16
+                                                        milliseconds in this case) until we get a value of -1 which
+                                                        signals shutdown. </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Let us make the robot move
+                                                forward and turn left just before the green brick.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">We will use the simplest method,
+                                                which is to set a fixed number of iterations through the loop. </li>
+                                            <li class="actual-lists-li-2022 edit-html">Your code should look like this:
+                                            </li>
+                                        </ol>
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+lhs_motor.setPosition(float('inf'))
+rhs_motor.setPosition(float('inf'))
 
-<p>To complete this exercice, your robot must be more than 1.5 meters always from its starting point and it must not have collided with any object.</p>
-<p>You normally already have all the necessary code to achieve that, however you should maybe calibrate the values.</p>
-<p>If your robot touches obstacles you can try to:</p>
-<ul>
-  <li>Decrease the inital speed.</li>
-  <li>Adjust the calibration constant.</li>
-  <li>Modify the formula that determine the velocity of the motors.</li>
-</ul>
+lhs_motor.setVelocity(3)
+rhs_motor.setVelocity(3)
+i = 0
+while robot.step(TIME_STEP) != -1:
+    i += 1
+    # 100 iterations is 1.6 seconds
+    if i == 100:
+        # Set x to an appropriate value
+        lhs_motor.setVelocity(x)
+        rhs_motor.setVelocity(x)
+</code></pre>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">There are two options for the
+                                                velocity values in the if statements body to turn the robot to the left.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Either reduce the left motor
+                                                velocity value or increase the right motor velocity value from the
+                                                previously set value of three.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">
+                                                        Adjust the velocity values (x)so that the robot misses the green
+                                                        block</li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">To add additional turns, you can
+                                                add further if statements with a higher value of <code
+                                                    class="orange">i</code>. </li>
 
-<p><u>Task</u></p>
-<ul>
-  <li>Your robot should move and avoid all obstacles.
-</ul>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected result</h3>
+                                        <p class="edit-html">The robot now moves forward and then turns left to avoid
+                                            the first green block.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">The robot avoided the first green
+                                            block. However, this was manually controlled by hard-coding values for the
+                                            number of iterations and appropriate velocity values for the turn radius. We
+                                            want an automated process using the data from the distance sensors.
+                                        </p>
 
-<p><u>Expected result</u></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
 
-<p>Your robot should be able to move more than 1.5m meters from its starting point.</p>
 
-<h4>8 BONUS: Improvement</h4>
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+lhs_motor.setPosition(float('inf'))
+rhs_motor.setPosition(float('inf'))
+    
+lhs_motor.setVelocity(3)
+rhs_motor.setVelocity(3)
+i = 0
+while robot.step(TIME_STEP) != -1:
+    i += 1
+    if i == 100:
+        lhs_motor.setVelocity(2.5)
+        rhs_motor.setVelocity(3)
+                                                </code></pre>
 
-<p><u>Explanation</u></p>
+                                    </div>
+                                </div>
+                            </li>
 
-<p>Congratulation! You finished the exercices, however if you want to go a bit further, you can improve your code.</p>
-<p>If you let the simulation run long enough, it is possible that your robot get stuck in a corner or between two obstacles.</p>
-<p>First try to understand why this situation happens, you can use the robot window to see the value of the distance sensors.</p>
-<p>Then you will need to detect in the controller when it happens.</p>
-<p>Finally, you should implement a special behaviour in this case, maybe turn on the point, maybe go backward and turn in a random direction. It is up to you!</p>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">Now that you can adjust the robot
+                                            direction manually with velocity values, let us update the code to turn if a
+                                            sensor detects an obstacle.</p>
 
-<p><u>Task</u></p>
-<ul>
-  <li>Improve the algorithm of the robot.</li>
-</ul>
 
-<p><u>Expected result</u></p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Remove the code inside the while
+                                                loop.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Get the value from the central
+                                                distance sensor. This line of code goes inside the while loop as you
+                                                want the value updated every 16 milliseconds.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">
+                                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+mid_gap= mid_sensor.getValue()
+print(mid_gap)
+                                                        </code></pre>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">If you run the simulation, you
+                                                will see the printed value in the terminal increase as the distance to
+                                                the obstacle decreases but over quite a small range.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Reset the simulation
+                                                        after a couple of seconds; otherwise, you will overwhelm the
+                                                        terminal with printed numbers.
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Add
+                                                <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+if mid_gap> x:
+    lhs_motor.setVelocity(2.5)
+    rhs_motor.setVelocity(3)
+                                                </code></pre>
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Delete the <code
+                                                            class="orange">print(mid_gap)</code></li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Try values of x until the robot
+                                                avoids the green block.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">The small range of the
+                                                        distance sensor does not give the robot much time to react to
+                                                        make the turn, so you may have to reduce the robot's initial
+                                                        speed. </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected Result</h3>
+                                        <p class="edit-html">The robot now moves forward and avoids the first green
+                                            block.</p>
 
-<p>Your robot should not get blocked anymore.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">The robot avoided the first green
+                                            block. However, it only detects obstacles directly in front of it at a small
+                                            range. The Thymio has a lot of distance sensors: 5 in the front, 2 in the
+                                            back and two below, towards the ground. Let us use the additional four
+                                            front-facing distance sensors to improve the object avoidance performance.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+lhs_motor.setPosition(float('inf'))
+rhs_motor.setPosition(float('inf'))
+    
+lhs_motor.setVelocity(1)
+rhs_motor.setVelocity(1)
+    
+while robot.step(TIME_STEP) != -1:
+    mid_gap= mid_sensor.getValue()
+    if mid_gap> 1:
+        lhs_motor.setVelocity(-1)
+        rhs_motor.setVelocity(1)
+                                                </code></pre>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">The first thing to do is to
+                                                retrieve the values from those additional four sensors within each loop
+                                                iteration.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">You will find the sensor
+                                                        names starting on line 21 of the code. </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Rather than alter the wheel speed
+                                                by a fixed value, this time, we will do this dynamically by using the
+                                                distance sensor values.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">The closer you are to an
+                                                        obstacle, the sharper you want your turn to be.
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">There are now multiple sensor
+                                                values, so we need to combine those somehow. Let us use an average.
+                                            </li>
+                                        </ol>
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+lhs_motor.setVelocity(3 - (mid_rhs_gap + rhs_gap) / 2)
+rhs_motor.setVelocity(3 - (mid_lhs_gap + lhs_gap) / 2 - mid_gap)
+</code></pre>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">The left-hand motor velocity is
+                                                reduced based on an average of the right-hand front-facing distance
+                                                sensors.
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">If an obstacle is
+                                                        detected to the front right, the left motor reduces speed, and
+                                                        the robot turns left.</li>
+                                                    <li class="actual-lists-li-2022 edit-html">The same logic applies to
+                                                        the right-hand motor, but this line of code also includes the
+                                                        centre front sensor value.</li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Why is that?
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html"> If an obstacle is
+                                                        detected straight ahead, it does not matter whether you veer to
+                                                        the left or right. In this case, we have chosen to turn right.
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File->Save).
+                                                <ol class="actual-lists-li-2022 list-style-alpha-2022 edit-html">
+                                                    <li class="actual-lists-li-2022 edit-html">Reset the simulation by
+                                                        pressing the reset button in the toolbar of the simulation
+                                                        window and then pressing play. </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected Result</h3>
+                                        <p class="edit-html">The robot will now turn when an obstacle is ahead. However,
+                                            you may observe that the motion is jerky and some collisions still occur.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Explanation<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">The values from the distance sensors
+                                            have a completely different range than the velocity values. Therefore you
+                                            may exceed the maximum allowed velocity value. As the motor cannot achieve
+                                            this velocity it defaults to the maximum 9.53 radians per second top speed.
+                                            Therefore the robot's motion will be jerky.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">Adjusting the values to keep them
+                                            within an allowed range is called calibration. Let us calibrate the velocity
+                                            values by dividing the distance sensor values by a calibration constant
+                                            before setting the velocity. The constant <code
+                                                class="orange">DIST_SENSOR_CAL_CONST</code> has been created for you and
+                                            is set as 360.
+                                        </p>
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Edit your code as follows:
+                                            </li>
+                                        </ol>
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+mid_gap= mid_sensor.getValue()/DIST_SENSOR_CAL_CONST
+mid_rhs_gap = centralRightSensor.getValue()/DIST_SENSOR_CAL_CONST
+rhs_gap = outerRightSensor.getValue()/DIST_SENSOR_CAL_CONST
+lhs_gap = outerLeftSensor.getValue()/DIST_SENSOR_CAL_CONST
+mid_lhs_gap = centralLeftSensor.getValue()/DIST_SENSOR_CAL_CONST                                                
+                                                </code></pre>
+
+
+                                        <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
+                                            <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
+                                                File->Save).
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Reset the simulation by pressing
+                                                the reset button in the toolbar of the simulation window and then
+                                                pressing play.</li>
+                                        </ol>
+                                        <h3 class="h3-2022 edit-html">Expected Result</h3>
+                                        <p class="edit-html">The robot will now turn when an obstacle is ahead. The goal
+                                            for this exercise is for the robot to travel one and a half metres without
+                                            collision. You will see SUCCESS printed in the Terminal if your code meets
+                                            the goal. However, some collisions may still occur. If this is the case, you
+                                            can decrease the initial speed or adjust the value of the calibration
+                                            constant.</p>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+
+
+                                        <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
+lhs_motor.setPosition(float('inf'))
+rhs_motor.setPosition(float('inf'))
+    
+lhs_motor.setVelocity(3)
+rhs_motor.setVelocity(3)
+while robot.step(TIME_STEP) != -1:
+    mid_gap = mid_sensor.getValue()/DIST_SENSOR_CAL_CONST
+    mid_rhs_gap = mid_rhs_sensor.getValue()/DIST_SENSOR_CAL_CONST
+    rhs_gap = rhs_sensor.getValue()/DIST_SENSOR_CAL_CONST
+    lhs_gap = lhs_sensor.getValue()/DIST_SENSOR_CAL_CONST
+    mid_lhs_gap = mid_lhs_sensor.getValue()/DIST_SENSOR_CAL_CONST
+    lhs_motor.setVelocity(3-(mid_rhs_gap+rhs_gap)/2)
+    rhs_motor.setVelocity(3-(mid_lhs_gap+lhs_gap)/2-mid_gap)
+                                            
+                                                </code></pre>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Extra Tasks<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">If you let the simulation play long
+                                            enough, there is a possibility the robot will get stuck in the corner of the
+                                            room or between two obstacles. </p>
+                                        <p>Think about and write down ideas on how you would detect this happening and
+                                            get the robot unstuck. </p>
+                                        <p>Discuss your ideas with your colleagues.
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0">Solution<span class="st-arrow">Open or
+                                        Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html no-bottom-margin-2022">There are multiple ways to code this.
+                                            Here are some of my suggestions. </p>
+                                        <p>A possibility is a code step to check if a distance value is non-zero and
+                                            remains the same for a time far longer than a normal obstacle avoidance.
+                                            Then to get the robot unstuck, you could try adding code to spin the robot
+                                            on the spot or reverse the direction of travel. </p>
+                                        <p>With reversing, it would also be a good idea to activate and act on the
+                                            distance sensor readings from the back of the robot. </p>
+                                        <p>Did you or your colleagues develop any better ideas?
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="st-accordion-list  edit-html">
+                                <a tabindex="0"> Review<span class="st-arrow">Open or Close</span></a>
+                                <div class="st-content">
+                                    <!-- Sample Content-->
+                                    <div class="all-sections">
+                                        <p class="edit-html">In this topic, you have seen how to code an autonomous
+                                            robot in Python. At the end of this exercise, you have written code that
+                                            enables a robot to navigate its environment and avoid obstacles. Based on
+                                            the same principles, you could control a robot to move autonomously based on
+                                            other sensors (e.g. light, sound or heat). </p>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- End of accordion -->
+                </div> <!-- End of Left section -->
+
+            </div> <!-- End of wrapper section -->
+
+        </div> <!-- End of LMS Template Section -->
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
+    </script>
+    <script>
+        (function (window, $, undefined) {
+
+            /*
+             * smartresize: debounced resize event for jQuery
+             *
+             * latest version and complete README available on Github:
+             * https://github.com/louisremi/jquery.smartresize.js
+             *
+             * Copyright 2011 @louis_remi
+             * Licensed under the MIT license.
+             */
+
+            var $event = $.event,
+                resizeTimeout;
+
+            $event.special.smartresize = {
+                setup: function () {
+                    $(this).bind("resize", $event.special.smartresize.handler);
+                },
+                teardown: function () {
+                    $(this).unbind("resize", $event.special.smartresize.handler);
+                },
+                handler: function (event, execAsap) {
+                    // Save the context
+                    var context = this,
+                        args = arguments;
+
+                    // set correct event type
+                    event.type = "smartresize";
+
+                    if (resizeTimeout) {
+                        clearTimeout(resizeTimeout);
+                    }
+                    resizeTimeout = setTimeout(function () {
+                        jQuery.event.handle.apply(context, args);
+                    }, execAsap === "execAsap" ? 0 : 100);
+                }
+            };
+
+            $.fn.smartresize = function (fn) {
+                return fn ? this.bind("smartresize", fn) : this.trigger("smartresize", ["execAsap"]);
+            };
+
+            $.Accordion = function (options, element) {
+
+                this.$el = $(element);
+                // list items
+                this.$items = this.$el.children('ul').children('li');
+                // total number of items
+                this.itemsCount = this.$items.length;
+
+                // initialize accordion
+                this._init(options);
+
+            };
+
+            $.Accordion.defaults = {
+                // index of opened item. -1 means all are closed by default.
+                open: 0,
+                // if set to true, only one item can be opened. Once one item is opened, any other that is opened will be closed first
+                oneOpenedItem: false,
+                // speed of the open / close item animation
+                speed: 600,
+                // easing of the open / close item animation
+                easing: 'easeInOutExpo',
+                // speed of the scroll to action animation
+                scrollSpeed: 900,
+                // easing of the scroll to action animation
+                scrollEasing: 'easeInOutExpo'
+            };
+
+            $.Accordion.prototype = {
+                _init: function (options) {
+
+                    this.options = $.extend(true, {}, $.Accordion.defaults, options);
+
+                    // validate options
+                    this._validate();
+
+                    // current is the index of the opened item
+                    this.current = this.options.open;
+
+                    // hide the contents so we can fade it in afterwards
+                    this.$items.find('div.st-content').hide();
+
+                    // save original height and top of each item    
+                    this._saveDimValues();
+
+                    // if we want a default opened item...
+                    if (this.current != -1)
+                        this._toggleItem(this.$items.eq(this.current));
+
+                    // initialize the events
+                    this._initEvents();
+
+                },
+                _saveDimValues: function () {
+
+                    this.$items.each(function () {
+
+                        var $item = $(this);
+
+                        $item.data({
+                            originalHeight: $item.find('a:first').height(),
+                            offsetTop: $item.offset().top
+                        });
+
+                    });
+
+                },
+                // validate options
+                _validate: function () {
+
+                    // open must be between -1 and total number of items, otherwise we set it to -1
+                    if (this.options.open < -1 || this.options.open > this.itemsCount - 1)
+                        this.options.open = -1;
+
+                },
+                _initEvents: function () {
+
+                    var instance = this;
+
+                    // open / close item
+                    this.$items.find('a:first').bind('click.accordion', function (event) {
+
+                        var $item = $(this).parent();
+
+                        // close any opened item if oneOpenedItem is true
+                        if (instance.options.oneOpenedItem && instance._isOpened() && instance
+                            .current !== $item.index()) {
+
+                            instance._toggleItem(instance.$items.eq(instance.current));
+
+                        }
+
+                        // open / close item
+                        instance._toggleItem($item);
+
+                        return false;
+
+                    });
+
+                    $(window).bind('smartresize.accordion', function (event) {
+
+                        // reset orinal item values
+                        instance._saveDimValues();
+
+                        // reset the content's height of any item that is currently opened
+                        instance.$el.find('li.st-open').each(function () {
+
+                            var $this = $(this);
+                            $this.css('height', $this.data('originalHeight') + $this.find(
+                                'div.st-content').outerHeight(true));
+
+                        });
+
+                        // scroll to current
+                        //if( instance._isOpened() )
+                        //instance._scroll();
+
+                    });
+
+                },
+                // checks if there is any opened item
+                _isOpened: function () {
+
+                    return (this.$el.find('li.st-open').length > 0);
+
+                },
+                // open / close item
+                _toggleItem: function ($item) {
+
+                    var $content = $item.find('div.st-content');
+
+                    ($item.hasClass('st-open'))
+
+                    ?
+                    (this.current = -1, $content.stop(true, true).fadeOut(this.options.speed), $item
+                        .removeClass('st-open').stop().animate({
+                            height: $item.data('originalHeight')
+                        }, this.options.speed, this.options.easing))
+
+                    :
+                    (this.current = $item.index(), $content.stop(true, true).fadeIn(this.options.speed),
+                        $item.addClass('st-open').stop().animate({
+                            height: $item.data('originalHeight') + $content.outerHeight(true)
+                        }, this.options.speed, this.options.easing), this._scroll(this))
+
+                },
+                // scrolls to current item or last opened item if current is -1
+                _scroll: function (instance) {
+
+                    var instance = instance || this,
+                        current;
+
+                    (instance.current !== -1) ? current = instance.current: current = instance.$el.find(
+                        'li.st-open:last').index();
+
+                    $('html, body').stop().animate({
+                        //scrollTop   : ( instance.options.oneOpenedItem ) ? instance.$items.eq( current ).data( 'offsetTop' ) : instance.$items.eq( current ).offset().top
+                    }, instance.options.scrollSpeed, instance.options.scrollEasing);
+
+                }
+            };
+
+            var logError = function (message) {
+
+                if (this.console) {
+
+                    console.error(message);
+
+                }
+
+            };
+
+            $.fn.accordion = function (options) {
+
+                if (typeof options === 'string') {
+
+                    var args = Array.prototype.slice.call(arguments, 1);
+
+                    this.each(function () {
+
+                        var instance = $.data(this, 'accordion');
+
+                        if (!instance) {
+                            logError("cannot call methods on accordion prior to initialization; " +
+                                "attempted to call method '" + options + "'");
+                            return;
+                        }
+
+                        if (!$.isFunction(instance[options]) || options.charAt(0) === "_") {
+                            logError("no such method '" + options + "' for accordion instance");
+                            return;
+                        }
+
+                        instance[options].apply(instance, args);
+
+                    });
+
+                } else {
+
+                    this.each(function () {
+                        var instance = $.data(this, 'accordion');
+                        if (!instance) {
+                            $.data(this, 'accordion', new $.Accordion(options, this));
+                        }
+                    });
+
+                }
+
+                return this;
+
+            };
+
+        })(window, jQuery);
+    </script>
+
+    <script>
+        /*
+         * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+         *
+         * Uses the built in easing capabilities added In jQuery 1.1
+         * to offer multiple easing options
+         *
+         * TERMS OF USE - jQuery Easing
+         * 
+         * Open source under the BSD License. 
+         * 
+         * Copyright © 2008 George McGinley Smith
+         * All rights reserved.
+         * 
+         * Redistribution and use in source and binary forms, with or without modification, 
+         * are permitted provided that the following conditions are met:
+         * 
+         * Redistributions of source code must retain the above copyright notice, this list of 
+         * conditions and the following disclaimer.
+         * Redistributions in binary form must reproduce the above copyright notice, this list 
+         * of conditions and the following disclaimer in the documentation and/or other materials 
+         * provided with the distribution.
+         * 
+         * Neither the name of the author nor the names of contributors may be used to endorse 
+         * or promote products derived from this software without specific prior written permission.
+         * 
+         * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+         * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+         * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+         *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+         *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+         *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+         * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+         *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+         * OF THE POSSIBILITY OF SUCH DAMAGE. 
+         *
+         */
+
+        // t: current time, b: begInnIng value, c: change In value, d: duration
+        jQuery.easing['jswing'] = jQuery.easing['swing'];
+
+        jQuery.extend(jQuery.easing, {
+            def: 'easeOutQuad',
+            swing: function (x, t, b, c, d) {
+                //alert(jQuery.easing.default);
+                return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+            },
+            easeInQuad: function (x, t, b, c, d) {
+                return c * (t /= d) * t + b;
+            },
+            easeOutQuad: function (x, t, b, c, d) {
+                return -c * (t /= d) * (t - 2) + b;
+            },
+            easeInOutQuad: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+                return -c / 2 * ((--t) * (t - 2) - 1) + b;
+            },
+            easeInCubic: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t + b;
+            },
+            easeOutCubic: function (x, t, b, c, d) {
+                return c * ((t = t / d - 1) * t * t + 1) + b;
+            },
+            easeInOutCubic: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+                return c / 2 * ((t -= 2) * t * t + 2) + b;
+            },
+            easeInQuart: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t * t + b;
+            },
+            easeOutQuart: function (x, t, b, c, d) {
+                return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+            },
+            easeInOutQuart: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+                return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+            },
+            easeInQuint: function (x, t, b, c, d) {
+                return c * (t /= d) * t * t * t * t + b;
+            },
+            easeOutQuint: function (x, t, b, c, d) {
+                return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+            },
+            easeInOutQuint: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+                return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+            },
+            easeInSine: function (x, t, b, c, d) {
+                return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+            },
+            easeOutSine: function (x, t, b, c, d) {
+                return c * Math.sin(t / d * (Math.PI / 2)) + b;
+            },
+            easeInOutSine: function (x, t, b, c, d) {
+                return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+            },
+            easeInExpo: function (x, t, b, c, d) {
+                return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+            },
+            easeOutExpo: function (x, t, b, c, d) {
+                return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+            },
+            easeInOutExpo: function (x, t, b, c, d) {
+                if (t == 0) return b;
+                if (t == d) return b + c;
+                if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+                return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+            },
+            easeInCirc: function (x, t, b, c, d) {
+                return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+            },
+            easeOutCirc: function (x, t, b, c, d) {
+                return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+            },
+            easeInOutCirc: function (x, t, b, c, d) {
+                if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+                return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+            },
+            easeInElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d) == 1) return b + c;
+                if (!p) p = d * .3;
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+            },
+            easeOutElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d) == 1) return b + c;
+                if (!p) p = d * .3;
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+            },
+            easeInOutElastic: function (x, t, b, c, d) {
+                var s = 1.70158;
+                var p = 0;
+                var a = c;
+                if (t == 0) return b;
+                if ((t /= d / 2) == 2) return b + c;
+                if (!p) p = d * (.3 * 1.5);
+                if (a < Math.abs(c)) {
+                    a = c;
+                    var s = p / 4;
+                } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+                if (t < 1) return -.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math
+                    .PI) / p)) + b;
+                return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * .5 +
+                    c + b;
+            },
+            easeInBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                return c * (t /= d) * t * ((s + 1) * t - s) + b;
+            },
+            easeOutBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+            },
+            easeInOutBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+                return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+            },
+            easeInBounce: function (x, t, b, c, d) {
+                return c - jQuery.easing.easeOutBounce(x, d - t, 0, c, d) + b;
+            },
+            easeOutBounce: function (x, t, b, c, d) {
+                if ((t /= d) < (1 / 2.75)) {
+                    return c * (7.5625 * t * t) + b;
+                } else if (t < (2 / 2.75)) {
+                    return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+                } else if (t < (2.5 / 2.75)) {
+                    return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+                } else {
+                    return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+                }
+            },
+            easeInOutBounce: function (x, t, b, c, d) {
+                if (t < d / 2) return jQuery.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
+                return jQuery.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+            }
+        });
+
+        /*
+         *
+         * TERMS OF USE - EASING EQUATIONS
+         * 
+         * Open source under the BSD License. 
+         * 
+         * Copyright © 2001 Robert Penner
+         * All rights reserved.
+         * 
+         * Redistribution and use in source and binary forms, with or without modification, 
+         * are permitted provided that the following conditions are met:
+         * 
+         * Redistributions of source code must retain the above copyright notice, this list of 
+         * conditions and the following disclaimer.
+         * Redistributions in binary form must reproduce the above copyright notice, this list 
+         * of conditions and the following disclaimer in the documentation and/or other materials 
+         * provided with the distribution.
+         * 
+         * Neither the name of the author nor the names of contributors may be used to endorse 
+         * or promote products derived from this software without specific prior written permission.
+         * 
+         * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+         * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+         * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+         *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+         *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+         *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+         * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+         *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+         * OF THE POSSIBILITY OF SUCH DAMAGE. 
+         *
+         */
+    </script>
+    <script>
+        $(function () {
+
+            $('#st-accordion').accordion();
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("li.st-open").removeAttr("style");
+            }, 600)
+            $("#exp-btn").click(function () {
+                if ($(".flex-section").hasClass("normal-screen")) {
+                    $(this).text("Exit full screen");
+                    $(".lesson-wrapper").addClass("lesson-wrapper-extra");
+                    $(".cover").removeClass("cover-over-name");
+                    $(".runnable2022").removeClass("sticky-a");
+                    $(".flex-section").removeClass("normal-screen").addClass("full-screen");
+                    $(".white-box").removeClass("sticky-a");
+                    $(".run-frame").removeClass("small-frame").addClass("large-frame");
+                    $(".right-section-controls").removeClass("controls-small").addClass(
+                        "controls-large");
+                    $(".sequence-bottom").css("display", "none");
+                    $("footer").css("display", "none");
+                    $("#exp-1").addClass("display-btn").removeClass("hide-btn");
+                    $(".navbar.course-tabs.pb-0.navbar-expand").css('display', 'none');
+                    $('body,html').css('overflow-y', 'hidden');
+                } else {
+                    $(".lesson-wrapper").removeClass("lesson-wrapper-extra");
+                    $(".cover").addClass("cover-over-name");
+                    $(".flex-section").removeClass("full-screen").addClass("normal-screen");
+                    $(".runnable2022").addClass("sticky-a");
+                    $(".white-box").addClass("sticky-a");
+                    $(".sequence-bottom").css("display", "flex");
+                    $("footer").css("display", "block");
+                    $(".run-frame").removeClass("large-frame").addClass("small-frame");
+                    $(".right-section-controls").addClass("controls-small").removeClass(
+                        "controls-large");
+                    $(this).text("View full screen");
+                    $("#exp-1").removeClass("display-btn").addClass("hide-btn");
+                    $(".navbar.course-tabs.pb-0.navbar-expand").css('display', 'block');
+                    $('body,html').css('overflow-y', 'auto');
+                }
+            });
+
+            $(".rcc-1").click(function () {
+                $("#frame-1").removeClass("hide-btn");
+                $("#frame-2").addClass("hide-btn");
+                $("#frame-3").addClass("hide-btn");
+            })
+
+            $(".rcc-2").click(function () {
+                if (!$(this).hasClass("disabled-2022")) {
+                    $("#frame-1").addClass("hide-btn");
+                    $("#frame-2").removeClass("hide-btn");
+                    $("#frame-3").addClass("hide-btn");
+                }
+            })
+
+            $(".rcc-3").click(function () {
+                if (!$(this).hasClass("disabled-2022")) {
+                    $("#frame-1").addClass("hide-btn");
+                    $("#frame-2").addClass("hide-btn");
+                    $("#frame-3").removeClass("hide-btn");
+                }
+            })
+
+
+        });
+    </script>
 
 </body>
-<html>
+
+</html>

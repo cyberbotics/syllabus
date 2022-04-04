@@ -1,5 +1,5 @@
 """Braitenberg-based obstacle-avoiding robot controller."""
-#################### IMPORTS AND INITIALIZATION ###########################
+#################### IMPORTS AND INITIALISATION ###########################
 
 from controller import Robot
 
@@ -10,25 +10,25 @@ robot = Robot()
 TIME_STEP = int(robot.getBasicTimeStep())
 
 # Constants of the Thymio II motors and distance sensors.
-maxMotorVelocity = 9.53
-distanceSensorCalibrationConstant = 360
+MAX_MOTOR_VELOCITY = 9.53
+DIST_SENSOR_CAL_CONST = 360
 
 # Get left and right wheel motors.
-leftMotor = robot.getDevice('motor.left')
-rightMotor = robot.getDevice('motor.right')
+lhs_motor = robot.getDevice('motor.left')
+rhs_motor = robot.getDevice('motor.right')
 
 # Get frontal distance sensors.
-outerLeftSensor = robot.getDevice('prox.horizontal.0')
-centralLeftSensor = robot.getDevice('prox.horizontal.1')
-centralSensor = robot.getDevice('prox.horizontal.2')
-centralRightSensor = robot.getDevice('prox.horizontal.3')
-outerRightSensor = robot.getDevice('prox.horizontal.4')
+lhs_sensor = robot.getDevice('prox.horizontal.0')
+mid_lhs_sensor = robot.getDevice('prox.horizontal.1')
+mid_sensor = robot.getDevice('prox.horizontal.2')
+mid_rhs_sensor = robot.getDevice('prox.horizontal.3')
+rhs_sensor = robot.getDevice('prox.horizontal.4')
 
 # Enable distance sensors.
-outerLeftSensor.enable(TIME_STEP)
-centralLeftSensor.enable(TIME_STEP)
-centralSensor.enable(TIME_STEP)
-centralRightSensor.enable(TIME_STEP)
-outerRightSensor.enable(TIME_STEP)
+lhs_sensor.enable(TIME_STEP)
+mid_lhs_sensor.enable(TIME_STEP)
+mid_sensor.enable(TIME_STEP)
+mid_rhs_sensor.enable(TIME_STEP)
+rhs_sensor.enable(TIME_STEP)
 
 #################### WRITE YOUR CODE HERE ###########################
