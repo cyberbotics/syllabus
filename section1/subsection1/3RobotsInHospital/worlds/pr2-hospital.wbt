@@ -692,26 +692,6 @@ Transform {
         }
       ]
     }
-    Transform {
-      children [
-        Transform {
-          translation 0.494307 1.42 5.21587e-06
-          rotation 1 0 0 1.5708
-          children [
-            Shape {
-              appearance BrushedAluminium {
-              }
-              geometry Mesh {
-                url [
-                  "/home/benjamin/Downloads/curve.obj"
-                ]
-              }
-            }
-          ]
-          translationStep 0
-        }
-      ]
-    }
   ]
 }
 DEF flacon MedicineBottle {
