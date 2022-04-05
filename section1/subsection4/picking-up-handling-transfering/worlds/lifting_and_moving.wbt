@@ -1,4 +1,4 @@
-#VRML_SIM R2022a utf8
+#VRML_SIM R2022b utf8
 WorldInfo {
   info [
     "Benchmark objective:"
@@ -39,8 +39,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.2985462990314223 0.4835367680485131 0.8228379556631055 1.1147782035252392
-  position -3.26531460188873 -3.3749815198919357 3.361959318715628
+  orientation -0.12220744169197227 0.9897304926780337 -0.07415452149666699 0.34303499395019826
+  position -6.39424662859435 0.09826601447975775 2.2910899403027534
   exposure 1.5
 }
 TexturedBackground {
@@ -655,7 +655,7 @@ DEF MACHINERY Solid {
   }
 }
 PlatformCart {
-  translation -2.3649928 1.0055135 0
+  translation -2.36499 0.905514 0
   rotation 0 0 -1 1.5708
   slot [
     DEF TARGET_SLOTS Solid {
@@ -846,7 +846,7 @@ DEF PRODUCT KukaBox {
 PickAndPlaceBenchmark {
 }
 Youbot {
-  translation -2.4 0 0.10761028
+  translation -2.39994 0.03 0.107607
   rotation 0.04953177831291063 -0.02003589122744673 0.9985715627835006 -0.0020853071795858824
   controller "pick_and_place"
 }

@@ -56,9 +56,9 @@ fingerMaxPosition = finger1.getMaxPosition()
 
 # Move forward.
 for wheel in wheels:
-    wheel.setVelocity(10.0)
+    wheel.setVelocity(14.5)
 # Wait until the robot is in front of the box.
-robot.step(364 * timestep)
+robot.step(252 * timestep)
 
 # Stop moving forward.
 for wheel in wheels:
@@ -89,63 +89,37 @@ armMotors[1].setPosition(0)
 robot.step(105 * timestep)
 
 # Rotate the robot.
-wheels[0].setVelocity(2.5)
-wheels[1].setVelocity(-2.5)
-wheels[2].setVelocity(2.5)
-wheels[3].setVelocity(-2.5)
+wheels[0].setVelocity(-10)
+wheels[1].setVelocity(-10)
+wheels[2].setVelocity(-10)
+wheels[3].setVelocity(-10)
+
+robot.step(15 * timestep)
+# Rotate the robot.
+wheels[0].setVelocity(10)
+wheels[1].setVelocity(-10)
+wheels[2].setVelocity(10)
+wheels[3].setVelocity(-10)
+
 # Wait for a fixed amount to step that the robot rotates.
-robot.step(685 * timestep)
+robot.step(150 * timestep)
 
 # Move forward.
-wheels[0].setVelocity(4.5)
-wheels[1].setVelocity(4.5)
-wheels[2].setVelocity(4.5)
-wheels[3].setVelocity(4.5)
-robot.step(500 * timestep)
-
-# Rotate the robot.
-wheels[0].setVelocity(2.0)
-wheels[1].setVelocity(-2.0)
-wheels[2].setVelocity(2.0)
-wheels[3].setVelocity(-2.0)
-robot.step(100 * timestep)
-
-# Move forward.
-wheels[1].setVelocity(2.0)
-wheels[3].setVelocity(2.0)
-robot.step(140 * timestep)
-
-# Rotate the robot.
-wheels[0].setVelocity(2.0)
-wheels[1].setVelocity(-2.0)
-wheels[2].setVelocity(2.0)
-wheels[3].setVelocity(-2.0)
-robot.step(70 * timestep)
-
-# Move forward.
-wheels[1].setVelocity(2.0)
-wheels[3].setVelocity(2.0)
-robot.step(155 * timestep)
+wheels[0].setVelocity(14.5)
+wheels[1].setVelocity(12)
+wheels[2].setVelocity(14.5)
+wheels[3].setVelocity(14.5)
+robot.step(216 * timestep)
 
 # Stop.
 for wheel in wheels:
     wheel.setVelocity(0.0)
-
-# Move arm down
-armMotors[3].setPosition(0)
-armMotors[2].setPosition(-0.3)
-robot.step(200 * timestep)
-
-armMotors[1].setPosition(-1.0)
-robot.step(200 * timestep)
-
-armMotors[3].setPosition(-1.0)
-robot.step(200 * timestep)
-
-armMotors[2].setPosition(-0.4)
 robot.step(50 * timestep)
+
+armMotors[1].setPosition(-0.6)
+robot.step(100 * timestep)
+
 
 # Open gripper.
 finger1.setPosition(fingerMaxPosition)
 finger2.setPosition(fingerMaxPosition)
-robot.step(50 * timestep)
