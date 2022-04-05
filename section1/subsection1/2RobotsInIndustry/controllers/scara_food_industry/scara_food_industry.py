@@ -53,13 +53,13 @@ while supervisor.step(timestep) != -1:
         arm.setPosition(0.6)
         base_arm.setPosition(0.2)
         ledAnimation()
-    elif i > 450:
+    elif i > 85:
         i = -1
-    elif i > 400:
+    elif i > 80:
         fruitType = randint(0, 1)
-    elif i > 180:
+    elif i > 55:
         merge_tool(fruitType)
-        if i > 250:
+        if i > 60:
             if fruitType:
                 base_arm.setPosition(0)
                 arm.setPosition(-0.83)
@@ -70,9 +70,9 @@ while supervisor.step(timestep) != -1:
             shaft_linear.setPosition(0)
             ledAnimation()
 
-    elif i > 150:
+    elif i > 40:
             merge_tool(fruitType)
-    elif i > 110:
+    elif i > 12:
         shaft_linear.setPosition(-0.148)
         ledAnimation()
 
