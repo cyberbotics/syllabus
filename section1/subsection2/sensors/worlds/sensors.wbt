@@ -796,7 +796,7 @@ Robot {
     ]
   }
   controller "sensors"
-  window "generic"
+  window "generic2"
 }
 Solid {
   translation 4.85173 2.9796 0.7
