@@ -34,11 +34,11 @@ function displayRobotWindow() {
     iframe.id = 'iframe';
     document.body.appendChild(iframe);
 
-    if (document.getElementById('fullscreenButton'))
-      document.getElementById('fullscreenButton').onclick = () => toggleRobotComponentFullScreen();
-    if (document.getElementById('partscreenButton')) {
-      document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
-      document.getElementById('partscreenButton').style.display = 'none';
+    if (document.getElementById('fullscreen-button'))
+      document.getElementById('fullscreen-button').onclick = () => toggleRobotComponentFullScreen();
+    if (document.getElementById('windowed-button')) {
+      document.getElementById('windowed-button').onclick = () => toggleRobotComponentFullScreen();
+      document.getElementById('windowed-button').style.display = 'none';
     }
     autoPlay();
   } else {
@@ -50,14 +50,14 @@ function displayRobotWindow() {
 
 function toggleRobotComponentFullScreen(robot) {
   if (document.fullscreenElement) {
-    document.getElementById('fullscreenButton').style.display = '';
-    document.getElementById('partscreenButton').style.display = 'none';
+    document.getElementById('fullscreen-button').style.display = '';
+    document.getElementById('windowed-button').style.display = 'none';
 
     if (document.exitFullscreen)
       document.exitFullscreen();
   } else {
-    document.getElementById('fullscreenButton').style.display = 'none';
-    document.getElementById('partscreenButton').style.display = '';
+    document.getElementById('fullscreen-button').style.display = 'none';
+    document.getElementById('windowed-button').style.display = '';
     if (document.body.requestFullscreen)
       document.body.requestFullscreen();
   }
