@@ -96,7 +96,7 @@
         if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
            console.log("ready")
            let serverUrl = webotsView._view.x3dScene.prefix;
-           let url = serverUrl + 'robot_windows/generic2/generic2.html?name=TurtleBot3Burger';
+           let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger';
            let iframe = document.createElement('iframe');
            iframe.src = url;
            iframe.id = 'rwComponent';
@@ -119,7 +119,7 @@
           let oldIframe = document.getElementById('rwComponent');
           oldIframe.parentNode.removeChild(oldIframe);
           let serverUrl = webotsView._view.x3dScene.prefix;
-          let url = serverUrl + 'robot_windows/generic2/generic2.html?name=TurtleBot3Burger';
+          let url = serverUrl + 'robot_windows/generic/generic.html?name=TurtleBot3Burger';
           let iframe = document.createElement('iframe');
           iframe.src = url;
           iframe.id = 'rwComponent';
