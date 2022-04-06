@@ -86,7 +86,7 @@ function onConnect() {
     document.getElementById('idePlaceHolder').appendChild(iframe);
 
     let rwIframe = document.createElement('iframe');
-    rwIframeUrl = serverUrl + 'robot_windows/generic/generic.html?name=UR5e';
+    rwIframeUrl = serverUrl + 'robot_windows/generic/generic.html?name=Thymio II';
     rwIframe.src = rwIframeUrl;
     rwIframe.style.width = '100%';
     rwIframe.style.height = '100%';
