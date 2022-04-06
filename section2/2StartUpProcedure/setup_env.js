@@ -210,6 +210,8 @@ myLayout.registerComponent('Terminal', function(container, componentState) {
   });
 
   terminalDiv.style.display = 'block';
+  setTerminalOverflow();
+
   let img = document.getElementById('imgTerminal');
   if (img)
     img.src = '../resources/icons/Terminal_white.png';
@@ -217,7 +219,13 @@ myLayout.registerComponent('Terminal', function(container, componentState) {
 });
 
 myLayout.init();
-document.getElementById('terminal').parentNode.style.overflow = 'auto';
+
+function setTerminalOverflow() {
+  if (document.getElementById('terminal'))
+    document.getElementById('terminal').parentNode.style.overflow = 'auto';
+  else
+    setTimeout(() => setTerminalOverflow(), 100);
+}
 
 let addMenuItem = function(name) {
   let buttonTitle;

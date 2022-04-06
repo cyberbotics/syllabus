@@ -1,12 +1,14 @@
 export default class Terminal {
   constructor(parentNode) {
     this.ansiUp = new AnsiUp();
-    this.text = '';
+    this.textIDs = [];
+    this.currentID = 0;
 
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.code === 'KeyL') {
         e.preventDefault();
-        this.text = '';
+        this.textIDs = [];
+        this.currentID = 0;
         let terminal = document.getElementById('terminal');
         if (terminal)
           terminal.innerHTML = '';
@@ -18,10 +20,19 @@ export default class Terminal {
     if (msg.startsWith('INFO: '))
       return;
     let html = this.ansiUp.ansi_to_html(msg);
-    this.text += html + '</br>';
+    let newElement = '<p id=t' + this.currentID + ' >' + html + '</p>';
+    this.textIDs.push('t' + this.currentID);
+    this.currentID++;
+
     let terminal = document.getElementById('terminal');
     if (terminal) {
-      terminal.innerHTML = this.text + '</br>';
+      terminal.innerHTML += newElement;
+      if (this.textIDs.length > 1000) {
+        let id = this.textIDs.shift();
+        let nodeToRemove = document.getElementById(id);
+        if (nodeToRemove)
+          nodeToRemove.parentNode.removeChild(nodeToRemove);
+      }
       terminal.parentNode.scrollTop = terminal.parentNode.scrollHeight;
     }
   }
@@ -30,9 +41,20 @@ export default class Terminal {
     if (msg.startsWith('WARNING: It is not recommended to run Webots as root.'))
       return;
 
-    this.text += '<span style="color:red">' + msg + '</span></br>';
+    let newElement = '<p id=t' + this.currentID + ' style="color:red">' + msg + '</p>';
+    this.textIDs.push('t' + this.currentID);
+    this.currentID++;
+
     let terminal = document.getElementById('terminal');
-    if (terminal)
-      terminal.innerHTML = this.text + '</br>';
+    if (terminal) {
+      terminal.innerHTML += newElement;
+      if (this.textIDs.length > 1000) {
+        let id = this.textIDs.shift();
+        let nodeToRemove = document.getElementById(id);
+        if (nodeToRemove)
+          nodeToRemove.parentNode.removeChild(nodeToRemove);
+      }
+      terminal.parentNode.scrollTop = terminal.parentNode.scrollHeight;
+    }
   }
 }
