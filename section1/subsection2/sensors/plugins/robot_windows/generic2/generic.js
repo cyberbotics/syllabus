@@ -56,13 +56,17 @@ function configure(data) {
     closeMenu();
   }
 }
-
+var configured = false;
 function receive(message, _robot) {
   let data = '';
   if (message.indexOf('configure ') === 0) {
+    if (configured)
+      return;
     data = parseJSONMessage(message.substring(10));
-    if (data)
+    if (data) {
       configure(data);
+      configured = true;
+    }
   } else if (windowIsHidden)
     return;
   else if (message.indexOf('update ') === 0) {
