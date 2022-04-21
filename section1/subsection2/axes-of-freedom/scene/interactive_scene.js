@@ -37,18 +37,16 @@ if (document.getElementsByClassName('robot-component').length !== 0) {
 buttonHandler();
 
 function buttonHandler() {
-  if (document.getElementById('fullscreenButton')) {
-    if (document.getElementById('fullscreenButton'))
-      document.getElementById('fullscreenButton').onclick = () => toggleRobotComponentFullScreen();
-    if (document.getElementById('partscreenButton')) {
-      document.getElementById('partscreenButton').onclick = () => toggleRobotComponentFullScreen();
-      document.getElementById('partscreenButton').style.display = 'none';
+  if (document.getElementById('fullscreen-button')) {
+    if (document.getElementById('fullscreen-button'))
+      document.getElementById('fullscreen-button').onclick = () => toggleRobotComponentFullScreen();
+    if (document.getElementById('windowed-button')) {
+      document.getElementById('windowed-button').onclick = () => toggleRobotComponentFullScreen();
+      document.getElementById('windowed-button').style.display = 'none';
     }
 
-    if (document.getElementById('reset-sceneButton')) {
+    if (document.getElementById('reset-sceneButton'))
       document.getElementById('reset-sceneButton').onclick = () => resetRobotComponent();
-      console.log("SET")
-    }
   } else
     setTimeout(() => buttonHandler(), 100);
 }
@@ -191,14 +189,14 @@ function updateRobotComponentDimension() {
 
 function toggleRobotComponentFullScreen(robot) {
   if (document.fullscreenElement) {
-    document.getElementById('fullscreenButton').style.display = '';
-    document.getElementById('partscreenButton').style.display = 'none';
+    document.getElementById('fullscreen-button').style.display = '';
+    document.getElementById('windowed-button').style.display = 'none';
 
     if (document.exitFullscreen)
       document.exitFullscreen();
   } else {
-    document.getElementById('fullscreenButton').style.display = 'none';
-    document.getElementById('partscreenButton').style.display = '';
+    document.getElementById('fullscreen-button').style.display = 'none';
+    document.getElementById('windowed-button').style.display = '';
     if (document.getElementById('robot-component').requestFullscreen) {
       document.getElementById('robot-component').requestFullscreen();
       document.addEventListener('fullscreenchange', function() {
