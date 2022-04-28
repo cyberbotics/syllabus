@@ -120,7 +120,7 @@ function highlightX3DElement(deviceElement) {
           axis = new WbVector4(1, 0, 0, 1.5708);
           break;
       }
-      pointer = new WbTransform(getAnId(), false, new WbVector3(0, 0, 0), new WbVector3(1, 1, 1), axis);
+      pointer = new WbTransform(getAnId(), new WbVector3(0, 0, 0), new WbVector3(1, 1, 1), axis);
       pointer.children.push(shape);
       WbWorld.instance.nodes.set(pointer.id, pointer);
       shape.parent = pointer.id;
