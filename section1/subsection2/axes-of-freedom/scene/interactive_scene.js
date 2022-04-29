@@ -56,7 +56,7 @@ function createRotationalSlider(name, category, minVal, maxVal, id, axis) {
   deviceDiv.classList.add('device');
   deviceDiv.setAttribute('webots-id', id);
   deviceDiv.setAttribute('webots-axis', axis);
-  //deviceDiv.addEventListener('mouseover', () => highlightX3DElement(deviceDiv));
+  deviceDiv.addEventListener('mouseover', () => highlightX3DElement(deviceDiv));
   deviceDiv.innerHTML = '<div class="device-name">' + name + '</div>';
   category.appendChild(deviceDiv);
 
