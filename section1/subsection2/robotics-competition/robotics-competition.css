@@ -21,7 +21,6 @@ webots-view {
   width: calc(100% - 350px)!important;
   border: 0px!important;
   margin: 0px!important;
-  min-width: 320px!important;
   overflow-x: hidden;
 }
 
