@@ -158,13 +158,15 @@
 
         if (showRWComponent === true) {
           rwComponent.style.display = '';
-          webotsView.style.width = 'calc(100% - 550px)';
-          webotsView.style.left = '550px';
+          webotsView.style.setProperty('width', 'calc(100% - 550px)', 'important');
+          webotsView.style.setProperty('left', '550px', 'important');
           menuButton.style.left = '550px';
         } else {
           rwComponent.style.display = 'none';
           webotsView.style.width = '100%';
           webotsView.style.left = '0px';
+          webotsView.style.setProperty('width', '100%', 'important');
+          webotsView.style.setProperty('left', '0px', 'important');
           menuButton.style.left = '0px';
         }
 
