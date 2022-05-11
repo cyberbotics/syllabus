@@ -160,13 +160,13 @@
 
         if (showRWComponent === true) {
           rwComponent.style.display = '';
-          webotsView.style.width = '80%';
-          webotsView.style.left = '20%';
+          webotsView.style.setProperty('width', '80%', 'important');
+          webotsView.style.setProperty('left', '20%', 'important');
           menuButton.style.left = '20%';
         } else {
           rwComponent.style.display = 'none';
-          webotsView.style.width = '100%';
-          webotsView.style.left = '0px';
+          webotsView.style.setProperty('width', '100%', 'important');
+          webotsView.style.setProperty('left', '0%', 'important');
           menuButton.style.left = '0px';
         }
 

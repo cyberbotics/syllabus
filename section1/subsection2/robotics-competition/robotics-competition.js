@@ -88,13 +88,13 @@ function updateRobotComponentDimension() {
   if (document.getElementsByClassName('menu-button').length !== 0) {
     if (showRobotWindow === true) {
       iframe.style.display = '';
-      webotsView.style.width = 'calc(100% - 350px)';
-      webotsView.style.left = '350px';
+      webotsView.style.setProperty('width', 'calc(100% - 350px)', 'important');
+      webotsView.style.setProperty('left', '350px', 'important');
       document.getElementsByClassName('menu-button')[0].style.left = '350px';
     } else {
       iframe.style.display = 'none';
-      webotsView.style.width = '100%';
-      webotsView.style.left = '0px';
+      webotsView.style.setProperty('width', '100%', 'important');
+      webotsView.style.setProperty('left', '0px', 'important');
       document.getElementsByClassName('menu-button')[0].style.left = '0px';
     }
   }
