@@ -3,6 +3,7 @@ WorldInfo {
   info [
     "Program the robot to avoid the obstacles and move at least 1.8 meters away from its starting point"
   ]
+  title "Programming a Thymio"
   window "obstacle_avoidance"
   basicTimeStep 16
   contactProperties [
