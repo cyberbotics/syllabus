@@ -4,8 +4,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation -0.08643187938432535 0.8300871058209652 0.5508946605076754 0.3736099654959847
-  position -36.016037285887734 -17.68163103898469 13.760874778975909
+  orientation -0.09018894379465671 0.8139293297238647 0.5739207267841654 0.16068557230199443
+  position -24.94443226795576 -1.6990626847564363 5.1156295855701845
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -63,28 +63,13 @@ Bolt {
   name "bolt(5)"
   enablePhysics FALSE
 }
-Transform {
-  translation 0.17 0 0.32
-  children [
-    PointLight {
-      attenuation 0 0 1
-      location 0 0.3 0
-    }
-  ]
-}
-Irb4600-40 {
-  translation -2.06 0.45 0.8
-  rotation 0 0 -1 3.67802e-06
-  supervisor TRUE
-  staticBase TRUE
-}
 ConveyorBelt {
   rotation 0 0 1 -1.5707953071795862
-  size 38 2 0.5
+  size 38 2 0.2
   speed 0.7
 }
 DEF CAR1 Solid {
-  translation 0 17.5 0.440015
+  translation 0 17.5 0.140015
   rotation 1 0 0 1.5708
   children [
     DEF CAR Group {
@@ -180,7 +165,7 @@ DEF CAR1 Solid {
   }
 }
 DEF CAR2 Solid {
-  translation 0 7.5 0.439972
+  translation 0 7.5 0.139972
   rotation 1 0 0 1.5708
   children [
     USE CAR
@@ -212,7 +197,7 @@ DEF CAR2 Solid {
   }
 }
 DEF CAR3 Solid {
-  translation 0 -3.5 0.439972
+  translation 0 -2.5 0.139972
   rotation 1 0 0 1.5708
   children [
     USE CAR
@@ -346,22 +331,22 @@ Solid {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "webots://projects/objects/factory/gas_canister/protos/textures/gas_canister_base_color_blue.jpg"
+                "textures/gas_canister_base_color_blue.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/feature-gaz-canister/projects/objects/factory/gas_canister/protos/textures/gas_canister_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/factory/gas_canister/protos/textures/gas_canister_roughness.jpg"
               ]
             }
             metalnessMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/feature-gaz-canister/projects/objects/factory/gas_canister/protos/textures/gas_canister_metalness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/factory/gas_canister/protos/textures/gas_canister_metalness.jpg"
               ]
             }
             normalMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/feature-gaz-canister/projects/objects/factory/gas_canister/protos/textures/gas_canister_normal.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/factory/gas_canister/protos/textures/gas_canister_normal.jpg"
               ]
             }
           }
@@ -406,29 +391,13 @@ GasCanister {
   name "gas canister(1)"
   enablePhysics FALSE
 }
-Transform {
-  translation -3.39 3.65999 0.87
-  rotation 1 0 0 1.5708
-  children [
-    Shape {
-      appearance DamascusSteel {
-      }
-      geometry Mesh {
-        url [
-          "/home/benjamin/syllabus/section3/Hospital/worlds/meshes/papy.dae"
-        ]
-      }
-      castShadows FALSE
-    }
-  ]
-}
 DEF GASPIPES Group {
   children [
     Transform {
       translation -3.9 0.27 1.54
       children [
         DEF VALVE Shape {
-          appearance Plastic {
+          appearance DEF VALVEA Plastic {
             colorOverride 0 0 0
           }
           geometry Sphere {
@@ -497,4 +466,125 @@ DEF GASPIPES Group {
       ]
     }
   ]
+}
+Irb4600-40 {
+  translation -2.06 0.45 0.8
+  rotation 0 0 -1 3.67802e-06
+  controller "irb"
+  supervisor TRUE
+  handSlot [
+    Transform {
+      translation 0 0 -0.031
+      children [
+        Transform {
+          translation 0 0 0.01
+          children [
+            Shape {
+              appearance USE VALVEA
+              geometry Cylinder {
+                height 0.02
+                radius 0.052
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 -0.01
+          children [
+            Shape {
+              appearance USE VALVEA
+              geometry Cylinder {
+                height 0.02
+                radius 0.062
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 0.04
+          children [
+            Shape {
+              appearance USE GASBOX_APPEARANCE
+              geometry Cylinder {
+                height 0.04
+                radius 0.045
+              }
+            }
+            Transform {
+              translation 0 0 0.035
+              children [
+                Shape {
+                  appearance USE VALVEA
+                  geometry Cylinder {
+                    height 0.03
+                    radius 0.045
+                  }
+                }
+                Transform {
+                  translation 0 0 0.09
+                  children [
+                    Shape {
+                      appearance USE GASBOX_APPEARANCE
+                      geometry Cylinder {
+                        height 0.15
+                        radius 0.01
+                      }
+                    }
+                    Transform {
+                      translation 0 0 0.08
+                      children [
+                        LED {
+                          translation 0 0 0.03
+                          children [
+                            PointLight {
+                              attenuation 0 0 1
+                              color 0 0 0
+                              intensity 2
+                              on FALSE
+                            }
+                          ]
+                          name "welding_torch"
+                          color [
+                            0.12549 0.290196 0.529412
+                          ]
+                        }
+                        Shape {
+                          appearance USE GASBOX_APPEARANCE
+                          geometry Cylinder {
+                            height 0.05
+                            radius 0.02
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  staticBase TRUE
+}
+DEF WORKER Solid {
+  translation -1.82 1.75 0
+  children [
+    CadShape {
+      url [
+        "meshes/worker.dae"
+      ]
+    }
+  ]
+  boundingObject Transform {
+    translation 0 0.05 0.89
+    children [
+      Box {
+        size 0.4 0.2 1.7
+      }
+    ]
+  }
+  physics Physics {
+  }
 }

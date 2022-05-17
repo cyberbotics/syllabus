@@ -20,18 +20,8 @@
 
 #include <stdio.h>
 
-WbNodeRef car1, car2, car3;
-WbFieldRef translations[3];
-
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
-  car1 = wb_supervisor_node_get_from_def("CAR1");
-  car2 = wb_supervisor_node_get_from_def("CAR2");
-  car3 = wb_supervisor_node_get_from_def("CAR3");
-  
-  translation[0] = wb_supervisor_node_get_field(car1, "translation");
-  translation[1] = wb_supervisor_node_get_field(car2, "translation");
-  translation[2] = wb_supervisor_node_get_field(car3, "translation");
 }
 
 // A simulation step occurred.
@@ -40,10 +30,5 @@ void wb_robot_window_step(int time_step) {
   while (message) {
 
     message = wb_robot_wwi_receive_text();
-  }
-  
-  for (int i = 0; i < 3; i++) {
-    const double * pos = wb_supervisor_field_get_sf_vec3f(translation[i]);
-    if (pos[1] >
   }
 }
