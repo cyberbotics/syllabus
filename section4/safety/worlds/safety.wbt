@@ -4,8 +4,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation -0.0039034005020275784 0.994702012204067 -0.10272619131312395 0.37210535648894927
-  position -8.78312402416773 3.116546071129627 3.1967519634453483
+  orientation 0.23458935064076783 0.6220332195186133 -0.7470224296373247 0.9697129226670469
+  position -5.298098727280379 7.154708333266812 5.095529166245211
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -593,7 +593,7 @@ Irb4600-40 {
   staticBase TRUE
 }
 DEF WORKER Solid {
-  translation -1.82 1.65 0
+  translation -1.82 1.65 -1000
   children [
     CadShape {
       url [
@@ -613,16 +613,16 @@ DEF WORKER Solid {
   }
 }
 DEF BARRIER0 WorkBarrier {
-  translation -1.68025 2.46007 -1.77636e-15
+  translation -1.68025 2.46007 -1000
   rotation 0 0 1 -1.5707953071795862
   name "work barrier(1)"
 }
 DEF BARRIER1 WorkBarrier {
-  translation -3.09317 2.45698 -8.88175e-16
+  translation -3.09317 2.45698 -1000
   rotation 0 0 1 -1.5707953071795862
 }
 DEF BARRIER2 WorkBarrier {
-  translation -3.82586 1.64508 -8.08242e-14
+  translation -3.82586 1.64508 -1000
   rotation 0 0 1 3.14159
   name "work barrier(2)"
 }

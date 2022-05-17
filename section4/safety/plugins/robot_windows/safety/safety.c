@@ -20,26 +20,39 @@
 
 #include <stdio.h>
 
-WbNodeRef barriers, human;
-WbFieldRef barriersTranslation, humansTranslation;
+WbNodeRef barriers[3], human;
+WbFieldRef barriersTranslation[3], humansTranslation;
+bool isBarriers, isBox, isHuman;
 
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
+  isBarriers = false;
+  isBox = false;
+  isHuman = false;
   barriers[0] = wb_supervisor_node_get_from_def("BARRIER0");
   barriers[1] = wb_supervisor_node_get_from_def("BARRIER1");
   barriers[2] = wb_supervisor_node_get_from_def("BARRIER2");
   for (int i = 0; i < 3; i++)
-    barriersTranslation[i] = wb_supervisor_node_get_field("translation")
+    barriersTranslation[i] =
+        wb_supervisor_node_get_field(barriers[i], "translation");
 }
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
   const char *message = wb_robot_wwi_receive_text();
   while (message) {
-    if (message == "barriers") {
+    if (strncmp(message, "barriers", strlen("barriers")) == 0) {
       for (int i = 0; i < 3; i++) {
-      
+        double *pos = wb_supervisor_field_get_sf_vec3f(barriersTranslation[i]);
+        if (isBarriers) {
+          pos[2] = -1000;
+        } else {
+          pos[2] = 0;
+        }
+        wb_supervisor_field_set_sf_vec3f(barriersTranslation[i], pos);
       }
+      isBarriers = !isBarriers;
+    }
     message = wb_robot_wwi_receive_text();
   }
 }

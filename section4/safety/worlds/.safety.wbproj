@@ -5,6 +5,6 @@ sceneTreePerspectives: 000000ff0000000100000002000000c0000000fa01000000020100000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 1 "plugins/robot_windows/safety/safety.c" "controllers/irb/irb.py"
+textFiles: 0 "plugins/robot_windows/safety/safety.c" "controllers/irb/irb.py"
 globalOptionalRendering: DistanceSensorRays
 consoles: Console:All:All
