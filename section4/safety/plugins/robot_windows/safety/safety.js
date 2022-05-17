@@ -13,10 +13,10 @@ window.onload = function() {
     window.robotWindow.send('sensor');
     if (distanceButton.clicked) {
       distanceButton.clicked = false;
-      distanceButton.innerHTML = 'Enable a distance sensor on the manipulator.';
+      distanceButton.innerHTML = 'Enable the distance sensors on the manipulator.';
     } else {
       distanceButton.clicked = true;
-      distanceButton.innerHTML = 'Disable the distance sensor on the manipulator.';
+      distanceButton.innerHTML = 'Disable the distance sensors on the manipulator.';
     }
   };
 

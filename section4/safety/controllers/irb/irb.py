@@ -45,6 +45,11 @@ translations.append(car1.getField("translation"));
 translations.append(car2.getField("translation"));
 translations.append(car3.getField("translation"));
 
+ds0 = supervisor.getDevice('ds0')
+ds1 = supervisor.getDevice('ds1')
+
+ds0.enable(timeStep)
+ds1.enable(timeStep)
 # Create the arm chain from the URDF
 filename = None
 with tempfile.NamedTemporaryFile(suffix='.urdf', delete=False) as file:
@@ -59,7 +64,7 @@ motors = []
 for link in armChain.links:
     if 'motor' in link.name:
         motor = supervisor.getDevice(link.name)
-        motor.setVelocity(5)
+        motor.setVelocity(1)
         position_sensor = motor.getPositionSensor()
         position_sensor.enable(timeStep)
         motors.append(motor)
@@ -67,11 +72,6 @@ for link in armChain.links:
 i = 0
 led = supervisor.getDevice('welding_torch')
 on = True
-# while supervisor.step(timeStep) != -1:
-    # if i % 100 == 0:
-        # led.set(on)
-        # on = not on
-    # i += 1
 
 # Get the arm and target nodes.
 arm = supervisor.getSelf()
@@ -117,3 +117,8 @@ while supervisor.step(timeStep) != -1:
           translations[j].setSFVec3f(newPos);
         elif pos[1] >= 3.8 and pos[1] <=3.9:
           i = 0
+          
+    if ds0.getValue() != 0:
+        print(ds0.getValue())
+    if ds1.getValue() != 0:
+        print(ds1.getValue())
