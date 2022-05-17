@@ -59,17 +59,18 @@ armChain = Chain.from_urdf_file(filename)
 for i in [0, 6]:
     armChain.active_links_mask[i] = False
 
+speed = 1
+
 # Initialize the arm motors and encoders.
 motors = []
 for link in armChain.links:
     if 'motor' in link.name:
         motor = supervisor.getDevice(link.name)
-        motor.setVelocity(1)
+        motor.setVelocity(speed)
         position_sensor = motor.getPositionSensor()
         position_sensor.enable(timeStep)
         motors.append(motor)
 
-i = 0
 led = supervisor.getDevice('welding_torch')
 on = True
 
@@ -118,7 +119,9 @@ while supervisor.step(timeStep) != -1:
         elif pos[1] >= 3.8 and pos[1] <=3.9:
           i = 0
           
-    if ds0.getValue() != 0:
-        print(ds0.getValue())
-    if ds1.getValue() != 0:
-        print(ds1.getValue())
+    for j in range(len(motors)):
+        if ds0.getValue() != 0 or ds1.getValue() != 0:
+            motors[j].setVelocity(0)
+        else:
+            motors[j].setVelocity(speed)
+     
