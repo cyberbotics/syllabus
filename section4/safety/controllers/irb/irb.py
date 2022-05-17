@@ -59,7 +59,7 @@ motors = []
 for link in armChain.links:
     if 'motor' in link.name:
         motor = supervisor.getDevice(link.name)
-        motor.setVelocity(1.0)
+        motor.setVelocity(5)
         position_sensor = motor.getPositionSensor()
         position_sensor.enable(timeStep)
         motors.append(motor)
@@ -79,7 +79,7 @@ arm = supervisor.getSelf()
 i = 101
 while supervisor.step(timeStep) != -1:
     armPosition = arm.getPosition()
-    if i >100: 
+    if i > 100: 
         targetPosition = [-3, 2, 1.37]
     else:
         targetPosition = [-0.75, 0.54, 1.93]
@@ -108,7 +108,6 @@ while supervisor.step(timeStep) != -1:
         led.set(1)
     if i > 65:
         led.set(0)
-    print(i)
     i += 1
     
     for j in range(0, 3):

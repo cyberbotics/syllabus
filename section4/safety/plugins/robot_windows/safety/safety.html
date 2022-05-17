@@ -3,16 +3,23 @@
 
 <head>
   <meta charset='UTF-8'>
-  <link rel='stylesheet' type='text/css' href='interact_with_environment.css'>
+  <link rel='stylesheet' type='text/css' href='safety.css'>
   <link rel="icon" type="image/png" href="https://cyberbotics.com/assets/images/webots.png">
 </head>
 
 <body>
-  <h1>Interact with the simulation</h1>
-  <button id=waterbottle class=button-enable>Add a water bottle on the conveyor belt</button>
-  <button id=storage class=button-enable>Remove the storage box</button>
-  <button id=cardboardBox class=button-enable>Add a stack boxes just behind the manipulator</button>
-  <script type="module" src="interact_with_environment.js"></script>
+  <h1>Explore safety options</h1>
+  <h2>Add different elements to the scene</h2>
+  <button id=clear class=button-enable>Clear the scene.</button>
+  <button id=human class=button-enable>Add a human worker.</button>
+  <button id=barriers class=button-enable>Add barriers.</button>
+  <button id=box class=button-enable>Add a isolation box.</button>
+
+  <h2>Other safety measures</h2>
+  <button id=sensor class=button-enable>Enable a distance sensor on the manipulator.</button>
+  <button id=button class=button-enable>Press the emergency stop button.</button>
+  <button id=speed class=button-enable>Decrease the speed of the manipulator.</button>
+  <script type="module" src="safety.js"></script>
 </body>
 
 </html>

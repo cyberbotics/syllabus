@@ -20,15 +20,26 @@
 
 #include <stdio.h>
 
+WbNodeRef barriers, human;
+WbFieldRef barriersTranslation, humansTranslation;
+
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
+  barriers[0] = wb_supervisor_node_get_from_def("BARRIER0");
+  barriers[1] = wb_supervisor_node_get_from_def("BARRIER1");
+  barriers[2] = wb_supervisor_node_get_from_def("BARRIER2");
+  for (int i = 0; i < 3; i++)
+    barriersTranslation[i] = wb_supervisor_node_get_field("translation")
 }
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
   const char *message = wb_robot_wwi_receive_text();
   while (message) {
-
+    if (message == "barriers") {
+      for (int i = 0; i < 3; i++) {
+      
+      }
     message = wb_robot_wwi_receive_text();
   }
 }
