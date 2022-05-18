@@ -70,12 +70,14 @@ prevSpeed = 5
 
 # Initialize the arm motors and encoders.
 motors = []
+position_sensors = []
 for link in armChain.links:
     if 'motor' in link.name:
         motor = supervisor.getDevice(link.name)
         motor.setVelocity(speed)
         position_sensor = motor.getPositionSensor()
         position_sensor.enable(timeStep)
+        position_sensors.append(position_sensor)
         motors.append(motor)
 
 led = supervisor.getDevice('welding_torch')
@@ -86,45 +88,47 @@ arm = supervisor.getSelf()
 
 i = 101
 while supervisor.step(timeStep) != -1:
-    if not button:
-        armPosition = arm.getPosition()
-        if i > 100: 
-            targetPosition = [-3, 2, 1.37]
-        else:
-            targetPosition = [-0.75, 0.54, 1.93]
-    
-        # Compute the position of the target relatively to the arm.
-        # x and y axis are inverted because the arm is not aligned with the Webots global axes.
-        y = targetPosition[1] - armPosition[1]
-        x = targetPosition[0] - armPosition[0]
-        z = targetPosition[2] - armPosition[2]
-    
-        # Call "ikpy" to compute the inverse kinematics of the arm.
-        initial_position = [0] + [m.getPositionSensor().getValue() for m in motors] + [0]
-        ikResults = armChain.inverse_kinematics([x, y, z], max_iter=IKPY_MAX_ITERATIONS, initial_position=initial_position)
-    
-        # Recalculate the inverse kinematics of the arm if necessary.
-        position = armChain.forward_kinematics(ikResults)
-        squared_distance = (position[0, 3] - x)**2 + (position[1, 3] - y)**2 + (position[2, 3] - z)**2
-        if math.sqrt(squared_distance) > 0.03:
-            ikResults = armChain.inverse_kinematics([x, y, z])
-    
-        # Actuate the arm motors with the IK results.
-        for j in range(len(motors)):
-            motors[j].setPosition(ikResults[j + 1])
-        
-        if i > 40 and i < 65:
-            led.set(1)
-        if i > 65:
-            led.set(0)
-        i += 1
-        
-              
+    stop = False
+    if (sensors and (ds0.getValue() != 0 or ds1.getValue() != 0)) or button:
+        stop = True
+
     for j in range(len(motors)):
-        if sensors and (ds0.getValue() != 0 or ds1.getValue() != 0):
-          motors[j].setVelocity(0)
-        else:
-          motors[j].setVelocity(speed)
+        motors[j].setVelocity(speed)
+    
+    armPosition = arm.getPosition()
+    if i > 100: 
+        targetPosition = [-3, 2, 1.37]
+    else:
+        targetPosition = [-0.75, 0.54, 1.93]
+    
+    # Compute the position of the target relatively to the arm.
+    # x and y axis are inverted because the arm is not aligned with the Webots global axes.
+    x = targetPosition[0] - armPosition[0]
+    y = targetPosition[1] - armPosition[1]
+    z = targetPosition[2] - armPosition[2]
+    
+    # Call "ikpy" to compute the inverse kinematics of the arm.
+    initial_position = [0] + [m.getPositionSensor().getValue() for m in motors] + [0]
+    ikResults = armChain.inverse_kinematics([x, y, z], max_iter=IKPY_MAX_ITERATIONS, initial_position=initial_position)
+    
+    # Recalculate the inverse kinematics of the arm if necessary.
+    position = armChain.forward_kinematics(ikResults)
+    squared_distance = (position[0, 3] - x)**2 + (position[1, 3] - y)**2 + (position[2, 3] - z)**2
+    if math.sqrt(squared_distance) > 0.03:
+        ikResults = armChain.inverse_kinematics([x, y, z])
+    
+    if stop:
+        for j in range(len(position_sensors)):
+            ikResults[j + 1] = position_sensors[j].getValue()
+    # Actuate the arm motors with the IK results.
+    for j in range(len(motors)):
+        motors[j].setPosition(ikResults[j + 1])
+        
+    if i > 40 and i < 65 and not stop:
+        led.set(1)
+    if i > 65:
+        led.set(0)
+    i += 1
 
     for j in range(0, 3):
         pos = translations[j].getSFVec3f()
@@ -141,11 +145,7 @@ while supervisor.step(timeStep) != -1:
         elif message == "button":
             button = not button
             if button:
-                prevSpeed = speed
-                speed = 0
                 led.set(0)
-            else:
-                speed = prevSpeed
         elif message == "speed":
             if speed == 0:
                 prevSpeed = 5 if prevSpeed == 1 else 1
