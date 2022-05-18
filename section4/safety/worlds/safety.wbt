@@ -4,8 +4,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation 0.23458935064076783 0.6220332195186133 -0.7470224296373247 0.9697129226670469
-  position -5.298098727280379 7.154708333266812 5.095529166245211
+  orientation -0.4252609643299961 -0.04093447226091735 0.9041446129894498 3.2954508555731197
+  position 18.040882863820233 4.9989916341456135 21.10301330481991
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -165,7 +165,7 @@ DEF CAR1 Solid {
   }
   physics Physics {
     density -1
-    mass 2
+    mass 1
   }
 }
 DEF CAR2 Solid {
@@ -197,7 +197,7 @@ DEF CAR2 Solid {
   }
   physics Physics {
     density -1
-    mass 2
+    mass 1
   }
 }
 DEF CAR3 Solid {
@@ -229,7 +229,7 @@ DEF CAR3 Solid {
   }
   physics Physics {
     density -1
-    mass 2
+    mass 1
   }
 }
 DEF GASBOX Transform {
@@ -593,7 +593,7 @@ Irb4600-40 {
   staticBase TRUE
 }
 DEF WORKER Solid {
-  translation -1.82 1.65 -1000
+  translation 4.70714 1.65 -19.94
   children [
     CadShape {
       url [
@@ -610,7 +610,13 @@ DEF WORKER Solid {
     ]
   }
   physics Physics {
+    density -1
+    mass 0.01
   }
+}
+CardboardBox {
+  translation 0 0 -8.82
+  mass 1
 }
 DEF BARRIER0 WorkBarrier {
   translation -1.68025 2.46007 -1000
@@ -625,4 +631,63 @@ DEF BARRIER2 WorkBarrier {
   translation -3.82586 1.64508 -1000
   rotation 0 0 1 3.14159
   name "work barrier(2)"
+}
+DEF BOX Transform {
+  translation -2.44 0.45 -1000
+  children [
+    Transform {
+      translation 0 2.01 0
+      children [
+        DEF BOX_SHAPE Shape {
+          appearance DEF BOX_APPEARANCE PBRAppearance {
+            baseColor 0.729412 0.741176 0.85
+            transparency 0.6
+            roughness 1
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/plastic/plastic_rough_roughness.jpg"
+              ]
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/plastic/plastic_rough_normal.jpg"
+              ]
+            }
+          }
+          geometry Box {
+            size 2.5 0.01 4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0 -2.01 0
+      children [
+        USE BOX_SHAPE
+      ]
+    }
+    Transform {
+      translation -1.2555 0 0
+      children [
+        Shape {
+          appearance USE BOX_APPEARANCE
+          geometry Box {
+            size 0.01 4.03 4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.005 0 2.005
+      children [
+        Shape {
+          appearance USE BOX_APPEARANCE
+          geometry Box {
+            size 2.51 4.03 0.01
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -28,8 +28,11 @@ window.onload = function() {
     } else {
       barrierButton.clicked = true;
       barrierButton.innerHTML = 'Remove barriers.';
-      if (document.getElementById('box').clicked)
-        document.getElementById('box').click();
+      const boxButton = document.getElementById('box');
+      if (boxButton.clicked) {
+        boxButton.clicked = false;
+        boxButton.innerHTML = 'Add a isolation box.';
+      }
     }
   };
 
@@ -42,8 +45,11 @@ window.onload = function() {
     } else {
       boxButton.clicked = true;
       boxButton.innerHTML = 'Remove the isolation box.';
-      if (document.getElementById('barriers').clicked)
-        document.getElementById('barriers').click();
+      const barrierButton = document.getElementById('barriers');
+      if (barrierButton.clicked) {
+        barrierButton.clicked = false;
+        barrierButton.innerHTML = 'Add barriers.';
+      }
     }
   };
 
