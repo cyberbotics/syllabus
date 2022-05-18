@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <webots/emitter.h>
 #include <webots/plugins/robot_window/robot_wwi.h>
 #include <webots/robot.h>
 #include <webots/supervisor.h>
@@ -24,6 +25,7 @@ WbNodeRef barriers[3], box, worker;
 WbFieldRef barriersTranslation[3], boxTranslation, workerTranslation,
     workerRotation;
 bool isBarriers, isBox, isWorker1, isWorker2;
+WbDeviceTag emitter;
 
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
@@ -31,6 +33,8 @@ void wb_robot_window_init() {
   isWorker2 = false;
   isBarriers = false;
   isBox = false;
+
+  emitter = wb_robot_get_device("emitter");
 
   // Get NodeRefs
   worker = wb_supervisor_node_get_from_def("WORKER");
@@ -115,7 +119,11 @@ void wb_robot_window_step(int time_step) {
         change_human(); // unset previous human
         change_human(); // put new one behind the box
       }
-    }
+    } else if ((strncmp(message, "sensor", strlen("sensor")) == 0) ||
+               (strncmp(message, "button", strlen("button")) == 0) ||
+               (strncmp(message, "speed", strlen("speed")) == 0))
+      wb_emitter_send(emitter, message, strlen(message));
+
     message = wb_robot_wwi_receive_text();
   }
 }

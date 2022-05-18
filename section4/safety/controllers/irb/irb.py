@@ -37,6 +37,12 @@ IKPY_MAX_ITERATIONS = 4
 supervisor = Supervisor()
 timeStep = int(4 * supervisor.getBasicTimeStep())
 
+receiver = supervisor.getDevice("receiver");
+receiver.enable(timeStep)
+
+sensors = False
+button = False
+
 translations = []
 car1 = supervisor.getFromDef("CAR1");
 car2 = supervisor.getFromDef("CAR2");
@@ -59,7 +65,8 @@ armChain = Chain.from_urdf_file(filename)
 for i in [0, 6]:
     armChain.active_links_mask[i] = False
 
-speed = 1
+speed = 5
+prevSpeed = 5
 
 # Initialize the arm motors and encoders.
 motors = []
@@ -79,38 +86,46 @@ arm = supervisor.getSelf()
 
 i = 101
 while supervisor.step(timeStep) != -1:
-    armPosition = arm.getPosition()
-    if i > 100: 
-        targetPosition = [-3, 2, 1.37]
-    else:
-        targetPosition = [-0.75, 0.54, 1.93]
-
-    # Compute the position of the target relatively to the arm.
-    # x and y axis are inverted because the arm is not aligned with the Webots global axes.
-    y = targetPosition[1] - armPosition[1]
-    x = targetPosition[0] - armPosition[0]
-    z = targetPosition[2] - armPosition[2]
-
-    # Call "ikpy" to compute the inverse kinematics of the arm.
-    initial_position = [0] + [m.getPositionSensor().getValue() for m in motors] + [0]
-    ikResults = armChain.inverse_kinematics([x, y, z], max_iter=IKPY_MAX_ITERATIONS, initial_position=initial_position)
-
-    # Recalculate the inverse kinematics of the arm if necessary.
-    position = armChain.forward_kinematics(ikResults)
-    squared_distance = (position[0, 3] - x)**2 + (position[1, 3] - y)**2 + (position[2, 3] - z)**2
-    if math.sqrt(squared_distance) > 0.03:
-        ikResults = armChain.inverse_kinematics([x, y, z])
-
-    # Actuate the arm motors with the IK results.
+    if not button:
+        armPosition = arm.getPosition()
+        if i > 100: 
+            targetPosition = [-3, 2, 1.37]
+        else:
+            targetPosition = [-0.75, 0.54, 1.93]
+    
+        # Compute the position of the target relatively to the arm.
+        # x and y axis are inverted because the arm is not aligned with the Webots global axes.
+        y = targetPosition[1] - armPosition[1]
+        x = targetPosition[0] - armPosition[0]
+        z = targetPosition[2] - armPosition[2]
+    
+        # Call "ikpy" to compute the inverse kinematics of the arm.
+        initial_position = [0] + [m.getPositionSensor().getValue() for m in motors] + [0]
+        ikResults = armChain.inverse_kinematics([x, y, z], max_iter=IKPY_MAX_ITERATIONS, initial_position=initial_position)
+    
+        # Recalculate the inverse kinematics of the arm if necessary.
+        position = armChain.forward_kinematics(ikResults)
+        squared_distance = (position[0, 3] - x)**2 + (position[1, 3] - y)**2 + (position[2, 3] - z)**2
+        if math.sqrt(squared_distance) > 0.03:
+            ikResults = armChain.inverse_kinematics([x, y, z])
+    
+        # Actuate the arm motors with the IK results.
+        for j in range(len(motors)):
+            motors[j].setPosition(ikResults[j + 1])
+        
+        if i > 40 and i < 65:
+            led.set(1)
+        if i > 65:
+            led.set(0)
+        i += 1
+        
+              
     for j in range(len(motors)):
-        motors[j].setPosition(ikResults[j + 1])
-    
-    if i > 40 and i < 65:
-        led.set(1)
-    if i > 65:
-        led.set(0)
-    i += 1
-    
+        if sensors and (ds0.getValue() != 0 or ds1.getValue() != 0):
+          motors[j].setVelocity(0)
+        else:
+          motors[j].setVelocity(speed)
+
     for j in range(0, 3):
         pos = translations[j].getSFVec3f()
         if pos[1] <= -12.5:
@@ -118,10 +133,22 @@ while supervisor.step(timeStep) != -1:
           translations[j].setSFVec3f(newPos);
         elif pos[1] >= 3.8 and pos[1] <=3.9:
           i = 0
-          
-    for j in range(len(motors)):
-        if ds0.getValue() != 0 or ds1.getValue() != 0:
-            motors[j].setVelocity(0)
-        else:
-            motors[j].setVelocity(speed)
-     
+    
+    while receiver.getQueueLength() > 0:    
+        message = receiver.getData().decode("utf-8");
+        if message == "sensor":
+            sensors = not sensors
+        elif message == "button":
+            button = not button
+            if button:
+                prevSpeed = speed
+                speed = 0
+                led.set(0)
+            else:
+                speed = prevSpeed
+        elif message == "speed":
+            if speed == 0:
+                prevSpeed = 5 if prevSpeed == 1 else 1
+            else:
+                speed = 5 if speed == 1 else 1
+        receiver.nextPacket()

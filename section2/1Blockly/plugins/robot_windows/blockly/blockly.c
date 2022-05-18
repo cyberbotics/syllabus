@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include <webots/plugins/robot_window/robot_wwi.h>
 #include <webots/emitter.h>
+#include <webots/plugins/robot_window/robot_wwi.h>
 #include <webots/receiver.h>
 #include <webots/robot.h>
 #include <webots/supervisor.h>
@@ -26,7 +26,7 @@
 #include <stdlib.h>
 
 WbDeviceTag emitter, receiver;
-const char * NAO;
+const char *NAO;
 WbNodeRef naoRef, root_node;
 WbFieldRef root_children_field;
 bool hasFinished = false;
@@ -57,7 +57,8 @@ void wb_robot_window_step(int time_step) {
     } else if (strncmp(message, "sideStepLeft", strlen("sideStepLeft")) == 0) {
       sprintf(signal, "sideStepLeft");
       wb_emitter_send(emitter, signal, strlen(message));
-    } else if (strncmp(message, "sideStepRight", strlen("sideStepRight")) == 0) {
+    } else if (strncmp(message, "sideStepRight", strlen("sideStepRight")) ==
+               0) {
       sprintf(signal, "sideStepRight");
       wb_emitter_send(emitter, signal, strlen(message));
     } else if (strncmp(message, "turnLeft40", strlen("turnLeft40")) == 0) {
@@ -82,27 +83,28 @@ void wb_robot_window_step(int time_step) {
       sprintf(signal, "handWave");
       wb_emitter_send(emitter, signal, strlen(message));
     } else if (strncmp(message, "reset", strlen("reset")) == 0) {
-      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1, NAO);
+      wb_supervisor_field_import_mf_node_from_string(root_children_field, -1,
+                                                     NAO);
       wb_supervisor_node_remove(naoRef);
       naoRef = wb_supervisor_node_get_from_def("NAO");
       NAO = wb_supervisor_node_export_string(naoRef);
-    }else
+    } else
       fprintf(stderr, "Unkown message: '%s'\n", message);
   }
-  
+
   while (wb_receiver_get_queue_length(receiver) > 0) {
     const char *message = wb_receiver_get_data(receiver);
-    if (message[0] == 'f'){
+    if (message[0] == 'f') {
       wb_robot_wwi_send_text("next");
     }
     wb_receiver_next_packet(receiver);
   }
 
   // Check if the NAO reached the end of the track
-  const double * position = wb_supervisor_node_get_position(naoRef);	
-  if (position[0] > 3.7 && ! hasFinished) {	
-   wb_robot_wwi_send_text("success");	
-   wb_supervisor_set_label(0,"Success!",0,0,0.2,0xff0000,0,"Arial");
-   hasFinished = true;	
+  const double *position = wb_supervisor_node_get_position(naoRef);
+  if (position[0] > 3.7 && !hasFinished) {
+    wb_robot_wwi_send_text("success");
+    wb_supervisor_set_label(0, "Success!", 0, 0, 0.2, 0xff0000, 0, "Arial");
+    hasFinished = true;
   }
 }
