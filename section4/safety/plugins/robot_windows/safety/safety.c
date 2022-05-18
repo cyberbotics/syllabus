@@ -50,11 +50,9 @@ void wb_robot_window_init() {
 
 void change_human() {
   double pos[3] = {-1000, -1000, 0};
-  if (isWorker1 || isWorker2) {
-    printf("remove human\n");
-    pos[2] = -1000;
+  if (isWorker1 || isWorker2)
     isWorker1 = isWorker2 = false;
-  } else if (isBarriers || isBox) {
+  else if (isBarriers || isBox) {
     pos[0] = -1.82;
     pos[1] = 2.9;
     isWorker2 = true;
@@ -64,7 +62,6 @@ void change_human() {
     isWorker1 = true;
   }
 
-  printf("action %lf\n", pos[2]);
   double rotation[4] = {0, 0, 1, 0};
   wb_supervisor_field_set_sf_rotation(workerRotation, rotation);
   wb_supervisor_field_set_sf_vec3f(workerTranslation, pos);
@@ -105,10 +102,19 @@ void wb_robot_window_step(int time_step) {
       change_barriers();
       if (isBox && isBarriers)
         change_box();
+
+      if ((isWorker1 && isBarriers) || (isWorker2 && !isBarriers)) {
+        change_human(); // unset previous human
+        change_human(); // put new one behind the fences
+      }
     } else if (strncmp(message, "box", strlen("barriers")) == 0) {
       change_box();
       if (isBarriers && isBox)
         change_barriers();
+      if ((isWorker1 && isBox) || (isWorker2 && !isBox)) {
+        change_human(); // unset previous human
+        change_human(); // put new one behind the box
+      }
     }
     message = wb_robot_wwi_receive_text();
   }
