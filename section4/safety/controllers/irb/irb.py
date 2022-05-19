@@ -99,7 +99,7 @@ while supervisor.step(timeStep) != -1:
     if i > 100: 
         targetPosition = [-3, 2, 1.37]
     else:
-        targetPosition = [-0.75, 0.54, 1.93]
+        targetPosition = [-0.75, 0.54, 1.94]
     
     # Compute the position of the target relatively to the arm.
     # x and y axis are inverted because the arm is not aligned with the Webots global axes.

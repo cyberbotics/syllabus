@@ -4,8 +4,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation -0.27875513628800347 -0.7385691842101053 0.613849439299472 5.244423754397298
-  position -6.7825065232043 4.5268349783247706 5.704177600266973
+  orientation -0.22012111973546286 -0.5122023907858491 0.8301779348547313 5.411143280765383
+  position -9.183824071807278 7.22460844349645 5.951554776897445
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -892,7 +892,7 @@ Irb4600-40 {
   staticBase TRUE
 }
 DEF WORKER Solid {
-  translation 3.34 0 0
+  translation -1000 -1000 0
   children [
     CadShape {
       url [
