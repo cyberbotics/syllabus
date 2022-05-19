@@ -712,7 +712,7 @@
                                 </div>
                             </li>
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                <a tabindex="0">Task (Control the lefthand motor)<span class="st-arrow">Open or
                                         Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
@@ -758,7 +758,7 @@
                             </li>
 
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                <a tabindex="0">Task (Control both wheel motors)<span class="st-arrow">Open or
                                         Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
@@ -769,7 +769,7 @@
 
                                         <ol class="list-padding-left-2022 actual-lists-2022 edit-html">
                                             <li class="actual-lists-li-2022 edit-html">Repeat what you did in the
-                                                previous step, but for the <code class="orange">rhs_motor</code> such
+                                                previous step, but for the <code class="orange">rhs_motor</code>, such
                                                 that both motors are actuated.
                                             </li>
                                             <li class="actual-lists-li-2022 edit-html">Save the code (CTRL + s, or
@@ -811,7 +811,7 @@
                             </li>
 
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                <a tabindex="0">Task (Control the motor speeds)<span class="st-arrow">Open or
                                         Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
@@ -868,7 +868,8 @@
                                 </div>
                             </li>
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <a tabindex="0">Task (Collision avoidance)<span class="st-arrow">Open or
+                                        Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
                                     <div class="all-sections">
@@ -978,7 +979,8 @@ while robot.step(TIME_STEP) != -1:
                             </li>
 
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <a tabindex="0">Task (Steer on object detection)<span class="st-arrow">Open or
+                                        Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
                                     <div class="all-sections">
@@ -1049,8 +1051,8 @@ if mid_gap> x:
                                     <div class="all-sections">
                                         <p class="edit-html no-bottom-margin-2022">The robot avoided the first green
                                             block. However, it only detects obstacles directly in front of it at a small
-                                            range. The Thymio has a lot of distance sensors: 5 in the front, 2 in the
-                                            back and two below, towards the ground. Let us use the additional four
+                                            range. The Thymio has many distance sensors: five on the front, two on the
+                                            rear and two below, towards the ground. Let us use the additional four
                                             front-facing distance sensors to improve the object avoidance performance.
                                         </p>
 
@@ -1083,7 +1085,7 @@ while robot.step(TIME_STEP) != -1:
                             </li>
 
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or
+                                <a tabindex="0">Task (Steer based on obstacle distance)<span class="st-arrow">Open or
                                         Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
@@ -1108,6 +1110,10 @@ while robot.step(TIME_STEP) != -1:
                                             </li>
                                             <li class="actual-lists-li-2022 edit-html">There are now multiple sensor
                                                 values, so we need to combine those somehow. Let us use an average.
+                                            </li>
+                                            <li class="actual-lists-li-2022 edit-html">Delete the <code>if</code>
+                                                statement and its body and replace it with the following two lines of
+                                                code.
                                             </li>
                                         </ol>
                                         <pre class="pre-2022 edit-html"><code class="snippet-2022 edit-html">
@@ -1168,7 +1174,7 @@ rhs_motor.setVelocity(3 - (mid_lhs_gap + lhs_gap) / 2 - mid_gap)
                                 </div>
                             </li>
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Task<span class="st-arrow">Open or Close</span></a>
+                                <a tabindex="0">Task (Calibration)<span class="st-arrow">Open or Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
                                     <div class="all-sections">
@@ -1240,7 +1246,7 @@ while robot.step(TIME_STEP) != -1:
                                 </div>
                             </li>
                             <li class="st-accordion-list  edit-html">
-                                <a tabindex="0">Extra Tasks<span class="st-arrow">Open or
+                                <a tabindex="0">Test your knowledge<span class="st-arrow">Open or
                                         Close</span></a>
                                 <div class="st-content">
                                     <!-- Sample Content-->
@@ -1250,7 +1256,7 @@ while robot.step(TIME_STEP) != -1:
                                             room or between two obstacles. </p>
                                         <p>Think about and write down ideas on how you would detect this happening and
                                             get the robot unstuck. </p>
-                                        <p>Discuss your ideas with your colleagues.
+                                        <p>Discuss your ideas with your fellow learners.
 
                                         </p>
 
@@ -1271,7 +1277,7 @@ while robot.step(TIME_STEP) != -1:
                                             on the spot or reverse the direction of travel. </p>
                                         <p>With reversing, it would also be a good idea to activate and act on the
                                             distance sensor readings from the back of the robot. </p>
-                                        <p>Did you or your colleagues develop any better ideas?
+                                        <p>Did you or your fellow learners develop any better ideas?
 
                                         </p>
 
@@ -1285,9 +1291,9 @@ while robot.step(TIME_STEP) != -1:
                                     <div class="all-sections">
                                         <p class="edit-html">In this topic, you have seen how to code an autonomous
                                             robot in Python. At the end of this exercise, you have written code that
-                                            enables a robot to navigate its environment and avoid obstacles. Based on
-                                            the same principles, you could control a robot to move autonomously based on
-                                            other sensors (e.g. light, sound or heat). </p>
+                                            enables a robot to navigate its environment and avoid obstacles. You could
+                                            control a robot to move autonomously based on other sensors (e.g. light,
+                                            sound or heat) based on the same principles. </p>
 
                                     </div>
                                 </div>
