@@ -1,5 +1,9 @@
 #VRML_SIM R2022b utf8
 WorldInfo {
+  info [
+    "An IRB 4600/40 robot from ABB working on cars"
+  ]
+  title "Safety near robots"
   basicTimeStep 16
 }
 Viewpoint {
