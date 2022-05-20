@@ -12,25 +12,25 @@
 
   <library_images>
     <image id="young_lightskinned_male_diffuse2_png" name="young_lightskinned_male_diffuse2_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/young_lightskinned_male_diffuse2.png</init_from>
+      <init_from>./textures/young_lightskinned_male_diffuse2.png</init_from>
     </image>
     <image id="short04_diffuse_png" name="short04_diffuse_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/short04_diffuse.png</init_from>
+      <init_from>./textures/short04_diffuse.png</init_from>
     </image>
     <image id="brown_eye_png" name="brown_eye_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/brown_eye.png</init_from>
+      <init_from>./textures/brown_eye.png</init_from>
     </image>
     <image id="eyebrow012_png" name="eyebrow012_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/eyebrow012.png</init_from>
+      <init_from>./textures/eyebrow012.png</init_from>
     </image>
     <image id="male_worksuit01_diffuse_png" name="male_worksuit01_diffuse_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/male_worksuit01_diffuse.png</init_from>
+      <init_from>./textures/male_worksuit01_diffuse.png</init_from>
     </image>
     <image id="male_worksuit01_normal_png" name="male_worksuit01_normal_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/male_worksuit01_normal.png</init_from>
+      <init_from>./textures/male_worksuit01_normal.png</init_from>
     </image>
     <image id="shoes03_diffuse_png" name="shoes03_diffuse_png">
-      <init_from>https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/textures/shoes03_diffuse.png</init_from>
+      <init_from>./textures/shoes03_diffuse.png</init_from>
     </image>
   </library_images>
 
