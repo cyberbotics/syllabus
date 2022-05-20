@@ -9,7 +9,7 @@ WorldInfo {
 Viewpoint {
   fieldOfView 0.85
   orientation -0.22012111973546286 -0.5122023907858491 0.8301779348547313 5.411143280765383
-  position -9.183824071807278 7.22460844349645 5.951554776897445
+  position -9.164707539826638 7.222025891679745 5.982526521166704
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -900,7 +900,7 @@ DEF WORKER Solid {
   children [
     CadShape {
       url [
-        "meshes/worker.dae"
+        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/worker.dae"
       ]
     }
   ]
