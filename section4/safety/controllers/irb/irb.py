@@ -128,7 +128,8 @@ while supervisor.step(timeStep) != -1:
         led.set(1)
     if i > 65:
         led.set(0)
-    i += 1
+    if not stop:
+        i += 1
 
     for j in range(0, 3):
         pos = translations[j].getSFVec3f()

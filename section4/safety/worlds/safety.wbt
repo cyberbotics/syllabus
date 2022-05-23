@@ -9,7 +9,7 @@ WorldInfo {
 Viewpoint {
   fieldOfView 0.85
   orientation -0.151439451624014 -0.20140070118574618 0.9677312902111349 5.082978331500083
-  position -5.662829220341629 8.821549932486834 3.6443618393345654
+  position -5.65638394141551 8.816240828390454 3.6696610254036037
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -370,10 +370,182 @@ Bolt {
   name "bolt(5)"
   enablePhysics FALSE
 }
-DEF BELT ConveyorBelt {
+DEF BELT Robot {
   rotation 0 0 1 -1.5707953071795862
-  size 38 2 0.2
-  speed 0.7
+  children [
+    Track {
+      translation 0 0 0.15000000000000002
+      children [
+        Receiver {
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_roughness.jpg"
+              ]
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_normal.jpg"
+              ]
+            }
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_occlusion.jpg"
+              ]
+            }
+            textureTransform TextureTransform {
+              scale 152 8
+            }
+          }
+          geometry DEF BELT_BO Box {
+            size 38 2 0.1
+          }
+        }
+      ]
+      boundingObject USE BELT_BO
+      physics Physics {
+        density -1
+        mass 1
+      }
+      device [
+        LinearMotor {
+          name "belt_motor"
+          maxVelocity 0.7
+          sound ""
+        }
+      ]
+      textureAnimation 0.02631578947368421 0
+    }
+    Receiver {
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_base_color.jpg"
+          ]
+        }
+        roughnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_roughness.jpg"
+          ]
+        }
+        metalnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_metalness.jpg"
+          ]
+        }
+        normalMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_normal.jpg"
+          ]
+        }
+        occlusionMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_occlusion.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 2 2
+        }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            19.03 -1.03 0
+            19.03 -1.03 0.21000000000000002
+            -19.03 -1.03 0.21000000000000002
+            -19.03 -1.03 0
+            19.03 1.03 0
+            19.03 1.03 0.21000000000000002
+            -19.03 1.03 0.21000000000000002
+            -19.03 1.03 0
+            19 -1 0.21000000000000002
+            19 1 0.21000000000000002
+            -19 1 0.21000000000000002
+            -19 -1 0.21000000000000002
+            19 -1 0.2
+            19 1 0.2
+            -19 1 0.2
+            -19 -1 0.2
+          ]
+        }
+        texCoord TextureCoordinate {
+          point [
+            0 0
+            1 0
+            1 1
+            0 1
+            0 0.011035207566999475
+            1 0.011035207566999475
+            0 0.011035207566999475
+            0.054125065685759324 0.011035207566999475
+            0.054125065685759324 0
+            0 0
+            0.001 0
+            0.001 0.001
+            0 0.001
+          ]
+        }
+        coordIndex [
+          0, 1, 2, 3, -1, 4, 7, 6, 5, -1, 0, 4, 5, 1, -1, 7, 3, 2, 6, -1, 1, 5, 9, 8, -1, 5, 6, 10, 9, -1, 6, 2, 11, 10, -1, 2, 1, 8, 11, -1, 0, 3, 7, 4, -1, 8, 9, 13, 12, -1, 9, 10, 14, 13, -1, 10, 11, 15, 14, -1, 11, 8, 12, 15, -1
+        ]
+        texCoordIndex [
+          1, 5, 4, 0, -1, 0, 1, 5, 4, -1, 0, 8, 7, 6, -1, 0, 8, 7, 6, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1
+        ]
+      }
+    }
+  ]
+  name "conveyor belt"
+  boundingObject Group {
+    children [
+      Transform {
+        translation 19.015 0 0.10500000000000001
+        children [
+          Box {
+            size 0.03 2.06 0.21000000000000002
+          }
+        ]
+      }
+      Transform {
+        translation -19.015 0 0.10500000000000001
+        children [
+          Box {
+            size 0.03 2.06 0.21000000000000002
+          }
+        ]
+      }
+      Transform {
+        translation 0 -1.015 0.10500000000000001
+        children [
+          Box {
+            size 38 0.03 0.21000000000000002
+          }
+        ]
+      }
+      Transform {
+        translation 0 1.015 0.10500000000000001
+        children [
+          Box {
+            size 38 0.03 0.21000000000000002
+          }
+        ]
+      }
+    ]
+  }
+  controller "conveyor_belt"
+  controllerArgs [
+    "0.7"
+    "0"
+  ]
 }
 DEF CAR1 Solid {
   translation 0 17.5 0.140015
