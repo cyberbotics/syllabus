@@ -8,8 +8,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation -0.22012111973546286 -0.5122023907858491 0.8301779348547313 5.411143280765383
-  position -9.164707539826638 7.222025891679745 5.982526521166704
+  orientation -0.151439451624014 -0.20140070118574618 0.9677312902111349 5.082978331500083
+  position -5.662829220341629 8.821549932486834 3.6443618393345654
   follow "robot:IRB 4600/40:solid:solid:solid:solid:solid:solid:pen"
   followType "Pan and Tilt Shot"
 }
@@ -370,7 +370,7 @@ Bolt {
   name "bolt(5)"
   enablePhysics FALSE
 }
-ConveyorBelt {
+DEF BELT ConveyorBelt {
   rotation 0 0 1 -1.5707953071795862
   size 38 2 0.2
   speed 0.7
@@ -978,14 +978,32 @@ DEF BOX Transform {
       ]
     }
     Transform {
-      translation -0.005 0 2.005
+      translation 1.25 2.01 0
       children [
-        Shape {
-          appearance USE BOX_APPEARANCE
+        DEF BOX_POLE Shape {
+          appearance USE GASBOX_APPEARANCE
           geometry Box {
-            size 2.51 4.03 0.01
+            size 0.05 0.05 4
           }
         }
+      ]
+    }
+    Transform {
+      translation -1.25 2.01 0
+      children [
+        USE BOX_POLE
+      ]
+    }
+    Transform {
+      translation -1.25 -2.01 0
+      children [
+        USE BOX_POLE
+      ]
+    }
+    Transform {
+      translation 1.25 -2.01 0
+      children [
+        USE BOX_POLE
       ]
     }
   ]
