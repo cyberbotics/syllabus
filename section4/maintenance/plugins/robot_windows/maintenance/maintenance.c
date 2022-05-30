@@ -21,109 +21,60 @@
 
 #include <stdio.h>
 
-WbNodeRef barriers[3], box, worker;
-WbFieldRef barriersTranslation[3], boxTranslation, workerTranslation,
-    workerRotation;
-bool isBarriers, isBox, isWorker1, isWorker2;
+WbNodeRef finger;
+WbFieldRef fingerRotation;
 WbDeviceTag emitter;
-
+WbNodeRef cans[10];
+WbFieldRef cansTranslation[10];
+WbFieldRef cansRotation[10];
+int lastCanID = 9;
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {
-  isWorker1 = false;
-  isWorker2 = false;
-  isBarriers = false;
-  isBox = false;
-
   emitter = wb_robot_get_device("emitter");
 
   // Get NodeRefs
-  worker = wb_supervisor_node_get_from_def("WORKER");
-  barriers[0] = wb_supervisor_node_get_from_def("BARRIER0");
-  barriers[1] = wb_supervisor_node_get_from_def("BARRIER1");
-  barriers[2] = wb_supervisor_node_get_from_def("BARRIER2");
-  box = wb_supervisor_node_get_from_def("BOX");
-
+  finger = wb_supervisor_node_get_from_def("FINGER");
   // Get FieldRefs
-  workerTranslation = wb_supervisor_node_get_field(worker, "translation");
-  workerRotation = wb_supervisor_node_get_field(worker, "rotation");
-  for (int i = 0; i < 3; i++)
-    barriersTranslation[i] =
-        wb_supervisor_node_get_field(barriers[i], "translation");
-  boxTranslation = wb_supervisor_node_get_field(box, "translation");
+  fingerRotation = wb_supervisor_node_get_field(finger, "rotation");
+  char name [5] = "CAN";
+  char number [2];
+  for (int i = 0; i < 10; i++) {
+    sprintf(number, "%d", i);
+    name[3] = number[0];
+    name[4] = number[1];
+    cans[i] = wb_supervisor_node_get_from_def(name);
+    cansTranslation[i] = wb_supervisor_node_get_field(cans[i], "translation");
+    cansRotation [i] = wb_supervisor_node_get_field(cans[i], "rotation");
+  }
 }
 
-void change_human() {
-  double pos[3] = {-1000, -1000, 0};
-  if (isWorker1 || isWorker2)
-    isWorker1 = isWorker2 = false;
-  else if (isBarriers || isBox) {
-    pos[0] = -1.82;
-    pos[1] = 2.9;
-    isWorker2 = true;
-  } else {
-    pos[0] = -1.82;
-    pos[1] = 1.65;
-    isWorker1 = true;
-  }
-
+void change_finger() {
   double rotation[4] = {0, 0, 1, 0};
-  wb_supervisor_field_set_sf_rotation(workerRotation, rotation);
-  wb_supervisor_field_set_sf_vec3f(workerTranslation, pos);
-  wb_supervisor_node_reset_physics(worker);
+  wb_supervisor_field_set_sf_rotation(fingerRotation, rotation);
+  wb_supervisor_node_reset_physics(finger);
 }
 
-void change_barriers() {
-  for (int i = 0; i < 3; i++) {
-    double *pos = wb_supervisor_field_get_sf_vec3f(barriersTranslation[i]);
-    if (isBarriers) {
-      pos[2] = -1000;
-    } else {
-      pos[2] = 0;
-    }
-    wb_supervisor_field_set_sf_vec3f(barriersTranslation[i], pos);
-  }
-  isBarriers = !isBarriers;
-}
-
-void change_box() {
-  double *pos = wb_supervisor_field_get_sf_vec3f(boxTranslation);
-  if (isBox) {
-    pos[2] = -1000;
-  } else {
-    pos[2] = 2;
-  }
-  wb_supervisor_field_set_sf_vec3f(boxTranslation, pos);
-  isBox = !isBox;
-}
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
   const char *message = wb_robot_wwi_receive_text();
   while (message) {
-    if (strncmp(message, "human", strlen("human")) == 0) {
-      change_human();
-    } else if (strncmp(message, "barriers", strlen("barriers")) == 0) {
-      change_barriers();
-      if (isBox && isBarriers)
-        change_box();
-
-      if ((isWorker1 && isBarriers) || (isWorker2 && !isBarriers)) {
-        change_human(); // unset previous human
-        change_human(); // put new one behind the fences
-      }
-    } else if (strncmp(message, "box", strlen("barriers")) == 0) {
-      change_box();
-      if (isBarriers && isBox)
-        change_barriers();
-      if ((isWorker1 && isBox) || (isWorker2 && !isBox)) {
-        change_human(); // unset previous human
-        change_human(); // put new one behind the box
-      }
-    } else if ((strncmp(message, "sensor", strlen("sensor")) == 0) ||
-               (strncmp(message, "button", strlen("button")) == 0) ||
-               (strncmp(message, "speed", strlen("speed")) == 0))
+    if (strncmp(message, "finger", strlen("finger")) == 0)
+      change_finger();
+    else
       wb_emitter_send(emitter, message, strlen(message));
+
 
     message = wb_robot_wwi_receive_text();
   }
+  
+  const double* translation = wb_supervisor_field_get_sf_vec3f(cansTranslation[lastCanID]);
+  if (translation[0] <= 6.07) {
+    lastCanID = lastCanID == 9 ? 0 : lastCanID + 1;
+    double newTranslation[3] = {7.7, -0.82, 0.66};
+    wb_supervisor_field_set_sf_vec3f(cansTranslation[lastCanID], newTranslation);
+    double newRotation[4] = {0, 0, 1, 0};
+    wb_supervisor_field_set_sf_rotation(cansRotation[lastCanID], newRotation);
+    wb_supervisor_node_reset_physics(cans[lastCanID]);
+  } 
 }

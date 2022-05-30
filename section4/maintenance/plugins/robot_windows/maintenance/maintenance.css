@@ -28,11 +28,19 @@ button {
   min-height: 20px;
 }
 
+.button-enable {
+  color: white;
+}
+
+.button-disable {
+  color: grey;
+}
+
 .button-enable:hover{
   background-color: white;
   color:black;
 }
 
-button:active {
+.button-enable:active {
   transform: scale(0.98);
 }
