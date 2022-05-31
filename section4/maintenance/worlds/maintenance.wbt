@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.18296961692526154 0.8639689344346477 0.46912663494421436 0.8480855514855176
-  position -7.77984501205543 -6.473979563472619 13.11730346781947
+  orientation 0.17550501439963528 0.625465063739591 -0.7602574853046914 0.7071487803360474
+  position -12.979632483865283 8.412663147790656 8.463678322706967
   exposure 1.7
 }
 TexturedBackground {
@@ -38,16 +38,16 @@ Robot {
   window "maintenance"
 }
 Solid {
-  translation 2 -1 0
+  translation 0.5 -1 0
   children [
     Shape {
       appearance ThreadMetalPlate {
         textureTransform TextureTransform {
-          scale 5 5
+          scale 8 5
         }
       }
       geometry Box {
-        size 10 3 0.01
+        size 7 3 0.01
       }
     }
   ]
@@ -56,7 +56,43 @@ Solid {
   locked TRUE
 }
 Solid {
-  translation 2 19 -5
+  translation 2.25 1.5 0
+  children [
+    Shape {
+      appearance ThreadMetalPlate {
+        textureTransform TextureTransform {
+          scale 4 4
+        }
+      }
+      geometry Box {
+        size 3.5 2 0.01
+      }
+    }
+  ]
+  name "floor(2)"
+  model "floor"
+  locked TRUE
+}
+Solid {
+  translation -1.75 1.5 0
+  rotation 0 0 1 3.14159
+  children [
+    Shape {
+      appearance ThreadMetalPlate {
+        textureTransform TextureTransform {
+          scale 3 3
+        }
+      }
+      geometry Box {
+        size 2.5 2 0.01
+      }
+    }
+  ]
+  name "floor(3)"
+  model "floor"
+}
+Solid {
+  translation 2 17.83 -5
   children [
     Shape {
       appearance Asphalt {
@@ -68,11 +104,16 @@ Solid {
   ]
   name "floor(1)"
   model "floor"
-  locked TRUE
 }
 TruckSimple {
-  translation 4.78995 14.06 -4.47
+  translation 4.78995 12.73 -4.5
   rotation 0 0 1 1.5708
+}
+TruckSimple {
+  translation -2.10005 14.49 -4.4
+  rotation 0 0 1 1.5708
+  color 0.960784 0.47451 0
+  name "vehicle(1)"
 }
 SquareManhole {
   translation 0.560459 -1.782 -0.03
@@ -161,7 +202,7 @@ UR5e {
           ]
           endPoint Solid {
             translation -0.0455 0.0214 0.036
-            rotation 0.7068252250609613 0.7073882252402294 3.0000009552334616e-06 3.141598
+            rotation 0.7068252250609612 0.7073882252402294 3.0000009552334616e-06 3.141598
             children [
               HingeJoint {
                 jointParameters HingeJointParameters {
@@ -573,8 +614,8 @@ UR5e {
                 }
               ]
               endPoint DEF FINGER Solid {
-                translation 0.020292851582276727 -0.00017191605282569045 6.0666580614432406e-05
-                rotation 0 0 1 5.16191365590357e-08
+                translation 0.020317459160575344 -0.0002269060498746712 5.2963446135090284e-05
+                rotation 0 0 1 1.032382731180714e-07
                 children [
                   HingeJoint {
                     jointParameters HingeJointParameters {
@@ -893,27 +934,27 @@ Robot {
   ]
 }
 DEF WALL1 Transform {
-  translation 2 2.5 1
+  translation 0.5 2.5 1
   rotation 1 0 0 1.5708
   children [
     DEF wall_long Shape {
       appearance Roughcast {
       }
       geometry Plane {
-        size 10 2
+        size 7 2
       }
     }
   ]
 }
 DEF WALL2 Transform {
-  translation 2 -2.5 1
+  translation 0.5 -2.5 1
   rotation 1 0 0 -1.5708
   children [
     USE wall_long
   ]
 }
 DEF WALL3 Transform {
-  translation 7 0 1
+  translation 4 0 1
   rotation -0.5773509358554485 0.5773489358556708 0.5773509358554485 -2.094395307179586
   children [
     DEF wall_short Shape {
@@ -933,7 +974,7 @@ DEF WALL4 Transform {
   ]
 }
 Transform {
-  translation 7 -0.83 0.85
+  translation 3.99 -0.83 0.85
   children [
     Shape {
       appearance Plastic {
@@ -1047,10 +1088,13 @@ DEF RAMP Solid {
   }
 }
 Solid {
-  translation 2 4.19 -4.35
+  translation 2 2.83 -4.35
   children [
     Shape {
       appearance RoughConcrete {
+        textureTransform TextureTransform {
+          scale 0.5 0.5
+        }
       }
       geometry DEF DOCK Box {
         size 15 5 1.3
@@ -1059,6 +1103,76 @@ Solid {
   ]
   name "solid(1)"
   boundingObject USE DOCK
+}
+Solid {
+  translation 2 0.333705 -2.5
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance DEF CONCRETE RoughConcrete {
+        textureTransform TextureTransform {
+          scale 0.5 0.5
+        }
+      }
+      geometry Plane {
+        size 15 5
+      }
+    }
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation 2 30.33 -2.5
+  rotation -3.3905013482585576e-09 0.7071072811865696 -0.7071062811861719 3.14159
+  children [
+    Shape {
+      appearance CorrugatedMetal {
+        colorOverride 0.45098 0.823529 0.0862745
+        textureTransform TextureTransform {
+          scale 0.5 0.7
+        }
+      }
+      geometry Plane {
+        size 15 5
+      }
+    }
+  ]
+  name "solid(5)"
+}
+Solid {
+  translation -5.5 15.33 -2.5
+  rotation -0.577349935856137 0.5773509358560258 -0.577349935856137 2.09439
+  children [
+    Shape {
+      appearance RoughConcrete {
+        textureTransform TextureTransform {
+          scale 1 0.5
+        }
+      }
+      geometry Plane {
+        size 30 5
+      }
+    }
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 9.5 15.33 -2.5
+  rotation 0.5773489358533613 0.5773529358529169 -0.5773489358533613 -2.094395307179586
+  children [
+    Shape {
+      appearance RoughConcrete {
+        textureTransform TextureTransform {
+          center 0 1
+          scale 1 0.5
+        }
+      }
+      geometry Plane {
+        size 30 5
+      }
+    }
+  ]
+  name "solid(4)"
 }
 WoodenPallet {
   translation 0 3.74 -3.69
@@ -1071,8 +1185,36 @@ CardboardBox {
 Forklift {
   translation 5.6 3.79 -2.95
   rotation 0 0 1 2.87979
+  enablePhysics FALSE
 }
 PlasticCrate {
   translation -0.98 -0.83 0
   size 0.6 0.7 0.5
+}
+Fence {
+  translation 0.655 -0.27 0
+  height 0.8
+  poleAppearance OldSteel {
+  }
+  path [
+    0 0 0
+    0 2.77 0
+  ]
+  horizontalBarsNumber 3
+  horizontalBarAppearance OldSteel {
+  }
+}
+Fence {
+  translation -0.925 -0.27 0
+  name "fence(1)"
+  height 0.8
+  poleAppearance OldSteel {
+  }
+  path [
+    0 0 0
+    0 2.77 0
+  ]
+  horizontalBarsNumber 3
+  horizontalBarAppearance OldSteel {
+  }
 }

@@ -1,4 +1,4 @@
-import WbPBRAppearance from 'https://cyberbotics.com/wwi/R2022b/nodes/WbPBRAppearance.js';
+import WbPbrAppearance from 'https://cyberbotics.com/wwi/R2022b/nodes/WbPbrAppearance.js';
 import WbShape from 'https://cyberbotics.com/wwi/R2022b/nodes/WbShape.js';
 import WbCylinder from 'https://cyberbotics.com/wwi/R2022b/nodes/WbCylinder.js';
 import WbTransform from 'https://cyberbotics.com/wwi/R2022b/nodes/WbTransform.js';
@@ -88,7 +88,6 @@ function createRotationalSlider(name, category, minVal, maxVal, id, axis) {
 }
 
 function highlightX3DElement(deviceElement) {
-  console.log("highlight")
   let id = deviceElement.getAttribute('webots-id');
   if (id === pointedID)
     return;
@@ -104,7 +103,7 @@ function highlightX3DElement(deviceElement) {
     if (typeof WbWorld.instance !== 'undefined' && typeof pointer === 'undefined') {
       let geom = new WbCylinder(getAnId(), 0.0008, 0.5, 36, true, true, true);
       WbWorld.instance.nodes.set(geom.id, geom);
-      let pbr = new WbPBRAppearance(getAnId(), new WbVector3(1, 0, 0), undefined, 0, 1, undefined, 0, undefined,
+      let pbr = new WbPbrAppearance(getAnId(), new WbVector3(1, 0, 0), undefined, 0, 1, undefined, 0, undefined,
         1, undefined, 1, undefined, 1, new WbVector3(0, 0, 0), undefined, 1, undefined);
       WbWorld.instance.nodes.set(pbr.id, pbr);
       let shape = new WbShape(getAnId(), false, false, geom, pbr);
