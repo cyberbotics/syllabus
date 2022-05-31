@@ -155,8 +155,13 @@ int main(int argc, char **argv) {
           state = WAITING;
         }
       } else if (strncmp(buffer, "cycle", strlen("prepare")) == 0) {
-        state = GRASPING;
-        counter = 8;
+        for (i = 0; i < 4; ++i)
+          wb_motor_set_position(ur_motors[i], target_positions[i]);
+        for (i = 0; i < 3; ++i)
+            wb_motor_set_position(hand_motors[i],
+                                  wb_motor_get_min_position(hand_motors[i]));
+        state = RELEASING;
+        counter = 24;
       }
 
       wb_receiver_next_packet(receiver);
