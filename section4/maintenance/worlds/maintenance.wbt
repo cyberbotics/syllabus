@@ -1286,7 +1286,7 @@ DEF CAN2 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(2)"
   textureUrl [
-    "textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN3 Can {
@@ -1302,7 +1302,7 @@ DEF CAN5 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(5)"
   textureUrl [
-    "textures/can_beer_base_color.jpg"
+  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN6 Can {
@@ -1318,7 +1318,7 @@ DEF CAN8 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(8)"
   textureUrl [
-    "textures/can_beer_base_color.jpg"
+  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN9 Can {
