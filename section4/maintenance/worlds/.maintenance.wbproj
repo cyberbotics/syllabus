@@ -5,7 +5,6 @@ sceneTreePerspectives: 000000ff0000000100000002000000c0000000fd01000000020100000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "controllers/ure/ure.c"
-robotWindow: robot
+textFiles: 0 "syllabus/section4/maintenance/controllers/ure/ure.c"
 consoles: Console:All:All
 renderingDevicePerspectives: UR5e:camera;1;32;0;0
