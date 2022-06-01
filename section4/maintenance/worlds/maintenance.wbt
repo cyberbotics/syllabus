@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.4644555953310589 0.17120483201058898 0.8688900422158706 2.4676167697921065
-  position 1.5248352693875629 -1.4649098544463 3.0510552521894345
+  orientation -0.0729024686393288 0.9939244184576871 0.082458962277245 0.9556948520567858
+  position -7.57637391389749 -0.5058877935379051 11.71880228204615
   exposure 1.7
 }
 TexturedBackground {
@@ -46,13 +46,14 @@ Solid {
           scale 8 5
         }
       }
-      geometry Box {
+      geometry DEF B1 Box {
         size 7 3 0.01
       }
     }
   ]
   name "floor"
   model "floor"
+  boundingObject USE B1
   locked TRUE
 }
 Solid {
@@ -64,13 +65,14 @@ Solid {
           scale 4 4
         }
       }
-      geometry Box {
+      geometry DEF B2 Box {
         size 3.5 2 0.01
       }
     }
   ]
   name "floor(2)"
   model "floor"
+  boundingObject USE B2
   locked TRUE
 }
 Solid {
@@ -323,13 +325,14 @@ Solid {
           scale 3 3
         }
       }
-      geometry Box {
+      geometry DEF B3 Box {
         size 2.5 2 0.01
       }
     }
   ]
   name "floor(3)"
   model "floor"
+  boundingObject USE B3
 }
 CardboardBox {
   translation 2.48841 1.3873 0.26
