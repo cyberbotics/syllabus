@@ -135,6 +135,7 @@ int main(int argc, char **argv) {
 
     while (wb_receiver_get_queue_length(receiver) > 0) {
       const char *buffer = wb_receiver_get_data(receiver);
+      printf("ure %s\n", buffer);
       if (strncmp(buffer, "oil", strlen("oil")) == 0)
         oiled = true;
       else if (strncmp(buffer, "calibrate", strlen("oil")) == 0)
@@ -155,12 +156,11 @@ int main(int argc, char **argv) {
           state = WAITING;
         }
       } else if (strncmp(buffer, "cycle", strlen("prepare")) == 0) {
-        printf("cycle ure\n");
         for (i = 0; i < 4; ++i)
           wb_motor_set_position(ur_motors[i], target_positions[i]);
         for (i = 0; i < 3; ++i)
-            wb_motor_set_position(hand_motors[i],
-                                  wb_motor_get_min_position(hand_motors[i]));
+          wb_motor_set_position(hand_motors[i],
+                                wb_motor_get_min_position(hand_motors[i]));
         state = RELEASING;
         counter = 24;
       }

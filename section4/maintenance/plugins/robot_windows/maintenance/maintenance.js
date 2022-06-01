@@ -41,7 +41,6 @@ window.onload = function() {
   };
 
   fingerButton.onclick = () => {
-    console.log("finger")
     window.robotWindow.send('finger');
     disableButton(fingerButton);
     fingerButton.repaired = true;
