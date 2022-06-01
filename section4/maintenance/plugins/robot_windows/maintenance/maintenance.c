@@ -59,6 +59,7 @@ void change_finger() {
 void wb_robot_window_step(int time_step) {
   const char *message = wb_robot_wwi_receive_text();
   while (message) {
+    printf("message %s\n", message);
     if (strncmp(message, "finger", strlen("finger")) == 0)
       change_finger();
     else
