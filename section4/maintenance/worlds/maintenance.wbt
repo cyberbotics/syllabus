@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.4890966533000813 0.1857542657949608 0.852220521032928 2.4642352884062793
-  position 1.5962005592756097 -1.6238025805369205 3.3335572985555704
+  orientation -0.43608979845241747 0.1188263661845215 0.8920235324166689 2.607244737827339
+  position 2.0390818614742674 -1.5346480194945349 3.143140830523792
   exposure 1.7
 }
 TexturedBackground {
@@ -1475,15 +1475,15 @@ Solid {
   name "solid(4)"
 }
 WoodenPallet {
-  translation 0 3.75 -3.69
+  translation 0 3.75 -3.7
 }
 CardboardBox {
-  translation 0 3.75 -3.05
+  translation 0 3.75 -3.06
   size 1 0.8 1
   lidAngle 4
 }
 CardboardBox {
-  translation 5.05276 0.82307 -3.05
+  translation 5.05276 0.82307 -3.2
   name "cardboard box(4)"
   size 1 0.8 1
 }
@@ -1542,12 +1542,12 @@ Transform {
   ]
 }
 CardboardBox {
-  translation 4.73276 0.82307 -2.05
+  translation 4.73276 32.8331 -2.2
   name "cardboard box(6)"
   size 1 0.8 1
 }
 CardboardBox {
-  translation 3.89276 0.87307 -3.05
+  translation 3.89276 0.87307 -3.2
   name "cardboard box(5)"
   size 1 0.8 1
 }
@@ -1614,14 +1614,14 @@ FireExtinguisher {
   enablePhysics FALSE
 }
 WoodenPalletStack {
-  translation -4.37915 1.27314 -3.81
+  translation -4.37915 1.27314 -3.7
   rotation 0 0 1 -0.261795307179586
   name "wooden pallet stack(1)"
   palletNumber 12
   lateralMisalignment 0.2
 }
 WoodenPalletStack {
-  translation -4.3687 2.58674 -3.66
+  translation -4.3687 2.58674 -3.69
   rotation 0 0 1 0.261799
   name "wooden pallet stack(2)"
   palletNumber 6
