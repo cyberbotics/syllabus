@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.43608979845241747 0.1188263661845215 0.8920235324166689 2.607244737827339
-  position 2.0390818614742674 -1.5346480194945349 3.143140830523792
+  orientation -0.4644555953310589 0.17120483201058898 0.8688900422158706 2.4676167697921065
+  position 1.5248352693875629 -1.4649098544463 3.0510552521894345
   exposure 1.7
 }
 TexturedBackground {
@@ -1483,7 +1483,8 @@ CardboardBox {
   lidAngle 4
 }
 CardboardBox {
-  translation 5.05276 0.82307 -3.2
+  translation 5.06312 0.861706 -3.2
+  rotation 0 0 1 2.87979
   name "cardboard box(4)"
   size 1 0.8 1
 }
@@ -1542,7 +1543,7 @@ Transform {
   ]
 }
 CardboardBox {
-  translation 4.73276 32.8331 -2.2
+  translation 4.73276 0.7931 -2.2
   name "cardboard box(6)"
   size 1 0.8 1
 }
