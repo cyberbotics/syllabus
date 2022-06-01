@@ -81,16 +81,28 @@ for link in armChain.links:
         motors.append(motor)
 
 led = supervisor.getDevice('welding_torch')
+alarm_led = supervisor.getDevice('alarm')
+alarm_led1 = supervisor.getDevice('alarm1')
+alarm_on = True
 on = True
 
 # Get the arm and target nodes.
 arm = supervisor.getSelf()
 
 i = 101
+counter = 0
 while supervisor.step(timeStep) != -1:
     stop = False
     if (sensors and (ds0.getValue() != 0 or ds1.getValue() != 0)) or button:
         stop = True
+        alarm_led.set(alarm_on)
+        alarm_led1.set(alarm_on)
+        if counter % 3 == 0:
+            alarm_on = not alarm_on
+        counter += 1
+    else:
+        alarm_led.set(0)
+        alarm_led1.set(0)
 
     for j in range(len(motors)):
         motors[j].setVelocity(speed)
