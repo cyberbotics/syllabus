@@ -19,8 +19,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.40686715989594896 -0.18842676062160063 -0.8938425309190957 3.9885198208250667
-  position 2.754037506367669 -2.680512174323747 4.039921642544039
+  orientation -0.4890966533000813 0.1857542657949608 0.852220521032928 2.4642352884062793
+  position 1.5962005592756097 -1.6238025805369205 3.3335572985555704
   exposure 1.7
 }
 TexturedBackground {
@@ -421,13 +421,13 @@ UR5e {
     Receiver {
     }
     Camera {
-      translation -3.81835e-07 0.09 -1.68443e-07
+      translation -4.38271e-07 0.09 0.0299998
       rotation 0.70710528118436 0.707108281185553 3.3905113482557537e-09 3.14159
       width 1
       height 1
     }
     DistanceSensor {
-      translation 0 0.1 0
+      translation 0 0.1 0.01
       rotation 0 0 1 1.570796
     }
     Solid {
@@ -1129,14 +1129,14 @@ Robot {
       geometry IndexedFaceSet {
         coord Coordinate {
           point [
-            7.02 -0.37 0
-            7.02 -0.37 0.6
-            -7.02 -0.37 0.6
-            -7.02 -0.37 0
-            7.02 0.37 0
-            7.02 0.37 0.6
-            -7.02 0.37 0.6
-            -7.02 0.37 0
+            7.01 -0.37 0
+            7.01 -0.37 0.6
+            -7.01 -0.37 0.6
+            -7.01 -0.37 0
+            7.01 0.37 0
+            7.01 0.37 0.6
+            -7.01 0.37 0.6
+            -7.01 0.37 0
             7 -0.35 0.6
             7 0.35 0.6
             -7 0.35 0.6
@@ -1177,10 +1177,10 @@ Robot {
   boundingObject Group {
     children [
       Transform {
-        translation 7.01 0 0.3
+        translation 7.005 0 0.2975
         children [
           Box {
-            size 0.02 0.74 0.6
+            size 0.01 0.74 0.595
           }
         ]
       }
@@ -1302,7 +1302,7 @@ DEF CAN5 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(5)"
   textureUrl [
-  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN6 Can {
@@ -1318,7 +1318,7 @@ DEF CAN8 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(8)"
   textureUrl [
-  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN9 Can {
@@ -1557,7 +1557,7 @@ Forklift {
   enablePhysics FALSE
 }
 PlasticCrate {
-  translation -0.98 -0.83 0
+  translation -0.96 -0.83 0
   size 0.6 0.7 0.5
 }
 Fence {
@@ -1611,6 +1611,7 @@ Radiator {
 }
 FireExtinguisher {
   translation -2.9 -0.29 0
+  enablePhysics FALSE
 }
 WoodenPalletStack {
   translation -4.37915 1.27314 -3.81

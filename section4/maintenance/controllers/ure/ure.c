@@ -161,7 +161,7 @@ int main(int argc, char **argv) {
           wb_motor_set_position(hand_motors[i],
                                 wb_motor_get_min_position(hand_motors[i]));
         state = RELEASING;
-        counter = 24;
+        counter = 32;
       }
 
       wb_receiver_next_packet(receiver);
