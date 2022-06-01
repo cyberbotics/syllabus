@@ -999,9 +999,6 @@ Robot {
             }
           ]
           name "alarm"
-          color [
-            0.2 0 0
-          ]
         }
         LED {
           children [
