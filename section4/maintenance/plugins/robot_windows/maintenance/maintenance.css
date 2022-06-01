@@ -12,6 +12,8 @@ h1 {
   padding-bottom: 20px;
   border-bottom: solid white 1px;
   margin-bottom: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 button {
   display: block;
