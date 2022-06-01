@@ -36,15 +36,15 @@ void wb_robot_window_init() {
   finger = wb_supervisor_node_get_from_def("FINGER");
   // Get FieldRefs
   fingerRotation = wb_supervisor_node_get_field(finger, "rotation");
-  char name [5] = "CAN";
-  char number [2];
+  char name[5] = "CAN";
+  char number[2];
   for (int i = 0; i < 10; i++) {
     sprintf(number, "%d", i);
     name[3] = number[0];
     name[4] = number[1];
     cans[i] = wb_supervisor_node_get_from_def(name);
     cansTranslation[i] = wb_supervisor_node_get_field(cans[i], "translation");
-    cansRotation [i] = wb_supervisor_node_get_field(cans[i], "rotation");
+    cansRotation[i] = wb_supervisor_node_get_field(cans[i], "rotation");
   }
 }
 
@@ -54,28 +54,27 @@ void change_finger() {
   wb_supervisor_node_reset_physics(finger);
 }
 
-
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
   const char *message = wb_robot_wwi_receive_text();
   while (message) {
-    printf("message %s\n", message);
     if (strncmp(message, "finger", strlen("finger")) == 0)
       change_finger();
     else
       wb_emitter_send(emitter, message, strlen(message));
 
-
     message = wb_robot_wwi_receive_text();
   }
-  
-  const double* translation = wb_supervisor_field_get_sf_vec3f(cansTranslation[lastCanID]);
+
+  const double *translation =
+      wb_supervisor_field_get_sf_vec3f(cansTranslation[lastCanID]);
   if (translation[0] <= 6.07) {
     lastCanID = lastCanID == 9 ? 0 : lastCanID + 1;
     double newTranslation[3] = {7.7, -0.82, 0.66};
-    wb_supervisor_field_set_sf_vec3f(cansTranslation[lastCanID], newTranslation);
+    wb_supervisor_field_set_sf_vec3f(cansTranslation[lastCanID],
+                                     newTranslation);
     double newRotation[4] = {0, 0, 1, 0};
     wb_supervisor_field_set_sf_rotation(cansRotation[lastCanID], newRotation);
     wb_supervisor_node_reset_physics(cans[lastCanID]);
-  } 
+  }
 }
