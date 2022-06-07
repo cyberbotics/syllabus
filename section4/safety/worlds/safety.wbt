@@ -1514,7 +1514,7 @@ DEF WORKER Solid {
   children [
     CadShape {
       url [
-        "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/meshes/worker.dae"
+        "meshes/worker.dae"
       ]
     }
   ]
