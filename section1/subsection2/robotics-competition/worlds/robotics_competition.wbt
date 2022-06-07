@@ -525,7 +525,7 @@ DEF FIRST_AID_BOX Transform {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
               ]
             }
             roughness 1
@@ -551,7 +551,7 @@ DEF FIRE_EXTINGUISHER_PANEL Transform {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/fire_extinguisher_panel.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/samples/environments/factory/worlds/textures/fire_extinguisher_panel.jpg"
           ]
         }
         metalness 0
@@ -632,7 +632,7 @@ Transform {
     TexturedBoxShape {
       size 0.15 0.15 0.15
       textureUrl [
-        "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
+        "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/samples/environments/factory/worlds/textures/first_aid.jpg"
       ]
       textureMapping "default"
     }
@@ -678,22 +678,22 @@ Solid {
         baseColor 0.533333 0.541176 0.521569
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor.jpg"
+            "textures/gym-floor/gym-floor.jpg"
           ]
         }
         roughnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-roughness.jpg"
+            "textures/gym-floor/gym-floor-roughness.jpg"
           ]
         }
         metalnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-metalness.jpg"
+            "textures/gym-floor/gym-floor-metalness.jpg"
           ]
         }
         normalMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section1/subsection2/robotics-competition/textures/gym-floor/gym-floor-normal.jpg"
+            "textures/gym-floor/gym-floor-normal.jpg"
           ]
         }
       }
@@ -1362,7 +1362,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
         baseColor 0.813 0.781 0.753
         roughnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/samples/environments/factory/worlds/textures/plastic_roughness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/samples/environments/factory/worlds/textures/plastic_roughness.jpg"
           ]
         }
         metalness 0
@@ -2301,7 +2301,7 @@ Solid {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
           ]
         }
         roughness 1
@@ -2309,7 +2309,7 @@ Solid {
       }
       geometry Mesh {
         url [
-          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+          "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
         ]
       }
     }
