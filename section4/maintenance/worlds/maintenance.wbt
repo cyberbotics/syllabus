@@ -98,13 +98,13 @@ Solid {
                   roughness 1
                   roughnessMap ImageTexture {
                     url [
-                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/plastic/plastic_rough_roughness.jpg"
+                      "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/plastic/plastic_rough_roughness.jpg"
                     ]
                   }
                   metalness 0
                   normalMap ImageTexture {
                     url [
-                      "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/plastic/plastic_rough_normal.jpg"
+                      "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/plastic/plastic_rough_normal.jpg"
                     ]
                   }
                 }
@@ -159,17 +159,17 @@ Solid {
                             appearance PBRAppearance {
                               baseColorMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
                                 ]
                               }
                               roughnessMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
                                 ]
                               }
                               normalMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
                                 ]
                               }
                             }
@@ -187,17 +187,17 @@ Solid {
                             appearance PBRAppearance {
                               baseColorMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
                                 ]
                               }
                               roughnessMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
                                 ]
                               }
                               normalMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
                                 ]
                               }
                             }
@@ -216,17 +216,17 @@ Solid {
                             appearance PBRAppearance {
                               baseColorMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
                                 ]
                               }
                               roughnessMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
                                 ]
                               }
                               normalMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
                                 ]
                               }
                             }
@@ -245,17 +245,17 @@ Solid {
                             appearance PBRAppearance {
                               baseColorMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
                                 ]
                               }
                               roughnessMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
                                 ]
                               }
                               normalMap ImageTexture {
                                 url [
-                                  "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+                                  "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
                                 ]
                               }
                             }
@@ -348,7 +348,7 @@ Solid {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/toys/protos/PaperBoat/textures/newspaper.jpg"
           ]
         }
         roughness 1
@@ -356,7 +356,7 @@ Solid {
       }
       geometry Mesh {
         url [
-          "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
+          "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/toys/protos/PaperBoat/meshes/geom.obj"
         ]
       }
     }
@@ -1056,23 +1056,23 @@ Robot {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_base_color.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/rubber/dotted_rubber_base_color.jpg"
               ]
             }
             roughnessMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_roughness.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/rubber/dotted_rubber_roughness.jpg"
               ]
             }
             metalness 0
             normalMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_normal.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/rubber/dotted_rubber_normal.jpg"
               ]
             }
             occlusionMap ImageTexture {
               url [
-                "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/rubber/dotted_rubber_occlusion.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/rubber/dotted_rubber_occlusion.jpg"
               ]
             }
             textureTransform TextureTransform {
@@ -1102,27 +1102,27 @@ Robot {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_base_color.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_base_color.jpg"
           ]
         }
         roughnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_roughness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_roughness.jpg"
           ]
         }
         metalnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_metalness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_metalness.jpg"
           ]
         }
         normalMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_normal.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_normal.jpg"
           ]
         }
         occlusionMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_occlusion.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_occlusion.jpg"
           ]
         }
         textureTransform TextureTransform {
@@ -1289,7 +1289,7 @@ DEF CAN2 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(2)"
   textureUrl [
-    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN3 Can {
@@ -1305,7 +1305,7 @@ DEF CAN5 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(5)"
   textureUrl [
-    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN6 Can {
@@ -1321,7 +1321,7 @@ DEF CAN8 Can {
   rotation -3.3977899999752476e-06 1.73923999998733e-06 -0.9999999999927152 -1.5707953071795862
   name "can(8)"
   textureUrl [
-    "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
+    "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/drinks/protos/textures/can_beer_base_color.jpg"
   ]
 }
 DEF CAN9 Can {
@@ -1499,27 +1499,27 @@ Transform {
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/gnome_base_color.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/garden/protos/textures/gnome_base_color.jpg"
           ]
         }
         roughnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/gnome_roughness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/garden/protos/textures/gnome_roughness.jpg"
           ]
         }
         metalnessMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/gnome_metalness.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/garden/protos/textures/gnome_metalness.jpg"
           ]
         }
         normalMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/gnome_normal.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/garden/protos/textures/gnome_normal.jpg"
           ]
         }
         occlusionMap ImageTexture {
           url [
-            "https://raw.githubusercontent.com/cyberbotics/webots/develop/projects/objects/garden/protos/textures/gnome_occlusion.jpg"
+            "https://raw.githubusercontent.com/cyberbotics/webots/CodeInstitute/projects/objects/garden/protos/textures/gnome_occlusion.jpg"
           ]
         }
       }
