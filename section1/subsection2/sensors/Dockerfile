@@ -1,4 +1,4 @@
-FROM benjamindeleze/webots-test:R2022b14LG
+FROM benjamindeleze/webots-test:R2022b14LGA
 ARG PROJECT_PATH
 RUN mkdir -p $PROJECT_PATH
 COPY . $PROJECT_PATH
