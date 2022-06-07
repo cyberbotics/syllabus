@@ -11,7 +11,6 @@ webots_catkin_ws
 *.o
 *.d
 *.class
-*.so
 *.dylib
 *.dll
 *.lib
