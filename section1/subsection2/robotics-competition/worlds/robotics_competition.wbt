@@ -25,12 +25,10 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/tables/protos/Table.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/advertising_board/protos/AdvertisingBoard.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/street_furniture/protos/Fence.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/kitchen/utensils/protos/Plate.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/lights/protos/DoubleFluorescentLamp.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/shapes/protos/TexturedBoxShape.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/fire_extinguisher/protos/FireExtinguisher.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/manhole/protos/SquareManhole.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/chairs/protos/Chair.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/chairs/protos/WoodenChair.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/obstacles/protos/OilBarrel.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/computers/protos/Laptop.proto"
@@ -41,7 +39,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/bluebotics/shrimp/protos/Shrimp.proto"
-EXTERNPROTO "../protos/trackedRobot.proto"
+EXTERNPROTO "webots://projects/objects/floors/protos/Floor.proto"
 
 WorldInfo {
   info [
@@ -499,13 +497,13 @@ TrafficCone {
 }
 Laptop {
   translation 1.84376 1.88259 0.7
-  controller ""
+  controller "<none>"
 }
 Laptop {
   translation 1.94376 0.12259 0.69
   rotation 0 0 1 -0.261795307179586
   name "laptop(1)"
-  controller ""
+  controller "<none>"
 }
 Cabinet {
   translation -9.5777 -11.1117 0
@@ -1062,7 +1060,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000576911678438 9.823983848633588e-09 0
+        translation -0.0010000592760900373 1.0093873514804841e-08 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1166,7 +1164,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996824466284 0.8799999905369368 0
+        translation -0.0009999996737226347 0.8799999902769625 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1393,7 +1391,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000162275579927 -5.090328158985358e-09 0
+      hidden translation_5 0.001000016768476636 -5.26000576428487e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1927,7 +1925,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -2.2822403966671345e-08 3.9124143924595955e-09 0
+        translation -2.4407293131023522e-08 4.184109836380401e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -2031,7 +2029,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996824466284 0.879999990536957 0
+        translation -0.0009999996737226347 0.8799999902769833 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2985,6 +2983,11 @@ AdvertisingBoard {
   translation -5.8 -10.99 3.24
   rotation 0 0 -1 -1.5708053071795867
 }
+DEF R0 AiboErs7 {
+  translation 1008 1008 0.143
+  controller "AiboErs7_competition"
+  customData "start"
+}
 DEF R1 Mavic2Pro {
   translation 1000 1000 0
   controller "Mavic2Pro_competition"
@@ -2992,4 +2995,27 @@ DEF R1 Mavic2Pro {
     ""
   ]
   customData "start"
+}
+DEF R2 Nao {
+  translation 1001 1001 0.334
+  controller "Nao_competition"
+  customData "start"
+}
+DEF R3 Pioneer3at {
+  translation 1002 1002 0.1
+  controller "Pioneer3at_competition"
+  customData "stop"
+}
+DEF R4 Shrimp {
+  translation 1003 1003 0
+  controller "Shrimp_competition"
+  customData "stop"
+}
+DEF R5 SummitXlSteel {
+  translation 1004 1004 0.118
+  controller "SummitXlSteel_competition"
+  customData "stop"
+}
+Floor {
+  name "floor(1)"
 }
