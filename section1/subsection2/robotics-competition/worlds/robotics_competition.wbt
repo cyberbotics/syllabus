@@ -2985,11 +2985,6 @@ AdvertisingBoard {
   translation -5.8 -10.99 3.24
   rotation 0 0 -1 -1.5708053071795867
 }
-DEF R0 AiboErs7 {
-  translation 1008 1008 0.143
-  controller "AiboErs7_competition"
-  customData "start"
-}
 DEF R1 Mavic2Pro {
   translation 1000 1000 0
   controller "Mavic2Pro_competition"
@@ -2997,28 +2992,4 @@ DEF R1 Mavic2Pro {
     ""
   ]
   customData "start"
-}
-DEF R2 Nao {
-  translation 1001 1001 0.334
-  controller "Nao_competition"
-  customData "start"
-}
-DEF R3 Pioneer3at {
-  translation 1002 1002 0.1
-  controller "Pioneer3at_competition"
-  customData "stop"
-}
-DEF R4 Shrimp {
-  translation 1003 1003 0
-  controller "Shrimp_competition"
-  customData "stop"
-}
-DEF R5 SummitXlSteel {
-  translation 1004 1004 0.118
-  controller "SummitXlSteel_competition"
-  customData "stop"
-}
-DEF R6 trackedRobot {
-  translation 1006 1006 0.25
-  controller "trackedRobot_competition"
 }
