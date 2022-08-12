@@ -12,8 +12,8 @@ renderingDevicePerspectives: ERS-7:PRM:/r1/c1/c2/c3/i1-FbkImageSensor:F1;1;1;0;0
 renderingDevicePerspectives: Mavic 2 PRO:camera;1;1;0;0
 renderingDevicePerspectives: NAO:CameraBottom;1;1;0;0
 renderingDevicePerspectives: NAO:CameraTop;1;1;0;0
-renderingDevicePerspectives: Summit-XL Steel:depth_camera;1;1;0;0
-renderingDevicePerspectives: Summit-XL Steel:rgb_camera;1;0.959722;0;0
+renderingDevicePerspectives: Summit-XL Steel:depth_camera;1;0.895833;0;0
+renderingDevicePerspectives: Summit-XL Steel:rgb_camera;1;0.598437;0;0
 renderingDevicePerspectives: laptop(1):display;1;1;0;0
 renderingDevicePerspectives: laptop:display;1;1;0;0
 renderingDevicePerspectives: trackedRobot:camera;1;1;0;0
