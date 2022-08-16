@@ -65,8 +65,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation -0.2996973836975008 -0.15309408911755368 0.9416706845188182 4.038310427864329
-  position 5.124510233678376 18.74625572591836 14.195796269057098
+  orientation -0.3345991337323381 -0.19482365491161915 0.92200171539561 4.126966730613236
+  position 6.967843268721526 16.69557836998507 16.228035401560657
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -1060,7 +1060,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000592760900373 1.0093873514804841e-08 0
+        translation -0.0010000599100589147 1.0201829381273342e-08 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1164,7 +1164,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996737226347 0.8799999902769625 0
+        translation -0.0009999996702330372 0.8799999901729728 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1391,7 +1391,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.001000016768476636 -5.26000576428487e-09 0
+      hidden translation_5 0.0010000170389359575 -5.344844566934626e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1925,7 +1925,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -2.4407293131023522e-08 4.184109836380401e-09 0
+        translation -2.5041248796764393e-08 4.292788013948723e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -2029,7 +2029,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996737226347 0.8799999902769833 0
+        translation -0.0009999996702330372 0.8799999901729938 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -3017,5 +3017,6 @@ DEF R5 SummitXlSteel {
   customData "stop"
 }
 Floor {
+  translation 0 0 -1
   name "floor(1)"
 }
