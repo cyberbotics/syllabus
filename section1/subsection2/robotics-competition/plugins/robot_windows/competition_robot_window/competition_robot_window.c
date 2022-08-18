@@ -30,11 +30,12 @@ int count = 0;
 int max_count = 0;
 bool init = false;
 bool send_init = false;
+bool restart_controller = false;
 int current_robot = -1;
 WbNodeRef current_robot_node;
 char *robot_node_def;
 char *old_robot_node_def;
-
+char *robot_controller;
 double challenge_target_position[4][2] = {
     {-1.81, 3.98}, {-6, 0.39}, {-7.85, -6.2}, {-1.5, -4.37}};
 
@@ -52,7 +53,10 @@ void wb_robot_window_init() {}
 
 // A simulation step occurred.
 void wb_robot_window_step(int time_step) {
-  // Window initialization: get some robot devices.
+  if (restart_controller) {
+    wb_supervisor_node_restart_controller(current_robot_node);
+    restart_controller = false;
+  }
   const char *message = wb_robot_wwi_receive_text();
   if (message) {
     if (strncmp(message, "robotName:", 10) == 0) {
@@ -64,39 +68,64 @@ void wb_robot_window_step(int time_step) {
       char controllerArgs[0x100];
 
       double newTranslation[3] = {-1000, -1000, -10};
-      double newRotation[4] = {0, 0, 1, -1.5708};
+      double newRotation[4] = {0, 0, 1, 0};
       old_robot_node_def = robot_node_def;
       if (strcmp(robot_name, "AiboErs7") == 0) {
         robot_node_def = "R0";
         newTranslation[2] = 0.153;
+        robot_controller = "AiboErs7_competition";
       } else if (strcmp(robot_name, "Mavic2Pro") == 0) {
         robot_node_def = "R1";
         sprintf(controllerArgs, "--patrol_coords=%f %f",
                 challenge_target_position[challenge_number][0],
                 challenge_target_position[challenge_number][1]);
         newTranslation[2] = 0.15;
+        robot_controller = "Mavic2Pro_competition";
       } else if (strcmp(robot_name, "Nao") == 0) {
         robot_node_def = "R2";
         newTranslation[2] = 0.334;
+        robot_controller = "Nao_competition";
       } else if (strcmp(robot_name, "Pioneer3at") == 0) {
         robot_node_def = "R3";
         newTranslation[2] = 0.05;
+        robot_controller = "Pioneer3at_competition";
       } else if (strcmp(robot_name, "Shrimp") == 0) {
         robot_node_def = "R4";
         newTranslation[2] = 0.1;
-        newRotation[3] = -1.5708;
+        robot_controller = "Shrimp_competition";
       } else if (strcmp(robot_name, "SummitXlSteel") == 0) {
         robot_node_def = "R5";
         newTranslation[2] = 0.118;
+        robot_controller = "SummitXlSteel_competition";
       } else if (strcmp(robot_name, "trackedRobot") == 0) {
         robot_node_def = "R6";
         newTranslation[2] = 0.334;
+        robot_controller = "trackedRobot_competition";
       }
 
       if (current_robot_node) {
+        newTranslation[0] = -10.1;
+        if (strcmp(old_robot_node_def, "R0") == 0)
+          newTranslation[1] = -4.6;
+        else if (strcmp(old_robot_node_def, "R1") == 0)
+          newTranslation[1] = -3.7;
+        else if (strcmp(old_robot_node_def, "R2") == 0)
+          newTranslation[1] = -5.3;
+        else if (strcmp(old_robot_node_def, "R3") == 0)
+          newTranslation[1] = -7;
+        else if (strcmp(old_robot_node_def, "R4") == 0)
+          newTranslation[1] = -6.1;
+        else if (strcmp(old_robot_node_def, "R5") == 0)
+          newTranslation[1] = -8;
+        else if (strcmp(old_robot_node_def, "R6") == 0)
+          newTranslation[1] = -9.2;
+
         WbFieldRef translation =
             wb_supervisor_node_get_field(current_robot_node, "translation");
         wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
+        WbFieldRef rotation =
+            wb_supervisor_node_get_field(current_robot_node, "rotation");
+        wb_supervisor_field_set_sf_rotation(rotation, newRotation);
         if (strcmp(old_robot_node_def, "R1") == 0) {
           WbFieldRef controller_args = wb_supervisor_node_get_field(
               current_robot_node, "controllerArgs");
@@ -104,6 +133,7 @@ void wb_robot_window_step(int time_step) {
           wb_supervisor_node_restart_controller(current_robot_node);
         }
       }
+      newRotation[3] = -1.5708;
 
       if (challenge_number == 0) {
         newTranslation[0] = -2.05;
@@ -127,10 +157,14 @@ void wb_robot_window_step(int time_step) {
       }
 
       current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
+      WbFieldRef controller = wb_supervisor_node_get_field(current_robot_node, "controller");
+      wb_supervisor_field_set_sf_string(controller, robot_controller);
+      restart_controller = true;
       if (strcmp(robot_name, "Mavic2Pro") == 0) {
         WbFieldRef controller_args =
             wb_supervisor_node_get_field(current_robot_node, "controllerArgs");
         wb_supervisor_field_set_mf_string(controller_args, -1, controllerArgs);
+        wb_supervisor_node_restart_controller(current_robot_node);
       }
 
       WbFieldRef custom_data_field =
