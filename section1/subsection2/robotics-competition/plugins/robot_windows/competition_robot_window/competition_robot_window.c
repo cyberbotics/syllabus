@@ -33,20 +33,13 @@ bool send_init = false;
 bool restart_controller = false;
 int current_robot = -1;
 WbNodeRef current_robot_node;
+WbNodeRef previous_robot_node;
 char *robot_node_def;
 char *old_robot_node_def;
 char *robot_controller;
+char *none_controller;
 double challenge_target_position[4][2] = {
     {-1.81, 3.98}, {-6, 0.39}, {-7.85, -6.2}, {-1.5, -4.37}};
-
-double viewpoint_orient[4][4] = {{0.191, 0.129, -0.973, 1.98},
-                                 {0.441, 0.221, -0.87, 2.32},
-                                 {0.187, 0.101, -0.977, 2.17},
-                                 {0.173, 0.232, -0.957, 1.32}};
-double viewpoint_pos[4][3] = {{0.166, 11.9, 3.14},
-                              {-2.89, 9.5, 8.49},
-                              {-4.01, 4.15, 4.04},
-                              {-4.44, 4.9, 4.56}};
 
 // Window initialization: get some robot devices.
 void wb_robot_window_init() {}
@@ -56,6 +49,10 @@ void wb_robot_window_step(int time_step) {
   if (restart_controller) {
     wb_supervisor_node_restart_controller(current_robot_node);
     restart_controller = false;
+    if(previous_robot_node) {
+      wb_supervisor_node_restart_controller(previous_robot_node);
+      wb_supervisor_node_reset_physics(previous_robot_node);
+    }
   }
   const char *message = wb_robot_wwi_receive_text();
   if (message) {
@@ -105,20 +102,28 @@ void wb_robot_window_step(int time_step) {
 
       if (current_robot_node) {
         newTranslation[0] = -10.1;
-        if (strcmp(old_robot_node_def, "R0") == 0)
+        if (strcmp(old_robot_node_def, "R0") == 0) {
           newTranslation[1] = -4.6;
-        else if (strcmp(old_robot_node_def, "R1") == 0)
+          none_controller = "<none>";
+        } else if (strcmp(old_robot_node_def, "R1") == 0) {
           newTranslation[1] = -3.7;
-        else if (strcmp(old_robot_node_def, "R2") == 0)
+          none_controller = "Mavic2Pro_stop";
+        } else if (strcmp(old_robot_node_def, "R2") == 0) {
           newTranslation[1] = -5.3;
-        else if (strcmp(old_robot_node_def, "R3") == 0)
+          none_controller = "Nao_stop";
+        } else if (strcmp(old_robot_node_def, "R3") == 0) {
           newTranslation[1] = -7;
-        else if (strcmp(old_robot_node_def, "R4") == 0)
+          none_controller  = "Pioneer3at_stop";
+        } else if (strcmp(old_robot_node_def, "R4") == 0) {
           newTranslation[1] = -6.1;
-        else if (strcmp(old_robot_node_def, "R5") == 0)
+          none_controller = "Shrimp_stop";
+        } else if (strcmp(old_robot_node_def, "R5") == 0) {
           newTranslation[1] = -8;
-        else if (strcmp(old_robot_node_def, "R6") == 0)
+          none_controller = "SummitXlSteel_stop";
+        } else if (strcmp(old_robot_node_def, "R6") == 0) {
           newTranslation[1] = -9.2;
+          none_controller = "trackedRobot_stop";
+        }
 
         WbFieldRef translation =
             wb_supervisor_node_get_field(current_robot_node, "translation");
@@ -126,11 +131,14 @@ void wb_robot_window_step(int time_step) {
         WbFieldRef rotation =
             wb_supervisor_node_get_field(current_robot_node, "rotation");
         wb_supervisor_field_set_sf_rotation(rotation, newRotation);
+
+        WbFieldRef controller = wb_supervisor_node_get_field(current_robot_node, "controller");
+        wb_supervisor_field_set_sf_string(controller, none_controller);
+
         if (strcmp(old_robot_node_def, "R1") == 0) {
           WbFieldRef controller_args = wb_supervisor_node_get_field(
               current_robot_node, "controllerArgs");
           wb_supervisor_field_set_mf_string(controller_args, -1, "");
-          wb_supervisor_node_restart_controller(current_robot_node);
         }
       }
       newRotation[3] = -1.5708;
@@ -156,6 +164,7 @@ void wb_robot_window_step(int time_step) {
         newTranslation[1] = 0.44;
       }
 
+      previous_robot_node = current_robot_node;
       current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
       WbFieldRef controller = wb_supervisor_node_get_field(current_robot_node, "controller");
       wb_supervisor_field_set_sf_string(controller, robot_controller);
@@ -164,7 +173,6 @@ void wb_robot_window_step(int time_step) {
         WbFieldRef controller_args =
             wb_supervisor_node_get_field(current_robot_node, "controllerArgs");
         wb_supervisor_field_set_mf_string(controller_args, -1, controllerArgs);
-        wb_supervisor_node_restart_controller(current_robot_node);
       }
 
       WbFieldRef custom_data_field =
@@ -177,7 +185,6 @@ void wb_robot_window_step(int time_step) {
           wb_supervisor_node_get_field(current_robot_node, "translation");
       wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
       wb_supervisor_node_reset_physics(current_robot_node);
-      wb_supervisor_node_restart_controller(current_robot_node);
 
       newStart = true;
 
@@ -187,19 +194,6 @@ void wb_robot_window_step(int time_step) {
         max_count = 20;
       else
         max_count = 500;
-
-      WbNodeRef viewpoint_node = wb_supervisor_node_get_from_def("VIEWPOINT");
-      wb_supervisor_node_move_viewpoint(viewpoint_node);
-
-      WbFieldRef viewpoint_orient_field =
-          wb_supervisor_node_get_field(viewpoint_node, "orientation");
-      WbFieldRef viewpoint_pos_field =
-          wb_supervisor_node_get_field(viewpoint_node, "position");
-      wb_supervisor_field_set_sf_rotation(viewpoint_orient_field,
-                                          viewpoint_orient[challenge_number]);
-      wb_supervisor_field_set_sf_vec3f(viewpoint_pos_field,
-                                       viewpoint_pos[challenge_number]);
-
     } else
       fprintf(stderr, "Unkown message: '%s'\n", message);
 
