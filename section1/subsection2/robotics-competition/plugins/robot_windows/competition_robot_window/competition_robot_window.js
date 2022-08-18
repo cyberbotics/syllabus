@@ -30,6 +30,7 @@ window.loadRobot =  function() {
   }
 
   window.robotWindow.send('robotName:' + RobotName + '/' + challengeNumber);
+  console.log("send")
 }
 // A message coming from the robot has been received.
 function receive(message, robot) {
