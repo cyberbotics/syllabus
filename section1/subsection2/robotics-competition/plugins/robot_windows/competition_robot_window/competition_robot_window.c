@@ -49,7 +49,7 @@ void wb_robot_window_step(int time_step) {
   if (restart_controller) {
     wb_supervisor_node_restart_controller(current_robot_node);
     restart_controller = false;
-    if(previous_robot_node) {
+    if (previous_robot_node) {
       wb_supervisor_node_restart_controller(previous_robot_node);
       wb_supervisor_node_reset_physics(previous_robot_node);
     }
@@ -64,9 +64,10 @@ void wb_robot_window_step(int time_step) {
 
       char controllerArgs[0x100];
 
-      double newTranslation[3] = {-1000, -1000, -10};
+      double newTranslation[3] = {0, 0, 0};
       double newRotation[4] = {0, 0, 1, 0};
       old_robot_node_def = robot_node_def;
+
       if (strcmp(robot_name, "AiboErs7") == 0) {
         robot_node_def = "R0";
         newTranslation[2] = 0.153;
@@ -101,38 +102,46 @@ void wb_robot_window_step(int time_step) {
       }
 
       if (current_robot_node) {
-        newTranslation[0] = -10.1;
+        double newOldTranslation[3] = {-10.1, 0, 0};
         if (strcmp(old_robot_node_def, "R0") == 0) {
-          newTranslation[1] = -4.6;
+          newOldTranslation[1] = -4.6;
+          newOldTranslation[2] = 0.153;
           none_controller = "<none>";
         } else if (strcmp(old_robot_node_def, "R1") == 0) {
-          newTranslation[1] = -3.7;
+          newOldTranslation[1] = -3.7;
+          newOldTranslation[2] = 0.15;
           none_controller = "Mavic2Pro_stop";
         } else if (strcmp(old_robot_node_def, "R2") == 0) {
-          newTranslation[1] = -5.3;
+          newOldTranslation[1] = -5.3;
+          newOldTranslation[2] = 0.334;
           none_controller = "Nao_stop";
         } else if (strcmp(old_robot_node_def, "R3") == 0) {
-          newTranslation[1] = -7;
-          none_controller  = "Pioneer3at_stop";
+          newOldTranslation[1] = -7;
+          newOldTranslation[2] = 0.05;
+          none_controller = "Pioneer3at_stop";
         } else if (strcmp(old_robot_node_def, "R4") == 0) {
-          newTranslation[1] = -6.1;
+          newOldTranslation[1] = -6.1;
+          newOldTranslation[2] = 0.1;
           none_controller = "Shrimp_stop";
         } else if (strcmp(old_robot_node_def, "R5") == 0) {
-          newTranslation[1] = -8;
+          newOldTranslation[1] = -8;
+          newOldTranslation[2] = 0.118;
           none_controller = "SummitXlSteel_stop";
         } else if (strcmp(old_robot_node_def, "R6") == 0) {
-          newTranslation[1] = -9.2;
+          newOldTranslation[1] = -9.2;
+          newOldTranslation[2] = 0.334;
           none_controller = "trackedRobot_stop";
         }
 
         WbFieldRef translation =
             wb_supervisor_node_get_field(current_robot_node, "translation");
-        wb_supervisor_field_set_sf_vec3f(translation, newTranslation);
+        wb_supervisor_field_set_sf_vec3f(translation, newOldTranslation);
         WbFieldRef rotation =
             wb_supervisor_node_get_field(current_robot_node, "rotation");
         wb_supervisor_field_set_sf_rotation(rotation, newRotation);
 
-        WbFieldRef controller = wb_supervisor_node_get_field(current_robot_node, "controller");
+        WbFieldRef controller =
+            wb_supervisor_node_get_field(current_robot_node, "controller");
         wb_supervisor_field_set_sf_string(controller, none_controller);
 
         if (strcmp(old_robot_node_def, "R1") == 0) {
@@ -166,7 +175,8 @@ void wb_robot_window_step(int time_step) {
 
       previous_robot_node = current_robot_node;
       current_robot_node = wb_supervisor_node_get_from_def(robot_node_def);
-      WbFieldRef controller = wb_supervisor_node_get_field(current_robot_node, "controller");
+      WbFieldRef controller =
+          wb_supervisor_node_get_field(current_robot_node, "controller");
       wb_supervisor_field_set_sf_string(controller, robot_controller);
       restart_controller = true;
       if (strcmp(robot_name, "Mavic2Pro") == 0) {
