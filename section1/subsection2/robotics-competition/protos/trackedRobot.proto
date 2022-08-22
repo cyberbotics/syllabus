@@ -287,13 +287,55 @@ Robot {
       translation 0.042 -0.35 -0.0129
       scale 2 2 2
       children [
-        USE WHEEL1
-        USE WHEEL2
-        USE WHEEL3
-        USE WHEEL4
-        USE WHEEL5
-        USE WHEEL6
-        USE WHEEL7
+        DEF WHEEL1 TrackWheel {
+          position -0.3 0.015
+          radius 0.092
+          children [
+            USE TRACK_WHEEL_BIG
+          ]
+        }
+        DEF WHEEL2 TrackWheel {
+          position 0.288 0.015
+          radius 0.092
+          children [
+            USE TRACK_WHEEL_BIG
+          ]
+        }
+        DEF WHEEL3 TrackWheel {
+          position 0.185 -0.088
+          radius 0.04
+          children [
+            USE TRACK_WHEEL_SMALL
+          ]
+        }
+        DEF WHEEL4 TrackWheel {
+          position 0.09135 -0.088
+          radius 0.04
+          children [
+            USE TRACK_WHEEL_SMALL
+          ]
+        }
+        DEF WHEEL5 TrackWheel {
+          position -0.00245 -0.088
+          radius 0.04
+          children [
+            USE TRACK_WHEEL_SMALL
+          ]
+        }
+        DEF WHEEL6 TrackWheel {
+          position -0.09625 -0.088
+          radius 0.04
+          children [
+            USE TRACK_WHEEL_SMALL
+          ]
+        }
+        DEF WHEEL7 TrackWheel {
+          position -0.19 -0.088
+          radius 0.04
+          children [
+            USE TRACK_WHEEL_SMALL
+          ]
+        }
       ]
       name "right track"
       contactMaterial "track material"

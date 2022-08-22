@@ -25,12 +25,10 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/tables/protos/Table.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/advertising_board/protos/AdvertisingBoard.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/street_furniture/protos/Fence.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/kitchen/utensils/protos/Plate.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/lights/protos/DoubleFluorescentLamp.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/shapes/protos/TexturedBoxShape.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/fire_extinguisher/protos/FireExtinguisher.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/factory/manhole/protos/SquareManhole.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/chairs/protos/Chair.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/chairs/protos/WoodenChair.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/obstacles/protos/OilBarrel.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/computers/protos/Laptop.proto"
@@ -67,8 +65,8 @@ WorldInfo {
   ]
 }
 DEF VIEWPOINT Viewpoint {
-  orientation -0.24840621710706373 -0.12689307817759 0.9603085431324531 4.0537162258394925
-  position 5.937499277417875 19.870120589518628 11.940500341109269
+  orientation 0.3890354413268328 0.1979499059466228 -0.8997039847235087 2.282967216311621
+  position 13.407112306196105 23.407730583408174 37.47198560945137
   ambientOcclusionRadius 1
 }
 TexturedBackground {
@@ -499,13 +497,13 @@ TrafficCone {
 }
 Laptop {
   translation 1.84376 1.88259 0.7
-  controller ""
+  controller "<none>"
 }
 Laptop {
   translation 1.94376 0.12259 0.69
   rotation 0 0 1 -0.261795307179586
   name "laptop(1)"
-  controller ""
+  controller "<none>"
 }
 Cabinet {
   translation -9.5777 -11.1117 0
@@ -769,13 +767,7 @@ Solid {
   ]
   name "floor"
   model "floor"
-  boundingObject Transform {
-    translation 0 0 -0.05
-    children [
-      Box {
-        size 14.6 22.6 0.1
-      }
-    ]
+  boundingObject Plane {
   }
   locked TRUE
 }
@@ -1062,7 +1054,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0010000576911678438 9.823983848633588e-09 0
+        translation -0.0010000624459344243 1.0633652847147346e-08 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -1166,7 +1158,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996824466284 0.8799999905369368 0
+        translation -0.0009999996562746472 0.879999989757014 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -1393,7 +1385,7 @@ DEF WINDOW_DOOR_BLOCK Transform {
   rotation 0 0 1 3.141592644
   children [
     Door {
-      hidden translation_5 0.0010000162275579927 -5.090328158985358e-09 0
+      hidden translation_5 0.0010000178503139223 -5.5993609748838935e-09 0
       rotation 0 0 1 3.14159
       name "door(4)"
       size 0.2 1 3
@@ -1927,7 +1919,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -2.2822403966671345e-08 3.9124143924595955e-09 0
+        translation -2.7577071459727875e-08 4.727500724222011e-09 0
         children [
           DEF BOX Transform {
             translation -0.175 -0.43 1
@@ -2031,7 +2023,7 @@ DEF DOUBLE_DOOR Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation -0.0009999996824466284 0.879999990536957 0
+        translation -0.0009999996562746472 0.8799999897570359 0
         rotation 0 0 -1 0
         children [
           DEF BOX Transform {
@@ -2227,12 +2219,6 @@ DEF WINDOWS Transform {
       }
     }
   ]
-}
-Radiator {
-  translation -10.8247 -11.015 0.4
-  rotation 0 0 1 -5.307179586466759e-06
-  name "radiator(1)"
-  numberOfFins 30
 }
 Radiator {
   translation 3.3453 -4.205 0.4
@@ -2986,39 +2972,45 @@ AdvertisingBoard {
   rotation 0 0 -1 -1.5708053071795867
 }
 DEF R0 AiboErs7 {
-  translation 1008 1008 0.143
-  controller "AiboErs7_competition"
+  translation -10.1 -4.6 0.143
+  controller "<none>"
+  window "<none>"
   customData "start"
 }
 DEF R1 Mavic2Pro {
-  translation 1000 1000 0
-  controller "Mavic2Pro_competition"
+  translation -10.1 -3.7 0.05
+  controller "<none>"
   controllerArgs [
     ""
   ]
+  window "<none>"
   customData "start"
 }
 DEF R2 Nao {
-  translation 1001 1001 0.334
-  controller "Nao_competition"
+  translation -10.1 -5.3 0.334
+  controller "<none>"
+  window "<none>"
   customData "start"
 }
 DEF R3 Pioneer3at {
-  translation 1002 1002 0.1
-  controller "Pioneer3at_competition"
-  customData "stop"
+  translation -10.1 -7 0.01
+  controller "<none>"
+  window "<none>"
+  customData "start"
 }
 DEF R4 Shrimp {
-  translation 1003 1003 0
-  controller "Shrimp_competition"
+  translation -10.1 -6.1 -2.37045e-21
+  controller "<none>"
+  window "<none>"
   customData "stop"
 }
 DEF R5 SummitXlSteel {
-  translation 1004 1004 0.118
-  controller "SummitXlSteel_competition"
+  translation -10.1 -8 0.12
+  controller "<none>"
+  window "<none>"
   customData "stop"
 }
 DEF R6 trackedRobot {
-  translation 1006 1006 0.25
-  controller "trackedRobot_competition"
+  translation -10.1 -9.2 0.28
+  controller "<none>"
 }
