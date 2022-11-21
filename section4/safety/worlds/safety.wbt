@@ -852,7 +852,7 @@ Solid {
           appearance PBRAppearance {
             baseColorMap ImageTexture {
               url [
-                "textures/gas_canister_base_color_blue.jpg"
+                "https://raw.githubusercontent.com/cyberbotics/syllabus/main/section4/safety/worlds/textures/gas_canister_base_color_blue.jpg"
               ]
             }
             roughnessMap ImageTexture {
