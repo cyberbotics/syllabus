@@ -1,4 +1,4 @@
-FROM cyberbotics/webots.cloud:R2022b-ubuntu20.04-numpy
+FROM cyberbotics/webots.cloud:R2022b
 ARG PROJECT_PATH
 RUN mkdir -p $PROJECT_PATH
 COPY . $PROJECT_PATH
