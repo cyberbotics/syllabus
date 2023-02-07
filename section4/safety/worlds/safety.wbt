@@ -1655,7 +1655,7 @@ DEF BOX Transform {
       ]
     }
     Transform {
-      translation 1.25 -2.01 0
+      translation 1.25 -1.51 0
       children [
         USE BOX_POLE
       ]
