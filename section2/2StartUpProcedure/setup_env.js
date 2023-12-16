@@ -66,7 +66,6 @@ function create(container) {
     webotsView.showRobotWindow = false;
     webotsView.onready = onConnect;
     webotsView.connect('https://simulation.webots.cloud:8443/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/2StartUpProcedure/worlds/industrial_example.wbt', undefined, undefined, undefined, 300);
-    // webotsView.connect('ws://localhost:1234');
   }
   container.getElement().html(webotsView);
 }
