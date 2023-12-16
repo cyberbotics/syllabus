@@ -65,7 +65,7 @@ function create(container) {
     webotsView.showIde = false;
     webotsView.showRobotWindow = false;
     webotsView.onready = onConnect;
-    webotsView.connect('https://cyberbotics1.epfl.ch/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/4PositionOfRobot/worlds/obstacle_avoidance.wbt', undefined, undefined, undefined, 900);
+    webotsView.connect('https://simulation.webots.cloud:8443/1998/session?url=https://github.com/cyberbotics/syllabus/tree/main/section2/4PositionOfRobot/worlds/obstacle_avoidance.wbt', undefined, undefined, undefined, 900);
     // webotsView.connect('ws://localhost:1234');
   }
   container.getElement().html(webotsView);
