@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syllabus Simulations</title>
+  <link rel="icon" type="image/png" href="https://cyberbotics.com/assets/images/webots.png">
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #1d2330;
+      --muted: #5d6676;
+      --border: #dde1e8;
+      --accent: #2861c7;
+      --ok: #1f8a4c;
+      --warn: #b4540a;
+      --error: #c23b3b;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171c;
+        --card: #1c2027;
+        --text: #e6e9ef;
+        --muted: #9aa3b2;
+        --border: #2d333d;
+        --accent: #7aa7ff;
+        --ok: #4cc27f;
+        --warn: #f0a050;
+        --error: #f07272;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 56rem; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    h2 { font-size: 1.15rem; margin: 2.25rem 0 0.25rem; }
+    h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 1.25rem 0 0.5rem;
+    }
+    p.lead, p.note { color: var(--muted); margin: 0 0 0.75rem; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      font-size: 0.9rem;
+    }
+    .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--muted); flex: none; }
+    .status.ok .dot { background: var(--ok); }
+    .status.warn .dot { background: var(--warn); }
+    .status.error .dot { background: var(--error); }
+    ul.grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+      gap: 0.75rem;
+    }
+    ul.grid a {
+      display: block;
+      height: 100%;
+      padding: 0.75rem 0.9rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      color: inherit;
+      text-decoration: none;
+    }
+    ul.grid a:hover, ul.grid a:focus-visible { border-color: var(--accent); outline: none; }
+    .name { display: block; font-weight: 600; color: var(--accent); }
+    .path {
+      display: block;
+      margin-top: 0.2rem;
+      font: 0.75rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Syllabus Simulations</h1>
+    <p class="lead">Test index of the syllabus pages. Each link opens in a new tab.</p>
+
+    <h2>Live simulations</h2>
+    <p class="note">
+      Streamed by Webots running on a simulation server, through the session server
+      <code>simulation.webots.cloud/1998</code>.
+    </p>
+    <p><span class="status" id="status"><span class="dot"></span><span id="status-text">Checking the session server…</span></span></p>
+
+    <h3>Section 1</h3>
+    <ul class="grid">
+      <li><a href="section1/subsection2/sensors/sensors.html" target="_blank" rel="noopener">
+        <span class="name">Sensors</span><span class="path">section1/subsection2/sensors</span></a></li>
+      <li><a href="section1/subsection2/robotics-competition/robotics-competition.html" target="_blank" rel="noopener">
+        <span class="name">Mobile Robotics Competition</span><span class="path">section1/subsection2/robotics-competition</span></a></li>
+      <li><a href="section1/subsection4/interacting_with_environment/interact_with_environment.html" target="_blank" rel="noopener">
+        <span class="name">Interacting with the Environment</span><span class="path">section1/subsection4/interacting_with_environment</span></a></li>
+    </ul>
+
+    <h3>Section 2</h3>
+    <ul class="grid">
+      <li><a href="section2/1Blockly/blockly.html" target="_blank" rel="noopener">
+        <span class="name">Blockly Programming</span><span class="path">section2/1Blockly</span></a></li>
+      <li><a href="section2/2StartUpProcedure/startUpProcedure.html" target="_blank" rel="noopener">
+        <span class="name">Start-Up Procedure</span><span class="path">section2/2StartUpProcedure</span></a></li>
+      <li><a href="section2/3SortCans/sortCans.html" target="_blank" rel="noopener">
+        <span class="name">Sort Cans</span><span class="path">section2/3SortCans</span></a></li>
+      <li><a href="section2/4PositionOfRobot/positionOfRobot.html" target="_blank" rel="noopener">
+        <span class="name">Position of the Robot</span><span class="path">section2/4PositionOfRobot</span></a></li>
+    </ul>
+
+    <h3>Section 4</h3>
+    <ul class="grid">
+      <li><a href="section4/maintenance/maintenance.html" target="_blank" rel="noopener">
+        <span class="name">Maintenance</span><span class="path">section4/maintenance</span></a></li>
+      <li><a href="section4/safety/safety.html" target="_blank" rel="noopener">
+        <span class="name">Safety</span><span class="path">section4/safety</span></a></li>
+    </ul>
+
+    <h2>Animations and interactive scenes</h2>
+    <p class="note">Played directly in the browser: no simulation server needed.</p>
+
+    <h3>Section 1</h3>
+    <ul class="grid">
+      <li><a href="section1/subsection1/1RobotsInHome/animation/robotsInHome.html" target="_blank" rel="noopener">
+        <span class="name">Robots in the Home</span><span class="path">section1/subsection1/1RobotsInHome</span></a></li>
+      <li><a href="section1/subsection1/2RobotsInIndustry/animation/industrial_example.html" target="_blank" rel="noopener">
+        <span class="name">Robots in Industry</span><span class="path">section1/subsection1/2RobotsInIndustry</span></a></li>
+      <li><a href="section1/subsection1/3RobotsInHospital/animation/pr2-hospital.html" target="_blank" rel="noopener">
+        <span class="name">Robots in Hospitals</span><span class="path">section1/subsection1/3RobotsInHospital</span></a></li>
+      <li><a href="section1/subsection1/4RobotsOnTheRoad/animation/autonomous_driving.html" target="_blank" rel="noopener">
+        <span class="name">Robots on the Road</span><span class="path">section1/subsection1/4RobotsOnTheRoad</span></a></li>
+      <li><a href="section1/subsection2/axes-of-freedom/scene/axes-of-freedom.html" target="_blank" rel="noopener">
+        <span class="name">Axes of Freedom</span><span class="path">section1/subsection2/axes-of-freedom</span></a></li>
+      <li><a href="section1/subsection2/manipulators/scene/manipulators.html" target="_blank" rel="noopener">
+        <span class="name">Manipulators</span><span class="path">section1/subsection2/manipulators</span></a></li>
+      <li><a href="section1/subsection4/picking-up-handling-transfering/animation/lifting_and_moving.html" target="_blank" rel="noopener">
+        <span class="name">Picking Up, Handling and Transferring</span><span class="path">section1/subsection4/picking-up-handling-transfering</span></a></li>
+      <li><a href="section1/subsection4/where-to-grab/animation/industrial_example.html" target="_blank" rel="noopener">
+        <span class="name">Where to Grab</span><span class="path">section1/subsection4/where-to-grab</span></a></li>
+    </ul>
+
+    <h3>Section 3</h3>
+    <ul class="grid">
+      <li><a href="section3/Hospital/animation/pr2-hospital.html" target="_blank" rel="noopener">
+        <span class="name">Hospital</span><span class="path">section3/Hospital</span></a></li>
+      <li><a href="section3/Industry/animation/ure.html" target="_blank" rel="noopener">
+        <span class="name">Industry</span><span class="path">section3/Industry</span></a></li>
+      <li><a href="section3/Military/animation/military_robot.html" target="_blank" rel="noopener">
+        <span class="name">Military</span><span class="path">section3/Military</span></a></li>
+    </ul>
+  </main>
+
+  <script>
+    // The session server answers with the URL of the least loaded simulation server, or with an error.
+    const status = document.getElementById('status');
+    const statusText = document.getElementById('status-text');
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 10000);
+    fetch('https://simulation.webots.cloud/1998/session', {signal: controller.signal})
+      .then(response => response.text())
+      .then(text => {
+        if (text.startsWith('ws')) {
+          status.className = 'status ok';
+          statusText.textContent = 'Simulation server available: ' + text.replace(/^wss?:\/\//, '');
+        } else {
+          status.className = 'status warn';
+          statusText.textContent = 'Session server reachable, but ' + text.replace(/^Error:\s*/, '').trim();
+        }
+      })
+      .catch(() => {
+        status.className = 'status error';
+        statusText.textContent = 'Session server unreachable';
+      });
+  </script>
+</body>
+</html>
