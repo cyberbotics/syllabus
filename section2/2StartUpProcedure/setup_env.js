@@ -71,8 +71,8 @@ function create(container) {
 }
 
 function onConnect() {
-  if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
-    let serverUrl = webotsView._view.x3dScene.prefix;
+  if (webotsView._view && webotsView._view.prefix && !iframeDisplayed) {
+    let serverUrl = webotsView._view.prefix;
     let url = serverUrl;
     const elements = url.split('/').filter(element => element);
     let portString = elements[elements.length - 1];

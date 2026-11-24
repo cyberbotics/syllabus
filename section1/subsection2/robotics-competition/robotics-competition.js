@@ -1,4 +1,4 @@
-import WebotsView from 'https://cyberbotics.com/wwi/R2022b/WebotsView.js';
+import WebotsView from 'https://cyberbotics.com/wwi/R2025a/WebotsView.js';
 
 let webotsView = new WebotsView();
 document.body.appendChild(webotsView);
@@ -13,7 +13,7 @@ webotsView.showRobotWindow = false;
 let showRobotWindow = true;
 
 function displayRobotWindow() {
-  if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix) {
+  if (webotsView._view && webotsView._view.prefix) {
     let newDiv = document.createElement('div');
     newDiv.className = 'arrow-left';
     newDiv.id = 'arrow';
@@ -27,7 +27,7 @@ function displayRobotWindow() {
     if (document.getElementsByClassName('menu-button').length !== 0)
       document.getElementsByClassName('menu-button')[0].onclick = () => toggleRobotWindow();
 
-    let serverUrl = webotsView._view.x3dScene.prefix;
+    let serverUrl = webotsView._view.prefix;
     let url = serverUrl + 'robot_windows/competition_robot_window/competition_robot_window.html?name=robot';
     let iframe = document.createElement('iframe');
     iframe.src = url;
@@ -64,8 +64,8 @@ function toggleRobotComponentFullScreen(robot) {
 }
 
 function autoPlay() {
-  if (webotsView.toolbar)
-    webotsView.toolbar._triggerPlayPauseButton();
+  if (webotsView.toolbar && webotsView.toolbar.playButton)
+    webotsView.toolbar.playButton.click();
   else
     setTimeout(() => autoPlay(), 100);
 }

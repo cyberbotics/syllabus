@@ -61,7 +61,10 @@ filename = None
 with tempfile.NamedTemporaryFile(suffix='.urdf', delete=False) as file:
     filename = file.name
     file.write(supervisor.getUrdf().encode('utf-8'))
-armChain = Chain.from_urdf_file(filename)
+try:  # the URDF has several end links (sensors, alarms), so the chain tip must be explicit with ikpy >= 4
+    armChain = Chain.from_urdf_file(filename, tip='welding_torch')
+except TypeError:  # older ikpy versions without the 'tip' argument
+    armChain = Chain.from_urdf_file(filename)
 for i in [0, 6]:
     armChain.active_links_mask[i] = False
 
