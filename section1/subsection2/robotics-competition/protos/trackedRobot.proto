@@ -1,12 +1,11 @@
-
-#VRML_SIM R2022b utf8
+#VRML_SIM R2025a utf8
 # license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
 # license url: https://cyberbotics.com/webots_assets_license
 # documentation url: https://www.cyberbotics.com/doc/guide/irb4600-40
 # Tracked robot
 
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/appearances/protos/ThreadMetalPlate.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/appearances/protos/Plastic.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Plastic.proto"
 
 PROTO trackedRobot [
   field SFVec3f    translation     0 0 0.25              # Is `Transform.translation`.
@@ -70,123 +69,157 @@ Robot {
     }
     DEF LEFT_TRACK Track {
       translation 0.042 0.35 -0.0129
-      scale 2 2 2
       children [
         DEF WHEEL1 TrackWheel {
-          position -0.3 0.015
-          radius 0.092
+          position -0.6 0.03
+          radius 0.184
           children [
-            DEF TRACK_WHEEL_BIG Transform {
-              rotation -1 0 0 3.141589
+            Transform {
+              scale 2 2 2
               children [
-                Shape {
-                  appearance PBRAppearance {
-                    baseColorMap ImageTexture {
-                      url [
-                        "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
-                      ]
+                DEF TRACK_WHEEL_BIG Transform {
+                  rotation -1 0 0 3.141589
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColorMap ImageTexture {
+                          url [
+                            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
+                          ]
+                        }
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.09
+                        radius 0.092
+                        side FALSE
+                        subdivision 20
+                      }
                     }
-                    roughness 1
-                    metalness 0
-                  }
-                  geometry Cylinder {
-                    height 0.09
-                    radius 0.092
-                    side FALSE
-                    subdivision 20
-                  }
-                }
-                Shape {
-                  appearance ThreadMetalPlate {
-                    textureTransform TextureTransform {
-                      scale 0.2 1
+                    Shape {
+                      appearance ThreadMetalPlate {
+                        textureTransform TextureTransform {
+                          scale 0.2 1
+                        }
+                      }
+                      geometry Cylinder {
+                        height 0.0899
+                        radius 0.092
+                        top FALSE
+                        subdivision 20
+                      }
                     }
-                  }
-                  geometry Cylinder {
-                    height 0.0899
-                    radius 0.092
-                    top FALSE
-                    subdivision 20
-                  }
+                  ]
                 }
               ]
             }
           ]
         }
         DEF WHEEL2 TrackWheel {
-          position 0.288 0.015
-          radius 0.092
+          position 0.576 0.03
+          radius 0.184
           children [
-            USE TRACK_WHEEL_BIG
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_BIG
+              ]
+            }
           ]
         }
         DEF WHEEL3 TrackWheel {
-          position 0.185 -0.088
-          radius 0.04
+          position 0.37 -0.176
+          radius 0.08
           children [
-            DEF TRACK_WHEEL_SMALL Transform {
-              rotation -1 0 0 3.141589
+            Transform {
+              scale 2 2 2
               children [
-                Shape {
-                  appearance PBRAppearance {
-                    baseColorMap ImageTexture {
-                      url [
-                        "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
-                      ]
+                DEF TRACK_WHEEL_SMALL Transform {
+                  rotation -1 0 0 3.141589
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColorMap ImageTexture {
+                          url [
+                            "https://raw.githubusercontent.com/cyberbotics/webots/master/projects/samples/devices/worlds/textures/tank_wheel.jpg"
+                          ]
+                        }
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.09
+                        radius 0.04
+                        side FALSE
+                        subdivision 20
+                      }
                     }
-                    roughness 1
-                    metalness 0
-                  }
-                  geometry Cylinder {
-                    height 0.09
-                    radius 0.04
-                    side FALSE
-                    subdivision 20
-                  }
-                }
-                Shape {
-                  appearance ThreadMetalPlate {
-                    textureTransform TextureTransform {
-                      scale 0.2 1
+                    Shape {
+                      appearance ThreadMetalPlate {
+                        textureTransform TextureTransform {
+                          scale 0.2 1
+                        }
+                      }
+                      geometry Cylinder {
+                        height 0.0899
+                        radius 0.04
+                        top FALSE
+                        subdivision 20
+                      }
                     }
-                  }
-                  geometry Cylinder {
-                    height 0.0899
-                    radius 0.04
-                    top FALSE
-                    subdivision 20
-                  }
+                  ]
                 }
               ]
             }
           ]
         }
         DEF WHEEL4 TrackWheel {
-          position 0.09135 -0.088
-          radius 0.04
+          position 0.1827 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL5 TrackWheel {
-          position -0.00245 -0.088
-          radius 0.04
+          position -0.0049 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL6 TrackWheel {
-          position -0.09625 -0.088
-          radius 0.04
+          position -0.1925 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL7 TrackWheel {
-          position -0.19 -0.088
-          radius 0.04
+          position -0.38 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
       ]
@@ -195,49 +228,49 @@ Robot {
       boundingObject DEF TRACK_BO Group {
         children [
           Transform {
-            translation 0 0 -0.009
+            translation 0 0 -0.018
             rotation 1 0 0 1.570796
             children [
               Box {
-                size 0.39 0.248 0.09
+                size 0.78 0.496 0.18
               }
             ]
           }
           Transform {
-            translation 0.237434 0 -0.06918
+            translation 0.474868 0 -0.13836
             rotation 0.9561247250869316 -0.20715394043734683 0.20715394043734683 1.615648
             children [
               Box {
-                size 0.13 0.08 0.09
+                size 0.26 0.16 0.18
               }
             ]
             translationStep 0.001
             rotationStep 0.00261799
           }
           Transform {
-            translation -0.242803 0 -0.070833
+            translation -0.485606 0 -0.141666
             rotation 0.959691189146035 0.19873703916918628 -0.19873703916918628 1.611928
             children [
               Box {
-                size 0.13 0.08 0.09
+                size 0.26 0.16 0.18
               }
             ]
             translationStep 0.001
             rotationStep 0.00261799
           }
           Transform {
-            translation -0.302 0 0.017
+            translation -0.604 0 0.034
             rotation 1 0 0 1.5708
             children [
               DEF WHEEL_BO Cylinder {
-                height 0.09
-                radius 0.1
+                height 0.18
+                radius 0.2
                 subdivision 16
               }
             ]
           }
           Transform {
-            translation 0.288 0 0.017
+            translation 0.576 0 0.034
             rotation 1 0 0 1.5708
             children [
               USE WHEEL_BO
@@ -261,11 +294,11 @@ Robot {
               metalness 0
             }
             geometry Box {
-              size 0.044 0.09 0.005
+              size 0.088 0.18 0.01
             }
           }
           Transform {
-            translation 0 0 0.003
+            translation 0 0 0.006
             children [
               Shape {
                 appearance PBRAppearance {
@@ -274,7 +307,7 @@ Robot {
                   metalness 0
                 }
                 geometry Box {
-                  size 0.02 0.09 0.011
+                  size 0.04 0.18 0.022
                 }
               }
             ]
@@ -285,55 +318,89 @@ Robot {
     }
     Track {
       translation 0.042 -0.35 -0.0129
-      scale 2 2 2
       children [
         DEF WHEEL1 TrackWheel {
-          position -0.3 0.015
-          radius 0.092
+          position -0.6 0.03
+          radius 0.184
           children [
-            USE TRACK_WHEEL_BIG
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_BIG
+              ]
+            }
           ]
         }
         DEF WHEEL2 TrackWheel {
-          position 0.288 0.015
-          radius 0.092
+          position 0.576 0.03
+          radius 0.184
           children [
-            USE TRACK_WHEEL_BIG
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_BIG
+              ]
+            }
           ]
         }
         DEF WHEEL3 TrackWheel {
-          position 0.185 -0.088
-          radius 0.04
+          position 0.37 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL4 TrackWheel {
-          position 0.09135 -0.088
-          radius 0.04
+          position 0.1827 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL5 TrackWheel {
-          position -0.00245 -0.088
-          radius 0.04
+          position -0.0049 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL6 TrackWheel {
-          position -0.09625 -0.088
-          radius 0.04
+          position -0.1925 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
         DEF WHEEL7 TrackWheel {
-          position -0.19 -0.088
-          radius 0.04
+          position -0.38 -0.176
+          radius 0.08
           children [
-            USE TRACK_WHEEL_SMALL
+            Transform {
+              scale 2 2 2
+              children [
+                USE TRACK_WHEEL_SMALL
+              ]
+            }
           ]
         }
       ]

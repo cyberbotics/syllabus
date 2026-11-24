@@ -75,7 +75,7 @@
   <body>
     <button class="menu-button" id="menuButton" title="Show/Hide the robot window."><div class="arrow-left" id="arrow"></div></button>
     <script type="module">
-      import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
+      import WebotsView from "https://cyberbotics.com/wwi/R2025a/WebotsView.js";
 
       let showRWComponent = true;
       let webotsView = new WebotsView();
@@ -91,8 +91,8 @@
       let iframeDisplayed = false; //To avoid to reload an iframe when resetting the simulation
 
       function displayRobotWindow() {
-        if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
-           let serverUrl = webotsView._view.x3dScene.prefix;
+        if (webotsView._view && webotsView._view.prefix && !iframeDisplayed) {
+           let serverUrl = webotsView._view.prefix;
            let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot';
            let iframe = document.createElement('iframe');
            iframe.src = url;
@@ -114,7 +114,7 @@
          } else if(iframeDisplayed) {
            let oldIframe = document.getElementById('rwComponent');
            oldIframe.parentNode.removeChild(oldIframe);
-           let serverUrl = webotsView._view.x3dScene.prefix;
+           let serverUrl = webotsView._view.prefix;
            let url = serverUrl + 'robot_windows/interact_with_environment/interact_with_environment.html?name=robot';
            let iframe = document.createElement('iframe');
            iframe.src = url;

@@ -78,7 +78,7 @@
   <body>
     <button class="menu-button" id="menuButton" title="Show/Hide the robot window."><div class="arrow-left" id="arrow"></div></button>
     <script type="module">
-      import WebotsView from "https://cyberbotics.com/wwi/R2022b/WebotsView.js";
+      import WebotsView from "https://cyberbotics.com/wwi/R2025a/WebotsView.js";
 
       let iframeDisplayed = false; //To avoid to reload an iframe when resetting the simulation
       let showRWComponent = true;
@@ -93,9 +93,9 @@
 
 
       function displayRobotWindow() {
-        if (webotsView._view && webotsView._view.x3dScene && webotsView._view.x3dScene.prefix && !iframeDisplayed) {
+        if (webotsView._view && webotsView._view.prefix && !iframeDisplayed) {
            console.log("ready")
-           let serverUrl = webotsView._view.x3dScene.prefix;
+           let serverUrl = webotsView._view.prefix;
            let url = serverUrl + 'robot_windows/generic2/generic2.html?name=TurtleBot3Burger';
            let iframe = document.createElement('iframe');
            iframe.src = url;
@@ -118,7 +118,7 @@
         } else if(iframeDisplayed) {
           let oldIframe = document.getElementById('rwComponent');
           oldIframe.parentNode.removeChild(oldIframe);
-          let serverUrl = webotsView._view.x3dScene.prefix;
+          let serverUrl = webotsView._view.prefix;
           let url = serverUrl + 'robot_windows/generic2/generic2.html?name=TurtleBot3Burger';
           let iframe = document.createElement('iframe');
           iframe.src = url;
