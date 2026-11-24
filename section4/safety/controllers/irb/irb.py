@@ -155,7 +155,7 @@ while supervisor.step(timeStep) != -1:
           i = 0
     
     while receiver.getQueueLength() > 0:    
-        message = receiver.getData().decode("utf-8");
+        message = receiver.getString()
         if message == "sensor":
             sensors = not sensors
         elif message == "button":

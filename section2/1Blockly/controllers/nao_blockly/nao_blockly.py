@@ -74,8 +74,7 @@ playing = False
 while robot.step(timestep) != -1:
     end -= timestep
     while receiver.getQueueLength() > 0:
-      message = receiver.getData();
-      message = message.decode("utf-8")
+      message = receiver.getString()
       if message == "forward":
           startMotion(forwards, currentlyPlaying)
           end = forwards.getDuration()
