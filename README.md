@@ -2,6 +2,6 @@
 
 ## Test URL
 
-The Blockly page can be tested online at:
+All the simulations and animations can be tested online from this index page:
 
-https://cyberbotics.github.io/syllabus/section2/1Blockly/blockly.html
+https://cyberbotics.github.io/syllabus/index.html
